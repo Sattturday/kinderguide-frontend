@@ -22,7 +22,8 @@ Your app is ready to be deployed!
 
 ## Файловая структура проекта организована примерно так:
 
-`src
+```
+src
   ├── components(компоненты, которые используются больше одного раза)
   │    ├── common(компоненты, которые используются больше двух раз)
   │    │   └── button
@@ -59,4 +60,5 @@ Your app is ready to be deployed!
   │    │  └── mixins.scss
   │    ├──base.scss
   │    └──index.scss
-  ├──api`
+  ├──api
+```
