@@ -1,6 +1,4 @@
-# Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# kinderguide-frontend
 
 ## Available Scripts
 
@@ -14,11 +12,6 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
 ### `npm run build`
 
 Builds the app for production to the `build` folder.\
@@ -27,44 +20,43 @@ It correctly bundles React in production mode and optimizes the build for the be
 The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Файловая структура проекта организована примерно так:
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+`src
+  ├── components(компоненты, которые используются больше одного раза)
+  │    ├── common(компоненты, которые используются больше двух раз)
+  │    │   └── button
+  │    │       ├── button.jsx
+  │    │       ├── button.scss
+  │    │       ├── button.stories.jsx
+  │    │       └── index.js
+  │    └── signup-form(компонент, который используется два раза)
+  │        ├── signup-form.jsx
+  │        ├── signup-form.scss
+  │        ├── signup-form.stories.jsx
+  │        └── index.js
+  ├── pages(компоненты, которые являются результатом композиции других компоненты)
+  │    ├──home.jsx(главная страница)
+  │    ├──signin.jsx
+  │    ├──signup.jsx
+  │    └──profile(компонент личного кабинета)
+  │       ├── index.ts
+  │       ├── profile.jsx
+  │       └── components(компоненты, используемые только один раз только здесь в профиле)
+  │           └── profile-form
+  │               ├── profile-form.jsx
+  │               ├── profile-form.scss
+  │               └── index.js
+  ├── layouts
+  │    ├── main.jsx
+  │    └── auth.jsx
+  ├──constants
+  │    └── index.ts
+  ├──styles
+  │    ├──abstracts
+  │    │  ├── constants.scss
+  │    │  ├── placeholders.scss
+  │    │  └── mixins.scss
+  │    ├──base.scss
+  │    └──index.scss
+  ├──api`
