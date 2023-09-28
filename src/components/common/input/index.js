@@ -1,2 +1,2 @@
-import './input';
-import './input.scss'
+import "./input";
+import "./input.scss";

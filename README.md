@@ -62,3 +62,11 @@ src
   │    └──index.scss
   ├──api
 ```
+## Stack:
+
+- Html5
+- SCSS
+- BEM
+- React
+- Redux Toolkit
+- Axios
