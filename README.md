@@ -26,27 +26,27 @@ Your app is ready to be deployed!
 src
   ├── components(компоненты, которые используются больше одного раза)
   │    ├── common(компоненты, которые используются больше двух раз)
-  │    │   └── button
-  │    │       ├── button.jsx
-  │    │       ├── button.scss
-  │    │       ├── button.stories.jsx
+  │    │   └── Button
+  │    │       ├── Button.jsx
+  │    │       ├── Button.scss
+  │    │       ├── Button.stories.jsx
   │    │       └── index.js
-  │    └── signup-form(компонент, который используется два раза)
-  │        ├── signup-form.jsx
-  │        ├── signup-form.scss
-  │        ├── signup-form.stories.jsx
+  │    └── Signup-form(компонент, который используется два раза)
+  │        ├── Signup-form.jsx
+  │        ├── Signup-form.scss
+  │        ├── Signup-form.stories.jsx
   │        └── index.js
   ├── pages(компоненты, которые являются результатом композиции других компоненты)
-  │    ├──home.jsx(главная страница)
-  │    ├──signin.jsx
-  │    ├──signup.jsx
-  │    └──profile(компонент личного кабинета)
+  │    ├──Home.jsx(главная страница)
+  │    ├──Signin.jsx
+  │    ├──Signup.jsx
+  │    └──Profile(компонент личного кабинета)
   │       ├── index.ts
-  │       ├── profile.jsx
+  │       ├── Profile.jsx
   │       └── components(компоненты, используемые только один раз только здесь в профиле)
-  │           └── profile-form
-  │               ├── profile-form.jsx
-  │               ├── profile-form.scss
+  │           └── Profile-form
+  │               ├── Profile-form.jsx
+  │               ├── Profile-form.scss
   │               └── index.js
   ├── layouts
   │    ├── main.jsx
