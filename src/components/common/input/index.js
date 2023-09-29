@@ -1,2 +1,1 @@
-import './input';
-import './input.scss';
+export * from './Input';
