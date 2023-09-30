@@ -70,8 +70,6 @@ src
   │    └──index.scss
   ├──api
 ```
-
-
 ## Stack:
 
 - Html5
@@ -81,3 +79,4 @@ src
 - Redux Toolkit
 - Axios
 - Storybook
+добавил
