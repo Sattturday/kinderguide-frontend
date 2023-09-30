@@ -50,7 +50,7 @@ To contribute to this project, please follow these steps:
 3. Make your changes and commit them using the following command:
    (This command includes automatic linting and formatting)
    ```
-   npm run commit
+   git add . && npm run commit
    ```
 4. Push your branch to GitHub.
 5. Create a pull request from your branch to the `develop` branch.
