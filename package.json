@@ -29,7 +29,7 @@
     "lint:fix": "npm run lint -- --fix",
     "format": "prettier . --write",
     "prepare": "husky install",
-    "commit": "cz",
+    "commit": "lint-staged && cz",
     "sb": "storybook dev -p 6006",
     "build-sb": "storybook build",
     "deploy": "gh-pages -d dist"
@@ -115,6 +115,11 @@
   "lint-staged": {
     "*.{js, jsx}": "npm run lint",
     "*.{js, jsx, css, md, html, json}": "npm run format"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   },
   "config": {
     "commitizen": {
