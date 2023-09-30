@@ -77,9 +77,9 @@ src
   │        ├── Signup-form.stories.jsx
   │        └── index.js
   ├── pages(компоненты, которые являются результатом композиции других компоненты)
-  │    ├──Home.jsx(главная страница)
-  │    ├──Signin.jsx
-  │    ├──Signup.jsx
+  │    ├──HomePage.jsx(главная страница)
+  │    ├──SigninPage.jsx
+  │    ├──SignupPage.jsx
   │    └──Profile(компонент личного кабинета)
   │       ├── index.ts
   │       ├── Profile.jsx
