@@ -1,25 +1,27 @@
 import { Route, Routes } from 'react-router-dom';
 
 import { Button } from './components/common/Button';
-import HomePage from './pages/HomePage';
-import SigninPage from './pages/SigninPage';
-import SignupPage from './pages/SignupPage';
-import EducationPage from './pages/EducationPage';
-import SpecialistsPage from './pages/SpecialistsPage';
-import ErrorPage from './pages/ErrorPage';
-import ParentsPage from './pages/ParentsPage';
+import Home from './pages/Home';
+import Signin from './pages/Signin';
+import Signup from './pages/Signup';
+import Education from './pages/Education';
+import Specialists from './pages/Specialists';
+import Error from './pages/Error';
+import Parents from './pages/Parents';
+import Profile from './pages/Profile';
 
 function App() {
   return (
     <div>
       <Routes>
-        <Route path='/' element={<HomePage />} />
-        <Route path='/education' element={<EducationPage />} />
-        <Route path='/specialists' element={<SpecialistsPage />} />
-        <Route path='/parents' element={<ParentsPage />} />
-        <Route path='/signin' element={<SigninPage />} />
-        <Route path='/signup' element={<SignupPage />} />
-        <Route path='*' element={<ErrorPage />} />
+        <Route path='/' element={<Home />} />
+        <Route path='/education' element={<Education />} />
+        <Route path='/specialists' element={<Specialists />} />
+        <Route path='/parents' element={<Parents />} />
+        <Route path='/profile' element={<Profile />} />
+        <Route path='/signin' element={<Signin />} />
+        <Route path='/signup' element={<Signup />} />
+        <Route path='*' element={<Error />} />
       </Routes>
       <div>
         <Button size='large' onClick={() => console.log('Кнопка нажата')}>
