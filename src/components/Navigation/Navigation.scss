@@ -1,0 +1,23 @@
+@import '../../styles/abstract/constants.scss';
+@import '../../styles/abstract/mixins.scss';
+
+.navigation {
+  font-family: $family;
+  font-weight: $fw-light;
+  font-size: 16px;
+  line-height: 1.2;
+
+  &__item {
+    @extend %link;
+    margin-right: 40px;
+    color: $black;
+
+    &:last-child {
+      margin: 0;
+    }
+
+    &_type_active {
+      color: $grey;
+    }
+  }
+}
