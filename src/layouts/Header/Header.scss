@@ -1,0 +1,57 @@
+@import '../../styles/abstract/constants.scss';
+@import '../../styles/abstract/mixins.scss';
+
+.header {
+  min-height: 83px;
+  background-color: aquamarine;
+  padding: 21px 76px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &__left-container {
+    display: flex;
+    align-items: center;
+  }
+
+  &__logo {
+    width: 120px;
+    height: 40px;
+    margin-right: 80px;
+  }
+
+  &__auth-area {
+    display: flex;
+    align-items: center;
+    min-height: 43px;
+  }
+
+  &__auth-btn {
+    @extend %link;
+
+    font-family: $family;
+    font-weight: $fw-light;
+    margin-right: 20px;
+    border-radius: 10px;
+    color: $black;
+
+    &:last-child {
+      margin: 0;
+    }
+
+    &__login {
+      font-size: 16px;
+      line-height: 1.2;
+    }
+
+    &__registration {
+      font-size: 15px;
+      line-height: 1.49;
+
+      height: 43px;
+      width: 163px;
+      padding: 10px 20px;
+      border: 1px solid black;
+    }
+  }
+}
