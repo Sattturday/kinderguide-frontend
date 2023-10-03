@@ -14,13 +14,20 @@ const Template = (arg) => <Button {...arg} />;
 export const Default = Template.bind({});
 Default.args = {
   children: 'Press me',
-  variant: 'primary',
+};
+
+export const Large = Template.bind({});
+Large.args = {
+  children: 'Press me',
+  size: 'large',
 };
 
 export const Square = Template.bind({});
 Square.args = {
-  children: 'Just a square',
+  children: '1',
   variant: 'square',
+  width: '30px',
+  size: 'small',
 };
 
 export const Link = Template.bind({});
