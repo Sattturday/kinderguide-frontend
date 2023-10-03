@@ -10,7 +10,7 @@ export const Button = ({
   color = 'fill',
   size = 'medium',
   type = 'button',
-  width,
+  width = 'auto',
   children,
   onClick,
 }) => (
@@ -65,7 +65,7 @@ Button.defaultProps = {
   color: 'fill',
   type: 'button',
   size: 'medium',
-  width: '150px',
+  width: 'auto',
   children: 'Press me',
   onClick: undefined,
 };
