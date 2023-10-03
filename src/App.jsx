@@ -1,21 +1,20 @@
-// import { Route, Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 
 import Layout from './layouts/main';
-// import { Button } from './components/common/Button';
-// import Home from './pages/Home';
-// import Signin from './pages/Signin';
-// import Signup from './pages/Signup';
-// import Education from './pages/Education';
-// import Specialists from './pages/Specialists';
-// import Error from './pages/Error';
-// import Parents from './pages/Parents';
-// import Profile from './pages/Profile';
+import { Button } from './components/common/Button';
+import Home from './pages/Home';
+import Signin from './pages/Signin';
+import Signup from './pages/Signup';
+import Education from './pages/Education';
+import Specialists from './pages/Specialists';
+import Error from './pages/Error';
+import Parents from './pages/Parents';
+import Profile from './pages/Profile';
 
 function App() {
   return (
     <Layout>
-      hello123
-      {/* <Routes>
+      <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/education' element={<Education />} />
         <Route path='/specialists' element={<Specialists />} />
@@ -35,7 +34,7 @@ function App() {
         <Button variant='link' onClick={() => console.log('Ссылка нажата')}>
           И меня тоже
         </Button>
-      </div> */}
+      </div>
     </Layout>
   );
 }
