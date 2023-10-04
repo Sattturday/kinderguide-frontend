@@ -19,7 +19,8 @@
   }
 
   &__feedback {
-    @include link-text;
+    @include link;
+    @include text-m;
     margin-bottom: 16px;
 
     &:last-child {
@@ -34,7 +35,8 @@
   }
 
   &__documents {
-    @include link-text;
+    @include link;
+    @include text-m;
     margin: 0 0 20px;
     color: $black;
   }

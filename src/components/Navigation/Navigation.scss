@@ -15,8 +15,8 @@
   }
 
   &__item {
-    @include link-text;
-
+    @include link;
+    @include text-m;
     color: $black;
 
     &_type_active {
