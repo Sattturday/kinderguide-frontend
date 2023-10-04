@@ -27,10 +27,7 @@
   }
 
   &__auth-btn {
-    @extend %link;
-
-    font-family: $family;
-    font-weight: $fw-light;
+    @include link-text;
     margin-right: 20px;
     border-radius: 10px;
     color: $black;
@@ -40,11 +37,11 @@
     }
 
     &__login {
-      font-size: 16px;
-      line-height: 1.2;
+      @include link-text;
     }
 
     &__registration {
+      @include link-text;
       font-size: 15px;
       line-height: 1.49;
 

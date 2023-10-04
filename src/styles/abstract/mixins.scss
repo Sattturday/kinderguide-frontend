@@ -1,4 +1,9 @@
-%link {
+@mixin link-text {
+  font-family: $family;
+  font-weight: $fw-light;
+  font-size: 16px;
+  line-height: 1.2;
+
   text-decoration: none;
   transition: 1s;
 

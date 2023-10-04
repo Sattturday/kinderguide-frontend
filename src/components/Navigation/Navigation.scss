@@ -2,10 +2,6 @@
 @import '../../styles/abstract/mixins.scss';
 
 .navigation {
-  font-family: $family;
-  font-weight: $fw-light;
-  font-size: 16px;
-  line-height: 1.2;
   display: flex;
   justify-content: space-between;
   height: 19px;
@@ -19,7 +15,7 @@
   }
 
   &__item {
-    @extend %link;
+    @include link-text;
 
     color: $black;
 
