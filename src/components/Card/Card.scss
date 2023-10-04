@@ -1,3 +1,5 @@
+@import '../../styles/abstract/constants.scss';
+
 .card {
   max-width: 958px;
   display: flex;
@@ -30,7 +32,7 @@
   &__title{
     margin: 0;
     font-size: 22px;
-    font-weight: 400;
+    font-weight: $fw-regular;
     line-height: 140%;
     letter-spacing: -0.22px;
   }
@@ -38,12 +40,12 @@
   &__counting{
     margin: 0;
     font-size: 14px;
-    font-weight: 400;
+    font-weight: $fw-regular;
     line-height: 120%;
     letter-spacing: -0.14px;
   }
 
-  &__rating-block{
+  &__rating-area{
     display: flex;
     align-items: center;
     gap: 10px;
@@ -60,7 +62,7 @@
     padding-top: 15px;
     padding-bottom: 15px;
     font-size: 16px;
-    font-weight: 400;
+    font-weight: $fw-regular;
     line-height: 130%;
     letter-spacing: -0.16px;
   }
@@ -68,14 +70,14 @@
   &__price{
     margin: 0;
     font-size: 16px;
-    font-weight: 400;
+    font-weight: $fw-regular;
     line-height: 130%;
     letter-spacing: -0.16px;
   }
 
   &__number{
     font-size: 22px;
-    font-weight: 400;
+    font-weight: $fw-regular;
     line-height: 140%;
     letter-spacing: -0.22px;
   }
@@ -86,6 +88,17 @@
     border: none;
     background-color: #fff;
     background-image: url('../../images/Card/Heart.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    cursor: pointer;
+      &_active{
+        background-image: url('../../images/Card/HeartActive.svg');
+      }
+  }
+
+  &__like-btn:hover{
+    width: 30px;
+    height: 30px;
   }
 
   &__like-block{
