@@ -107,17 +107,3 @@ src
   │    └──index.scss
   ├──api
 ```
-<<<<<<< HEAD
-
-
-## Stack:
-
-- Html5
-- SCSS
-- BEM
-- React
-- Redux Toolkit
-- Axios
-- Storybook
-=======
->>>>>>> 4c8abbc7a6e01abdd025323b9c26d468e11124ca
