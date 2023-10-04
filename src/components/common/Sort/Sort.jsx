@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/control-has-associated-label */
 import React, { useState, useRef } from 'react';
 import { useClickOutside } from '../../../hooks/useClickOutside';
 import './Sort.scss';
@@ -24,6 +23,7 @@ export function Sort() {
         <button
           className='sort__button-arrow'
           type='button'
+          aria-label='sort'
           onClick={onClickNavTab}
         />
       </div>
