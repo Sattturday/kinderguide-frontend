@@ -20,7 +20,7 @@ export const Card = () => (
           от <span className='card__number'>1000</span> &#8381;/мес
         </p>
         <div className='card__like-block'>
-          <button className='card__like-btn' />
+          <button className='card__like-btn' aria-label='Поставить лайк' />
         </div>
       </div>
     </div>
