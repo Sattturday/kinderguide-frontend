@@ -1,5 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 
+import Layout from './layouts/main';
 import { Button } from './components/common/Button';
 import { Home } from './pages/Home';
 import { Login } from './pages/Login';
@@ -13,7 +14,7 @@ import { Profile } from './pages/Profile';
 
 function App() {
   return (
-    <div>
+    <Layout>
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/catalog' element={<Catalog />} />
@@ -36,7 +37,7 @@ function App() {
           И меня тоже
         </Button>
       </div>
-    </div>
+    </Layout>
   );
 }
 

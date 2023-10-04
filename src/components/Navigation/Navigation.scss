@@ -1,0 +1,26 @@
+@import '../../styles/abstract/constants.scss';
+@import '../../styles/abstract/mixins.scss';
+
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  height: 19px;
+
+  &_header {
+    width: 509px;
+  }
+
+  &_footer {
+    width: 496px;
+  }
+
+  &__item {
+    @include link-text;
+
+    color: $black;
+
+    &_type_active {
+      color: $grey;
+    }
+  }
+}
