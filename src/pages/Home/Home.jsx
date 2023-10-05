@@ -20,7 +20,11 @@ export function Home() {
         isActive='true'
       />
       <Input labelText='info' variant='info' errorText='error' />
-      <Input placeholder='search' variant='search' errorText='error' />
+      <Input
+        placeholder='search'
+        variant='search'
+        errorText='error error error error error error error error error error error error error error error error error error error error error error error error error error error error error error error error error error error error error error error error error error error error error error error error error error error'
+      />
       <Input placeholder='price' variant='price' />
       <NotFoundPage />
     </div>
