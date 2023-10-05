@@ -13,14 +13,14 @@
   &_footer {
     width: 496px;
   }
+}
 
-  &__item {
-    @include link;
-    @include text-m;
-    color: $black;
+.navigation__item {
+  @include link;
+  @include text-m;
+  color: $black;
 
-    &_type_active {
-      color: $grey;
-    }
+  &_type_active {
+    color: $grey;
   }
 }

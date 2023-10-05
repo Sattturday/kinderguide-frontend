@@ -12,10 +12,10 @@ export const Header = () => (
       <Navigation usedFor='header' />
     </div>
     <div className='header__auth-area'>
-      <Link to='/' className='header__auth-btn header__auth-btn__login'>
+      <Link to='/' className='header__auth-btn header__auth-btn_login'>
         Войти
       </Link>
-      <Link to='/' className='header__auth-btn header__auth-btn__registration'>
+      <Link to='/' className='header__auth-btn header__auth-btn_registration'>
         Создать аккаунт
       </Link>
     </div>
