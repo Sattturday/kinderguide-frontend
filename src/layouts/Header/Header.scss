@@ -27,7 +27,8 @@
   }
 
   &__auth-btn {
-    @include link-text;
+    @include link;
+    @include text-m;
     margin-right: 20px;
     border-radius: 10px;
     color: $black;
@@ -37,11 +38,13 @@
     }
 
     &__login {
-      @include link-text;
+      @include link;
+      @include text-m;
     }
 
     &__registration {
-      @include link-text;
+      @include link;
+      @include text-m;
       font-size: 15px;
       line-height: 1.49;
 

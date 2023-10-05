@@ -1,7 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 
 import Layout from './layouts/main';
-import { Button } from './components/common/Button';
 import { Home } from './pages/Home';
 import { Login } from './pages/Login';
 import { Register } from './pages/Register';
@@ -26,21 +25,8 @@ function App() {
         <Route path='/recovery' element={<Recovery />} />
         <Route path='*' element={<NotFoundPage />} />
       </Routes>
-      <div>
-        <Button size='large' onClick={() => console.log('Кнопка нажата')}>
-          Нажми меня
-        </Button>
-        <Button variant='square' onClick={() => console.log('Я квадратная')}>
-          И меня!
-        </Button>
-        <Button variant='link' onClick={() => console.log('Ссылка нажата')}>
-          И меня тоже
-        </Button>
-      </div>
     </Layout>
   );
 }
 
 export default App;
-
-// test autoformat for commit

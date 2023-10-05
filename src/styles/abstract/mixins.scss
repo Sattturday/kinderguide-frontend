@@ -1,13 +1,38 @@
-@mixin link-text {
-  font-family: $family;
-  font-weight: $fw-light;
-  font-size: 16px;
-  line-height: 1.2;
-
+@mixin link {
   text-decoration: none;
   transition: 1s;
 
   &:hover {
     opacity: 0.7;
   }
+}
+
+@mixin list {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+@mixin text-s {
+  margin: 0;
+  font-size: 14px;
+  font-weight: $fw-light;
+  line-height: 1.2;
+  letter-spacing: -0.14px;
+}
+
+@mixin text-m {
+  margin: 0;
+  font-size: 16px;
+  font-weight: $fw-light;
+  line-height: 1.2;
+  letter-spacing: -0.16px;
+}
+
+@mixin text-l {
+  margin: 0;
+  font-size: 22px;
+  font-weight: $fw-light;
+  line-height: 1.2;
+  letter-spacing: -0.22px;
 }

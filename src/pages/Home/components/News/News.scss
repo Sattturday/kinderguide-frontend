@@ -1,0 +1,8 @@
+@import '../../../../styles/abstract/mixins';
+
+.news {
+  @include list;
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+}
