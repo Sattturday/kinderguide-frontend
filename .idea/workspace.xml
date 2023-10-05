@@ -5,13 +5,107 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c78727dc-159b-452e-8f3d-8d1838e48a62" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/components/common/Input/Input.stories.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/images/Input/HidePassword.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/images/Input/Search.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/images/Input/ShowPassword.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storybook-static/125.f52b3b25.iframe.bundle.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storybook-static/125.f52b3b25.iframe.bundle.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storybook-static/202.ebca9aa2.iframe.bundle.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storybook-static/332.d2279792.iframe.bundle.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storybook-static/341.76d88e42.iframe.bundle.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storybook-static/342.168b2eef.iframe.bundle.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storybook-static/342.168b2eef.iframe.bundle.js.LICENSE.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storybook-static/342.168b2eef.iframe.bundle.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storybook-static/426.ba9681bd.iframe.bundle.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storybook-static/426.ba9681bd.iframe.bundle.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storybook-static/729.94639ddd.iframe.bundle.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storybook-static/950.19b158ff.iframe.bundle.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storybook-static/970.28df0a99.iframe.bundle.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storybook-static/components-InputCheckbox-InputCheckbox-stories.64bf8c30.iframe.bundle.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storybook-static/components-InputCheckbox-InputCheckbox-stories.64bf8c30.iframe.bundle.js.LICENSE.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storybook-static/components-common-Button-Button-stories.2233e17c.iframe.bundle.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storybook-static/components-common-Button-Button-stories.2233e17c.iframe.bundle.js.LICENSE.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storybook-static/components-common-EmptyPage-EmptyPage-stories.78cb3c3c.iframe.bundle.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storybook-static/components-common-EmptyPage-EmptyPage-stories.78cb3c3c.iframe.bundle.js.LICENSE.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storybook-static/components-common-Input-Input-stories.6d5d2ed2.iframe.bundle.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storybook-static/components-common-Input-Input-stories.6d5d2ed2.iframe.bundle.js.LICENSE.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storybook-static/components-common-Sort-Sort-stories.ea074f12.iframe.bundle.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storybook-static/components-common-Sort-Sort-stories.ea074f12.iframe.bundle.js.LICENSE.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storybook-static/favicon.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storybook-static/favicon.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storybook-static/iframe.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storybook-static/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storybook-static/index.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storybook-static/logo192.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storybook-static/logo512.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storybook-static/main.24b9b2b8.iframe.bundle.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storybook-static/manifest.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storybook-static/project.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storybook-static/robots.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storybook-static/runtime~main.0c3add22.iframe.bundle.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storybook-static/sb-addons/essentials-actions-2/manager-bundle.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storybook-static/sb-addons/essentials-actions-2/manager-bundle.js.LEGAL.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storybook-static/sb-addons/essentials-backgrounds-3/manager-bundle.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storybook-static/sb-addons/essentials-backgrounds-3/manager-bundle.js.LEGAL.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storybook-static/sb-addons/essentials-controls-1/manager-bundle.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storybook-static/sb-addons/essentials-controls-1/manager-bundle.js.LEGAL.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storybook-static/sb-addons/essentials-measure-6/manager-bundle.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storybook-static/sb-addons/essentials-measure-6/manager-bundle.js.LEGAL.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storybook-static/sb-addons/essentials-outline-7/manager-bundle.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storybook-static/sb-addons/essentials-outline-7/manager-bundle.js.LEGAL.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storybook-static/sb-addons/essentials-toolbars-5/manager-bundle.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storybook-static/sb-addons/essentials-toolbars-5/manager-bundle.js.LEGAL.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storybook-static/sb-addons/essentials-viewport-4/manager-bundle.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storybook-static/sb-addons/essentials-viewport-4/manager-bundle.js.LEGAL.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storybook-static/sb-addons/interactions-9/manager-bundle.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storybook-static/sb-addons/interactions-9/manager-bundle.js.LEGAL.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storybook-static/sb-addons/links-0/manager-bundle.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storybook-static/sb-addons/links-0/manager-bundle.js.LEGAL.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storybook-static/sb-addons/onboarding-8/manager-bundle.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storybook-static/sb-addons/onboarding-8/manager-bundle.js.LEGAL.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storybook-static/sb-common-assets/fonts.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storybook-static/sb-common-assets/nunito-sans-bold-italic.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storybook-static/sb-common-assets/nunito-sans-bold.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storybook-static/sb-common-assets/nunito-sans-italic.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storybook-static/sb-common-assets/nunito-sans-regular.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storybook-static/sb-manager/GlobalScrollAreaStyles-UY5SB7EJ-BKTFUTA6.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storybook-static/sb-manager/OverlayScrollbars-GZGLA7DL-YJ2Z3IBE.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storybook-static/sb-manager/WithTooltip-J57HCPYA-3VOMFVVS.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storybook-static/sb-manager/chunk-3J6GS6FI.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storybook-static/sb-manager/chunk-45GKKSU6.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storybook-static/sb-manager/chunk-NBCGHFLK.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storybook-static/sb-manager/chunk-O2ZUMB77.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storybook-static/sb-manager/chunk-QMHPSTMR.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storybook-static/sb-manager/chunk-QPL63VNK.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storybook-static/sb-manager/chunk-RKFFWI2D.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storybook-static/sb-manager/chunk-SPUAGIB2.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storybook-static/sb-manager/formatter-SWP5E3XI-FS7NNRKF.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storybook-static/sb-manager/globals.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storybook-static/sb-manager/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storybook-static/sb-manager/runtime.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storybook-static/sb-manager/syntaxhighlighter-PONEFOSF-PLQPOLN2.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storybook-static/sb-preview/globals.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storybook-static/sb-preview/runtime.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storybook-static/static/css/components-InputCheckbox-InputCheckbox-stories.ac70134c.chunk.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storybook-static/static/css/components-InputCheckbox-InputCheckbox-stories.ac70134c.chunk.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storybook-static/static/css/components-common-Button-Button-stories.18575c58.chunk.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storybook-static/static/css/components-common-Button-Button-stories.18575c58.chunk.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storybook-static/static/css/components-common-EmptyPage-EmptyPage-stories.a389f807.chunk.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storybook-static/static/css/components-common-EmptyPage-EmptyPage-stories.a389f807.chunk.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storybook-static/static/css/components-common-Input-Input-stories.8a160e8d.chunk.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storybook-static/static/css/components-common-Input-Input-stories.8a160e8d.chunk.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storybook-static/static/css/components-common-Sort-Sort-stories.69ecaa24.chunk.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storybook-static/static/css/components-common-Sort-Sort-stories.69ecaa24.chunk.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storybook-static/stories.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/images/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Error.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Error.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Specialists.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Specialists.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/DefaultPics/DefaultKindergarten.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/DefaultPics/DefaultSchool.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/DefaultPics/DefaultTutor.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Navigation/Navigation.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Navigation/Navigation.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/common/Input/Input.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/common/Input/Input.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/common/Input/Input.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/common/Input/Input.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/layouts/Footer/Footer.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/layouts/Footer/Footer.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Home/Home.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Home/Home.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Home/components/NewsCard/NewsCard.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Home/components/NewsCard/NewsCard.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/abstract/constants.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/abstract/constants.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,33 +137,35 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/dima/work/kinderguide-frontend&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;/home/dima/work/kinderguide-frontend/node_modules/prettier&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.fileTypes&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "/home/dima/work/kinderguide-frontend/src/images/Input",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "prettierjs.PrettierConfiguration.Package": "/home/dima/work/kinderguide-frontend/node_modules/prettier",
+    "settings.editor.selected.configurable": "preferences.fileTypes",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File&quot;: [
-      &quot;IgnoreLang&quot;
+  "keyToStringList": {
+    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
+      "IgnoreLang"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/images/Input" />
+      <recent name="$PROJECT_DIR$/src/components/common/Input" />
       <recent name="$PROJECT_DIR$/src/styles/DefaultPics" />
       <recent name="$PROJECT_DIR$" />
     </key>
@@ -96,6 +192,7 @@
       <workItem from="1696103090442" duration="2032000" />
       <workItem from="1696168269893" duration="166000" />
       <workItem from="1696168436386" duration="2366000" />
+      <workItem from="1696488938010" duration="8234000" />
     </task>
     <servers />
   </component>
