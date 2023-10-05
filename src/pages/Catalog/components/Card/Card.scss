@@ -1,5 +1,5 @@
-@import '../../styles/abstract/constants.scss';
-@import '../../styles/abstract/mixins.scss';
+@import '../../../../styles/abstract/constants.scss';
+@import '../../../../styles/abstract/mixins.scss';
 
 .card {
   max-width: 958px;
@@ -48,7 +48,7 @@
 .card__star {
   width: 100px;
   height: 20px;
-  background-image: url('../../images/Card/Rating.png');
+  background-image: url('../../../../images/Card/Rating.png');
 }
 
 .card__text {
@@ -73,13 +73,13 @@
   height: 24px;
   border: none;
   background-color: #fff;
-  background-image: url('../../images/Card/Heart.svg');
+  background-image: url('../../../../images/Card/Heart.svg');
   background-repeat: no-repeat;
   background-size: contain;
   cursor: pointer;
 
   &_active {
-    background-image: url('../../images/Card/HeartActive.svg');
+    background-image: url('../../../../images/Card/HeartActive.svg');
   }
 
   &:hover {

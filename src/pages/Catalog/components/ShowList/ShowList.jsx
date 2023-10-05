@@ -1,5 +1,5 @@
 import './ShowList.scss';
-import { Card } from '../Card/Card';
+import { Card } from '../Card';
 
 export const ShowList = () => (
   <section className='show-list'>
