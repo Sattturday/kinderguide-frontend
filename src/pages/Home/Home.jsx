@@ -4,7 +4,7 @@ import { InputCheckbox } from '../../components/InputCheckbox';
 import { Sort } from '../../components/common/Sort';
 import { NotFoundPage } from '../NotFoundPage';
 import { News } from './components/News';
-import Form from '../../components/Form/Form';
+import Form from '../../components/StylesForForms/Form';
 
 export function Home() {
   return (
