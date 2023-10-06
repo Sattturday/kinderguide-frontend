@@ -38,14 +38,7 @@
     margin: 0;
   }
 
-  &_login {
-    @include link;
-    @include text-m;
-  }
-
   &_registration {
-    @include link;
-    @include text-m;
     font-size: 15px;
     line-height: 1.49;
 

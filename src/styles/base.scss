@@ -23,7 +23,7 @@ html {
 
 .page {
   margin: auto;
-  font-family: 'Inter', Arial, sans-serif;
+  font-family: $font-family;
   font-weight: 500;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
