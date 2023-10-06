@@ -5,7 +5,7 @@ function Form({ variant, button, handleSubmit, name, children }) {
   return (
     <form
       name={name}
-      className={`form__container form__container_kind_${variant}`}
+      className={`form form_kind_${variant}`}
       onSubmit={handleSubmit}
     >
       {children}
