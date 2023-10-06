@@ -19,6 +19,7 @@ export const Input = ({
   value,
   placeholder,
   isActive,
+  type,
 }) => (
   <div className={`input input_kind_${variant}`}>
     <label htmlFor={inputId} className='input__label'>
@@ -57,6 +58,7 @@ export const Input = ({
         value={value}
         className={`input__field input__field_kind_${variant}`}
         placeholder={placeholder}
+        type={type}
       />
     </div>
     <span
@@ -104,6 +106,10 @@ Input.propTypes = {
    * Индикатор видимости символов пароля
    */
   isActive: PropTypes.string,
+  /**
+   * Индикатор видимости символов пароля
+   */
+  type: PropTypes.string,
 };
 
 Input.defaultProps = {
@@ -116,4 +122,5 @@ Input.defaultProps = {
   value: undefined,
   placeholder: undefined,
   isActive: undefined,
+  type: undefined,
 };
