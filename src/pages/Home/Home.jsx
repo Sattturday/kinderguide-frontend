@@ -4,11 +4,8 @@ import { InputCheckbox } from '../../components/InputCheckbox';
 import { Sort } from '../../components/common/Sort';
 import { NotFoundPage } from '../NotFoundPage';
 import { News } from './components/News';
-<<<<<<< HEAD
 import { Input } from '../../components/common/Input';
-=======
 import Form from '../../components/StylesForForms/Form';
->>>>>>> develop
 
 export function Home() {
   return (
@@ -17,7 +14,6 @@ export function Home() {
       <News />
       <InputCheckbox />
       <Sort />
-<<<<<<< HEAD
       <Input labelText='form' variant='form' errorText='error' />
       <Input
         labelText='password'
@@ -32,7 +28,6 @@ export function Home() {
         errorText='error error error error error error error error error error error error error error error error error error error error error error error error error error error error error error error error error error error error error error error error error error error error error error error error error error error error error error error'
       />
       <Input placeholder='price' variant='price' />
-=======
       <Form title='Регистрация' variant='login' button='Register' />
       <Form
         title='Восстановление пароля ..................................................'
@@ -46,7 +41,6 @@ export function Home() {
         </p>
         <img src='https://via.placeholder.com/217x197/' alt='people' />
       </Form>
->>>>>>> develop
       <NotFoundPage />
     </div>
   );
