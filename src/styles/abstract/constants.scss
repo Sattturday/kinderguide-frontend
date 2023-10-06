@@ -3,14 +3,15 @@ $primary-300: hsl(180, 66%, 49%);
 $gray-100: hsl(0, 0%, 75%);
 $gray-300: hsl(257, 7%, 63%);
 $gray-900: hsl(260, 8%, 14%);
+$white: #fff;
 $black: #000;
 $gray: #959595;
 $gray-light: #e7e7e7;
 $red: #FF0202;
 
-
 /* font */
-$family: 'Poppins', sans-serif;
+$font-family: 'Inter', Arial, sans-serif;
+
 $fw-light: 400;
 $fw-normal: 500;
 $fw-bold: 700;
