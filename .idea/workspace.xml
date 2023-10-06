@@ -11,8 +11,14 @@
       <change afterPath="$PROJECT_DIR$/src/components/Form/Form.jsx" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/components/Form/Form.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+<<<<<<< HEAD
+      <change beforePath="$PROJECT_DIR$/src/components/common/Input/Input.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/common/Input/Input.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/common/Input/Input.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/common/Input/Input.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Home/Home.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Home/Home.jsx" afterDir="false" />
+=======
       <change beforePath="$PROJECT_DIR$/src/pages/Home/Home.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Home/Home.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/Home/Home.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Home/Home.scss" afterDir="false" />
+>>>>>>> develop
     </list>
 >>>>>>> Stashed changes
     <option name="SHOW_DIALOG" value="false" />
@@ -53,7 +59,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/dima/work/kinderguide-frontend&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/dima/work/kinderguide-frontend/src/images/Input&quot;,
     &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -72,6 +78,8 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/images/Input" />
+      <recent name="$PROJECT_DIR$/src/components/common/Input" />
       <recent name="$PROJECT_DIR$/src/styles/DefaultPics" />
       <recent name="$PROJECT_DIR$" />
     </key>
@@ -98,8 +106,13 @@
       <workItem from="1696103090442" duration="2032000" />
       <workItem from="1696168269893" duration="166000" />
       <workItem from="1696168436386" duration="2366000" />
+<<<<<<< HEAD
+      <workItem from="1696488938010" duration="8234000" />
+      <workItem from="1696540012397" duration="2688000" />
+=======
       <workItem from="1696575044829" duration="4311000" />
       <workItem from="1696580357252" duration="3640000" />
+>>>>>>> develop
     </task>
     <servers />
   </component>

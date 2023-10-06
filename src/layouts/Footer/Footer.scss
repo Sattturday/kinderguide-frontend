@@ -3,11 +3,8 @@
 
 .footer {
   min-height: 249px;
-  background-color: $grey-light;
-  padding: 60px 76px;
-}
-
-.footer__flex-container {
+  background-color: $gray-light;
+  padding: 60px 76px 0;
   display: flex;
   justify-content: space-between;
   padding-bottom: 43px;
