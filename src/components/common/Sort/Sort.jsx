@@ -16,7 +16,7 @@ export function Sort() {
 
   return (
     <div className={`sort ${isActive ? 'sort_active' : ''}`}>
-      <div className='sort-wrapper'>
+      <div className='sort__wrapper'>
         <button className='sort__button' type='button' onClick={onClickNavTab}>
           Сортировать
         </button>
@@ -29,7 +29,7 @@ export function Sort() {
       </div>
       <ul
         ref={sortRef}
-        className={`sort-list ${isActive ? 'sort-list__active' : ''}`}
+        className={`sort-list ${isActive ? 'sort-list_active' : ''}`}
       >
         <li className='sort-list__item'>
           <button type='button' className='sort-list__button'>

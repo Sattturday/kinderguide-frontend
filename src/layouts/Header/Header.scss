@@ -8,50 +8,43 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
 
-  &__left-container {
-    display: flex;
-    align-items: center;
+.header__left-container {
+  display: flex;
+  align-items: center;
+}
+
+.header__logo {
+  width: 120px;
+  height: 40px;
+  margin-right: 80px;
+}
+
+.header__auth-area {
+  display: flex;
+  align-items: center;
+  min-height: 43px;
+}
+
+.header__auth-btn {
+  @include link;
+  @include text-m;
+  margin-right: 20px;
+  border-radius: 10px;
+  color: $black;
+
+  &:last-child {
+    margin: 0;
   }
 
-  &__logo {
-    width: 120px;
-    height: 40px;
-    margin-right: 80px;
-  }
+  &_registration {
+    font-size: 15px;
+    line-height: 1.49;
 
-  &__auth-area {
-    display: flex;
-    align-items: center;
-    min-height: 43px;
-  }
-
-  &__auth-btn {
-    @include link;
-    @include text-m;
-    margin-right: 20px;
-    border-radius: 10px;
-    color: $black;
-
-    &:last-child {
-      margin: 0;
-    }
-
-    &__login {
-      @include link;
-      @include text-m;
-    }
-
-    &__registration {
-      @include link;
-      @include text-m;
-      font-size: 15px;
-      line-height: 1.49;
-
-      height: 43px;
-      width: 163px;
-      padding: 10px 20px;
-      border: 1px solid black;
-    }
+    height: 43px;
+    width: 163px;
+    padding: 10px 20px;
+    border: 1px solid black;
   }
 }
