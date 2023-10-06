@@ -13,6 +13,14 @@
   list-style: none;
 }
 
+@mixin text-xs {
+  margin: 0;
+  font-size: 12px;
+  font-weight: $fw-light;
+  line-height: 1.2;
+  letter-spacing: -0.14px;
+}
+
 @mixin text-s {
   margin: 0;
   font-size: 14px;
