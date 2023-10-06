@@ -1,4 +1,0 @@
-.checkbox{display:flex;gap:25px;justify-content:center;align-items:center;width:100%px;height:75px}.checkbox__label{display:inline-block;width:30px;height:30px;background-color:#e7e7e7;border:none;border-radius:4px}.checkbox .checked{background-color:#2a46a9;background-image:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%2714%27 height=%2711%27 viewBox=%270 0 14 11%27 fill=%27none%27%3E%3Cpath d=%27M0.852051 5L4.85205 9L12.8521 1%27 stroke=%27white%27 stroke-width=%272%27/%3E%3C/svg%3E");background-repeat:no-repeat;background-size:20px;background-position:center}.checkbox__input{display:none}.checkbox__text{color:#000;margin:0;font-family:Inter;font-size:16px;font-style:normal;font-weight:400;line-height:130%;letter-spacing:-0.16px}
-
-
-/*# sourceMappingURL=components-InputCheckbox-InputCheckbox-stories.ac70134c.chunk.css.map*/

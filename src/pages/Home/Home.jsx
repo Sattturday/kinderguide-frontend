@@ -23,7 +23,7 @@ export function Home() {
       <Input
         placeholder='search'
         variant='search'
-        errorText='error error error error error error error error error error error error error error error error error error error error error error error error error error error error error error error error error error error error error error error error error error error error error error error error error error error'
+        errorText='error error error error error error error error error error error error error error error error error error error error error error error error error error error error error error error error error error error error error error error error error error error error error error error error error error error error error error error'
       />
       <Input placeholder='price' variant='price' />
       <NotFoundPage />

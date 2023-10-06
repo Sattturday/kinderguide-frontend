@@ -3,7 +3,7 @@ import './Input.scss';
 import { Button } from '../Button';
 import ShowPassword from '../../../images/Input/ShowPassword.svg';
 import HidePassword from '../../../images/Input/HidePassword.svg';
-import Search from '../../../images/Input/Search.svg';
+// import Search from '../../../images/Input/Search.svg';
 
 /**
  * Компонент инпута.
@@ -20,7 +20,7 @@ export const Input = ({
   placeholder,
   isActive,
 }) => (
-  <div className={`input_kind_${variant} input`}>
+  <div className={`input input_kind_${variant}`}>
     <label htmlFor={inputId} className='input__label'>
       {labelText}
     </label>
@@ -43,29 +43,27 @@ export const Input = ({
           </Button>
         </div>
       )}
-      {variant === 'search' && (
-        <div className='input__searchIcon'>
-          <Button variant='link' size='small'>
-            <img className='input__searchImg' src={Search} alt='search' />
-          </Button>
-        </div>
-      )}
+      {/* {variant === 'search' && ( */}
+      {/*   <div className='input__searchIcon'> */}
+      {/*     <Button variant='link' size='small'> */}
+      {/*       <img className='input__searchImg' src={Search} alt='search' /> */}
+      {/*     </Button> */}
+      {/*   </div> */}
+      {/* )} */}
       <input
         name={name}
         id={inputId}
         onChange={onChange}
         value={value}
-        className={`input__field_kind_${variant} input__field`}
+        className={`input__field input__field_kind_${variant}`}
         placeholder={placeholder}
       />
     </div>
-    <div className='input__errorWrapper'>
-      <span
-        className={`${inputId}-error input__error_kind_${variant} input__error`}
-      >
-        {errorText}
-      </span>
-    </div>
+    <span
+      className={`input__error input__error_kind_${variant} ${inputId}-error`}
+    >
+      {errorText}
+    </span>
   </div>
 );
 
