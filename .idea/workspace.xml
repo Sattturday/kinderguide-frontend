@@ -4,7 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
+<<<<<<< Updated upstream
     <list default="true" id="c78727dc-159b-452e-8f3d-8d1838e48a62" name="Changes" comment="" />
+=======
+    <list default="true" id="c78727dc-159b-452e-8f3d-8d1838e48a62" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/components/Form/Form.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Form/Form.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Home/Home.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Home/Home.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Home/Home.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Home/Home.scss" afterDir="false" />
+    </list>
+>>>>>>> Stashed changes
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -88,6 +98,8 @@
       <workItem from="1696103090442" duration="2032000" />
       <workItem from="1696168269893" duration="166000" />
       <workItem from="1696168436386" duration="2366000" />
+      <workItem from="1696575044829" duration="4311000" />
+      <workItem from="1696580357252" duration="3640000" />
     </task>
     <servers />
   </component>
