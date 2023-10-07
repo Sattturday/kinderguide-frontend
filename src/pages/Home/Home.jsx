@@ -6,11 +6,12 @@ import { NotFoundPage } from '../NotFoundPage';
 import { News } from './components/News';
 import { Input } from '../../components/common/Input';
 import Form from '../../components/StylesForForms/Form';
+import { Promo } from './components/Promo';
 
 export function Home() {
   return (
     <div>
-      Home
+      <Promo />
       <News />
       <InputCheckbox />
       <Sort />
