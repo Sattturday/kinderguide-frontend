@@ -37,7 +37,7 @@
 .input__forgetPassword {
   color: $gray-300;
   text-align: right;
-  font-family: $family;
+  font-family: $font-family;
   font-size: 16px;
   font-style: normal;
   font-weight: 600;
@@ -86,7 +86,7 @@
   border: none;
   color: $black;
   background-color: $gray-light;
-  font-family: $family;
+  font-family: $font-family;
   font-size: 16px;
   font-style: normal;
   font-weight: $fw-normal;
@@ -155,7 +155,7 @@
 
 .input__label {
   color: $black;
-  font-family: $family;
+  font-family: $font-family;
   font-size: 16px;
   font-style: normal;
   font-weight: 600;
@@ -173,7 +173,7 @@
   display: block;
   border: none;
   color: $red;
-  font-family: $family;
+  font-family: $font-family;
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
