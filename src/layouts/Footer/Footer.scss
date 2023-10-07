@@ -3,9 +3,11 @@
 
 .footer {
   min-height: 249px;
-  background-color: $gray-light;
-  padding: 60px 76px 0;
-  // display: flex;
+  padding: 60px 76px;
+}
+
+.footer__flex-container {
+  display: flex;
   justify-content: space-between;
   padding-bottom: 43px;
   border-bottom: 2px solid #7a7fe6;
