@@ -13,18 +13,8 @@ html {
   min-height: 100vh;
   max-width: 1440px;
   margin: 0 auto;
-  main {
-    flex: 1 0 auto;
-  }
-  footer {
-    flex: 0 0 auto;
-  }
-}
-
-.page {
-  margin: auto;
-  font-family: $font-family;
-  font-weight: 500;
+  @extend %font;
+  font-style: normal;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   -webkit-text-size-adjust: 100%;
@@ -32,4 +22,11 @@ html {
   -moz-text-size-adjust: 100%;
   text-rendering: optimizeLegibility;
   -webkit-tap-highlight-color: transparent;
+
+  main {
+    flex: 1 0 auto;
+  }
+  footer {
+    flex: 0 0 auto;
+  }
 }
