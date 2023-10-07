@@ -1,71 +1,69 @@
 @import '../../../styles/abstract/constants.scss';
+@import '../../../styles/abstract/mixins.scss';
+@import '../../../styles/abstract/placeholders.scss';
 
 .button {
   padding: 0 15px;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: $primary-300;
+  @extend %gradient-button;
   color: white;
   border: none;
   border-radius: $radii;
   cursor: pointer;
-
   transition: ease-in-out 350ms;
 
   &:hover {
-    background-color: $primary-100;
-  }
-
-  &_variant {
-    &_link {
-      background-color: transparent;
-      color: $gray-300;
-
-      &:hover {
-        background-color: transparent;
-        color: $gray-900;
-      }
-    }
-
-    &_square {
-      border-radius: $radii-sm;
-    }
+    opacity: 0.8;
   }
 
   &_size {
     &_small {
       min-height: 30px;
-      font-size: 14px;
-      font-weight: $fw-normal;
-      line-height: 1.2;
-      letter-spacing: -0.14px;
+      @include text-s;
+      background: $button-cyan;
     }
 
     &_medium {
       min-height: 41px;
-      font-size: 16px;
-      font-weight: $fw-bold;
+      @include text-m($fw-bold);
       line-height: 1.3;
-      letter-spacing: -0.16px;
     }
 
     &_large {
       min-height: 71px;
-      font-size: 22px;
-      font-weight: $fw-normal;
-      line-height: 1.4;
-      letter-spacing: -0.22px;
+      @include text-l($fw-bold);
+      background: $button-orange;
+    }
+  }
+
+  &_variant {
+    &_link {
+      background: transparent;
+      color: $button-cyan;
+
+      &:hover {
+        filter: brightness(0.9);
+      }
+    }
+
+    &_square {
+      border-radius: $radii-sm;
+
+      &:hover {
+        filter: brightness(0.9);
+      }
     }
   }
 
   &_color_empty {
-    background-color: transparent;
+    background: transparent;
     border: 1px solid $gray-900;
     color: $gray-900;
 
     &:hover {
-      background-color: transparent;
+      background: transparent;
       border: 1px solid $gray-300;
       color: $gray-300;
     }
