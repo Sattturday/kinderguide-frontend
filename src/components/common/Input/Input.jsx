@@ -1,8 +1,6 @@
 import PropTypes from 'prop-types';
 import './Input.scss';
-import { Button } from '../Button';
-import ShowPassword from '../../../images/Input/ShowPassword.svg';
-import HidePassword from '../../../images/Input/HidePassword.svg';
+// import { Button } from '../Button';
 // import Search from '../../../images/Input/Search.svg';
 
 /**
@@ -18,32 +16,16 @@ export const Input = ({
   onChange,
   value,
   placeholder,
-  isActive,
   type,
+  // forgetPassword,
+  children,
 }) => (
   <div className={`input input_kind_${variant}`}>
     <label htmlFor={inputId} className='input__label'>
       {labelText}
     </label>
-    {variant === 'password' && errorText && (
-      <div className='input__forgetPassword'>
-        <Button variant='link' size='small'>
-          Забыли пароль?
-        </Button>
-      </div>
-    )}
     <div className={`input__fieldWrapper input__fieldWrapper_kind_${variant}`}>
-      {variant === 'password' && (
-        <div className='input__passwordIcon'>
-          <Button variant='link' size='small'>
-            <img
-              className='input__passwordImg'
-              src={isActive ? HidePassword : ShowPassword}
-              alt={isActive ? 'hide' : 'show'}
-            />
-          </Button>
-        </div>
-      )}
+      {children}
       {/* {variant === 'search' && ( */}
       {/*   <div className='input__searchIcon'> */}
       {/*     <Button variant='link' size='small'> */}
@@ -105,11 +87,11 @@ Input.propTypes = {
   /**
    * Индикатор видимости символов пароля
    */
-  isActive: PropTypes.string,
+  type: PropTypes.string,
   /**
    * Индикатор видимости символов пароля
    */
-  type: PropTypes.string,
+  children: PropTypes.element,
 };
 
 Input.defaultProps = {
@@ -121,6 +103,6 @@ Input.defaultProps = {
   name: undefined,
   value: undefined,
   placeholder: undefined,
-  isActive: undefined,
   type: undefined,
+  children: undefined,
 };
