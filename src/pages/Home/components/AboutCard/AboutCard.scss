@@ -1,0 +1,55 @@
+@import '../../../../styles/abstract/constants.scss';
+@import '../../../../styles/abstract/mixins.scss';
+
+.about-card {
+  position: relative;
+  width: 408px;
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 16px;
+  background-color: $white;
+  border: 1px solid $border-purple;
+}
+
+.about-card__icon-wrapper {
+width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  margin: 0 auto 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &_type {
+    &_green {
+      background-color: $green-blue;
+    }
+    &_blue {
+      background-color: $blue-light;
+    }
+    &_orange {
+      background-color: $orange-light;
+    }
+  }
+}
+
+.about-card__icon {
+  width: 64px;
+  aspect-ratio: 1;
+  object-fit: contain;
+}
+
+.about-card__info {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.about-card__title {
+  @include text-l;
+  font-weight: $fw-normal;
+}
+
+.about-card__description {
+  @include text-m;
+}
