@@ -29,18 +29,18 @@
   letter-spacing: -0.14px;
 }
 
-@mixin text-m {
+@mixin text-m($font-weight: $fw-light) {
   margin: 0;
   font-size: 16px;
-  font-weight: $fw-light;
+  font-weight: $font-weight;
   line-height: 1.2;
   letter-spacing: -0.16px;
 }
 
-@mixin text-l {
+@mixin text-l($font-weight: $fw-light) {
   margin: 0;
   font-size: 22px;
-  font-weight: $fw-light;
+  font-weight: $font-weight;
   line-height: 1.2;
   letter-spacing: -0.22px;
 }

@@ -7,6 +7,10 @@ html {
   scroll-behavior: smooth;
 }
 
+body {
+  margin: 0;
+}
+
 #root {
   display: flex;
   flex-direction: column;
@@ -29,4 +33,9 @@ html {
   footer {
     flex: 0 0 auto;
   }
+}
+
+.wrapper {
+  margin: auto;
+  padding: 0 76px;
 }

@@ -18,7 +18,7 @@ Default.args = {
 
 export const Large = Template.bind({});
 Large.args = {
-  children: 'Press me',
+  children: 'Press me please',
   size: 'large',
 };
 
