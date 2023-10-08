@@ -1,11 +1,11 @@
 import { Button } from '../../../../components/common/Button';
-import { NewsCard } from '../NewsCard';
-import './Recurses.scss';
 import arrow from '../../../../images/NewsCard/Arrow.svg';
+import { NewsCard } from '../NewsCard';
+import './Resources.scss';
 
-export function Recurses() {
+export function Resources() {
   return (
-    <section className='recurses'>
+    <section className='recurses' aria-label='Ресурсы'>
       <div className='wrapper'>
         <div className='recurses__container'>
           <ul className='recurses__list'>
