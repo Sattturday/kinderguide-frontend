@@ -1,12 +1,12 @@
 @import '../../../../styles/abstract/constants.scss';
 @import '../../../../styles/abstract/mixins';
 
-.recurses {
+.resources {
   padding: 47px 0 204px;
   background-color: $bg-purple;
 }
 
-.recurses__container {
+.resources__container {
   position: relative;
 
   button {
@@ -16,7 +16,7 @@
   }
 }
 
-.recurses__list {
+.resources__list {
   @include list;
   width: 100%;
   display: grid;
@@ -24,7 +24,7 @@
   justify-content: space-between;
 }
 
-.recurses__button-img {
+.resources__button-img {
   width: 68px;
   aspect-ratio: 1 / 0.73;
   object-fit: cover;

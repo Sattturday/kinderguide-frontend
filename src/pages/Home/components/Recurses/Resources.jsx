@@ -5,17 +5,17 @@ import './Resources.scss';
 
 export function Resources() {
   return (
-    <section className='recurses' aria-label='Ресурсы'>
+    <section className='resources' aria-label='Ресурсы'>
       <div className='wrapper'>
-        <div className='recurses__container'>
-          <ul className='recurses__list'>
+        <div className='resources__container'>
+          <ul className='resources__list'>
             <NewsCard />
             <NewsCard />
             <NewsCard />
           </ul>
           <Button variant='link'>
             <img
-              className='recurses__button-img'
+              className='resources__button-img'
               src={arrow}
               alt='Кнопка, ведущая на страницу Ресурсы'
             />
