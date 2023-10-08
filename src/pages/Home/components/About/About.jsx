@@ -1,15 +1,10 @@
 import './About.scss';
-import imgClock from '../../../../images/AboutCard/clock.svg';
-import imgBrowser from '../../../../images/AboutCard/browser.svg';
-import imgThumbUp from '../../../../images/AboutCard/thumb-up.svg';
 import { AboutCard } from '../AboutCard';
 
 export function About() {
   const cards = [
     {
       id: 1,
-      image: imgClock,
-      alt: 'часы',
       color: 'green',
       title: 'Экономия вашего времени',
       description:
@@ -17,8 +12,6 @@ export function About() {
     },
     {
       id: 2,
-      image: imgBrowser,
-      alt: 'браузер',
       color: 'blue',
       title: 'Информированный выбор',
       description:
@@ -26,8 +19,6 @@ export function About() {
     },
     {
       id: 3,
-      image: imgThumbUp,
-      alt: 'лайк',
       color: 'orange',
       title: 'Удобство и доступность',
       description:
@@ -37,7 +28,7 @@ export function About() {
 
   return (
     <section className='about' aria-label='Почему выбирают нас'>
-      <h1 className='about__header'>Почему выбирают нас</h1>
+      <h2 className='about__header'>Почему выбирают нас</h2>
       <div className='wrapper'>
         <ul className='about__list'>
           {cards?.map((card) => (
