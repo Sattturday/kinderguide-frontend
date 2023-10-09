@@ -64,4 +64,5 @@ Input.defaultProps = {
   value: undefined,
   placeholder: undefined,
   type: undefined,
+  children: undefined,
 };
