@@ -7,8 +7,12 @@ html {
   scroll-behavior: smooth;
 }
 
-body {
+.page {
   margin: 0;
+
+  &_lock {
+    overflow: hidden;
+  }
 }
 
 #root {
@@ -30,6 +34,7 @@ body {
   main {
     flex: 1 0 auto;
   }
+
   footer {
     flex: 0 0 auto;
   }
