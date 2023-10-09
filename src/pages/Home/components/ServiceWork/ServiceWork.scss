@@ -1,0 +1,38 @@
+@import '../../../../styles/abstract/constants.scss';
+@import '../../../../styles/abstract/mixins';
+@import '../../../../styles/abstract/placeholders';
+
+.service-work {
+  margin-bottom: 47px;
+  background-image: url('../../../../images/ServiceWork/service-work-bg.png');
+  min-height: 1140px;
+}
+
+.service-work__title {
+  margin: 0 0 20px;
+  padding-top: 240px;
+  font-weight: $fw-semi-bold;
+  font-size: 50px;
+  line-height: 120%;
+  color: $white;
+  text-align: center;
+}
+
+.service-work__subtitle {
+  margin: 0 0 40px;
+  font-size: 22px;
+  font-weight: $fw-light;
+  line-height: 140%;
+  letter-spacing: -0.22px;
+  text-align: center;
+  color: $white;
+}
+
+.service-work__list {
+  @include list;
+  display: grid;
+  grid-template-columns: repeat(2, 632px);
+  grid-template-rows: 218px 250px;
+  row-gap: 40px;
+  column-gap: 34px;
+}
