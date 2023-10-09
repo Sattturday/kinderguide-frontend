@@ -1,0 +1,7 @@
+@import '../../styles/abstract/constants.scss';
+@import '../../styles/abstract/mixins.scss';
+
+.inputTel {
+  @include input;
+  @include formInput;
+}
