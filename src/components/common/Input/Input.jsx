@@ -13,17 +13,19 @@ export const Input = ({
   value,
   placeholder,
   type,
-}) => (
-  <input
-    name={name}
-    id={inputId}
-    onChange={onChange}
-    value={value}
-    className={`input input_kind_${variant}`}
-    placeholder={placeholder}
-    type={type}
-  />
-);
+}) => {
+  return (
+    <input
+      name={name}
+      id={inputId}
+      onChange={onChange}
+      value={value}
+      className={`input input_kind_${variant}`}
+      placeholder={placeholder}
+      type={type}
+    />
+  );
+};
 
 Input.propTypes = {
   /**

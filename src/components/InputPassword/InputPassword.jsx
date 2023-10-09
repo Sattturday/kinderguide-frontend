@@ -11,9 +11,9 @@ export const InputPassword = ({
   errorText,
   name,
   onChange,
-  value,
   placeholder,
-  forgetPassword,
+  value,
+  forgetPassword, // Ю. Предполагаю сюда переменную boolean для отображения надписи "забыли пароль?" на нужных полях
 }) => {
   const [type, setType] = useState('password');
   const handleEyeToggle = () => {
@@ -25,36 +25,34 @@ export const InputPassword = ({
   };
 
   return (
-    <Input
-      name={name}
-      id={inputId}
-      labelText={labelText}
-      onChange={onChange}
-      value={value}
-      variant='password'
-      placeholder={placeholder}
-      type={type}
-      errorText={errorText}
-      forgetPassword={forgetPassword}
-    >
-      <div className='inputPassword'>
-        {forgetPassword && (
-          <div className='inputPassword__forgetPassword'>
-            <Button variant='link' size='small'>
-              Забыли пароль?
-            </Button>
-          </div>
-        )}
-        <div className='inputPassword__passwordIcon'>
-          <Button variant='link' size='small' onClick={handleEyeToggle}>
-            <img
-              className='inputPassword__passwordImg'
-              src={type === 'password' ? HidePassword : ShowPassword}
-              alt={type === 'password' ? 'hide' : 'show'}
-            />
+    <div className='inputPassword'>
+      <Input
+        name={name}
+        id={inputId}
+        labelText={labelText}
+        onChange={onChange}
+        value={value}
+        variant='password'
+        placeholder={placeholder}
+        type={type}
+        errorText={errorText}
+      />
+      {forgetPassword && (
+        <div className='inputPassword__forgetPassword'>
+          <Button variant='link' size='small'>
+            Забыли пароль?
           </Button>
         </div>
+      )}
+      <div className='inputPassword__passwordIcon'>
+        <Button variant='link' size='small' onClick={handleEyeToggle}>
+          <img
+            className='inputPassword__passwordImg'
+            src={type === 'password' ? ShowPassword : HidePassword}
+            alt={type === 'password' ? 'show' : 'hide'}
+          />
+        </Button>
       </div>
-    </Input>
+    </div>
   );
 };

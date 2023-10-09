@@ -7,6 +7,7 @@ import { InputWrapper } from '../../components/common/InputWrapper';
 import { Resources } from './components/Resources';
 import { About } from './components/About';
 import { ServiceWork } from './components/ServiceWork';
+import { InputPassword } from '../../components/InputPassword';
 
 export function Home() {
   return (
@@ -14,6 +15,9 @@ export function Home() {
       <Promo />
       <InputWrapper labelText='test' errorText='test'>
         <InputTel />
+      </InputWrapper>
+      <InputWrapper labelText='testpassword' errorText='test'>
+        <InputPassword forgetPassword={true} />
       </InputWrapper>
       <About />
       <ServiceWork />
