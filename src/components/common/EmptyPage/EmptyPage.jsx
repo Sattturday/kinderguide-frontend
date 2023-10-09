@@ -1,16 +1,31 @@
-import React from 'react';
-import { string } from 'prop-types';
-import { Button } from '../Button/Button';
+import PropTypes, { string } from 'prop-types';
 import './EmptyPage.scss';
 
-export function EmptyPage({ title, text }) {
+export function EmptyPage({
+  title,
+  text,
+  size,
+  color,
+  margin,
+  img,
+  imgName,
+  children,
+}) {
   return (
     <section className='empty-page'>
-      <h1 className={`empty-page__title ${!text && 'empty-page__title_empty'}`}>
+      <h1
+        className={`
+        empty-page__title
+        ${size ? `empty-page__title_size_${size}` : ''}
+        ${color ? `empty-page__title_color_${color}` : ''}
+        ${margin ? `empty-page__title_margin_${margin}` : ''}
+        `}
+      >
         {title}
       </h1>
       {text && <p className='empty-page__text'>{text}</p>}
-      <Button variant='square'>Перейти в каталог</Button>
+      {img && <img className='empty-page__image' src={img} alt={imgName} />}
+      {children}
     </section>
   );
 }
@@ -18,9 +33,21 @@ export function EmptyPage({ title, text }) {
 EmptyPage.propTypes = {
   title: string,
   text: string,
+  size: PropTypes.oneOf(['small', 'medium', 'large']),
+  color: PropTypes.oneOf(['blue', 'black']),
+  margin: PropTypes.oneOf(['small', 'medium', 'large']),
+  img: string,
+  imgName: string,
+  children: PropTypes.node,
 };
 
 EmptyPage.defaultProps = {
   title: '',
   text: '',
+  size: 'small',
+  color: 'blue',
+  margin: 'small',
+  img: '',
+  imgName: '',
+  children: '',
 };

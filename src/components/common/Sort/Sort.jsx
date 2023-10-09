@@ -20,8 +20,8 @@ export function Sort() {
   };
 
   return (
-    <div className={`sort ${isActive ? 'sort_active' : ''}`}>
-      <div className='sort-wrapper'>
+    <div className='sort'>
+      <div className={`sort-wrapper ${isActive ? 'sort-wrapper_active' : ''}`}>
         <button className='sort__button' type='button' onClick={onClickNavTab}>
           Сортировать
         </button>

@@ -14,5 +14,5 @@ const Template = (arg) => <EmptyPage {...arg} />;
 export const Default = Template.bind({});
 Default.args = {
   title: 'К сожалению, в этом разделе пусто',
-  text: 'В ближайшее время мы обязательно добавить информацию',
+  text: 'В ближайшее время мы обязательно добавим информацию',
 };
