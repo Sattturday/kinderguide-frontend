@@ -17,7 +17,7 @@ import { ImagePopup } from './components/common/ImagePopup';
 function App() {
   // Стейты для попапов
   const [infoMessage, setInfoMessage] = useState('');
-  const [image, setImage] = useState('');
+  // const [image, setImage] = useState('');
 
   // Для просмотра работы попапа с непустыми значениями,
   // раскомментируйте одну из следующих пар строк и закомментируйте пустые значения
@@ -25,9 +25,9 @@ function App() {
   // const [infoMessage, setInfoMessage] = useState(
   //   'Помогаем найти лучший образовательный центр для вашего ребёнка.'
   // );
-  // const [image, setImage] = useState(
-  //   'https://images.unsplash.com/photo-1696655496030-079414c31e06?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80'
-  // );
+  const [image, setImage] = useState(
+    'https://images.unsplash.com/photo-1696655496030-079414c31e06?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80'
+  );
 
   function closeAllPopups() {
     setInfoMessage('');
