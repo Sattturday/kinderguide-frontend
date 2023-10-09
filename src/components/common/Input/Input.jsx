@@ -3,7 +3,6 @@ import './Input.scss';
 import { Button } from '../Button';
 import ShowPassword from '../../../images/Input/ShowPassword.svg';
 import HidePassword from '../../../images/Input/HidePassword.svg';
-// import Search from '../../../images/Input/Search.svg';
 
 /**
  * Компонент инпута.
@@ -44,13 +43,6 @@ export const Input = ({
           </Button>
         </div>
       )}
-      {/* {variant === 'search' && ( */}
-      {/*   <div className='input__searchIcon'> */}
-      {/*     <Button variant='link' size='small'> */}
-      {/*       <img className='input__searchImg' src={Search} alt='search' /> */}
-      {/*     </Button> */}
-      {/*   </div> */}
-      {/* )} */}
       <input
         name={name}
         id={inputId}
