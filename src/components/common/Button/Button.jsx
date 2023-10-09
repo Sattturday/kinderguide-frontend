@@ -6,16 +6,24 @@ import './Button.scss';
  * Используется для создания интерактивных кнопок.
  */
 export const Button = ({
-  onClick,
   variant = 'primary',
+  color = 'fill',
   size = 'medium',
   type = 'button',
+  width = 'auto',
   children,
+  onClick,
 }) => (
   <button
-    className={`button button_size_${size} button_variant_${variant}`}
+    className={
+      'button' +
+      ` button_variant_${variant}` +
+      ` button_size_${size}` +
+      ` button_color_${color}`
+    }
     type={type}
     onClick={onClick}
+    style={{ width }}
   >
     {children}
   </button>
@@ -31,9 +39,17 @@ Button.propTypes = {
    */
   type: PropTypes.oneOf(['button', 'submit']),
   /**
+   * Вариант заливки кнопки
+   */
+  color: PropTypes.oneOf(['fill', 'empty']),
+  /**
    * Вариант размера кнопки
    */
-  size: PropTypes.oneOf(['medium', 'large']),
+  size: PropTypes.oneOf(['small', 'medium', 'large']),
+  /**
+   * Ширина кнопки
+   */
+  width: PropTypes.string,
   /**
    * Текст кнопки
    */
@@ -46,8 +62,10 @@ Button.propTypes = {
 
 Button.defaultProps = {
   variant: 'primary',
+  color: 'fill',
   type: 'button',
   size: 'medium',
+  width: 'auto',
   children: 'Press me',
   onClick: undefined,
 };

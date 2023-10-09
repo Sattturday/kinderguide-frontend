@@ -1,0 +1,55 @@
+@import '../../../../styles/abstract/constants.scss';
+@import '../../../../styles/abstract/mixins.scss';
+
+.promo {
+  background-image: url('../../../../images/Promo/Rectangle_320.svg');
+  min-height: 653px;
+  padding: 40px 0 0 76px;
+  display: flex;
+}
+
+.promo__description-area {
+  width: 630px;
+}
+
+.promo__title {
+  font-size: 50px;
+  font-weight: $fw-light;
+
+  color: $white;
+  margin: 0 0 40px;
+}
+
+.promo__image-container {
+  position: relative;
+  margin: 0 0 0 30px;
+  width: 628px;
+  height: 450px;
+  background-image: url('../../../../images/Promo/Ellipse_78.svg');
+  background-repeat: no-repeat;
+  background-position: top 104px left 59px;
+}
+
+.promo__image {
+  position: absolute;
+
+  &_top-left {
+    top: 67px;
+    left: 24px;
+  }
+
+  &_top-right {
+    right: -24px;
+    top: 129px;
+  }
+
+  &_bottom {
+    bottom: -58px;
+    left: 191px;
+  }
+
+  &_arrow {
+    top: 67px;
+    left: 171px;
+  }
+}

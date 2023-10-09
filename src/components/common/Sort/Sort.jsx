@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { useClickOutside } from '../../../hooks/useClickOutside';
 import './Sort.scss';
 
@@ -34,7 +34,7 @@ export function Sort() {
       </div>
       <ul
         ref={sortRef}
-        className={`sort-list ${isActive ? 'sort-list__active' : ''}`}
+        className={`sort-list ${isActive ? 'sort-list_active' : ''}`}
       >
         <li className='sort-list__item'>
           <button

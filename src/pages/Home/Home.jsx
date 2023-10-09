@@ -1,15 +1,18 @@
 import React from 'react';
-import { InputCheckbox } from '../../components/InputCheckbox';
-import { Sort } from '../../components/common/Sort/Sort';
-import { NotFoundPage } from '../NotFoundPage/NotFoundPage';
+
+import './Home.scss';
+import { Promo } from './components/Promo';
+import { Resources } from './components/Resources';
+import { About } from './components/About';
+import { ServiceWork } from './components/ServiceWork';
 
 export function Home() {
   return (
-    <div>
-      Home
-      <InputCheckbox />
-      <Sort />
-      <NotFoundPage />
-    </div>
+    <>
+      <Promo />
+      <About />
+      <ServiceWork />
+      <Resources />
+    </>
   );
 }

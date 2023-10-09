@@ -2,7 +2,6 @@
 
 @mixin sort-text {
   /* main text */
-  font-family: $family;
   font-size: 16px;
   font-weight: $fw-light;
   line-height: 130%; /* 20.8px */
@@ -21,13 +20,12 @@
     border-style: solid;
     border-radius: 32px;
     border-width: 1px;
-    border-color: $grey-light;
+    border-color: $gray-light;
     background: White;
     transition: all 0.4s ease-out;
 
     &_active {
       border-radius: 32px 32px 0 0;
-      border-width: 1px 1px 0 1px;
     }
   }
 
@@ -75,45 +73,41 @@
     visibility: hidden;
     opacity: 0;
     border-radius: 0px 0px 32px 32px;
-    border: 1px solid $grey-light;
+    border: 1px solid $gray-light;
     background: white;
 
     transition: all 0.4s ease-out;
 
-    &__active {
+    &_active {
       z-index: 5;
       top: 100%;
       visibility: visible;
       opacity: 1;
+      border-width: 0 1px 1px 1px;
     }
 
     &__item {
       position: relative;
-      width: inherit;
       list-style: none;
     }
+  }
 
-    &__button {
-      cursor: pointer;
-      background-color: transparent;
-      border: none;
-      width: max-content;
-      height: 100%;
-      padding: 0;
-      align-content: baseline;
-      transition: all 0.7s cubic-bezier(0.075, 0.82, 0.165, 1);
+  .sort-list__button {
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    width: max-content;
+    height: 100%;
+    padding: 0;
+    align-content: baseline;
+    transition: all 0.7s cubic-bezier(0.075, 0.82, 0.165, 1);
 
-      color: $black;
+    color: $black;
 
-      @include sort-text;
+    @include sort-text;
 
-      &_selected {
-        opacity: 0.7;
-      }
-    }
-
-    &__button:hover {
-      opacity: 0.6;
+    &_selected {
+      opacity: 0.7;
     }
   }
 }

@@ -1,7 +1,6 @@
 @import '../../../styles/abstract/constants.scss';
 
 @mixin error-text {
-  font-family: $family;
   font-size: 22px;
   font-weight: 400;
   line-height: 140%;
@@ -18,8 +17,6 @@
   &__title {
     text-align: center;
     margin: 0;
-
-    font-family: $family;
 
     &_size {
       &_small {
@@ -42,7 +39,7 @@
     }
     &_color {
       &_blue {
-        color: $blue;
+        color: $blue-title;
       }
 
       &_black {

@@ -1,6 +1,7 @@
 import React from 'react';
-import { EmptyPage } from '../../components/common/EmptyPage/EmptyPage';
+import { EmptyPage } from '../../components/common/EmptyPage';
 import { Button } from '../../components/common/Button';
+import { Sort } from '../../components/common/Sort';
 
 import {
   searchMessage,
@@ -13,13 +14,14 @@ import './NotFoundPage.scss';
 export function NotFoundPage() {
   return (
     <div className='not-found'>
+      <Sort />
       <EmptyPage
         title={notfoundPage.title}
         size='medium'
         color='blue'
         margin='medium'
       >
-        <Button />
+        <Button size='large' width='400px' />
       </EmptyPage>
       <EmptyPage
         title={searchMessage.title}

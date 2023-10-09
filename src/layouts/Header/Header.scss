@@ -3,52 +3,52 @@
 
 .header {
   min-height: 83px;
-  background-color: aquamarine;
   padding: 21px 76px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
 
-  &__left-container {
-    display: flex;
-    align-items: center;
+.header__left-container {
+  display: flex;
+  align-items: center;
+}
+
+.header__logo {
+  width: 120px;
+  height: 40px;
+  margin-right: 80px;
+}
+
+.header__auth-area {
+  display: flex;
+  align-items: center;
+  min-height: 43px;
+}
+
+.header__auth-btn {
+  @include link;
+  @include text-m;
+  margin-right: 20px;
+  border-radius: 10px;
+  color: $black;
+
+  &:last-child {
+    margin: 0;
   }
 
-  &__logo {
-    width: 120px;
+  &_registration {
+    font-size: 15px;
+    line-height: 1.49;
     height: 40px;
-    margin-right: 80px;
-  }
-
-  &__auth-area {
-    display: flex;
-    align-items: center;
-    min-height: 43px;
-  }
-
-  &__auth-btn {
-    @include link-text;
-    margin-right: 20px;
-    border-radius: 10px;
-    color: $black;
-
-    &:last-child {
-      margin: 0;
-    }
-
-    &__login {
-      @include link-text;
-    }
-
-    &__registration {
-      @include link-text;
-      font-size: 15px;
-      line-height: 1.49;
-
-      height: 43px;
-      width: 163px;
-      padding: 10px 20px;
-      border: 1px solid black;
-    }
+    width: 188px;
+    padding: 10px 20px;
+    border-radius: 50px;
+    background-image: linear-gradient(to right, #7a7fe7, #7c98ff, #89bbf8);
+    font-weight: $fw-bold;
+    font-size: 16px;
+    line-height: 1.3;
+    color: $white;
+    text-align: center;
   }
 }
