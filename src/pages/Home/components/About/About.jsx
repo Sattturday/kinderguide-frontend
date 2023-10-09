@@ -4,21 +4,21 @@ import { AboutCard } from '../AboutCard';
 export function About() {
   const cards = [
     {
-      id: 1,
+      id: 'ab1',
       color: 'green',
       title: 'Экономия вашего времени',
       description:
         'Родители и опекуны могут быстро и легко находить подходящие детские учреждения, ознакомиться с информацией и бронировать места, всё это в одном месте.',
     },
     {
-      id: 2,
+      id: 'ab2',
       color: 'blue',
       title: 'Информированный выбор',
       description:
         'Пользователи получают доступ к подробной информации о детских школах и садах, включая отзывы и рейтинги от других родителей.',
     },
     {
-      id: 3,
+      id: 'ab3',
       color: 'orange',
       title: 'Удобство и доступность',
       description:
@@ -28,8 +28,8 @@ export function About() {
 
   return (
     <section className='about' aria-label='Почему выбирают нас'>
-      <h2 className='about__header'>Почему выбирают нас</h2>
       <div className='wrapper'>
+        <h2 className='about__header'>Почему выбирают нас</h2>
         <ul className='about__list'>
           {cards?.map((card) => (
             <AboutCard key={card.id} dataCard={card} />
