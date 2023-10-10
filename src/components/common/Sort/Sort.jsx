@@ -4,6 +4,7 @@ import './Sort.scss';
 
 export function Sort() {
   const [isActive, setIsActive] = useState(false);
+  const [selected, setSelected] = useState('name');
   const sortRef = useRef(null);
 
   useClickOutside(sortRef, () => {
@@ -14,9 +15,13 @@ export function Sort() {
     setIsActive(!isActive);
   };
 
+  const onClickSortHandler = (e) => {
+    setSelected(e.target.id);
+  };
+
   return (
-    <div className={`sort ${isActive ? 'sort_active' : ''}`}>
-      <div className='sort__wrapper'>
+    <div className='sort'>
+      <div className={`sort-wrapper ${isActive ? 'sort-wrapper_active' : ''}`}>
         <button className='sort__button' type='button' onClick={onClickNavTab}>
           Сортировать
         </button>
@@ -32,22 +37,50 @@ export function Sort() {
         className={`sort-list ${isActive ? 'sort-list_active' : ''}`}
       >
         <li className='sort-list__item'>
-          <button type='button' className='sort-list__button'>
+          <button
+            id='name'
+            type='button'
+            className={`sort-list__button ${
+              selected === 'name' ? 'sort-list__button_selected' : ''
+            }`}
+            onClick={onClickSortHandler}
+          >
             По названию
           </button>
         </li>
         <li className='sort-list__item'>
-          <button type='button' className='sort-list__button'>
+          <button
+            id='cost'
+            type='button'
+            className={`sort-list__button ${
+              selected === 'cost' ? 'sort-list__button_selected' : ''
+            }`}
+            onClick={onClickSortHandler}
+          >
             По стоимости
           </button>
         </li>
         <li className='sort-list__item'>
-          <button type='button' className='sort-list__button'>
+          <button
+            id='feedback'
+            type='button'
+            className={`sort-list__button ${
+              selected === 'feedback' ? 'sort-list__button_selected' : ''
+            }`}
+            onClick={onClickSortHandler}
+          >
             По отзывам
           </button>
         </li>
         <li className='sort-list__item'>
-          <button type='button' className='sort-list__button'>
+          <button
+            id='rate'
+            type='button'
+            className={`sort-list__button ${
+              selected === 'rate' ? 'sort-list__button_selected' : ''
+            }`}
+            onClick={onClickSortHandler}
+          >
             По рейтингу
           </button>
         </li>
