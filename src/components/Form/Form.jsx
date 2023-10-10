@@ -1,7 +1,7 @@
 import './Form.scss';
 import { Button } from '../common/Button';
 
-function Form({ variant, button, handleSubmit, name, children }) {
+export function Form({ variant, button, handleSubmit, name, children }) {
   return (
     <form
       name={name}
@@ -21,5 +21,3 @@ function Form({ variant, button, handleSubmit, name, children }) {
     </form>
   );
 }
-
-export default Form;
