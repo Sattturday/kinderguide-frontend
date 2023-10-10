@@ -66,6 +66,6 @@ Button.defaultProps = {
   type: 'button',
   size: 'medium',
   width: 'auto',
-  children: 'Press me',
+  children: '',
   onClick: undefined,
 };

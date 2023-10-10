@@ -13,6 +13,7 @@ import { Parents } from './pages/Parents';
 import { Profile } from './pages/Profile';
 import { Popup } from './components/common/Popup';
 import { ImagePopup } from './components/common/ImagePopup';
+import { ControlPanel } from './components/ControlPanel';
 
 function App() {
   // Стейты для попапов
@@ -36,6 +37,7 @@ function App() {
 
   return (
     <Layout>
+      <ControlPanel />
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/catalog' element={<Catalog />} />
