@@ -20,12 +20,12 @@ export const RegisterModal = ({ isOpen, onClose, onSubmit = () => {} }) => {
     isConfirm: false,
   });
   const [error, setError] = useState({
-    'reg-name': ' ',
-    'reg-lastname': ' ',
-    'reg-phone': ' ',
-    'reg-email': ' ',
-    'reg-password': ' ',
-    'reg-password-repeat': ' ',
+    'reg-name': 'Заполните поле',
+    'reg-lastname': 'Заполните поле',
+    'reg-phone': 'Заполните поле',
+    'reg-email': 'Заполните поле',
+    'reg-password': 'Заполните поле',
+    'reg-password-repeat': 'Заполните поле',
     isConfirm: false,
   });
 
