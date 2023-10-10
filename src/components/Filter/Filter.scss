@@ -1,0 +1,17 @@
+@import '../../styles/abstract/constants.scss';
+
+.filter {
+  width: 300px;
+}
+
+.filter__title {
+  color: $black;
+
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 120%;
+  letter-spacing: -0.22px;
+}
+.filter__list-item {
+  list-style-type: none;
+}

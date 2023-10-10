@@ -1,0 +1,31 @@
+@import '../../styles/abstract/constants.scss';
+
+.catalog-nav {
+  display: flex;
+  gap: 20px;
+  padding: 12px 16px;
+}
+
+.catalog__nav-item {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+
+  color: $blue-title;
+  font-size: 50px;
+  font-style: normal;
+  font-weight: $fw-normal;
+  line-height: 120%;
+
+  &_selected {
+    color: #ecf0ff;
+  }
+}
+
+.search-wrapper {
+  display: flex;
+}
+
+.list-wrapper {
+  display: flex;
+}
