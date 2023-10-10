@@ -28,7 +28,7 @@ export const InputPassword = ({
     <div className='inputPassword'>
       <Input
         name={name}
-        id={inputId}
+        inputId={inputId}
         labelText={labelText}
         onChange={onChange}
         value={value}
@@ -36,6 +36,7 @@ export const InputPassword = ({
         placeholder={placeholder}
         type={type}
         errorText={errorText}
+        minLength='8'
       />
       {forgetPassword && (
         <div className='inputPassword__forgetPassword'>

@@ -13,16 +13,22 @@ export const Input = ({
   value,
   placeholder,
   type,
+  required,
+  minLength,
+  maxLength,
 }) => {
   return (
     <input
       name={name}
       id={inputId}
-      onChange={onChange}
+      onChange={(e) => onChange(e)}
       value={value}
       className={`input input_kind_${variant}`}
       placeholder={placeholder}
       type={type}
+      required={required}
+      minLength={minLength}
+      maxLength={maxLength}
     />
   );
 };
@@ -56,6 +62,10 @@ Input.propTypes = {
    * Индикатор видимости символов пароля
    */
   type: PropTypes.string,
+  /**
+   * Обязателен для заполнения
+   */
+  required: PropTypes.bool,
 };
 
 Input.defaultProps = {
@@ -67,4 +77,7 @@ Input.defaultProps = {
   placeholder: undefined,
   type: undefined,
   children: undefined,
+  required: true,
+  minLength: '2',
+  maxLength: '30',
 };
