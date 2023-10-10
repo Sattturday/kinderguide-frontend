@@ -1,5 +1,5 @@
 import './RegisterModal.scss';
-import { useEffect, useState } from 'react';
+import { useFormAndValidation } from '../../hooks/useFormAndValidation';
 import { Popup } from '../common/Popup';
 import { InputWrapper } from '../common/InputWrapper';
 import { Input } from '../common/Input';
@@ -7,160 +7,143 @@ import { InputTel } from '../InputTel';
 import { InputPassword } from '../InputPassword';
 import { InputCheckbox } from '../InputCheckbox';
 import { Button } from '../common/Button';
+import { useEffect, useState } from 'react';
 
 export const RegisterModal = ({ isOpen, onClose, onSubmit = () => {} }) => {
-  const [isValid, setIsValid] = useState(false);
-  const [data, setData] = useState({
-    'reg-name': '',
-    'reg-lastname': '',
-    'reg-phone': '',
-    'reg-email': '',
-    'reg-password': '',
-    'reg-password-repeat': '',
-    isConfirm: false,
-  });
-  const [error, setError] = useState({
-    'reg-name': 'Заполните поле',
-    'reg-lastname': 'Заполните поле',
-    'reg-phone': 'Заполните поле',
-    'reg-email': 'Заполните поле',
-    'reg-password': 'Заполните поле',
-    'reg-password-repeat': 'Заполните поле',
-    isConfirm: false,
-  });
+  const [isReadyToSubmit, setIsReadyToSubmit] = useState(false);
 
-  const isFormValid = () => {
-    return Object.values(error).every((item) => item === '' || item === true);
-  };
+  const { data, setData, onChange, errors, isValid } = useFormAndValidation();
 
-  // Проверка сопадения паролей
-  const isPassEqual = () => {
-    return data['reg-password'] === data['reg-password-repeat'];
-  };
+  // Проверка всех полей формы на валидность
+  // экзотические инпуты проверяются в самой форме
 
-  // Обработчик изменения инпутов формы
-  const onChange = (e) => {
-    console.log(e.target.validity.valid);
-    //Ошибка на инпут повторения пароля выставляется отдельно
-    if (e.target.id !== 'reg-password-repeat') {
-      setError({ ...error, [e.target.id]: e.target.validationMessage });
-    }
-
-    setData({ ...data, [e.target.id]: e.target.value });
-  };
-
-  // Проверяем валидность формы
   useEffect(() => {
-    setIsValid(isFormValid());
-  }, [data]);
-
-  // Проверям совпадение паролей для выставления ошибки
-  useEffect(() => {
-    if (!isPassEqual()) {
-      setError({ ...error, 'reg-password-repeat': 'Пароли не совпадают' });
+    if (
+      data.phone &&
+      data.password === data['password-repeat'] &&
+      data.isConfirm &&
+      isValid
+    ) {
+      // Это костыль, чтобы провалидировать инпут телефона из библиотечки
+      if (!data.phone?.includes('_')) {
+        setIsReadyToSubmit(true);
+      } else {
+        setIsReadyToSubmit(false);
+      }
     } else {
-      setError({ ...error, 'reg-password-repeat': '' });
+      setIsReadyToSubmit(false);
     }
-  }, [data['reg-password'], data['reg-password-repeat']]);
+  }, [data, isValid]);
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    onSubmit(data);
+    console.log(data); // eslint-disable-line
+  };
   return (
     <Popup isOpen={isOpen} onClose={onClose} name='register-modal'>
       <h2 className='register-modal__title'>Регистрация</h2>
       <form>
         <InputWrapper
-          inputId='reg-name'
+          inputId='name'
           variant='form'
           labelText='Имя'
-          errorText={error['reg-name']}
+          errorText={errors['name']}
         >
           <Input
-            inputId='reg-name'
+            inputId='name'
             variant='form'
-            name='reg-name'
+            name='name'
             onChange={onChange}
-            value={data['reg-name']}
+            value={data.name}
             placeholder='Введите имя'
             type='text'
+            isValid={!errors['name']?.length}
           />
         </InputWrapper>
 
         <InputWrapper
-          inputId='reg-lastname'
+          inputId='lastname'
           variant='form'
           labelText='Фамилия'
-          errorText={error['reg-lastname']}
+          errorText={errors['lastname']}
         >
           <Input
-            inputId='reg-lastname'
+            inputId='lastname'
             variant='form'
-            name='reg-lastname'
+            name='lastname'
             onChange={onChange}
-            value={data['reg-lastname']}
+            value={data['lastname']}
             placeholder='Введите фамилию'
             type='text'
+            isValid={!errors['lastname']?.length}
           />
         </InputWrapper>
 
         <InputWrapper
-          inputId='reg-phone'
+          inputId='phone'
           variant='form'
           labelText='Телефон'
-          errorText={error['reg-phone']}
+          errorText={errors['phone']}
         >
           <InputTel
-            inputId='reg-phone'
-            name='reg-phone'
+            inputId='phone'
+            name='phone'
             onChange={onChange}
-            value={data['reg-phone']}
+            value={data['phone']}
+            isValid={!data.phone?.includes('_')}
           />
         </InputWrapper>
 
         <InputWrapper
-          inputId='reg-email'
+          inputId='email'
           variant='form'
           labelText='Email'
-          errorText={error['reg-email']}
+          errorText={errors['email']}
         >
           <Input
-            inputId='reg-email'
+            inputId='email'
             variant='form'
-            name='reg-email'
+            name='email'
             onChange={onChange}
-            value={data['reg-email']}
+            value={data['email']}
             placeholder='Введите email'
             type='email'
+            isValid={!errors['email']?.length}
           />
         </InputWrapper>
 
         <InputWrapper
-          inputId='reg-password'
+          inputId='password'
           variant='form'
           labelText='Пароль'
-          errorText={error['reg-password']}
+          errorText={errors['password']}
         >
           <InputPassword
-            inputId='reg-password'
+            inputId='password'
             variant='form'
-            name='reg-password'
+            name='password'
             onChange={onChange}
-            value={data['reg-password']}
+            value={data['password']}
             placeholder='Введите пароль'
+            isValid={!errors['password']?.length}
           />
         </InputWrapper>
 
         <InputWrapper
-          inputId='reg-password-repeat'
+          inputId='password-repeat'
           variant='form'
           labelText='Пароль повторно'
-          errorText={error['reg-password-repeat']}
+          errorText={errors['password-repeat']}
         >
           <InputPassword
-            inputId='reg-password-repeat'
+            inputId='password-repeat'
             variant='form'
-            name='reg-password-repeat'
+            name='password-repeat'
             onChange={onChange}
-            value={data['reg-password-repeat']}
+            value={data['password-repeat']}
             placeholder='Повторите пароль'
+            isValid={!errors['password-repeat']?.length}
           />
         </InputWrapper>
 
@@ -168,19 +151,16 @@ export const RegisterModal = ({ isOpen, onClose, onSubmit = () => {} }) => {
           isChecked={data.isConfirm}
           onChange={() => {
             setData({ ...data, isConfirm: !data.isConfirm });
-            setError({ ...error, isConfirm: !error.isConfirm });
           }}
         />
         <Button
           type='submit'
           width='408px'
           size='large'
-          color={isValid ? 'fill' : 'empty'}
-          disabled={!isValid}
+          color={isReadyToSubmit ? 'fill' : 'empty'}
+          disabled={!isReadyToSubmit}
           onClick={(e) => {
-            e.preventDefault();
-            onSubmit(data);
-            console.log(data);
+            handleSubmit(e);
           }}
         >
           Зарегистрироваться

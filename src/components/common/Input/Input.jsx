@@ -10,12 +10,13 @@ export const Input = ({
   variant,
   name,
   onChange,
-  value,
+  value = '',
   placeholder,
   type,
   required,
   minLength,
   maxLength,
+  isValid,
 }) => {
   return (
     <input
@@ -23,7 +24,9 @@ export const Input = ({
       id={inputId}
       onChange={(e) => onChange(e)}
       value={value}
-      className={`input input_kind_${variant}`}
+      className={`input input_kind_${variant} ${
+        isValid ? '' : 'input_invalid'
+      }`}
       placeholder={placeholder}
       type={type}
       required={required}

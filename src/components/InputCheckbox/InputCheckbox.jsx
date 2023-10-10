@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import './InputCheckbox.scss';
 
 export function InputCheckbox({ isChecked, onChange }) {
