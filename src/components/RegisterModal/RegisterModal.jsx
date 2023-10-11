@@ -51,6 +51,7 @@ export const RegisterModal = ({ isOpen, onClose, onSubmit = () => {} }) => {
           errorText={errors['name']}
         >
           <Input
+            pattern='^[\p{L}\w.@+-]+\z'
             inputId='name'
             variant='form'
             name='name'

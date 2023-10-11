@@ -29,7 +29,10 @@ export function useFormAndValidation() {
       return;
     }
     // Ошибку повтора пароля обрабатываем отдельно в юзЕфеекте
-    if (e.target.id === 'password-repeat') {
+    if (
+      e.target.id === 'password-repeat' ||
+      e.target.id === 'password-recovery-form-password-repeat'
+    ) {
       return;
     }
 
@@ -42,7 +45,7 @@ export function useFormAndValidation() {
   // эффект срабатывает только если в форме есть инпут password-repeat
   // выставляет ошибку при несовпадении паролей
   useEffect(() => {
-    if (data['password-repeat']) {
+    if (data['password-repeat'] || data['password']) {
       if (data?.password !== data['password-repeat']) {
         setErrors({
           ...errors,

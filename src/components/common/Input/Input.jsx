@@ -17,6 +17,7 @@ export const Input = ({
   minLength,
   maxLength,
   isValid,
+  pattern,
 }) => {
   return (
     <input
@@ -32,6 +33,7 @@ export const Input = ({
       required={required}
       minLength={minLength}
       maxLength={maxLength}
+      pattern={pattern}
     />
   );
 };
