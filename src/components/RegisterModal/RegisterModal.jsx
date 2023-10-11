@@ -12,7 +12,8 @@ import { useEffect, useState } from 'react';
 export const RegisterModal = ({ isOpen, onClose, onSubmit = () => {} }) => {
   const [isReadyToSubmit, setIsReadyToSubmit] = useState(false);
 
-  const { data, setData, onChange, errors, isValid } = useFormAndValidation();
+  const { data, setData, onChange, errors, setErrors, isValid } =
+    useFormAndValidation();
 
   // Проверка всех полей формы на валидность
   // экзотические инпуты проверяются в самой форме
@@ -40,6 +41,15 @@ export const RegisterModal = ({ isOpen, onClose, onSubmit = () => {} }) => {
     onSubmit(data);
     console.log(data); // eslint-disable-line
   };
+
+  useEffect(() => {
+    if (data.phone && data.phone?.includes('_')) {
+      setErrors({
+        ...errors,
+        phone: 'Введите корректный номер телефона',
+      });
+    }
+  }, [data]);
   return (
     <Popup isOpen={isOpen} onClose={onClose} name='register-modal'>
       <h2 className='register-modal__title'>Регистрация</h2>
@@ -51,7 +61,6 @@ export const RegisterModal = ({ isOpen, onClose, onSubmit = () => {} }) => {
           errorText={errors['name']}
         >
           <Input
-            pattern='^[\p{L}\w.@+-]+\z'
             inputId='name'
             variant='form'
             name='name'

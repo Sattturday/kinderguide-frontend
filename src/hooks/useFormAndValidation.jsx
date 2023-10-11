@@ -36,6 +36,10 @@ export function useFormAndValidation() {
       return;
     }
 
+    if (e.target.id === 'phone') {
+      return;
+    }
+
     setErrors({
       ...errors,
       [e.target.id]: e.target.validationMessage,
