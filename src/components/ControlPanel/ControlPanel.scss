@@ -1,0 +1,35 @@
+.control-panel {
+  width: 224px;
+  display: flex;
+  justify-content: space-between;
+
+  button:first-child {
+    background-image: url(../../images/ControlPanel/arrow-left.svg);
+    background-size: cover;
+
+    &:hover {
+      background-image: url(../../images/ControlPanel/arrow-left-hover.svg);
+    }
+  }
+
+  button:nth-child(3) {
+    background-image: url(../../images/ControlPanel/arrow-right.svg);
+    background-size: cover;
+
+    &:hover {
+      background-image: url(../../images/ControlPanel/arrow-right-hover.svg);
+    }
+  }
+}
+
+.control-panel__container {
+  display: flex;
+
+  button:first-child {
+    background-image: none;
+
+    &:hover {
+      background-image: none;
+    }
+  }
+}

@@ -1,11 +1,5 @@
 @import '../../../styles/abstract/constants.scss';
-
-@mixin error-text {
-  font-size: 22px;
-  font-weight: 400;
-  line-height: 140%;
-  letter-spacing: -0.22px;
-}
+@import '../../../styles/abstract/mixins.scss';
 
 .empty-page {
   display: flex;
@@ -13,64 +7,63 @@
   align-items: center;
   width: 100%;
   height: auto;
+}
 
-  &__title {
-    text-align: center;
-    margin: 0;
+.empty-page__title {
+  text-align: center;
+  margin: 0;
 
-    &_size {
-      &_small {
-        font-size: 22px;
-        font-weight: 400;
-        line-height: 140%;
-      }
-
-      &_medium {
-        font-size: 40px;
-        font-weight: 600;
-        line-height: 120%;
-      }
-
-      &_large {
-        font-size: 50px;
-        font-weight: 500;
-        line-height: 120%;
-      }
+  &_size {
+    &_small {
+      font-size: 22px;
+      font-weight: 400;
+      line-height: 140%;
     }
-    &_color {
-      &_blue {
-        color: $blue-title;
-      }
 
-      &_black {
-        color: $black;
-      }
+    &_medium {
+      font-size: 40px;
+      font-weight: 600;
+      line-height: 120%;
     }
-    &_margin {
-      &_small {
-        margin-bottom: 30px;
-      }
 
-      &_medium {
-        margin-bottom: 40px;
-      }
-
-      &_large {
-        margin-bottom: 50px;
-      }
+    &_large {
+      font-size: 50px;
+      font-weight: 500;
+      line-height: 120%;
     }
   }
+  &_color {
+    &_blue {
+      color: $blue-title;
+    }
 
-  &__text {
-    text-align: center;
-    margin: 0;
-    margin-bottom: 50px;
-
-    @include error-text;
+    &_black {
+      color: $black;
+    }
   }
+  &_margin {
+    &_small {
+      margin-bottom: 30px;
+    }
 
-  &__image {
-    width: 100px;
-    height: 100px;
+    &_medium {
+      margin-bottom: 40px;
+    }
+
+    &_large {
+      margin-bottom: 50px;
+    }
   }
+}
+
+.empty-page__text {
+  text-align: center;
+  @include text-l();
+  line-height: 140%;
+  margin-bottom: 50px;
+}
+
+.empty-page__image {
+  width: 100px;
+  height: 100px;
 }
