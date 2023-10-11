@@ -1,15 +1,14 @@
 import './RegisterSuccessModal.scss';
 import { Link } from 'react-router-dom';
-
 import { Popup } from '../common/Popup';
+import { useSelector } from 'react-redux';
+export const RegisterSuccessModal = ({ email = 'example@mail.ru' }) => {
+  const isOpen = useSelector(
+    (state) => state.modals.isOpenRegisterSuccessModal
+  );
 
-export const RegisterSuccessModal = ({
-  isOpen,
-  onClose,
-  email = 'example@mail.ru',
-}) => {
   return (
-    <Popup isOpen={isOpen} onClose={onClose} name='register-success-modal'>
+    <Popup isOpen={isOpen} name='register-success-modal'>
       <h2 className='register-succes-modal__title'>
         Вы успешно зарегистрировались!
       </h2>

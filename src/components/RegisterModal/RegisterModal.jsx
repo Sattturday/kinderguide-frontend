@@ -8,12 +8,15 @@ import { InputPassword } from '../InputPassword';
 import { InputCheckbox } from '../InputCheckbox';
 import { Button } from '../common/Button';
 import { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 
-export const RegisterModal = ({ isOpen, onClose, onSubmit = () => {} }) => {
+export const RegisterModal = ({ onSubmit = () => {} }) => {
   const [isReadyToSubmit, setIsReadyToSubmit] = useState(false);
 
   const { data, setData, onChange, errors, setErrors, isValid } =
     useFormAndValidation();
+
+  const isOpen = useSelector((state) => state.modals.isOpenRegisterModal);
 
   // Проверка всех полей формы на валидность
   // экзотические инпуты проверяются в самой форме
@@ -49,9 +52,9 @@ export const RegisterModal = ({ isOpen, onClose, onSubmit = () => {} }) => {
         phone: 'Введите корректный номер телефона',
       });
     }
-  }, [data]);
+  }, [data, errors]); // eslint-disable-line
   return (
-    <Popup isOpen={isOpen} onClose={onClose} name='register-modal'>
+    <Popup isOpen={isOpen} name='register-modal'>
       <h2 className='register-modal__title'>Регистрация</h2>
       <form>
         <InputWrapper

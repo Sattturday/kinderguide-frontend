@@ -8,17 +8,21 @@ import { InputPassword } from '../InputPassword';
 
 import { Button } from '../common/Button';
 import { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 
 // stepRecovery -  шаг восстановления.
 // пока что  варианты 1 - ввод почты & 2 - создание пароля
 export const PasswordRecoveryModal = ({
   stepRecovery,
-  isOpen,
-  onClose,
+
   onSubmit = () => {},
 }) => {
   const { data, onChange, errors, setErrors, isValid } = useFormAndValidation();
   const [isReadyToSubmit, setIsReadyToSubmit] = useState(false);
+
+  const isOpen = useSelector(
+    (state) => state.modals.isOpenPasswordRecoveryModal
+  );
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -36,7 +40,7 @@ export const PasswordRecoveryModal = ({
     } else {
       setIsReadyToSubmit(false);
     }
-  });
+  }, [data]); // eslint-disable-line
 
   // проверка валдиности для второго шага
   useEffect(() => {
@@ -49,7 +53,7 @@ export const PasswordRecoveryModal = ({
     } else {
       setIsReadyToSubmit(false);
     }
-  }, [data]);
+  }, [data, isValid]);
 
   useEffect(() => {
     if (
@@ -67,10 +71,10 @@ export const PasswordRecoveryModal = ({
         'password-recovery-form-password-repeat': '',
       });
     }
-  }, [data]);
+  }, [data]); // eslint-disable-line
 
   return (
-    <Popup isOpen={isOpen} onClose={onClose} name='password-recovery-modal'>
+    <Popup isOpen={isOpen} name='password-recovery-modal'>
       <h2 className='password-recovery-modal__title'>Восстановление пароля</h2>
 
       {
