@@ -14,12 +14,15 @@ import { Profile } from './pages/Profile';
 import { Popup } from './components/common/Popup';
 import { ImagePopup } from './components/common/ImagePopup';
 import { RegisterModal } from './components/RegisterModal';
+import { RegisterSuccessModal } from './components/RegisterSuccessModal';
 
 function App() {
   // Стейты для попапов
   const [infoMessage, setInfoMessage] = useState('');
   const [image, setImage] = useState('');
-  const [isOpenRegisterModal, setIsOpenRegisterModal] = useState(true);
+  const [isOpenRegisterModal, setIsOpenRegisterModal] = useState(false);
+  const [isOpenRegisterSuccessModal, setIsOpenRegisterSuccessModal] =
+    useState(true);
 
   // Для просмотра работы попапа с непустыми значениями,
   // раскомментируйте одну из следующих пар строк и закомментируйте пустые значения
@@ -35,6 +38,7 @@ function App() {
     setInfoMessage('');
     setImage('');
     setIsOpenRegisterModal(false);
+    setIsOpenRegisterSuccessModal(false);
   }
 
   return (
@@ -55,6 +59,10 @@ function App() {
       </Popup>
       <ImagePopup image={image} onClose={closeAllPopups} />
       <RegisterModal isOpen={isOpenRegisterModal} onClose={closeAllPopups} />
+      <RegisterSuccessModal
+        isOpen={isOpenRegisterSuccessModal}
+        onClose={closeAllPopups}
+      />
     </Layout>
   );
 }
