@@ -1,0 +1,16 @@
+@import '../../styles/abstract/constants.scss';
+@import '../../styles/abstract/mixins.scss';
+
+.profile {
+  margin-bottom: 200px;
+}
+
+.profile__title {
+  @include text-xl;
+  margin-bottom: 48px;
+  color: $blue-title;
+}
+
+.profile__block {
+  display: flex;
+}
