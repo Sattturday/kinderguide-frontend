@@ -13,6 +13,7 @@ export const Button = ({
   width = 'auto',
   children,
   onClick,
+  disabled = false,
 }) => (
   <button
     className={
@@ -24,6 +25,7 @@ export const Button = ({
     type={type}
     onClick={onClick}
     style={{ width }}
+    disabled={disabled}
   >
     {children}
   </button>

@@ -67,7 +67,7 @@
     outline: 1px solid $gray-100;
   }
 
-  &:invalid {
+  &_invalid {
     outline: 1px solid $red;
     color: $red;
   }

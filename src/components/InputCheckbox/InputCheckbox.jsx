@@ -1,8 +1,7 @@
-import React, { useState } from 'react';
 import './InputCheckbox.scss';
 
-export function InputCheckbox() {
-  const [isChecked, setIsChecked] = useState(true);
+export function InputCheckbox({ isChecked, onChange }) {
+  // const [isChecked, setIsChecked] = useState(true);
   return (
     <div className='checkbox'>
       <label
@@ -15,9 +14,7 @@ export function InputCheckbox() {
           name='terms'
           id='terms'
           checked={isChecked}
-          onChange={() => {
-            setIsChecked(!isChecked);
-          }}
+          onChange={onChange}
         />
       </label>
       <p className='checkbox__text'>
