@@ -3,13 +3,13 @@ import { useFormAndValidation } from '../../hooks/useFormAndValidation';
 import { Popup } from '../common/Popup';
 import { InputWrapper } from '../common/InputWrapper';
 import { Input } from '../common/Input';
-
 import { InputPassword } from '../InputPassword';
-
 import { Button } from '../common/Button';
+import { useSelector } from 'react-redux';
 
-export const LoginModal = ({ isOpen, onClose, onSubmit = () => {} }) => {
+export const LoginModal = ({ onSubmit = () => {} }) => {
   const { data, onChange, errors, isValid } = useFormAndValidation();
+  const isOpen = useSelector((state) => state.modals.isOpenLoginModal);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -17,7 +17,7 @@ export const LoginModal = ({ isOpen, onClose, onSubmit = () => {} }) => {
     console.log(data); // eslint-disable-line
   };
   return (
-    <Popup isOpen={isOpen} onClose={onClose} name='login-modal'>
+    <Popup isOpen={isOpen} name='login-modal'>
       <h2 className='login-modal__title'>Вход</h2>
       <form>
         <InputWrapper

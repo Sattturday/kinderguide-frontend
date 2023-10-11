@@ -1,14 +1,19 @@
 import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+
+import { closeAllModals } from '../../../store/modalsSlice';
 
 import './Popup.scss';
 
-export const Popup = ({ isOpen, name, onClose, children }) => {
+export const Popup = ({ isOpen, name, children }) => {
+  const dispatch = useDispatch();
+
   useEffect(() => {
     if (!isOpen) return;
 
     const closeByEscape = (e) => {
       if (e.key === 'Escape') {
-        onClose();
+        dispatch(closeAllModals());
       }
     };
 
@@ -19,11 +24,11 @@ export const Popup = ({ isOpen, name, onClose, children }) => {
       document.body.classList.remove('page_lock');
       document.removeEventListener('keydown', closeByEscape);
     };
-  }, [isOpen, onClose]);
+  }, [isOpen, dispatch]);
 
   const handleOverlay = (e) => {
     if (e.target === e.currentTarget) {
-      onClose();
+      dispatch(closeAllModals());
     }
   };
 
@@ -34,7 +39,11 @@ export const Popup = ({ isOpen, name, onClose, children }) => {
     >
       <div className={`popup__container popup__container_type_${name}`}>
         {children}
-        <button className='popup__close-btn' type='button' onClick={onClose} />
+        <button
+          className='popup__close-btn'
+          type='button'
+          onClick={() => dispatch(closeAllModals())}
+        />
       </div>
     </div>
   );

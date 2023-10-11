@@ -1,18 +1,20 @@
 import './PasswordRecoverySuccessModal.scss';
-
+import { useSelector } from 'react-redux';
 import { Popup } from '../common/Popup';
-
 import { Button } from '../common/Button';
 
 export const PasswordRecoverySuccessModal = ({
-  isOpen,
   onClose,
   onSubmit = () => {},
 }) => {
+  const isOpen = useSelector(
+    (state) => state.modals.isOpenPasswordRecoverySuccessModal
+  );
+
   const handleSubmit = (e) => {
     e.preventDefault();
     onSubmit();
-    console.log('click');
+    console.log('click'); // eslint-disable-line
   };
 
   return (
