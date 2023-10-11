@@ -53,7 +53,7 @@ export function useFormAndValidation() {
       if (data?.password !== data['password-repeat']) {
         setErrors({
           ...errors,
-          'password-repeat': 'Введите пароль повторно',
+          'password-repeat': 'Пароли не совпадают',
         });
       } else
         setErrors({

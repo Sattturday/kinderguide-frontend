@@ -59,7 +59,7 @@ export const PasswordRecoveryModal = ({
     ) {
       setErrors({
         ...errors,
-        'password-recovery-form-password-repeat': 'Введите пароль повторно',
+        'password-recovery-form-password-repeat': 'Пароли не совпадают',
       });
     } else {
       setErrors({
