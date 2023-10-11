@@ -3,7 +3,8 @@ import { ShowList } from './components/ShowList';
 import { Input } from '../../components/common/Input';
 import { Sort } from '../../components/common/Sort';
 import './Catalog.scss';
-import Filter from '../../components/Filter/Filter';
+import { itemsData } from './itemsData'; // временные школы
+import FilterList from '../../components/Filter/FilterList';
 
 const navItems = [
   { name: 'Школы', category: 'school' },
@@ -13,6 +14,8 @@ const navItems = [
 
 export function Catalog() {
   const [selected, setSelected] = useState('school');
+  const [initialCards, setInitialCards] = useState(itemsData);
+  const [sortedCards, setSortedCards] = useState(itemsData);
 
   const onClickNavHandler = (e) => {
     setSelected(e.target.id);
@@ -39,11 +42,11 @@ export function Catalog() {
       </nav>
       <div className='search-wrapper'>
         <Input />
-        <Sort />
+        <Sort cards={initialCards} />
       </div>
       <div className='list-wrapper'>
-        <Filter />
-        <ShowList />
+        <FilterList cards={initialCards} />
+        <ShowList cards={sortedCards} />
       </div>
     </section>
   );

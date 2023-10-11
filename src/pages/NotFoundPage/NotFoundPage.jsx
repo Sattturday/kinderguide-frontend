@@ -10,6 +10,7 @@ import {
   futureSchedule,
 } from '../../constants/emptyPageMessage';
 import './NotFoundPage.scss';
+import { InputCheckbox } from '../../components/InputCheckbox/InputCheckbox';
 
 export function NotFoundPage() {
   return (
@@ -47,6 +48,12 @@ export function NotFoundPage() {
         margin='large'
         img={futureSchedule.img}
         imgName={futureSchedule.imgName}
+      />
+      <InputCheckbox
+        variant='terms'
+        text='true'
+        type='checkbox'
+        onClick={(setIsChecked, isChecked) => setIsChecked(!isChecked)}
       />
     </div>
   );
