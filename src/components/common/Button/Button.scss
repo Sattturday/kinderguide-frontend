@@ -14,15 +14,16 @@
   cursor: pointer;
   transition: ease-in-out 350ms;
 
-  &:hover {
-    opacity: 0.8;
-  }
-
   &_size {
     &_small {
+      padding: 0 10px;
       min-height: 30px;
       @include text-s;
       background: $button-cyan;
+
+      &:hover {
+        background: $button-cyan-hover;
+      }
     }
 
     &_medium {
@@ -44,16 +45,13 @@
       color: $button-cyan;
 
       &:hover {
-        filter: brightness(0.9);
+        background: transparent;
+        color: $button-cyan-hover;
       }
     }
 
     &_square {
       border-radius: $radii-sm;
-
-      &:hover {
-        filter: brightness(0.9);
-      }
     }
   }
 
