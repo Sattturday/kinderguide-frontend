@@ -15,6 +15,7 @@ import { Popup } from './components/common/Popup';
 import { ImagePopup } from './components/common/ImagePopup';
 import { RegisterModal } from './components/RegisterModal';
 import { RegisterSuccessModal } from './components/RegisterSuccessModal';
+import { LoginModal } from './components/LoginModal';
 
 function App() {
   // Стейты для попапов
@@ -22,7 +23,8 @@ function App() {
   const [image, setImage] = useState('');
   const [isOpenRegisterModal, setIsOpenRegisterModal] = useState(false);
   const [isOpenRegisterSuccessModal, setIsOpenRegisterSuccessModal] =
-    useState(true);
+    useState(false);
+  const [isOpenLoginModal, setIsOpenLoginModal] = useState(true);
 
   // Для просмотра работы попапа с непустыми значениями,
   // раскомментируйте одну из следующих пар строк и закомментируйте пустые значения
@@ -39,6 +41,7 @@ function App() {
     setImage('');
     setIsOpenRegisterModal(false);
     setIsOpenRegisterSuccessModal(false);
+    setIsOpenLoginModal(false);
   }
 
   return (
@@ -49,20 +52,24 @@ function App() {
         <Route path='/specialists' element={<Specialists />} />
         <Route path='/parents' element={<Parents />} />
         <Route path='/profile' element={<Profile />} />
-        <Route path='/login' element={<Login />} />
-        <Route path='/register' element={<Register />} />
         <Route path='/recovery' element={<Recovery />} />
         <Route path='*' element={<NotFoundPage />} />
       </Routes>
+
       <Popup isOpen={infoMessage} name='info' onClose={closeAllPopups}>
         <p className='popup__title popup__title_info'>{infoMessage}</p>
       </Popup>
+
       <ImagePopup image={image} onClose={closeAllPopups} />
+
       <RegisterModal isOpen={isOpenRegisterModal} onClose={closeAllPopups} />
+
       <RegisterSuccessModal
         isOpen={isOpenRegisterSuccessModal}
         onClose={closeAllPopups}
       />
+
+      <LoginModal isOpen={isOpenLoginModal} onClose={closeAllPopups} />
     </Layout>
   );
 }

@@ -14,7 +14,7 @@ export function useFormAndValidation() {
     setIsValid(e.target.closest('form').checkValidity());
 
     // Емейл валидируем отдельно и выставляем ошибку
-    if (e.target.id === 'email') {
+    if (e.target.name === 'email') {
       if (!validateEmail(e.target.value)) {
         setErrors({
           ...errors,
