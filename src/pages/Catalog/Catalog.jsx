@@ -31,7 +31,7 @@ export function Catalog() {
               type='button'
               key={index}
               className={`catalog__nav-item ${
-                selected !== item.category ? 'catalog__nav-item_selected' : ''
+                selected === item.category ? 'catalog__nav-item_selected' : ''
               }`}
               onClick={onClickNavHandler}
             >
@@ -40,11 +40,11 @@ export function Catalog() {
           );
         })}
       </nav>
-      <div className='search-wrapper'>
-        <Input />
-        <Sort cards={initialCards} />
-      </div>
       <div className='list-wrapper'>
+        <div className='search-wrapper'>
+          <Input />
+          <Sort cards={initialCards} />
+        </div>
         <FilterList cards={initialCards} />
         <ShowList cards={sortedCards} />
       </div>

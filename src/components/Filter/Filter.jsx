@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './Filter.scss';
 
-export default function Filter({ title, onClick, children }) {
+export default function Filter({ title, variant, onClick, children }) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -17,7 +17,11 @@ export default function Filter({ title, onClick, children }) {
           }`}
         ></span>
       </div>
-      <ul className={`filter__list ${isOpen ? 'filter__list_active' : ''}`}>
+      <ul
+        className={`filter__list filter__list_${variant} ${
+          isOpen ? `filter__list_${variant}_active` : ''
+        }`}
+      >
         {children}
       </ul>
     </>

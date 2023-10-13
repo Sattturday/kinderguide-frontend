@@ -1,7 +1,7 @@
 @import '../../styles/abstract/constants.scss';
 
 .filter {
-  width: 300px;
+  width: auto;
 }
 
 .filter__title {
@@ -21,6 +21,9 @@
 
 .filter-wrapper {
   position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
 .filter__subtitle-wrapper {
@@ -57,26 +60,51 @@
 }
 
 .filter__list {
-  position: absolute;
   box-sizing: border-box;
   width: 100%;
+  max-height: 0;
   padding: 0;
+  margin: 0;
+  margin-bottom: 12px;
 
-  visibility: hidden;
   opacity: 0;
-  transition: all 0.4s ease-out;
+  overflow: hidden;
+  -webkit-transition: all 0.4s linear;
+  -moz-transition: all 0.4s linear;
+  transition: all 0.4s linear;
 
-  &_active {
-    position: relative;
+  &_checkbox {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    &_active {
+      z-index: 5;
+      max-height: 200px;
+      overflow-y: auto;
+      opacity: 1;
+    }
+  }
+
+  &_select_active {
     z-index: 5;
-    visibility: visible;
+    max-height: none;
+    overflow: visible;
     opacity: 1;
   }
 }
 
 .filter__list-item {
   list-style-type: none;
-  padding: 4px 20px;
+}
+
+.filter__list-range,
+.filter__list-select {
+  list-style-type: none;
+}
+
+.filter__list-range {
+  margin-bottom: 32px;
 }
 
 .filter__label {
@@ -89,4 +117,10 @@
   font-weight: 400;
   line-height: 130%; /* 20.8px */
   letter-spacing: -0.16px;
+}
+
+.filter__buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }

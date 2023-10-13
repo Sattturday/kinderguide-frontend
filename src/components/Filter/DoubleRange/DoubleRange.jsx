@@ -9,13 +9,12 @@ export const DoubleRange = ({ min, max }) => {
   const maxValRef = useRef(max);
   const range = useRef(null);
 
-  // Convert to percentage
   const getPercent = useCallback(
     (value) => Math.round(((value - min) / (max - min)) * 100),
     [min, max]
   );
 
-  // Set width of the range to decrease from the left side
+  // Задает ширину диапазона для уменьшения с левой стороны
   useEffect(() => {
     const minPercent = getPercent(minVal);
     const maxPercent = getPercent(maxValRef.current);
@@ -26,7 +25,7 @@ export const DoubleRange = ({ min, max }) => {
     }
   }, [minVal, getPercent]);
 
-  // Set width of the range to decrease from the right side
+  // Задает ширину диапазона для уменьшения с правой стороны
   useEffect(() => {
     const minPercent = getPercent(minValRef.current);
     const maxPercent = getPercent(maxVal);
@@ -41,7 +40,7 @@ export const DoubleRange = ({ min, max }) => {
       <div className='values'>
         <input
           placeholder='от 1000'
-          className='slider__left-value'
+          className='values__left'
           value={minVal}
           onChange={(event) => {
             if (isNaN(event.target.value)) {
@@ -53,9 +52,10 @@ export const DoubleRange = ({ min, max }) => {
             minValRef.current = value;
           }}
         />
+        <div className='values__separator'></div>
         <input
           placeholder='до 10 000 000'
-          className='slider__right-value'
+          className='values__right'
           value={maxVal}
           onChange={(event) => {
             if (isNaN(event.target.value)) {
@@ -84,7 +84,7 @@ export const DoubleRange = ({ min, max }) => {
             setMinVal(value);
             minValRef.current = value;
           }}
-          className='thumb thumb--left'
+          className='thumb thumb__left'
           style={{ zIndex: minVal > max - 100 && '5' }}
         />
         <input
@@ -97,7 +97,7 @@ export const DoubleRange = ({ min, max }) => {
             setMaxVal(value);
             maxValRef.current = value;
           }}
-          className='thumb thumb--right'
+          className='thumb thumb__right'
         />
 
         <div className='slider__track' />

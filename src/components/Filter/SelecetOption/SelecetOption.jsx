@@ -25,11 +25,6 @@ export function SelectOption({ multiple, value, onChange, options }) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [inputValue]);
 
-  function clearOptions() {
-    multiple ? onChange([]) : onChange(undefined);
-    setInputValue('');
-  }
-
   function selectOption(option) {
     if (multiple) {
       if (value.includes(option)) {
@@ -97,7 +92,7 @@ export function SelectOption({ multiple, value, onChange, options }) {
         setIsOpen((prev) => !prev);
       }}
       tabIndex={0}
-      className='container'
+      className='select'
     >
       <div className='wrapper-value'>
         <span className='value'>
@@ -117,23 +112,13 @@ export function SelectOption({ multiple, value, onChange, options }) {
               ))
             : value?.label}
           <input
+            placeholder='Название станции'
             className='search-value'
             value={inputValue}
             onChange={(e) => setInputValue(e.target.value)}
           />
         </span>
       </div>
-      <button
-        onClick={(e) => {
-          e.stopPropagation();
-          clearOptions();
-        }}
-        className='clear-btn'
-      >
-        &times;
-      </button>
-      <div className='divider'></div>
-      <div className='caret'></div>
       <ul className={`options ${isOpen ? 'show' : ''}`} tabIndex={1}>
         {searchOption.map((option, index) => (
           <li

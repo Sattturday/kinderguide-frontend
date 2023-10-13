@@ -3,25 +3,33 @@
   padding: 20px 0;
 }
 
-.slider__left-value,
-.slider__right-value {
+.values__left,
+.values__right {
   padding: 10px;
   border-radius: 32px;
   border: 1.5px solid #b8c7ff;
 
   display: block;
   width: 100%;
+  max-width: 286px;
   color: #b8c7ff;
   font-size: 12px;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin-top: 15px;
+  margin-bottom: 15px;
 }
 
 .values {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   width: 100%;
-  gap: 20px;
+  gap: 10px;
+}
+
+.values__separator {
+  width: 20px;
+  height: 1px;
+  border-bottom: 1px solid #b8c7ff;
 }
 
 /* Removing the default appearance */
@@ -42,11 +50,11 @@
   width: 100%;
 }
 
-.thumb--left {
+.thumb__left {
   z-index: 3;
 }
 
-.thumb--right {
+.thumb__right {
   z-index: 4;
 }
 
@@ -89,14 +97,14 @@
 .slider__track,
 .slider__range {
   position: absolute;
-  bottom: -7px; /* Here you move the slice up or down only on any browser that is not firefox */
+  bottom: -7px;
 }
 
 @supports (-moz-appearance: none) {
-  /* This check if the browser is firefox */
+  /* firefox */
   .slider__track,
   .slider__range {
-    bottom: -5px; /* Here you move the slice up or down only on firefox browser */
+    bottom: -5px;
   }
 }
 

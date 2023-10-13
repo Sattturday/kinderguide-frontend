@@ -16,7 +16,7 @@ const options = [
 
 const filterData = [
   {
-    title: 'Профили',
+    title: 'Профиль',
     sortBy: 'profile',
     items: [
       'Общеобразовательный',
@@ -91,6 +91,7 @@ export default function FilterList({ cards, onClick }) {
             <div key={index} className='filter-wrapper'>
               <Filter
                 title={block.title}
+                variant={`${block.type === 'checkbox' ? 'checkbox' : 'select'}`}
                 onClick={(setIsOpen, isOpen) => {
                   setIsOpen(!isOpen);
                 }}
@@ -112,11 +113,11 @@ export default function FilterList({ cards, onClick }) {
                     );
                   })
                 ) : block.type === 'range' ? (
-                  <li key={index} className='filter__list-item'>
+                  <li key={index} className='filter__list-range'>
                     <DoubleRange min={0} max={10000000} />
                   </li>
                 ) : (
-                  <li key={index} className='filter__list-item'>
+                  <li key={index} className='filter__list-select'>
                     <SelectOption
                       multiple
                       options={options}
@@ -129,8 +130,25 @@ export default function FilterList({ cards, onClick }) {
             </div>
           );
         })}
-        <Button type='submit' onClick={handleSubmit} />
-        <Button type='button' onClick={cancellationHandler} />
+        <div className='filter__buttons'>
+          <Button
+            type='submit'
+            width='100%'
+            size='medium'
+            onClick={handleSubmit}
+          >
+            Применить
+          </Button>
+          <Button
+            type='button'
+            width='100%'
+            size='medium'
+            color='empty'
+            onClick={cancellationHandler}
+          >
+            Сбросить
+          </Button>
+        </div>
       </form>
     </aside>
   );
