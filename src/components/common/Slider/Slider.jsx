@@ -1,12 +1,21 @@
+import PropTypes from 'prop-types';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
 import 'swiper/css/bundle';
 
-import { imageSlides } from '../../../constants/constants';
 import { Button } from '../Button';
 import './Slider.scss';
 
-export const Slider = ({ slides = imageSlides, slidesPerView = 1 }) => {
+/**
+ * Компонент слайдера.
+ * Используется для создания интерактивных слайдеров.
+ */
+export const Slider = ({
+  slides,
+  variant = 'cards',
+  slidesPerView = 3,
+  width = '80%',
+}) => {
   let swiperInstance = null;
 
   const goNext = () => {
@@ -25,14 +34,10 @@ export const Slider = ({ slides = imageSlides, slidesPerView = 1 }) => {
     swiperInstance = swiper;
   };
 
-  const handleSlideChange = () => {
-    if (swiperInstance) {
-      console.log('swiperInstance', swiperInstance);
-    }
-  };
+  const pagination = variant === 'images' ? { clickable: true } : false;
 
   return (
-    <div className='slider'>
+    <div className={'slider' + ` slider_variant_${variant}`} style={{ width }}>
       <Button variant='square' onClick={goPrev}>
         &larr;
       </Button>
@@ -40,19 +45,12 @@ export const Slider = ({ slides = imageSlides, slidesPerView = 1 }) => {
         modules={[Navigation, Pagination, Scrollbar, A11y]}
         spaceBetween={10}
         slidesPerView={slidesPerView}
-        pagination={{ clickable: true }}
+        pagination={pagination}
         loop={true}
-        onSlideChange={handleSlideChange}
         onSwiper={handleSwiper}
       >
-        {slides.map((slide) => (
-          <SwiperSlide key={slide.image_url}>
-            <img
-              className='slider-image'
-              src={slide.image_url}
-              alt="it's image"
-            />
-          </SwiperSlide>
+        {slides.map((slide, index) => (
+          <SwiperSlide key={index}>{slide}</SwiperSlide>
         ))}
       </Swiper>
       <Button variant='square' onClick={goNext}>
@@ -60,4 +58,29 @@ export const Slider = ({ slides = imageSlides, slidesPerView = 1 }) => {
       </Button>
     </div>
   );
+};
+
+Slider.propTypes = {
+  /**
+   * Массив слайдов
+   */
+  slides: PropTypes.array,
+  /**
+   * Вариант внешнего вида слайдера
+   */
+  variant: PropTypes.oneOf(['cards', 'images']),
+  /**
+   * Число слайдов, показывающихся за раз
+   */
+  slidesPerView: PropTypes.oneOf([1, 2, 3]),
+  /**
+   * Ширина слайдера
+   */
+  width: PropTypes.string,
+};
+
+Slider.defaultProps = {
+  variant: 'cards',
+  slidesPerView: 3,
+  width: '80%',
 };

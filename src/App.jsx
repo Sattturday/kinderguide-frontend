@@ -14,12 +14,10 @@ import { RegisterSuccessModal } from './components/RegisterSuccessModal';
 import { LoginModal } from './components/LoginModal';
 import { PasswordRecoveryModal } from './components/PasswordRecoveryModal';
 import { PasswordRecoverySuccessModal } from './components/PasswordRecoverySuccessModal';
-import { Slider } from './components/common/Slider/Slider';
 
 function App() {
   return (
     <Layout>
-      <Slider />
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/catalog' element={<Catalog />} />
