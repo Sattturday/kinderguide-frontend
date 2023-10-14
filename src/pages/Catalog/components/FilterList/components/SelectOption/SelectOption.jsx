@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import { useClickOutside } from '../../../../../../hooks/useClickOutside';
-import './SelecetOption.scss';
+import './SelectOption.scss';
 
 export function SelectOption({ value, onChange, options }) {
   const [inputValue, setInputValue] = useState('');
@@ -130,15 +130,13 @@ export function SelectOption({ value, onChange, options }) {
 }
 
 SelectOption.propTypes = {
-  multiple: PropTypes.bool,
-  valu: PropTypes.object,
+  value: PropTypes.array,
   onChange: PropTypes.func,
   options: PropTypes.array,
 };
 
 SelectOption.defaultProps = {
-  multiple: true,
-  value: { label: 'Новогиреево', id: 6 },
+  value: ['Новогиреево'],
   onChange: undefined,
   options: [],
 };

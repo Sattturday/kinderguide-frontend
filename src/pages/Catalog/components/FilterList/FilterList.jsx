@@ -3,7 +3,7 @@ import { Button } from '../../../../components/common/Button';
 import { InputCheckbox } from '../../../../components/InputCheckbox';
 import { FILTER_ITEMS, METRO_LIST } from '../../../../utils/filterData';
 import { DoubleRange } from './components/DoubleRange';
-import { SelectOption } from './components/SelecetOption/SelecetOption';
+import { SelectOption } from './components/SelectOption/SelectOption';
 import { Filter } from '../Filter/Filter';
 import './FilterList.scss';
 
@@ -47,8 +47,9 @@ export function FilterList({
                 ) : block.type === 'range' ? (
                   <li key={index} className='filter__list-range'>
                     <DoubleRange
-                      min={filter.min}
-                      max={filter.max}
+                      min={0}
+                      max={10000000}
+                      value={filter.price}
                       onChange={(value) => rangeHandler(block.category, value)}
                     />
                   </li>
