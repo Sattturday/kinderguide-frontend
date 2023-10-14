@@ -8,7 +8,7 @@ import {
   notfoundPage,
   futureСontent,
   futureSchedule,
-} from '../../constants/emptyPageMessage';
+} from '../../utils/emptyPageMessage';
 import './NotFoundPage.scss';
 import { InputCheckbox } from '../../components/InputCheckbox/InputCheckbox';
 
