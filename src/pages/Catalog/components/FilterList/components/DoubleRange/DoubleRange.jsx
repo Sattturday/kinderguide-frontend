@@ -2,11 +2,16 @@ import React, { useCallback, useEffect, useState, useRef } from 'react';
 import PropTypes from 'prop-types';
 import './DoubleRange.scss';
 
-export const DoubleRange = ({ min, max, onChange }) => {
-  const [values, setValues] = useState({ minVal: min, maxVal: max });
+export const DoubleRange = ({ min, max, value, onChange }) => {
+  const [values, setValues] = useState({
+    minVal: value.minVal,
+    maxVal: value.maxVal,
+  });
   const minValRef = useRef(min);
   const maxValRef = useRef(max);
   const range = useRef(null);
+
+  console.log(values);
 
   const getPercent = useCallback(
     (value) => Math.round(((value - min) / (max - min)) * 100),
@@ -34,9 +39,21 @@ export const DoubleRange = ({ min, max, onChange }) => {
     }
   }, [values.maxVal, getPercent]);
 
+  function debounce(func, delay) {
+    let timerId;
+    return function (...args) {
+      if (timerId) {
+        clearTimeout(timerId);
+      }
+      timerId = setTimeout(() => {
+        func(...args);
+      }, delay);
+    };
+  }
+
   useEffect(() => {
-    onChange(values);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    const delayedOnChange = debounce(onChange, 1000);
+    delayedOnChange(values);
   }, [values]);
 
   return (
@@ -115,9 +132,13 @@ export const DoubleRange = ({ min, max, onChange }) => {
 DoubleRange.propTypes = {
   min: PropTypes.number.isRequired,
   max: PropTypes.number.isRequired,
+  value: PropTypes.object,
+  onChange: PropTypes.func,
 };
 
 DoubleRange.defaultProps = {
   min: 0,
   max: 10000000,
+  value: { minVal: 0, maxVal: 10000000 },
+  onChange: undefined,
 };

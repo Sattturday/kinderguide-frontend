@@ -66,8 +66,8 @@ export const INITIAL_FILTER_STATE = {
   district: [],
   metro: [],
   price: {
-    minPrice: 0,
-    maxPrice: 10000000,
+    minVal: 0,
+    maxVal: 10000000,
   },
 };
 

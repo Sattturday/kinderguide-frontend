@@ -55,7 +55,7 @@ export function Catalog() {
     if (category === 'price') {
       setFilteredValues((prevState) => ({
         ...prevState,
-        [category]: { minPrice: value.minVal, maxPrice: value.maxVal },
+        [category]: { minVal: value.minVal, maxVal: value.maxVal },
       }));
     }
   }
