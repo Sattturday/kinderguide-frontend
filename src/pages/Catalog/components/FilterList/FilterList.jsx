@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button } from '../../../../components/common/Button';
 import { InputCheckbox } from '../../../../components/InputCheckbox';
-import { FILTER_ITEMS, METRO_LIST } from '../../../../constants/filterData';
+import { FILTER_ITEMS, METRO_LIST } from '../../../../utils/filterData';
 import { DoubleRange } from './components/DoubleRange';
 import { SelectOption } from './components/SelecetOption/SelecetOption';
 import { Filter } from '../Filter/Filter';

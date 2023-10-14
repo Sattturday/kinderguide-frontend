@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Input } from '../../components/common/Input';
 import { Sort } from '../../components/common/Sort';
-import { INITIAL_FILTER_STATE, NAV_CATEGORY } from '../../constants/filterData';
+import { INITIAL_FILTER_STATE, NAV_CATEGORY } from '../../utils/filterData';
 import './Catalog.scss';
 import { FilterList } from './components/FilterList/FilterList';
 import { ShowList } from './components/ShowList';
