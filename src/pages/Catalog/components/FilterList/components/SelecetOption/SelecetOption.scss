@@ -1,3 +1,6 @@
+@import '../../../../../../styles/abstract/constants.scss';
+@import '../../../../../../styles/abstract/mixins.scss';
+
 .select {
   position: relative;
   width: 100%;
@@ -46,12 +49,7 @@
 .search-value::placeholder {
   color: #b8c7ff;
 
-  font-family: Noto Sans;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 120%; /* 16.8px */
-  letter-spacing: -0.14px;
+  @include text-s;
 }
 
 .clear-btn {
@@ -92,13 +90,7 @@
   cursor: pointer;
 
   color: #1f1f29;
-  /* main text */
-  font-family: Noto Sans;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 120%; /* 19.2px */
-  letter-spacing: -0.16px;
+  @include text-m;
 }
 
 .option.selected {
@@ -134,11 +126,5 @@
 
 .option-badge > .remove-btn {
   color: #1f1f29;
-  /* main text */
-  font-family: Noto Sans;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 120%; /* 19.2px */
-  letter-spacing: -0.16px;
+  @include text-m;
 }

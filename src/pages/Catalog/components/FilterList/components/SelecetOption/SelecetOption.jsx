@@ -1,8 +1,9 @@
 import { useEffect, useRef, useState } from 'react';
-import { useClickOutside } from '../../../hooks/useClickOutside';
+import PropTypes from 'prop-types';
+import { useClickOutside } from '../../../../../../hooks/useClickOutside';
 import './SelecetOption.scss';
 
-export function SelectOption({ multiple, value, onChange, options }) {
+export function SelectOption({ value, onChange, options }) {
   const [inputValue, setInputValue] = useState('');
   const [searchOption, setSearchOption] = useState([options]);
   const [isOpen, setIsOpen] = useState(false);
@@ -15,7 +16,7 @@ export function SelectOption({ multiple, value, onChange, options }) {
 
   function searchOptions() {
     const searchOpt = options.filter((option) => {
-      return option.label.toLowerCase().includes(inputValue.toLowerCase());
+      return option.toLowerCase().includes(inputValue.toLowerCase());
     });
     setSearchOption(searchOpt);
   }
@@ -25,20 +26,8 @@ export function SelectOption({ multiple, value, onChange, options }) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [inputValue]);
 
-  function selectOption(option) {
-    if (multiple) {
-      if (value.includes(option)) {
-        onChange(value.filter((o) => o !== option));
-      } else {
-        onChange([...value, option]);
-      }
-    } else {
-      if (option !== value) onChange(option);
-    }
-  }
-
   function isOptionSelected(option) {
-    return multiple ? value.includes(option) : option === value;
+    return value.includes(option);
   }
 
   useEffect(() => {
@@ -52,7 +41,7 @@ export function SelectOption({ multiple, value, onChange, options }) {
         case 'Enter':
         case 'Space':
           setIsOpen((prev) => !prev);
-          if (isOpen) selectOption(options[highlightedIndex]);
+          if (isOpen) onChange(options[highlightedIndex]);
           break;
         case 'ArrowUp':
         case 'ArrowDown': {
@@ -96,21 +85,19 @@ export function SelectOption({ multiple, value, onChange, options }) {
     >
       <div className='wrapper-value'>
         <span className='value'>
-          {multiple
-            ? value.map((v) => (
-                <button
-                  key={v.value}
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    selectOption(v);
-                  }}
-                  className='option-badge'
-                >
-                  {v.label}
-                  <span className='remove-btn'>&times;</span>
-                </button>
-              ))
-            : value?.label}
+          {value.map((v, index) => (
+            <button
+              key={index + Date.now()}
+              onClick={(e) => {
+                e.stopPropagation();
+                onChange(v);
+              }}
+              className='option-badge'
+            >
+              {v}
+              <span className='remove-btn'>&times;</span>
+            </button>
+          ))}
           <input
             placeholder='Название станции'
             className='search-value'
@@ -124,19 +111,34 @@ export function SelectOption({ multiple, value, onChange, options }) {
           <li
             onClick={(e) => {
               e.stopPropagation();
-              selectOption(option);
+              onChange(option);
               setIsOpen(false);
+              setInputValue('');
             }}
             onMouseEnter={() => setHighlightedIndex(index)}
-            key={option.id}
+            key={index + Date.now()}
             className={`option ${isOptionSelected(option) ? 'selected' : ''} ${
               index === highlightedIndex ? 'highlighted' : ''
             }`}
           >
-            {option.label}
+            {option}
           </li>
         ))}
       </ul>
     </div>
   );
 }
+
+SelectOption.propTypes = {
+  multiple: PropTypes.bool,
+  valu: PropTypes.object,
+  onChange: PropTypes.func,
+  options: PropTypes.array,
+};
+
+SelectOption.defaultProps = {
+  multiple: true,
+  value: { label: 'Новогиреево', id: 6 },
+  onChange: undefined,
+  options: [],
+};

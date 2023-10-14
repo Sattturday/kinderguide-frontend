@@ -1,30 +1,74 @@
 import React, { useState } from 'react';
-import { ShowList } from './components/ShowList';
 import { Input } from '../../components/common/Input';
 import { Sort } from '../../components/common/Sort';
+import { INITIAL_FILTER_STATE, NAV_CATEGORY } from '../../constants/filterData';
 import './Catalog.scss';
+import { FilterList } from './components/FilterList/FilterList';
+import { ShowList } from './components/ShowList';
 import { itemsData } from './itemsData'; // временные школы
-import FilterList from '../../components/Filter/FilterList';
-
-const navItems = [
-  { name: 'Школы', category: 'school' },
-  { name: 'Сады', category: 'garden' },
-  { name: 'Курсы', category: 'course' },
-];
 
 export function Catalog() {
   const [selected, setSelected] = useState('school');
-  const [initialCards, setInitialCards] = useState(itemsData);
+  const [initialCards] = useState(itemsData);
   const [sortedCards, setSortedCards] = useState(itemsData);
+  const [filteredValues, setFilteredValues] = useState(INITIAL_FILTER_STATE);
 
   const onClickNavHandler = (e) => {
     setSelected(e.target.id);
   };
 
+  function handleSubmit(evt) {
+    evt.preventDefault();
+    //const data = getFilteredData(filteredValues)
+    //setSortedCards(data)
+  }
+
+  function checkboxHandler(category, item) {
+    if (filteredValues[category].includes(item)) {
+      setFilteredValues((prevState) => ({
+        ...prevState,
+        [category]: prevState[category].filter((i) => i !== item),
+      }));
+    } else {
+      setFilteredValues((prevState) => ({
+        ...prevState,
+        [category]: prevState[category].concat(item),
+      }));
+    }
+  }
+
+  function selectHandler(category, item) {
+    if (filteredValues[category].includes(item)) {
+      setFilteredValues((prevState) => ({
+        ...prevState,
+        [category]: prevState[category].filter((i) => i !== item),
+      }));
+    } else {
+      setFilteredValues((prevState) => ({
+        ...prevState,
+        [category]: prevState[category].concat(item),
+      }));
+    }
+  }
+
+  function rangeHandler(category, value) {
+    if (category === 'price') {
+      setFilteredValues((prevState) => ({
+        ...prevState,
+        [category]: { minPrice: value.minVal, maxPrice: value.maxVal },
+      }));
+    }
+  }
+
+  function handleReset() {
+    setSortedCards(initialCards);
+    setFilteredValues(INITIAL_FILTER_STATE);
+  }
+
   return (
     <section className='catalog'>
       <nav className='catalog__nav'>
-        {navItems.map((item, index) => {
+        {NAV_CATEGORY.map((item, index) => {
           return (
             <button
               id={item.category}
@@ -45,7 +89,14 @@ export function Catalog() {
           <Input />
           <Sort cards={initialCards} />
         </div>
-        <FilterList cards={initialCards} />
+        <FilterList
+          handleSubmit={handleSubmit}
+          filter={filteredValues}
+          checkboxHandler={checkboxHandler}
+          selectHandler={selectHandler}
+          rangeHandler={rangeHandler}
+          handleReset={handleReset}
+        />
         <ShowList cards={sortedCards} />
       </div>
     </section>

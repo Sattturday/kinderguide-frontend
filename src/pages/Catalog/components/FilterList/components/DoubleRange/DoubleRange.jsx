@@ -2,9 +2,8 @@ import React, { useCallback, useEffect, useState, useRef } from 'react';
 import PropTypes from 'prop-types';
 import './DoubleRange.scss';
 
-export const DoubleRange = ({ min, max }) => {
-  const [minVal, setMinVal] = useState(min);
-  const [maxVal, setMaxVal] = useState(max);
+export const DoubleRange = ({ min, max, onChange }) => {
+  const [values, setValues] = useState({ minVal: min, maxVal: max });
   const minValRef = useRef(min);
   const maxValRef = useRef(max);
   const range = useRef(null);
@@ -16,24 +15,29 @@ export const DoubleRange = ({ min, max }) => {
 
   // Задает ширину диапазона для уменьшения с левой стороны
   useEffect(() => {
-    const minPercent = getPercent(minVal);
+    const minPercent = getPercent(values.minVal);
     const maxPercent = getPercent(maxValRef.current);
 
     if (range.current) {
       range.current.style.left = `${minPercent}%`;
       range.current.style.width = `${maxPercent - minPercent}%`;
     }
-  }, [minVal, getPercent]);
+  }, [values.minVal, getPercent]);
 
   // Задает ширину диапазона для уменьшения с правой стороны
   useEffect(() => {
     const minPercent = getPercent(minValRef.current);
-    const maxPercent = getPercent(maxVal);
+    const maxPercent = getPercent(values.maxVal);
 
     if (range.current) {
       range.current.style.width = `${maxPercent - minPercent}%`;
     }
-  }, [maxVal, getPercent]);
+  }, [values.maxVal, getPercent]);
+
+  useEffect(() => {
+    onChange(values);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [values]);
 
   return (
     <div className='container'>
@@ -41,14 +45,14 @@ export const DoubleRange = ({ min, max }) => {
         <input
           placeholder='от 1000'
           className='values__left'
-          value={minVal}
+          value={values.minVal}
           onChange={(event) => {
             if (isNaN(event.target.value)) {
-              setMinVal((prev) => prev);
+              setValues((prev) => prev);
               return;
             }
-            const value = Math.min(Number(event.target.value), maxVal);
-            setMinVal(value);
+            const value = Math.min(Number(event.target.value), values.maxVal);
+            setValues({ ...values, minVal: value });
             minValRef.current = value;
           }}
         />
@@ -56,19 +60,19 @@ export const DoubleRange = ({ min, max }) => {
         <input
           placeholder='до 10 000 000'
           className='values__right'
-          value={maxVal}
+          value={values.maxVal}
           onChange={(event) => {
             if (isNaN(event.target.value)) {
-              setMaxVal((prev) => prev);
+              setValues((prev) => prev);
               return;
             }
-            const value = Math.max(Number(event.target.value), minVal);
+            const value = Math.max(Number(event.target.value), values.minVal);
             if (value > max) {
-              setMaxVal(max);
+              setValues({ ...values, maxVal: max });
               maxValRef.current = max;
               return;
             }
-            setMaxVal(value);
+            setValues({ ...values, maxVal: value });
             maxValRef.current = value;
           }}
         />
@@ -78,23 +82,24 @@ export const DoubleRange = ({ min, max }) => {
           type='range'
           min={min}
           max={max}
-          value={minVal}
+          value={values.minVal}
           onChange={(event) => {
-            const value = Math.min(Number(event.target.value), maxVal);
-            setMinVal(value);
+            const value = Math.min(Number(event.target.value), values.maxVal);
+            setValues({ ...values, minVal: value });
             minValRef.current = value;
           }}
-          className='thumb thumb__left'
-          style={{ zIndex: minVal > max - 100 && '5' }}
+          className={`thumb thumb__left ${
+            values.minVal > max - 100 ? 'thumb__left_zindex' : ''
+          }`}
         />
         <input
           type='range'
           min={min}
           max={max}
-          value={maxVal}
+          value={values.maxVal}
           onChange={(event) => {
-            const value = Math.max(Number(event.target.value), minVal);
-            setMaxVal(value);
+            const value = Math.max(Number(event.target.value), values.minVal);
+            setValues({ ...values, maxVal: value });
             maxValRef.current = value;
           }}
           className='thumb thumb__right'
@@ -110,4 +115,9 @@ export const DoubleRange = ({ min, max }) => {
 DoubleRange.propTypes = {
   min: PropTypes.number.isRequired,
   max: PropTypes.number.isRequired,
+};
+
+DoubleRange.defaultProps = {
+  min: 0,
+  max: 10000000,
 };

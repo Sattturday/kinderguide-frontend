@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './InputCheckbox.scss';
 
 export function InputCheckbox({
@@ -7,9 +7,9 @@ export function InputCheckbox({
   variant,
   labelName,
   text,
-  onClick,
+  isChecked,
+  onChange,
 }) {
-  const [isChecked, setIsChecked] = useState(false);
   return (
     <div className={`checkbox checkbox__variant_${variant}`}>
       <label
@@ -24,8 +24,8 @@ export function InputCheckbox({
           className={`checkbox__input input-${type}`}
           name={name}
           id={name}
-          checked={isChecked}
-          onChange={() => onClick(setIsChecked, isChecked)}
+          checked={isChecked || false}
+          onChange={onChange}
         />
       </label>
       {text && (

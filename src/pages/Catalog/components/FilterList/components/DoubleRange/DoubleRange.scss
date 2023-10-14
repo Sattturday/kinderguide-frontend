@@ -52,6 +52,10 @@
 
 .thumb__left {
   z-index: 3;
+
+  &_zindex {
+    z-index: 5;
+  }
 }
 
 .thumb__right {
@@ -83,7 +87,7 @@
   cursor: pointer;
   height: 12px;
   width: 12px;
-  margin-top: 10px;
+  margin-top: 12px;
   pointer-events: all;
   position: relative;
 }

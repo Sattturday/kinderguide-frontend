@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import './Filter.scss';
 
-export default function Filter({ title, variant, onClick, children }) {
+export function Filter({ title, variant, onClick, children }) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -27,3 +28,24 @@ export default function Filter({ title, variant, onClick, children }) {
     </>
   );
 }
+
+Filter.propTypes = {
+  variant: PropTypes.oneOf(['checkbox', 'select']),
+  title: PropTypes.oneOf([
+    'Профиль',
+    'Возраст',
+    'Иностранные языки',
+    'Округ',
+    'Метро',
+    'Стоимость',
+  ]),
+  children: PropTypes.node,
+  onClick: PropTypes.func,
+};
+
+Filter.defaultProps = {
+  variant: 'checkbox',
+  title: 'Профиль',
+  children: '',
+  onClick: undefined,
+};

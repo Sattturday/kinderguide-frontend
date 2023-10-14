@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { EmptyPage } from '../../components/common/EmptyPage';
 import { Button } from '../../components/common/Button';
 import { Sort } from '../../components/common/Sort';
@@ -13,6 +13,7 @@ import './NotFoundPage.scss';
 import { InputCheckbox } from '../../components/InputCheckbox/InputCheckbox';
 
 export function NotFoundPage() {
+  const [isChecked, setIsChecked] = useState(false);
   return (
     <div className='not-found'>
       <Sort />
@@ -53,7 +54,8 @@ export function NotFoundPage() {
         variant='terms'
         text='true'
         type='checkbox'
-        onClick={(setIsChecked, isChecked) => setIsChecked(!isChecked)}
+        isChecked={isChecked}
+        onHandleCheck={() => setIsChecked(!isChecked)}
       />
     </div>
   );
