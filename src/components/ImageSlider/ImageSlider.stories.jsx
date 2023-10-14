@@ -1,4 +1,4 @@
-import { album } from '../../constants/constants';
+import { album } from '../../utils/constants';
 import { ImageSlider } from './ImageSlider';
 
 export default {
