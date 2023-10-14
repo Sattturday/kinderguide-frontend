@@ -1,26 +1,39 @@
+import React from 'react';
 import './InputCheckbox.scss';
 
-export function InputCheckbox({ isChecked, onChange }) {
-  // const [isChecked, setIsChecked] = useState(true);
+export function InputCheckbox({
+  name,
+  type,
+  variant,
+  labelName,
+  text,
+  isChecked,
+  onChange,
+}) {
   return (
-    <div className='checkbox'>
+    <div className={`checkbox checkbox__variant_${variant}`}>
       <label
-        htmlFor='terms'
-        className={`checkbox__label ${isChecked ? 'checked' : ''}`}
+        htmlFor={name}
+        className={`checkbox-label__variant_${variant} ${
+          isChecked ? `checkbox-label__${variant}_checked` : ''
+        }`}
       >
+        {labelName}
         <input
-          type='checkbox'
-          className='checkbox__input'
-          name='terms'
-          id='terms'
-          checked={isChecked}
+          type={type}
+          className={`checkbox__input input-${type}`}
+          name={name}
+          id={name}
+          checked={isChecked || false}
           onChange={onChange}
         />
       </label>
-      <p className='checkbox__text'>
-        Соглашаюсь с условиями использования
-        <br /> и политикой конфиденциальности
-      </p>
+      {text && (
+        <p className='checkbox__text'>
+          Соглашаюсь с условиями использования
+          <br /> и политикой конфиденциальности
+        </p>
+      )}
     </div>
   );
 }
