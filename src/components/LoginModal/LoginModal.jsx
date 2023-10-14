@@ -6,14 +6,23 @@ import { Input } from '../common/Input';
 import { InputPassword } from '../InputPassword';
 import { Button } from '../common/Button';
 import { useSelector } from 'react-redux';
+import { useLoginMutation } from '../../store/authApi';
 
-export const LoginModal = ({ onSubmit = () => {} }) => {
+export const LoginModal = () => {
   const { data, onChange, errors, isValid } = useFormAndValidation();
   const isOpen = useSelector((state) => state.modals.isOpenLoginModal);
 
-  const handleSubmit = (e) => {
+  const [login, { isLoading, isError }] = useLoginMutation();
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    onSubmit(data);
+    try {
+      const response = await login(data);
+      console.log(response);
+    } catch (error) {
+      console.log(error);
+    }
+
     console.log(data); // eslint-disable-line
   };
   return (

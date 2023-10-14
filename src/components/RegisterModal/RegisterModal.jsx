@@ -9,14 +9,27 @@ import { InputCheckbox } from '../InputCheckbox';
 import { Button } from '../common/Button';
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
+import { useCreateUserMutation } from '../../store/authApi';
 
-export const RegisterModal = ({ onSubmit = () => {} }) => {
+export const RegisterModal = () => {
   const [isReadyToSubmit, setIsReadyToSubmit] = useState(false);
 
   const { data, setData, onChange, errors, setErrors, isValid } =
     useFormAndValidation();
 
   const isOpen = useSelector((state) => state.modals.isOpenRegisterModal);
+
+  const [createUser, { isLoading, isError }] = useCreateUserMutation();
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await createUser(data).unwrap();
+      console.log(response); // eslint-disable-line
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   // Проверка всех полей формы на валидность
   // экзотические инпуты проверяются в самой форме
@@ -39,20 +52,20 @@ export const RegisterModal = ({ onSubmit = () => {} }) => {
     }
   }, [data, isValid]);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    onSubmit(data);
-    console.log(data); // eslint-disable-line
-  };
-
   useEffect(() => {
     if (data.phone && data.phone?.includes('_')) {
       setErrors({
         ...errors,
         phone: 'Введите корректный номер телефона',
       });
+    } else {
+      setErrors({
+        ...errors,
+        phone: '',
+      });
     }
-  }, [data, errors]); // eslint-disable-line
+  }, [data]); // eslint-disable-line
+
   return (
     <Popup isOpen={isOpen} name='register-modal'>
       <h2 className='register-modal__title'>Регистрация</h2>
