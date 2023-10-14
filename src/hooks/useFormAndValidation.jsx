@@ -1,5 +1,5 @@
 import { useEffect, useState, useCallback } from 'react';
-import { validateEmail } from '../constants/utils';
+import { validateEmail } from '../utils/utils';
 
 // Хук проверяет ТОЛЬКО соответствие  инпутов их атрибутам.
 // Не проверяет чекбоксы и  идентичность паролей

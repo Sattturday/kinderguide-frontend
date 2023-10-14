@@ -6,7 +6,7 @@ import { Input } from '../common/Input';
 import { InputPassword } from '../InputPassword';
 import { Button } from '../common/Button';
 import { useSelector } from 'react-redux';
-import { useLoginMutation } from '../../store/authApi';
+import { useLoginMutation } from '../../api/authApi';
 
 export const LoginModal = () => {
   const { data, onChange, errors, isValid } = useFormAndValidation();
@@ -28,7 +28,7 @@ export const LoginModal = () => {
   return (
     <Popup isOpen={isOpen} name='login-modal'>
       <h2 className='login-modal__title'>Вход</h2>
-      <form>
+      <form onSubmit={(e) => handleSubmit(e)}>
         <InputWrapper
           inputId='login-form-email'
           variant='form'
@@ -71,9 +71,6 @@ export const LoginModal = () => {
           size='large'
           color={isValid ? 'fill' : 'empty'}
           disabled={!isValid}
-          onClick={(e) => {
-            handleSubmit(e);
-          }}
         >
           Войти
         </Button>

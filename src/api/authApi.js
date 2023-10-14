@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
-const BASE_URL = 'https://kinder.acceleratorpracticum.ru/';
+import { BASE_URL } from '../utils/constants';
 
 export const authApi = createApi({
   reducerPath: 'authApi',

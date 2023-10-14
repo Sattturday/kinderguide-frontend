@@ -9,7 +9,7 @@ import { InputCheckbox } from '../InputCheckbox';
 import { Button } from '../common/Button';
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
-import { useCreateUserMutation } from '../../store/authApi';
+import { useCreateUserMutation } from '../../api/authApi';
 
 export const RegisterModal = () => {
   const [isReadyToSubmit, setIsReadyToSubmit] = useState(false);
@@ -69,7 +69,11 @@ export const RegisterModal = () => {
   return (
     <Popup isOpen={isOpen} name='register-modal'>
       <h2 className='register-modal__title'>Регистрация</h2>
-      <form>
+      <form
+        onSubmit={(e) => {
+          handleSubmit(e);
+        }}
+      >
         <InputWrapper
           inputId='name'
           variant='form'
@@ -185,9 +189,6 @@ export const RegisterModal = () => {
           size='large'
           color={isReadyToSubmit ? 'fill' : 'empty'}
           disabled={!isReadyToSubmit}
-          onClick={(e) => {
-            handleSubmit(e);
-          }}
         >
           Зарегистрироваться
         </Button>

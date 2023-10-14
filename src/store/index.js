@@ -1,7 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit';
 
 import modalsReducer from './modalsSlice';
-import { authApi } from './authApi';
+import { authApi } from '../api/authApi';
 
 export default configureStore({
   reducer: {
