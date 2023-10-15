@@ -5,6 +5,9 @@ import HidePassword from '../../images/Input/HidePassword.svg';
 import ShowPassword from '../../images/Input/ShowPassword.svg';
 import { Button } from '../common/Button';
 
+import { useDispatch } from 'react-redux';
+import { openPasswordRecoveryModal } from '../../store/modalsSlice';
+
 export const InputPassword = ({
   inputId,
   labelText = 'test',
@@ -13,9 +16,11 @@ export const InputPassword = ({
   onChange,
   placeholder,
   value,
+  isValid,
   forgetPassword, // Ю. Предполагаю сюда переменную boolean для отображения надписи "забыли пароль?" на нужных полях
 }) => {
   const [type, setType] = useState('password');
+  const dispatch = useDispatch();
   const handleEyeToggle = () => {
     if (type === 'password') {
       setType('text');
@@ -27,8 +32,9 @@ export const InputPassword = ({
   return (
     <div className='inputPassword'>
       <Input
+        isValid={isValid}
         name={name}
-        id={inputId}
+        inputId={inputId}
         labelText={labelText}
         onChange={onChange}
         value={value}
@@ -36,10 +42,15 @@ export const InputPassword = ({
         placeholder={placeholder}
         type={type}
         errorText={errorText}
+        minLength='8'
       />
       {forgetPassword && (
         <div className='inputPassword__forgetPassword'>
-          <Button variant='link' size='small'>
+          <Button
+            variant='link'
+            size='small'
+            onClick={() => dispatch(openPasswordRecoveryModal())}
+          >
             Забыли пароль?
           </Button>
         </div>

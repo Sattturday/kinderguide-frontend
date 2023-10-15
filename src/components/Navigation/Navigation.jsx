@@ -8,7 +8,7 @@ export const Navigation = ({ usedFor }) => (
     <Link to='/' className='navigation__item'>
       Главная
     </Link>
-    <Link to='/' className='navigation__item'>
+    <Link to='/catalog' className='navigation__item'>
       Образование
       {usedFor === 'footer' && (
         <ul className='navigation__item-list'>

@@ -1,9 +1,9 @@
 import { PatternFormat } from 'react-number-format';
 import './InputTel.scss';
 
-export const InputTel = ({ inputId, name, onChange, value }) => (
+export const InputTel = ({ inputId, name, onChange, value, isValid }) => (
   <PatternFormat
-    className='inputTel'
+    className={`inputTel ${isValid ? '' : 'input_invalid'}`}
     id={inputId}
     name={name}
     onChange={onChange}

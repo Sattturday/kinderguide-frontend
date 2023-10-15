@@ -97,8 +97,8 @@ src
   ├── layouts
   │    ├── main.jsx
   │    └── auth.jsx
-  ├──constants
-  │    └── index.ts
+  ├──utils
+  │    └── constants.jsx
   ├──styles
   │    ├──abstracts
   │    │  ├── constants.scss

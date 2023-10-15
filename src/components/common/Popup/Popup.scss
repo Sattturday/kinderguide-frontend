@@ -37,6 +37,14 @@
     aspect-ratio: auto;
     background-color: transparent;
   }
+
+  &_type_register-success-modal {
+    padding: 100px 80px;
+  }
+  &_type_password-recovery-modal {
+    padding: 100px 104px;
+    align-items: center;
+  }
 }
 
 .popup__title {

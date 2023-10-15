@@ -27,6 +27,8 @@
 }
 
 .header__auth-btn {
+  border: none;
+  background: inherit;
   @include link;
   @include text-m;
   margin-right: 20px;

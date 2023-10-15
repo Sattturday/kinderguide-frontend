@@ -1,13 +1,61 @@
-import React from 'react';
-import { EmptyPage } from '../../components/common/EmptyPage/EmptyPage';
+import React, { useState } from 'react';
+import { EmptyPage } from '../../components/common/EmptyPage';
+import { Button } from '../../components/common/Button';
+import { Sort } from '../../components/common/Sort';
+
+import {
+  searchMessage,
+  notfoundPage,
+  futureСontent,
+  futureSchedule,
+} from '../../utils/emptyPageMessage';
 import './NotFoundPage.scss';
+import { InputCheckbox } from '../../components/InputCheckbox/InputCheckbox';
 
 export function NotFoundPage() {
+  const [isChecked, setIsChecked] = useState(false);
   return (
     <div className='not-found'>
+      <Sort />
       <EmptyPage
-        title='К сожалению, в этом разделе пусто'
-        text='В ближайшее время мы обязательно добавить информацию'
+        title={notfoundPage.title}
+        size='medium'
+        color='blue'
+        margin='medium'
+      >
+        <Button size='large' width='400px' />
+      </EmptyPage>
+      <EmptyPage
+        title={searchMessage.title}
+        text={searchMessage.text}
+        size='medium'
+        color='black'
+        margin='medium'
+      >
+        <Button />
+      </EmptyPage>
+      <EmptyPage
+        title={futureСontent.title}
+        size='medium'
+        color='blue'
+        margin='medium'
+      >
+        <Button size='large' />
+      </EmptyPage>
+      <EmptyPage
+        title={futureSchedule.title}
+        size='small'
+        color='black'
+        margin='large'
+        img={futureSchedule.img}
+        imgName={futureSchedule.imgName}
+      />
+      <InputCheckbox
+        variant='terms'
+        text='true'
+        type='checkbox'
+        isChecked={isChecked}
+        onHandleCheck={() => setIsChecked(!isChecked)}
       />
     </div>
   );
