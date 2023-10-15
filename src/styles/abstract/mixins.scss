@@ -46,6 +46,13 @@
   letter-spacing: -0.22px;
 }
 
+@mixin text-xl($font-weight: $fw-light) {
+  margin: 0;
+  font-size: 40px;
+  font-weight: $font-weight;
+  line-height: 1.2;
+}
+
 @mixin input {
   border: none;
   color: $black;

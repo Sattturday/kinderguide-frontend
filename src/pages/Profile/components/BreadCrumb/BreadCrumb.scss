@@ -1,0 +1,26 @@
+@import '../../../../styles/abstract/constants.scss';
+@import '../../../../styles/abstract/mixins.scss';
+
+.bread-crumb__list {
+  margin: 0 0 16px;
+  padding: 0;
+  display: flex;
+}
+
+.bread-crumb__li {
+  list-style-type: none;
+  color: $blue-link;
+  @include text-s;
+}
+
+.bread-crumb__item {
+  color: $blue-link;
+  @include link;
+  @include text-s;
+}
+
+.bread-crumb__item:after {
+  padding: 8px;
+  color: $blue-link;
+  content: '/\00a0';
+}
