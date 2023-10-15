@@ -41,7 +41,7 @@
 
 .input__passwordImg {
   width: 24px;
-  aspect-ratio: 1;
+  aspect-ratio: 1 / 1;
   object-fit: contain;
   &:hover {
     filter: alpha(80%);
@@ -50,7 +50,7 @@
 
 .input__searchImg {
   width: 28px;
-  aspect-ratio: 1;
+  aspect-ratio: 1 / 1;
   object-fit: contain;
   &:hover {
     filter: brightness(70%);
