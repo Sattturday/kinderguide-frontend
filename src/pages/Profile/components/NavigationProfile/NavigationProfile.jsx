@@ -1,40 +1,42 @@
 import React from 'react';
 import './NavigationProfile.scss';
-import { NavLink } from 'react-router-dom';
 
-export function NavigationProfile() {
+export function NavigationProfile({ setStateProfile, stateProfile }) {
+  const handleClick = (data) => {
+    setStateProfile(data);
+  };
   return (
     <nav className='navigation-profile'>
-      <NavLink
-        className={({ isActive }) =>
-          `navigation-profile__item ${
-            isActive ? 'navigation-profile__item_active' : ''
-          }`
+      <button
+        className={
+          stateProfile === 'profile'
+            ? 'navigation-profile__item navigation-profile__item_active'
+            : 'navigation-profile__item'
         }
-        to='/profile'
+        onClick={() => handleClick('profile')}
       >
         Профиль
-      </NavLink>
-      <NavLink
-        className={({ isActive }) =>
-          `navigation-profile__item ${
-            isActive ? 'navigation-profile__item_active' : ''
-          }`
+      </button>
+      <button
+        className={
+          stateProfile === 'favorites'
+            ? 'navigation-profile__item navigation-profile__item_active'
+            : 'navigation-profile__item'
         }
-        to='/schedule'
+        onClick={() => handleClick('favorites')}
       >
         Расписание
-      </NavLink>
-      <NavLink
-        className={({ isActive }) =>
-          `navigation-profile__item ${
-            isActive ? 'navigation-profile__item_active' : ''
-          }`
+      </button>
+      <button
+        className={
+          stateProfile === 'schedule'
+            ? 'navigation-profile__item navigation-profile__item_active'
+            : 'navigation-profile__item'
         }
-        to='/favorites'
+        onClick={() => handleClick('schedule')}
       >
         Избранное
-      </NavLink>
+      </button>
     </nav>
   );
 }

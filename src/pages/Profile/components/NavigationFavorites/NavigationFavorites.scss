@@ -1,14 +1,14 @@
 @import '../../../../styles/abstract/constants.scss';
 @import '../../../../styles/abstract/mixins.scss';
 
-.navigation-profile {
+.navigation-favorites {
+  margin-bottom: 40px;
   width: 298px;
   display: flex;
-  flex-direction: column;
-  gap: 32px;
+  gap: 16px;
 }
 
-.navigation-profile__item {
+.navigation-favorites__item {
   @include text-m;
   color: $blue-link;
   @include link;
@@ -20,6 +20,6 @@
   font-family: 'Manrope', 'Arial', sans-serif;
 }
 
-.navigation-profile__item_active {
+.navigation-favorites__item_active {
   color: $blue-title;
 }
