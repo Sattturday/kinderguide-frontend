@@ -15,6 +15,7 @@ import { RegisterSuccessModal } from './components/RegisterSuccessModal';
 import { LoginModal } from './components/LoginModal';
 import { PasswordRecoveryModal } from './components/PasswordRecoveryModal';
 import { PasswordRecoverySuccessModal } from './components/PasswordRecoverySuccessModal';
+import { Kindergarten } from './pages/Kindergarten';
 
 function App() {
   return (
@@ -26,8 +27,9 @@ function App() {
         <Route path='/parents' element={<Parents />} />
         <Route path='/profile' element={<Profile />} />
         <Route path='/recovery' element={<Recovery />} />
-        {/* //Ю. Исправить временный путь */}
+        {/* //Ю. Исправить временные пути */}
         <Route path='/schools/id' element={<School />} />
+        <Route path='/kindergartens/id' element={<Kindergarten />} />
         <Route path='*' element={<NotFoundPage />} />
       </Routes>
 

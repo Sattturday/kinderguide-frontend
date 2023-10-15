@@ -49,7 +49,7 @@ export const Slider = ({
         loop={true}
         onSwiper={handleSwiper}
       >
-        {slides.map((slide, index) => (
+        {slides?.map((slide, index) => (
           <SwiperSlide key={index}>{slide}</SwiperSlide>
         ))}
       </Swiper>

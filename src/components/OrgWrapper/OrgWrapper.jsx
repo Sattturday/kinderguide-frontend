@@ -4,9 +4,9 @@ import like from '../../images/OrgWrapper/heart.svg';
 import { Stars } from '../Stars';
 import { YandexMap } from './YandexMap';
 import { Feedback } from './Feedback';
+import { Slider } from '../common/Slider';
 
 export const OrgWrapper = ({
-  org,
   children,
   name,
   description,
@@ -15,10 +15,15 @@ export const OrgWrapper = ({
   email,
   album,
   price,
-  // rating,
+  price_of_year,
+  underground,
+  area,
+  // reviews,
+  feedback,
+  org,
 }) => {
   // Ю. Убрать хардкод, когда прийдут данные
-  const rating = 4.5;
+  const reviews = 4.5;
   return (
     <div className='orgWrapper'>
       <nav className='orgWrapper__nav'>
@@ -33,7 +38,7 @@ export const OrgWrapper = ({
         <div>
           <h1 className='orgWrapper__header'>{name}Test</h1>
           <div className='orgWrapper__ratingWrapper'>
-            <Stars rating={rating}></Stars>
+            <Stars rating={reviews}></Stars>
           </div>
         </div>
         <Button variant='link' type='button'>
@@ -46,7 +51,14 @@ export const OrgWrapper = ({
       </div>
       <div className='orgWrapper__content'>
         <section className='orgWrapper__info' aria-label='Карточка организации'>
-          <div className='orgWrapper__imgContainer'>{/* //Слайдер */}</div>
+          <div className='orgWrapper__imgContainer'>
+            <Slider
+              slides={album}
+              variant='images'
+              slidesPerView='1'
+              width='738px'
+            />
+          </div>
           <div className='orgWrapper__description'>
             <h2 className='orgWrapper__descHeader'>Описание</h2>
             <p className='orgWrapper__descText'>
@@ -66,18 +78,20 @@ export const OrgWrapper = ({
         <aside className='orgWrapper__aside'>
           <div className='orgWrapper__contactInfo'>
             <p className='orgWrapper__title'>Стоимость обучения</p>
-            <p className='orgWrapper__perYear'>{price} в год</p>
-            <p className='orgWrapper__perMonth'>{price / 12} в месяц</p>
+            <p className='orgWrapper__perYear'>{price_of_year} в год</p>
+            <p className='orgWrapper__perMonth'>{price} в месяц</p>
             <p className='orgWrapper__title'>Контакты</p>
             <p className='orgWrapper__contacts'>Телефон: {telephone}</p>
             <p className='orgWrapper__contacts'>Почта: {email}</p>
-            <p className='orgWrapper__contacts'>Адрес {address}</p>
+            <p className='orgWrapper__contacts'>
+              Адрес {underground} {area} {address}
+            </p>
             <Button variant='primary' type='submit'>
               Подать заявление
             </Button>
           </div>
           <div className='orgWrapper__map'>
-            <YandexMap />
+            <YandexMap address={address} />
           </div>
         </aside>
       </div>
@@ -85,7 +99,7 @@ export const OrgWrapper = ({
         <h2 className='orgWrapper__feedbackHeader'>Отзывы</h2>
         <div className='orgWrapper__feedbackCards'>
           {/* //Слайдер с отзывами */}
-          <Feedback />
+          <Feedback feedback={feedback} />
         </div>
       </section>
     </div>

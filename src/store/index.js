@@ -7,6 +7,7 @@ export default configureStore({
   reducer: {
     modals: modalsReducer,
     [authApi.reducerPath]: authApi.reducer,
+    // [schoolApi.reducerPath]: schoolApi.reducer,
   },
 
   middleware: (getDefaultMiddleware) =>

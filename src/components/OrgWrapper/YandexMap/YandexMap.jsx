@@ -2,7 +2,11 @@ import { useState } from 'react';
 import { YMaps, Map, Placemark } from '@pbe/react-yandex-maps';
 import './YandexMap.scss';
 
-export const YandexMap = () => {
+export const YandexMap = (
+  {
+    // address
+  }
+) => {
   // Ю. Убрать хардкод адреса при получении данных с бека
   const address = 'Москва, ул. Льва Толстого, 16';
   const [coordinates, setCoordinates] = useState([55.751999, 37.617734]);
@@ -35,7 +39,7 @@ export const YandexMap = () => {
           'geolocation',
         ]}
       >
-        {coordinates[0] !== 55.751999 && coordinates[1] !== 37.617734 && (
+        {(coordinates[0] !== 55.751999 || coordinates[1] !== 37.617734) && (
           <Placemark geometry={coordinates} />
         )}
       </Map>
