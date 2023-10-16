@@ -9,11 +9,13 @@ import { NotFoundPage } from './pages/NotFoundPage';
 import { Parents } from './pages/Parents';
 import { Profile } from './pages/Profile';
 import { ImagePopup } from './components/common/ImagePopup';
+import { School } from './pages/School';
 import { RegisterModal } from './components/RegisterModal';
 import { RegisterSuccessModal } from './components/RegisterSuccessModal';
 import { LoginModal } from './components/LoginModal';
 import { PasswordRecoveryModal } from './components/PasswordRecoveryModal';
 import { PasswordRecoverySuccessModal } from './components/PasswordRecoverySuccessModal';
+import { Kindergarten } from './pages/Kindergarten';
 
 function App() {
   return (
@@ -25,6 +27,9 @@ function App() {
         <Route path='/parents' element={<Parents />} />
         <Route path='/profile' element={<Profile />} />
         <Route path='/recovery' element={<Recovery />} />
+        {/* //Ю. Исправить временные пути */}
+        <Route path='/schools/id' element={<School />} />
+        <Route path='/kindergartens/id' element={<Kindergarten />} />
         <Route path='*' element={<NotFoundPage />} />
       </Routes>
 
