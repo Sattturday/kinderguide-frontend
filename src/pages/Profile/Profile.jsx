@@ -3,7 +3,6 @@ import './Profile.scss';
 import { NavigationProfile } from './components/NavigationProfile/NavigationProfile';
 import { BreadCrumb } from './components/BreadCrumb/BreadCrumb';
 import { User } from './components/User/User';
-import { useGetUserQuery } from '../../api/userApi';
 import { Favorites } from './components/Favorites/Favorites';
 import { Schedule } from './components/Schedule/Schedule';
 
