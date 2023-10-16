@@ -22,8 +22,13 @@ $black: hsla(0, 0%, 0%, 1);
 $title-blue: hsla(237, 85%, 27%, 1);
 
 //Кнопки
-$button-yellow: hsla(45, 100%, 73%, 1);
-$button-orange: hsla(22, 94%, 68%, 1);
+$button-orange: hsla(22, 100%, 59%, 1);
+$button-orange-hover: hsla(22, 100%, 59%, 0.9);
+$button-orange-dis: hsla(22, 100%, 59%, 0.4);
+
+$button-blue: hsla(235, 82%, 60%, 1);
+$button-blue-hover: hsla(227, 100%, 96%, 1);
+
 $button-cyan: hsla(227, 100%, 86%, 1);
 $button-cyan-hover: hsla(227, 97%, 75%, 1);
 
@@ -55,4 +60,4 @@ $fw-semi-bold: 600;
 $fw-bold: 700;
 
 $radii: 50px;
-$radii-sm: 4px;
+$radii-sm: 8px;

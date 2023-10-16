@@ -161,7 +161,7 @@ export const PasswordRecoveryModal = ({
           type='submit'
           width='408px'
           size='large'
-          color={isReadyToSubmit ? 'fill' : 'empty'}
+          color={isReadyToSubmit ? 'orange-fill' : 'orange-dis'}
           disabled={!isReadyToSubmit}
           onClick={(e) => {
             handleSubmit(e);

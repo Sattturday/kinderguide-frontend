@@ -29,7 +29,7 @@ export function UserData({ setEditUser, dataUser }) {
         type='button'
         width='188px'
         size='medium'
-        color='fill'
+        color='orange-fill'
         onClick={(e) => {
           setEditUser(true);
         }}

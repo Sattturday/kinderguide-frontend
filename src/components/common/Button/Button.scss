@@ -3,12 +3,12 @@
 @import '../../../styles/abstract/placeholders.scss';
 
 .button {
-  padding: 0 15px;
+  padding: 0 30px;
   display: flex;
   justify-content: center;
   align-items: center;
-  @extend %gradient-button;
-  color: white;
+  background-color: $button-orange;
+  color: $white;
   border: none;
   border-radius: $radii;
   cursor: pointer;
@@ -16,54 +16,78 @@
 
   &_size {
     &_small {
-      padding: 0 10px;
-      min-height: 30px;
-      @include text-s;
-      background: $button-cyan;
-
-      &:hover {
-        background: $button-cyan-hover;
-      }
+      min-height: 40px;
+      @include text-m($fw-bold);
     }
 
     &_medium {
-      min-height: 41px;
-      @include text-m($fw-bold);
-      line-height: 1.3;
+      min-height: 56px;
+      @include text-l($fw-semi-bold);
     }
 
     &_large {
-      min-height: 71px;
-      @include text-l($fw-bold);
-      background: $button-orange;
+      min-height: 68px;
+      @include text-l($fw-semi-bold);
     }
   }
 
   &_variant {
     &_link {
-      background: transparent;
-      color: $button-cyan;
+      padding: 0;
+      background-color: transparent;
+      color: $button-cyan-hover;
 
       &:hover {
-        background: transparent;
-        color: $button-cyan-hover;
+        background-color: transparent;
+        color: $button-cyan;
       }
     }
 
     &_square {
+      padding: 0;
+      height: 52px;
       border-radius: $radii-sm;
+      background-color: $button-cyan;
+      color: $blue-title;
+
+      &:hover {
+        background-color: $button-cyan-hover;
+      }
     }
   }
 
-  &_color_empty {
-    background: transparent;
-    border: 1px solid $gray-900;
-    color: $gray-900;
+  &_color {
+    &_orange-fill {
+      &:hover {
+        background-color: $button-orange-hover;
+      }
+    }
 
-    &:hover {
-      background: transparent;
-      border: 1px solid $gray-300;
-      color: $gray-300;
+    &_orange-empty {
+      background-color: transparent;
+      border: 1px solid $button-orange;
+      color: $button-orange;
+
+      &:hover {
+        background-color: transparent;
+        opacity: 0.9;
+      }
+    }
+
+    &_orange-dis {
+      background-color: $button-orange-dis;
+      color: $black;
+      @include disabled;
+    }
+
+    &_blue-empty {
+      background-color: transparent;
+      border: 1px solid $button-blue;
+      color: $button-blue;
+
+      &:hover {
+        background-color: $button-blue-hover;
+      }
     }
   }
 }
