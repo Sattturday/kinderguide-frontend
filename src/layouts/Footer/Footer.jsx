@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom';
 import './Footer.scss';
-import logo from '../../images/logo.svg';
-import whatsappLogo from '../../images/whatsapp-logo-light.svg';
-import telegramLogo from '../../images/telegram-logo-light.svg';
-import vkLogo from '../../images/vk-logo-light.svg';
+import logo from '../../images/Footer/logo_footer.svg';
+import whatsappLogo from '../../images/Footer/whatsapp-logo-light.svg';
+import telegramLogo from '../../images/Footer/telegram-logo-light.svg';
+import vkLogo from '../../images/Footer/vk-logo-light.svg';
 import { Navigation } from '../../components/Navigation';
 
 export const Footer = () => (
@@ -15,9 +15,6 @@ export const Footer = () => (
 
       <Navigation usedFor='footer' />
       <div className='footer__right-container'>
-        <p className='footer__feedback'>
-          Есть идеи как улучшить наш сервис? Оставьте фидбек.
-        </p>
         <p className='footer__feedback'>KinderGuide@yandex.ru</p>
         <div className='footer__social-network-area'>
           <Link to='/' className='footer__social-network-item'>

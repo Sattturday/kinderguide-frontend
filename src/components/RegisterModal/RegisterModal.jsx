@@ -14,7 +14,7 @@ import { useCreateUserMutation } from '../../api/authApi';
 export const RegisterModal = () => {
   const [isReadyToSubmit, setIsReadyToSubmit] = useState(false);
 
-  const { data, setData, onChange, errors, setErrors, isValid } =
+  const { data, setData, onChange, errors, isValid, resetForm } =
     useFormAndValidation();
 
   const isOpen = useSelector((state) => state.modals.isOpenRegisterModal);
@@ -26,8 +26,10 @@ export const RegisterModal = () => {
     try {
       const response = await createUser(data).unwrap();
       console.log(response); // eslint-disable-line
+      resetForm();
     } catch (error) {
       console.log(error);
+    } finally {
     }
   };
 
@@ -35,12 +37,7 @@ export const RegisterModal = () => {
   // экзотические инпуты проверяются в самой форме
 
   useEffect(() => {
-    if (
-      data.phone &&
-      data.password === data['password-repeat'] &&
-      data.isConfirm &&
-      isValid
-    ) {
+    if (data.phone && data.isConfirm && isValid) {
       // Это костыль, чтобы провалидировать инпут телефона из библиотечки
       if (!data.phone?.includes('_')) {
         setIsReadyToSubmit(true);
@@ -51,20 +48,6 @@ export const RegisterModal = () => {
       setIsReadyToSubmit(false);
     }
   }, [data, isValid]);
-
-  useEffect(() => {
-    if (data.phone && data.phone?.includes('_')) {
-      setErrors({
-        ...errors,
-        phone: 'Введите корректный номер телефона',
-      });
-    } else {
-      setErrors({
-        ...errors,
-        phone: '',
-      });
-    }
-  }, [data]); // eslint-disable-line
 
   return (
     <Popup isOpen={isOpen} name='register-modal'>
@@ -160,24 +143,10 @@ export const RegisterModal = () => {
           />
         </InputWrapper>
 
-        <InputWrapper
-          inputId='password-repeat'
-          variant='form'
-          labelText='Пароль повторно'
-          errorText={errors['password-repeat']}
-        >
-          <InputPassword
-            inputId='password-repeat'
-            variant='form'
-            name='password-repeat'
-            onChange={onChange}
-            value={data['password-repeat']}
-            placeholder='Повторите пароль'
-            isValid={!errors['password-repeat']?.length}
-          />
-        </InputWrapper>
-
         <InputCheckbox
+          variant='terms'
+          text
+          type='checkbox'
           isChecked={data.isConfirm}
           onChange={() => {
             setData({ ...data, isConfirm: !data.isConfirm });
