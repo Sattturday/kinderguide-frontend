@@ -52,7 +52,7 @@ export const OrgWrapper = ({
       <div className='orgWrapper__content'>
         <section className='orgWrapper__info' aria-label='Карточка организации'>
           <div className='orgWrapper__imgContainer'>
-            <ImageSlider slides={album} width='738px' />
+            {/* <ImageSlider slides={album} width='738px' /> */}
           </div>
           <div className='orgWrapper__description'>
             <h2 className='orgWrapper__descHeader'>Описание</h2>
