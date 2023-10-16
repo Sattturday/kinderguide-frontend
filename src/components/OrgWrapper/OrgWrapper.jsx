@@ -4,7 +4,7 @@ import like from '../../images/OrgWrapper/heart.svg';
 import { Stars } from '../Stars';
 import { YandexMap } from './YandexMap';
 import { Feedback } from './Feedback';
-import { Slider } from '../common/Slider';
+import { ImageSlider } from '../ImageSlider';
 
 export const OrgWrapper = ({
   children,
@@ -52,12 +52,7 @@ export const OrgWrapper = ({
       <div className='orgWrapper__content'>
         <section className='orgWrapper__info' aria-label='Карточка организации'>
           <div className='orgWrapper__imgContainer'>
-            <Slider
-              slides={album}
-              variant='images'
-              slidesPerView='1'
-              width='738px'
-            />
+            <ImageSlider slides={album} width='738px' />
           </div>
           <div className='orgWrapper__description'>
             <h2 className='orgWrapper__descHeader'>Описание</h2>
