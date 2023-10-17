@@ -7,12 +7,20 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: $button-orange;
   color: $white;
   border: none;
   border-radius: $radii;
   cursor: pointer;
   transition: ease-in-out 350ms;
+  background-color: $button-orange;
+
+  &:hover {
+    background-color: $button-orange-hover;
+  }
+
+  &:active {
+    background-color: $button-orange-active;
+  }
 
   &_size {
     &_small {
@@ -34,12 +42,17 @@
   &_variant {
     &_link {
       padding: 0;
-      background-color: transparent;
+      background: transparent;
       color: $button-cyan-hover;
 
       &:hover {
         background-color: transparent;
         color: $button-cyan;
+      }
+
+      &:active {
+        background-color: transparent;
+        color: $button-cyan-active;
       }
     }
 
@@ -53,24 +66,29 @@
       &:hover {
         background-color: $button-cyan-hover;
       }
+
+      &:active {
+        background-color: $button-cyan-active;
+        color: $button-cyan;
+      }
     }
   }
 
   &_color {
-    &_orange-fill {
-      &:hover {
-        background-color: $button-orange-hover;
-      }
-    }
-
     &_orange-empty {
       background-color: transparent;
-      border: 1px solid $button-orange;
+      border: 2px solid $button-orange;
       color: $button-orange;
 
       &:hover {
         background-color: transparent;
         opacity: 0.9;
+      }
+
+      &:active {
+        background-color: transparent;
+        border: 2px solid $button-orange-active;
+        color: $button-orange-active;
       }
     }
 
@@ -82,11 +100,17 @@
 
     &_blue-empty {
       background-color: transparent;
-      border: 1px solid $button-blue;
+      border: 2px solid $button-blue;
       color: $button-blue;
 
       &:hover {
         background-color: $button-blue-hover;
+      }
+
+      &:active {
+        @extend %gradient-button;
+        color: $button-cyan;
+        border: 2px solid $button-cyan;
       }
     }
   }
