@@ -11,7 +11,7 @@ export function Promo() {
       <div className='wrapper'>
         <div className='promo__description-area'>
           <h2 className='promo__title'>
-            Помогаем найти лучший образовательный центр для вашего ребёнка.
+            Помогаем найти лучший образовательный центр для вашего ребёнка
           </h2>
 
           <Button width='408px' size='large'>
