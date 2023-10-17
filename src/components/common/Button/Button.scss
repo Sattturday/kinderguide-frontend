@@ -58,10 +58,10 @@
 
     &_square {
       padding: 0;
-      border-radius: $radii-xs;
       min-width: 52px;
       min-height: 52px;
       background-color: $button-cyan;
+      border-radius: $radii-xs;
       color: $title-blue;
 
       &:hover {
