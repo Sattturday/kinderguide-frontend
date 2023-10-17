@@ -10,7 +10,7 @@ export const Input = ({
   variant,
   name,
   onChange,
-  value = '',
+  value,
   placeholder,
   type,
   required,
@@ -42,11 +42,18 @@ Input.propTypes = {
   /**
    * Вариант внешнего вида инпута
    */
-  variant: PropTypes.oneOf(['form', 'password', 'info', 'search', 'price']),
+  variant: PropTypes.oneOf([
+    'form',
+    'password',
+    'info',
+    'search',
+    'price',
+    'other',
+  ]),
   /**
    * Действие, выполняемое при изменении значения инпута
    */
-  onChange: PropTypes.func,
+  // onChange: PropTypes.func,
   /**
    * Id инпута, используется также для привязки ярлыка
    */

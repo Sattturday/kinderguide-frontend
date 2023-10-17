@@ -9,7 +9,7 @@
   align-items: center;
   color: $white;
   border: none;
-  border-radius: $radii;
+  border-radius: $radii-l;
   cursor: pointer;
   transition: ease-in-out 350ms;
   background-color: $button-orange;
@@ -58,11 +58,11 @@
 
     &_square {
       padding: 0;
+      border-radius: $radii-xs;
       min-width: 52px;
       min-height: 52px;
-      border-radius: $radii-sm;
       background-color: $button-cyan;
-      color: $blue-title;
+      color: $title-blue;
 
       &:hover {
         background-color: $button-cyan-hover;
@@ -109,7 +109,7 @@
       }
 
       &:active {
-        @extend %gradient-button;
+        @extend %gradient;
         color: $button-cyan;
         border: 2px solid $button-cyan;
       }
