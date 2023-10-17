@@ -13,7 +13,7 @@
   justify-content: space-between;
   height: 190px;
   border-bottom: 2px solid #7a7fe6;
-  margin-bottom: 16px;
+  margin-bottom: 22px;
 }
 
 .footer__logo {
@@ -29,8 +29,9 @@
 
 .footer__feedback {
   @include link;
-  @include text-m;
-  margin-bottom: 20px;
+  @include text-l;
+  margin: 4px 0 23px;
+  letter-spacing: 0.2px;
 }
 
 .footer__social-network-area {
@@ -41,7 +42,8 @@
 .footer__documents {
   display: flex;
   justify-content: start;
-  gap: 100px;
+  gap: 48px;
+  margin-left: 4px;
 }
 
 .footer__documents-item {

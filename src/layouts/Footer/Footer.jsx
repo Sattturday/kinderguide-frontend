@@ -21,11 +21,11 @@ export const Footer = () => (
             <img src={telegramLogo} alt='ссылка на телеграм' />
           </Link>
           <Link to='/' className='footer__social-network-item'>
-            <img src={whatsappLogo} alt='ссылка на ватсап' />
-          </Link>{' '}
-          <Link to='/' className='footer__social-network-item'>
             <img src={vkLogo} alt='ссылка на инстаграм' />
           </Link>
+          <Link to='/' className='footer__social-network-item'>
+            <img src={whatsappLogo} alt='ссылка на ватсап' />
+          </Link>{' '}
         </div>
       </div>
     </div>

@@ -23,7 +23,7 @@ export function Promo() {
           <img src={glass} alt='Увеличительное стекло' />
           <img src={question} alt='Вопросительный знак' />
           <span>Как найти хорошую школу?</span>
-          <span>Где искать репититора?</span>
+          <span>Где искать репетитора?</span>
           <span>Как выбрать курсы?</span>
         </div>
       </div>
