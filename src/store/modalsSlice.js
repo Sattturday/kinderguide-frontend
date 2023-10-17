@@ -14,7 +14,6 @@ const modalsSlice = createSlice({
   initialState: initialState,
   reducers: {
     closeAllModals(state) {
-      console.log(state.isOpenLoginModal);
       for (const key in state) {
         state[key] = false;
       }

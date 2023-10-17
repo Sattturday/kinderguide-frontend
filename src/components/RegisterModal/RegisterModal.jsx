@@ -13,6 +13,7 @@ import { useCreateUserMutation } from '../../api/authApi';
 
 export const RegisterModal = () => {
   const [isReadyToSubmit, setIsReadyToSubmit] = useState(false);
+  const [isConfirm, setIsConfirm] = useState(false);
 
   const { data, setData, onChange, errors, isValid, resetForm } =
     useFormAndValidation();
@@ -23,6 +24,7 @@ export const RegisterModal = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    console.log(data);
     try {
       const response = await createUser(data).unwrap();
       console.log(response); // eslint-disable-line
@@ -37,7 +39,7 @@ export const RegisterModal = () => {
   // экзотические инпуты проверяются в самой форме
 
   useEffect(() => {
-    if (data.phone && data.isConfirm && isValid) {
+    if (data.phone && isConfirm && isValid) {
       // Это костыль, чтобы провалидировать инпут телефона из библиотечки
       if (!data.phone?.includes('_')) {
         setIsReadyToSubmit(true);
@@ -47,7 +49,7 @@ export const RegisterModal = () => {
     } else {
       setIsReadyToSubmit(false);
     }
-  }, [data, isValid]);
+  }, [data.phone, isValid, isConfirm]);
 
   return (
     <Popup isOpen={isOpen} name='register-modal'>
@@ -58,17 +60,17 @@ export const RegisterModal = () => {
         }}
       >
         <InputWrapper
-          inputId='name'
+          inputId='first_name'
           variant='form'
           labelText='Имя'
           errorText={errors['name']}
         >
           <Input
-            inputId='name'
+            inputId='first_name'
             variant='form'
             name='name'
             onChange={onChange}
-            value={data.name}
+            value={data.first_name}
             placeholder='Введите имя'
             type='text'
             isValid={!errors['name']?.length}
@@ -76,17 +78,17 @@ export const RegisterModal = () => {
         </InputWrapper>
 
         <InputWrapper
-          inputId='lastname'
+          inputId='last_name'
           variant='form'
           labelText='Фамилия'
           errorText={errors['lastname']}
         >
           <Input
-            inputId='lastname'
+            inputId='last_name'
             variant='form'
             name='lastname'
             onChange={onChange}
-            value={data['lastname']}
+            value={data.last_name}
             placeholder='Введите фамилию'
             type='text'
             isValid={!errors['lastname']?.length}
@@ -147,9 +149,9 @@ export const RegisterModal = () => {
           variant='terms'
           text
           type='checkbox'
-          isChecked={data.isConfirm}
+          isChecked={isConfirm}
           onChange={() => {
-            setData({ ...data, isConfirm: !data.isConfirm });
+            setIsConfirm(!isConfirm);
           }}
         />
         <Button
