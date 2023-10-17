@@ -2,17 +2,21 @@
 @import '../../../styles/abstract/mixins.scss';
 
 .popup {
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(25, 26, 49, 0.63);
   position: fixed;
   top: 0;
   left: 0;
   bottom: 0;
   right: 0;
+  overflow: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   opacity: 0;
   visibility: hidden;
+  padding: 106px 0 70px;
   transition: opacity 0.4s ease;
 
   &_opened {
@@ -22,8 +26,8 @@
 }
 
 .popup__container {
-  padding: 100px 142px;
-  width: 692px;
+  margin: auto;
+  padding: 60px 80px;
   background: $white;
   border-radius: 16px;
   display: flex;
@@ -63,8 +67,8 @@
 }
 
 .popup__close-btn {
-  width: 32px;
-  height: 32px;
+  width: 24px;
+  height: 24px;
   background-image: url(../../../images/popup__close.svg);
   background-size: cover;
   background-repeat: no-repeat;
@@ -73,8 +77,8 @@
   border: none;
   padding: 0;
   position: absolute;
-  top: -40px;
-  right: -40px;
+  top: -36px;
+  right: 0;
   cursor: pointer;
   transition: opacity 0.4s linear;
 
