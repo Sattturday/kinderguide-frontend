@@ -2,32 +2,23 @@
 @import '../../styles/abstract/mixins.scss';
 
 .footer {
-  min-height: 249px;
-  padding: 60px 76px;
+  min-height: 327px;
+  padding: 60px 76px 32px;
+  background-color: #322761;
 }
 
 .footer__flex-container {
+  color: #fefefe;
   display: flex;
   justify-content: space-between;
-  padding-bottom: 43px;
+  height: 190px;
   border-bottom: 2px solid #7a7fe6;
-  margin-bottom: 36px;
+  margin-bottom: 22px;
 }
 
 .footer__logo {
-  width: 214px;
-  height: 63px;
-  margin-bottom: 15px;
-}
-
-.footer__feedback {
-  @include link;
-  @include text-m;
-  margin-bottom: 16px;
-
-  &:last-child {
-    margin: 0;
-  }
+  width: 210px;
+  height: 64px;
 }
 
 .footer__right-container {
@@ -36,25 +27,27 @@
   flex-direction: column;
 }
 
-.footer__social-network-area {
-  display: flex;
+.footer__feedback {
+  @include link;
+  @include text-l;
+  margin: 4px 0 23px;
+  letter-spacing: 0.2px;
 }
 
-.footer__social-network-item {
-  margin-right: 20px;
-
-  &:last-child {
-    margin: 0;
-  }
+.footer__social-network-area {
+  display: flex;
+  gap: 12px;
 }
 
 .footer__documents {
   display: flex;
-  justify-content: center;
-  gap: 100px;
+  justify-content: start;
+  gap: 48px;
+  margin-left: 4px;
 }
 
 .footer__documents-item {
   @include text-m;
   @include link;
+  color: #fefefe;
 }

@@ -45,7 +45,7 @@ function Form({ title, variant, subtitle, button, children }) {
         </div>
         <Button
           variant='primary'
-          color='fill'
+          color='orange-fill'
           type='submit'
           size='medium'
           width='auto'

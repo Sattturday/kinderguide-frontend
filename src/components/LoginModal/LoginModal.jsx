@@ -7,24 +7,33 @@ import { InputPassword } from '../InputPassword';
 import { Button } from '../common/Button';
 import { useSelector } from 'react-redux';
 import { useLoginMutation } from '../../api/authApi';
+import { setCredentials } from '../../store/authSlice';
+import { useDispatch } from 'react-redux';
 
 export const LoginModal = () => {
   const { data, onChange, errors, isValid } = useFormAndValidation();
   const isOpen = useSelector((state) => state.modals.isOpenLoginModal);
 
   const [login, { isLoading, isError }] = useLoginMutation();
+  const dispatch = useDispatch();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     try {
-      const response = await login(data);
-      console.log(response);
+      const response = await login({
+        email: data['login-form-email'],
+        password: data['login-form-password'],
+      });
+
+      const userData = await response.JSON();
+
+      dispatch(setCredentials(userData));
     } catch (error) {
       console.log(error);
     }
-
-    console.log(data); // eslint-disable-line
   };
+
   return (
     <Popup isOpen={isOpen} name='login-modal'>
       <h2 className='login-modal__title'>Вход</h2>
@@ -69,7 +78,7 @@ export const LoginModal = () => {
           type='submit'
           width='408px'
           size='large'
-          color={isValid ? 'fill' : 'empty'}
+          color={isValid ? 'orange-fill' : 'orange-dis'}
           disabled={!isValid}
         >
           Войти

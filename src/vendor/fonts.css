@@ -1,38 +1,52 @@
 @font-face {
-  font-family: 'Manrope';
-  font-style: normal;
-  font-weight: 200;
-  font-display: swap;
-  src:
-    url('./fonts/manrope_extralight.eot'),
-    url('./fonts/manrope_extralight.eot?#iefix') format('embedded-opentype'),
-    url('./fonts/manrope_extralight.woff2') format('woff2'),
-    url('./fonts/manrope_extralight.woff') format('woff'),
-    url('./fonts/manrope_extralight.ttf') format('truetype');
-}
-
-@font-face {
-  font-family: 'Manrope';
+  font-family: 'Noto Sans';
   font-style: normal;
   font-weight: 400;
   font-display: swap;
   src:
-    url('./fonts/manrope_regular.eot'),
-    url('./fonts/manrope_regular.eot?#iefix') format('embedded-opentype'),
-    url('./fonts/manrope_regular.woff2') format('woff2'),
-    url('./fonts/manrope_regular.woff') format('woff'),
-    url('./fonts/manrope_regular.ttf') format('truetype');
+    url('./fonts/noto_sans_regular.eot'),
+    url('./fonts/noto_sans_regular.eot?#iefix') format('embedded-opentype'),
+    url('./fonts/noto_sans_regular.woff2') format('woff2'),
+    url('./fonts/noto_sans_regular.woff') format('woff'),
+    url('./fonts/noto_sans_regular.ttf') format('truetype');
 }
 
 @font-face {
-  font-family: 'Manrope';
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src:
+    url('./fonts/noto_sans_display_medium.eot'),
+    url('./fonts/noto_sans_display_medium.eot?#iefix')
+      format('embedded-opentype'),
+    url('./fonts/noto_sans_display_medium.woff2') format('woff2'),
+    url('./fonts/noto_sans_display_medium.woff') format('woff'),
+    url('./fonts/noto_sans_display_medium.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Noto Sans';
   font-style: normal;
   font-weight: 600;
   font-display: swap;
   src:
-    url('./fonts/manrope_semibold.eot'),
-    url('./fonts/manrope_semibold.eot?#iefix') format('embedded-opentype'),
-    url('./fonts/manrope_semibold.woff2') format('woff2'),
-    url('./fonts/manrope_semibold.woff') format('woff'),
-    url('./fonts/manrope_semibold.ttf') format('truetype');
+    url('./fonts/noto_sans_semibold.eot'),
+    url('./fonts/noto_sans_semibold.eot?#iefix') format('embedded-opentype'),
+    url('./fonts/noto_sans_semibold.woff2') format('woff2'),
+    url('./fonts/noto_sans_semibold.woff') format('woff'),
+    url('./fonts/noto_sans_semibold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src:
+    url('./fonts/noto_sans_bold.eot'),
+    url('./fonts/noto_sans_bold.eot?#iefix') format('embedded-opentype'),
+    url('./fonts/noto_sans_bold.woff2') format('woff2'),
+    url('./fonts/noto_sans_bold.woff') format('woff'),
+    url('./fonts/noto_sans_bold.ttf') format('truetype');
 }

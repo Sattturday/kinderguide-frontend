@@ -43,7 +43,12 @@ Button.propTypes = {
   /**
    * Вариант заливки кнопки
    */
-  color: PropTypes.oneOf(['fill', 'empty']),
+  color: PropTypes.oneOf([
+    'orange-fill',
+    'orange-empty',
+    'orange-dis',
+    'blue-empty',
+  ]),
   /**
    * Вариант размера кнопки
    */
@@ -64,7 +69,7 @@ Button.propTypes = {
 
 Button.defaultProps = {
   variant: 'primary',
-  color: 'fill',
+  color: 'orange-fill',
   type: 'button',
   size: 'medium',
   width: 'auto',
