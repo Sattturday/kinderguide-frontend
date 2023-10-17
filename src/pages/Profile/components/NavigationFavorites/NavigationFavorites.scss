@@ -2,9 +2,9 @@
 @import '../../../../styles/abstract/mixins.scss';
 
 .navigation-favorites {
-  margin-bottom: 40px;
-  width: 298px;
+  padding-left: 12px;
   display: flex;
+  flex-direction: column;
   gap: 16px;
 }
 

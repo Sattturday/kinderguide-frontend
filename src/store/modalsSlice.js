@@ -5,6 +5,7 @@ const initialState = {
   isOpenRegisterModal: false,
   isOpenRegisterSuccessModal: false,
   isOpenLoginModal: false,
+  isOpenExitProfileModal: false,
   isOpenPasswordRecoveryModal: false,
   isOpenPasswordRecoverySuccessModal: false,
 };
@@ -15,6 +16,7 @@ const modalsSlice = createSlice({
   reducers: {
     closeAllModals(state) {
       console.log(state.isOpenLoginModal);
+      console.log(state.isOpenExitProfileModal);
       for (const key in state) {
         state[key] = false;
       }
@@ -27,6 +29,9 @@ const modalsSlice = createSlice({
     },
     openLoginModal(state) {
       state.isOpenLoginModal = true;
+    },
+    openExitProfileModal(state) {
+      state.isOpenExitProfileModal = true;
     },
     openPasswordRecoveryModal(state) {
       state.isOpenPasswordRecoveryModal = true;
@@ -42,6 +47,7 @@ export const {
   openRegisterModal,
   openRegisterSuccessModal,
   openLoginModal,
+  openExitProfileModal,
   openPasswordRecoveryModal,
   openPasswordRecoverySuccessModal,
   closeAllModals,

@@ -16,6 +16,7 @@ import { LoginModal } from './components/LoginModal';
 import { PasswordRecoveryModal } from './components/PasswordRecoveryModal';
 import { PasswordRecoverySuccessModal } from './components/PasswordRecoverySuccessModal';
 import { Kindergarten } from './pages/Kindergarten';
+import { ProfielExitModal } from './components/ProfielExitModal';
 
 function App() {
   return (
@@ -38,6 +39,7 @@ function App() {
       <RegisterModal />
       <RegisterSuccessModal />
       <LoginModal />
+      <ProfielExitModal />
       <PasswordRecoveryModal stepRecovery={1} />
       <PasswordRecoverySuccessModal />
     </Layout>

@@ -5,10 +5,11 @@
   width: 298px;
   display: flex;
   flex-direction: column;
-  gap: 32px;
+  gap: 16px;
 }
 
 .navigation-profile__item {
+  width: 298px;
   @include text-m;
   color: $blue-link;
   @include link;
@@ -18,6 +19,34 @@
   border: none;
   line-height: 130%;
   font-family: 'Manrope', 'Arial', sans-serif;
+}
+
+.navigation-profile__item_favorites {
+  position: relative;
+}
+
+.navigation-profile__item_favorites::after {
+  content: '';
+  width: 24px;
+  height: 24px;
+  top: 0;
+  right: 12px;
+  position: absolute;
+  background-image: url('../../../../images/Profile/Arrow-min-down.svg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.favoritesOpen::after {
+  content: '';
+  width: 24px;
+  height: 24px;
+  top: 0;
+  right: 12px;
+  position: absolute;
+  background-image: url('../../../../images/Profile/Arrow-min-up.svg');
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .navigation-profile__item_active {

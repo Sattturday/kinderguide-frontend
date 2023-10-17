@@ -5,13 +5,12 @@ import { BreadCrumb } from './components/BreadCrumb/BreadCrumb';
 import { User } from './components/User/User';
 import { Favorites } from './components/Favorites/Favorites';
 import { Schedule } from './components/Schedule/Schedule';
+import { useGetUserQuery } from '../../api/userApi';
 
 export function Profile() {
   const [stateProfile, setStateProfile] = useState('profile');
-  const [stateFavorites, setStateFavorites] = useState('school');
 
-  // const { data = {} } = useGetUserQuery();
-  const data = {};
+  const { data = {} } = useGetUserQuery();
   return (
     <section className='profile'>
       <div className='wrapper'>
@@ -23,15 +22,8 @@ export function Profile() {
             stateProfile={stateProfile}
           />
           {stateProfile === 'profile' ? <User dataUser={data} /> : ''}
-          {stateProfile === 'schedule' ? (
-            <Favorites
-              setStateFavorites={setStateFavorites}
-              stateFavorites={stateFavorites}
-            />
-          ) : (
-            ''
-          )}
-          {stateProfile === 'favorites' ? <Schedule /> : ''}
+          {stateProfile === 'schedule' ? <Schedule /> : ''}
+          {stateProfile === 'favorites' ? <Favorites /> : ''}
         </div>
       </div>
     </section>
