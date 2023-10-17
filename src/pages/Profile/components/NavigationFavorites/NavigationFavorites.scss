@@ -10,7 +10,7 @@
 
 .navigation-favorites__item {
   @include text-m;
-  color: $blue-link;
+  color: $title-blue;
   @include link;
   padding: 0;
   text-align: start;
@@ -21,5 +21,5 @@
 }
 
 .navigation-favorites__item_active {
-  color: $blue-title;
+  color: $title-blue;
 }

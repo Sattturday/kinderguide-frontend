@@ -25,17 +25,17 @@
   background-size: 64px 64px;
   &_type {
     &_green {
-      background-color: $green-blue;
+      background-color: $button-orange;
       background-image: url('../../../../images/AboutCard/clock.svg');
     }
 
     &_blue {
-      background-color: $blue-light;
+      background-color: $button-orange;
       background-image: url('../../../../images/AboutCard/browser.svg');
     }
 
     &_orange {
-      background-color: $orange-light;
+      background-color: $button-orange;
       background-image: url('../../../../images/AboutCard/thumb-up.svg');
     }
   }
