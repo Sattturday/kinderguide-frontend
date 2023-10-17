@@ -11,7 +11,7 @@ export function Form({ variant, button, handleSubmit, name, children }) {
       {children}
       <Button
         variant='primary'
-        color='fill'
+        color='orange-fill'
         type='submit'
         size='medium'
         width='auto'

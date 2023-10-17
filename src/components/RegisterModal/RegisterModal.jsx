@@ -158,7 +158,7 @@ export const RegisterModal = () => {
           type='submit'
           width='408px'
           size='large'
-          color={isReadyToSubmit ? 'fill' : 'empty'}
+          color={isReadyToSubmit ? 'orange-fill' : 'orange-dis'}
           disabled={!isReadyToSubmit}
         >
           Зарегистрироваться
