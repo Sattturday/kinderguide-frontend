@@ -5,7 +5,7 @@ import { Stars } from '../Stars';
 import { YandexMap } from './YandexMap';
 import { Feedback } from './Feedback';
 import { ImageSlider } from '../ImageSlider';
-import { album } from '../../utils/constants';
+import { album } from '../../utils/exampleData';
 
 export const OrgWrapper = ({
   children,

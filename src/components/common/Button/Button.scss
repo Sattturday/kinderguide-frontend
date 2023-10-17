@@ -26,11 +26,13 @@
     &_small {
       min-height: 40px;
       @include text-m($fw-bold);
+      line-height: 1.1;
     }
 
     &_medium {
       min-height: 56px;
       @include text-l($fw-semi-bold);
+      line-height: 1.1;
     }
 
     &_large {
@@ -43,11 +45,11 @@
     &_link {
       padding: 0;
       background: transparent;
-      color: $button-cyan-hover;
+      color: $title-blue;
 
       &:hover {
         background-color: transparent;
-        color: $button-cyan;
+        color: $button-blue;
       }
 
       &:active {

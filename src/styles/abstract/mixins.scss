@@ -94,9 +94,9 @@
   height: 68px;
 }
 
-@mixin header-cyan {
-  font-weight: $fw-bold;
+@mixin header-cyan($font-weight: $fw-normal) {
+  font-weight: $font-weight;
   font-size: 50px;
-  line-height: 120%;
+  line-height: 1.2;
   color: $title-blue;
 }

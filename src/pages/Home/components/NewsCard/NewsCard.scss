@@ -2,18 +2,13 @@
 @import '../../../../styles/abstract/mixins.scss';
 
 .news-card {
-  position: relative;
+  padding-bottom: 40px;
   width: 408px;
   display: flex;
   flex-direction: column;
   border-radius: 16px;
   background-color: $white;
-
-  button {
-    position: absolute;
-    top: 16px;
-    left: 16px;
-  }
+  border: 1px solid $button-cyan-hover;
 }
 
 .news-card__image {
@@ -27,21 +22,22 @@
 }
 
 .news-card__info {
-  padding: 40px 20px;
+  padding: 40px 20px 18px;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 12px;
 }
 
 .news-card__date {
   @include text-s;
+  line-height: 1.2;
 }
 
 .news-card__title {
-  @include text-l;
-  font-weight: $fw-bold;
+  @include text-l($fw-semi-bold);
 }
 
 .news-card__description {
-  @include text-m;
+  @include text-l;
+  padding-top: 8px;
 }

@@ -1,0 +1,30 @@
+@import '../../../../styles/abstract/constants.scss';
+@import '../../../../styles/abstract/mixins';
+
+.news {
+  padding: 100px 0 150px;
+}
+
+.news__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.news__title {
+  @include header-cyan;
+  margin: 0;
+  padding-bottom: 40px;
+  letter-spacing: 1.6px;
+}
+
+.news__list {
+  @include list;
+  width: 100%;
+  padding-bottom: 23px;
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  grid-template-rows: repeat(2, auto);
+  justify-content: space-between;
+  gap: 32px;
+}
