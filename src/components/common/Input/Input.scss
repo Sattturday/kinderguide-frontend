@@ -8,6 +8,7 @@
     &_form {
       @include formInput;
       padding: 20px;
+      border-radius: $radii-s;
     }
 
     &_password {
