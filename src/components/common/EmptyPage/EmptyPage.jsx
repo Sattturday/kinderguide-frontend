@@ -4,9 +4,9 @@ import './EmptyPage.scss';
 export function EmptyPage({
   title,
   text,
-  size,
-  color,
-  margin,
+  size = 'small',
+  color = 'blue',
+  margin = 'medium',
   img,
   imgName,
   children,
