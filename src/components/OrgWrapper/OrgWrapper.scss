@@ -28,7 +28,6 @@
 }
 
 .orgWrapper__like {
-  border: 1px solid $purple;
   border-radius: 50%;
   padding: 6px;
   width: 44px;
@@ -49,7 +48,7 @@
 
 .orgWrapper__imgContainer {
   height: 434px;
-  background-color: $gray-300;
+  background-color: $bg-gray;
   margin: 0 0 40px 0;
   border-radius: 16px;
 }
@@ -73,7 +72,7 @@
 
 .orgWrapper__contactInfo {
   border-radius: 16px;
-  background-color: $purple;
+  background-color: $bg-purple;
   margin-bottom: 40px;
   padding: 40px;
 }

@@ -10,7 +10,7 @@ import { openPasswordRecoveryModal } from '../../store/modalsSlice';
 
 export const InputPassword = ({
   inputId,
-  labelText = 'test',
+  labelText,
   errorText,
   name,
   onChange,
@@ -35,13 +35,11 @@ export const InputPassword = ({
         isValid={isValid}
         name={name}
         inputId={inputId}
-        labelText={labelText}
         onChange={onChange}
         value={value}
         variant='password'
         placeholder={placeholder}
         type={type}
-        errorText={errorText}
         minLength='8'
       />
       {forgetPassword && (

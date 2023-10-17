@@ -6,19 +6,21 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  min-height: 135px;
+  min-height: 112px;
 
   &_kind {
     &_form {
-      width: 408px;
+      width: 520px;
+      margin-bottom: 20px;
     }
 
     &_password {
-      width: 408px;
+      width: 520px;
+      margin-bottom: 20px;
     }
 
     &_info {
-      width: 253px;
+      width: 298px;
     }
 
     &_search {
@@ -28,34 +30,13 @@
     &_price {
       width: 115px;
     }
+
+    &_other {
+      width: 100%;
+    }
   }
 }
 
-.input__searchIcon {
-  position: absolute;
-  top: 10px;
-  right: 5px;
-  z-index: 2;
-  background-color: $gray-light;
-}
-
-.input__passwordImg {
-  width: 24px;
-  aspect-ratio: 1 / 1;
-  object-fit: contain;
-  &:hover {
-    filter: alpha(80%);
-  }
-}
-
-.input__searchImg {
-  width: 28px;
-  aspect-ratio: 1 / 1;
-  object-fit: contain;
-  &:hover {
-    filter: brightness(70%);
-  }
-}
 .inputWrapper__label {
   @include text-m;
   color: $black;
@@ -64,14 +45,14 @@
 }
 
 .inputWrapper__error {
-  @include text-s;
+  @include text-m;
   display: block;
   border: none;
-  color: $red;
+  color: $error;
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
   margin: 0;
-  padding: 5px 0 0 0;
+  padding: 5px 0 20px 0;
 }

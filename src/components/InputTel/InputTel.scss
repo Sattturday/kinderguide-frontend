@@ -4,8 +4,12 @@
 .inputTel {
   @include input;
   @include formInput;
+  padding: 20px;
+  border-radius: $radii-s;
 }
 
-.inputTel__profiel {
-  width: 253px;
+.inputTel__profile {
+  width: 298px;
+  height: 68px;
+  padding: 20px 26px;
 }

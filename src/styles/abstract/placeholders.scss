@@ -4,38 +4,8 @@
 }
 
 // Градиенты
-%gradient-button {
-  background: linear-gradient(90deg, #7a7fe7 0%, #7c98ff 50%, #89bbf8 100%);
-}
+%gradient {
+  background: linear-gradient(to bottom right, #6E57D5 12%, #5BC1FF 50%) bottom right / 50% 50% no-repeat, linear-gradient(to bottom left, #6E57D5 12%, #5BC1FF 50%) bottom left / 50% 50% no-repeat, linear-gradient(to top left, #6E57D5 12%, #5BC1FF 50%) top left / 50% 50% no-repeat, linear-gradient(to top right, #6E57D5 12%, #5BC1FF 50%) top right / 50% 50% no-repeat;
+  }
 
-%gradient-promo-bg {
-  background: linear-gradient(
-    103deg,
-    #7b7ee6 0.13%,
-    rgba(64, 150, 254, 0.74) 87.17%
-  );
-}
 
-%gradient-promo-aside {
-  background: linear-gradient(
-    77deg,
-    rgba(64, 150, 254, 0.74) 87.17%,
-    #7b7ee6 0.13%
-  );
-}
-
-%gradient-howItWorks-bg {
-  background: linear-gradient(
-    97deg,
-    rgba(64, 150, 254, 0.74) 0%,
-    #7b7ee6 94.51%
-  );
-}
-
-%gradient-howItWorks-bg {
-  background: linear-gradient(
-    83deg,
-    #7b7ee6 94.51%,
-    rgba(64, 150, 254, 0.74) 0%
-  );
-}
