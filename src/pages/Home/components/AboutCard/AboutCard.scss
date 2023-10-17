@@ -4,54 +4,39 @@
 .about-card {
   position: relative;
   width: 408px;
-  padding: 25px;
+  height: 432px;
+  padding: 32px;
   display: flex;
   flex-direction: column;
-  border-radius: 16px;
-  background-color: $white;
-  border: 1px solid $border-purple;
+  border-radius: $radii-m;
+  background-color: $bg-purple;
 }
 
 .about-card__icon-wrapper {
-  width: 120px;
   height: 120px;
-  border-radius: 50%;
-  margin: 0 auto 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 64px 64px;
+  width: 120px;
+  margin-bottom: 24px;
   &_type {
-    &_green {
-      background-color: $button-orange;
+    &_one {
       background-image: url('../../../../images/AboutCard/clock.svg');
     }
 
-    &_blue {
-      background-color: $button-orange;
-      background-image: url('../../../../images/AboutCard/browser.svg');
+    &_two {
+      background-image: url('../../../../images/AboutCard/calendar.svg');
     }
 
-    &_orange {
-      background-color: $button-orange;
+    &_three {
       background-image: url('../../../../images/AboutCard/thumb-up.svg');
     }
   }
 }
 
-.about-card__info {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
 .about-card__title {
   @include text-l;
   font-weight: $fw-normal;
+  margin-bottom: 16px;
 }
 
 .about-card__description {
-  @include text-m;
+  @include text-l;
 }
