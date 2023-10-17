@@ -69,7 +69,7 @@ export const LoginModal = () => {
           type='submit'
           width='408px'
           size='large'
-          color={isValid ? 'fill' : 'empty'}
+          color={isValid ? 'orange-fill' : 'orange-dis'}
           disabled={!isValid}
         >
           Войти
