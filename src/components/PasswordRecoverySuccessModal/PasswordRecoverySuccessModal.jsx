@@ -29,14 +29,14 @@ export const PasswordRecoverySuccessModal = ({
 
       <Button
         type='button'
-        width='408px'
+        width='532px'
         size='large'
         color={'orange-fill'}
         onClick={(e) => {
           handleSubmit(e);
         }}
       >
-        Отправить
+        Войти
       </Button>
     </Popup>
   );

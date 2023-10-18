@@ -24,11 +24,16 @@ export const LoginModal = () => {
       const response = await login({
         email: data['login-form-email'],
         password: data['login-form-password'],
-      });
+      }).unwrap();
 
       const userData = await response.JSON();
 
-      dispatch(setCredentials(userData));
+      dispatch(
+        setCredentials({
+          user: true,
+          token: true,
+        })
+      );
     } catch (error) {
       console.log(error);
     }
@@ -76,7 +81,7 @@ export const LoginModal = () => {
 
         <Button
           type='submit'
-          width='408px'
+          width='532px'
           size='large'
           color={isValid ? 'orange-fill' : 'orange-dis'}
           disabled={!isValid}

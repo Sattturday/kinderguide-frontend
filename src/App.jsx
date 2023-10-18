@@ -11,6 +11,7 @@ import { RegisterModal } from './components/RegisterModal';
 import { RegisterSuccessModal } from './components/RegisterSuccessModal';
 import { LoginModal } from './components/LoginModal';
 import { PasswordRecoveryModal } from './components/PasswordRecoveryModal';
+
 import { PasswordRecoverySuccessModal } from './components/PasswordRecoverySuccessModal';
 
 function App() {
@@ -23,13 +24,15 @@ function App() {
         {/* //Ю. Исправить временные пути */}
         <Route path='/schools/id' element={<School />} />
         <Route path='/kindergartens/id' element={<Kindergarten />} />
+        <Route path='/password-reset/:id/:token' element={<Home />} />
         <Route path='*' element={<NotFoundPage />} />
       </Routes>
 
       <RegisterModal />
       <RegisterSuccessModal />
       <LoginModal />
-      <PasswordRecoveryModal stepRecovery={1} />
+      <PasswordRecoveryModal />
+
       <PasswordRecoverySuccessModal />
     </Layout>
   );
