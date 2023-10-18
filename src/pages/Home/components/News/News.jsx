@@ -5,7 +5,7 @@ import './News.scss';
 
 export function News() {
   return (
-    <section className='news' aria-label='Ресурсы'>
+    <section className='news'>
       <div className='wrapper'>
         <div className='news__container'>
           <h2 className='news__title'>Новости</h2>
@@ -14,9 +14,6 @@ export function News() {
               <NewsCard key={dataCard.id} dataCard={dataCard} />
             ))}
           </ul>
-          <Button color='blue-empty' width='188px' size='small'>
-            Показать все
-          </Button>
         </div>
       </div>
     </section>
