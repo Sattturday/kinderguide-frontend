@@ -21,7 +21,7 @@ ImageSlider.propTypes = {
   /**
    * Массив изображений
    */
-  slides: PropTypes.array,
+  images: PropTypes.array,
   /**
    * Ширина слайдера
    */

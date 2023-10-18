@@ -38,30 +38,30 @@ export function SelectOption({ value, onChange, options }) {
     const handler = (e) => {
       if (e.target !== containerRef.current) return;
       switch (e.code) {
-      case 'Enter':
-      case 'Space':
-        setIsOpen((prev) => !prev);
-        if (isOpen) onChange(options[highlightedIndex]);
-        break;
-      case 'ArrowUp':
-      case 'ArrowDown': {
-        if (!isOpen) {
-          setIsOpen(true);
+        case 'Enter':
+        case 'Space':
+          setIsOpen((prev) => !prev);
+          if (isOpen) onChange(options[highlightedIndex]);
+          break;
+        case 'ArrowUp':
+        case 'ArrowDown': {
+          if (!isOpen) {
+            setIsOpen(true);
+            break;
+          }
+
+          const newValue = highlightedIndex + (e.code === 'ArrowDown' ? 1 : -1);
+          if (newValue >= 0 && newValue < options.length) {
+            setHighlightedIndex(newValue);
+          }
           break;
         }
-
-        const newValue = highlightedIndex + (e.code === 'ArrowDown' ? 1 : -1);
-        if (newValue >= 0 && newValue < options.length) {
-          setHighlightedIndex(newValue);
+        case 'Escape': {
+          setIsOpen(false);
+          break;
         }
-        break;
-      }
-      case 'Escape': {
-        setIsOpen(false);
-        break;
-      }
-      default:
-        break;
+        default:
+          break;
       }
     };
     containerRef.current?.addEventListener('keydown', handler);
