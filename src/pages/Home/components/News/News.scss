@@ -2,7 +2,7 @@
 @import '../../../../styles/abstract/mixins';
 
 .news {
-  padding: 100px 0 150px;
+  padding: 100px 0 280px;
 }
 
 .news__container {
@@ -23,5 +23,5 @@
   grid-template-columns: repeat(3, auto);
   grid-template-rows: repeat(2, auto);
   justify-content: space-between;
-  gap: 32px;
+  gap: 33px;
 }
