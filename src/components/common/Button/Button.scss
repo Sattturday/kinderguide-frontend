@@ -3,15 +3,13 @@
 @import '../../../styles/abstract/placeholders.scss';
 
 .button {
+  @include button;
   padding: 0 30px;
   display: flex;
   justify-content: center;
   align-items: center;
   color: $white;
-  border: none;
   border-radius: $radii-l;
-  cursor: pointer;
-  transition: ease-in-out 350ms;
   background-color: $button-orange;
 
   &:hover {

@@ -36,36 +36,6 @@
   letter-spacing: 0.7px;
 }
 
-.card__like-btn {
-  width: 24px;
-  height: 24px;
-  border: none;
-  background-color: #fff;
-  background-image: url('../../../images/Card/Heart.svg');
-  background-repeat: no-repeat;
-  background-size: contain;
-  cursor: pointer;
-
-  &_active {
-    background-image: url('../../../images/Card/HeartActive.svg');
-  }
-
-  &:hover {
-    width: 30px;
-    height: 30px;
-  }
-}
-
-.card__like-block {
-  width: 44px;
-  height: 44px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 4px;
-  border: 1px solid #e7e7e7;
-}
-
 .card__text {
   @include text-m;
   font-size: 18px;
