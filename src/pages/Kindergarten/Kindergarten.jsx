@@ -1,7 +1,7 @@
 import { OrgWrapper } from '../../components/OrgWrapper';
 import { useGetKindergartenQuery } from '../../api/kindergartenApi';
 import { useGetKindergartenReviewsQuery } from '../../api/kindergartenReviewsApi';
-import { album } from '../../utils/constants';
+// import { album } from '../../utils/constants';
 
 export const Kindergarten = ({ kindergarten_id }) => {
   // const { kindergartenData = [] } = useGetKindergartenQuery({
@@ -21,7 +21,7 @@ export const Kindergarten = ({ kindergarten_id }) => {
     underground: 'Московская',
     area: 'Район',
     email: 'school@yandex.ru',
-    album: album,
+    // album: album,
     price: 100,
     price_of_year: 1200,
     age: '0 - 9',

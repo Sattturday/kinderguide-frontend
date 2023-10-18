@@ -6,6 +6,7 @@ import { Feedback } from './Feedback';
 import { ImageSlider } from '../ImageSlider';
 import { Link } from 'react-router-dom';
 import { Activity } from './Activity';
+import { LikeButton } from '../LikeButton';
 
 export const OrgWrapper = ({ data, feedback, org, link, activities }) => {
   return (
@@ -21,7 +22,9 @@ export const OrgWrapper = ({ data, feedback, org, link, activities }) => {
       </nav>
       <div className='orgWrapper__headerWrapper'>
         <h1 className='orgWrapper__header'>{data.name}</h1>
-        <div className='orgWrapper__favourite'>Сердечко</div>
+        <div className='orgWrapper__favourite'>
+          <LikeButton isLike={false} onLike={() => console.log('likeTest')} />
+        </div>
       </div>
       <div className='orgWrapper__ratingWrapper'>
         <Stars rating={data.rating} reviews={data.reviews}></Stars>
@@ -29,7 +32,7 @@ export const OrgWrapper = ({ data, feedback, org, link, activities }) => {
       <div className='orgWrapper__content'>
         <section className='orgWrapper__info' aria-label='Карточка организации'>
           <div className='orgWrapper__imgContainer'>
-            <ImageSlider images={data.album} width='738px' />
+            {/* <ImageSlider images={data.album} width='738px' /> */}
           </div>
           <div className='orgWrapper__section'>
             <h2 className='orgWrapper__sectionHeader'>Описание</h2>

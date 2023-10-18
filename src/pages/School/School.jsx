@@ -1,7 +1,7 @@
 import { OrgWrapper } from '../../components/OrgWrapper';
 import { useGetSchoolQuery } from '../../api/schoolApi';
 import { useGetSchoolReviewsQuery } from '../../api/schoolReviewsApi';
-import { album } from '../../utils/constants';
+// import { album } from '../../utils/constants';
 
 export const School = ({ school_id }) => {
   // const { schoolData = [] } = useGetSchoolQuery({ school_id });
@@ -17,7 +17,7 @@ export const School = ({ school_id }) => {
     underground: 'Московская',
     area: 'Район',
     email: 'school@yandex.ru',
-    album: album,
+    // album: album,
     price: 100,
     price_of_year: 1200,
     age: 0 - 9,
