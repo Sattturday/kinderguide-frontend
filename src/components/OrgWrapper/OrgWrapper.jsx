@@ -5,6 +5,7 @@ import { Stars } from '../Stars';
 import { YandexMap } from './YandexMap';
 import { Feedback } from './Feedback';
 import { ImageSlider } from '../ImageSlider';
+import { album } from '../../utils/exampleData';
 
 export const OrgWrapper = ({
   children,
@@ -13,7 +14,6 @@ export const OrgWrapper = ({
   telephone,
   address,
   email,
-  album,
   price,
   price_of_year,
   underground,
@@ -52,7 +52,7 @@ export const OrgWrapper = ({
       <div className='orgWrapper__content'>
         <section className='orgWrapper__info' aria-label='Карточка организации'>
           <div className='orgWrapper__imgContainer'>
-            {/* <ImageSlider slides={album} width='738px' /> */}
+            <ImageSlider images={album} width='738px' />
           </div>
           <div className='orgWrapper__description'>
             <h2 className='orgWrapper__descHeader'>Описание</h2>

@@ -1,4 +1,4 @@
-import { exampleSlides } from '../../../utils/constants';
+import { exampleSlides } from '../../../utils/exampleData';
 import { Slider } from './Slider';
 
 export default {
