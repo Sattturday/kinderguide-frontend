@@ -102,3 +102,17 @@
   line-height: 120%;
   color: $title-blue;
 }
+
+@mixin scrollbars {
+  &::-webkit-scrollbar {
+    width: 5px;
+  }
+  &::-webkit-scrollbar-track {
+    background-color: #ecf0ff;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: #829dfd;
+    border-radius: 20px;
+    height: 40px;
+  }
+}

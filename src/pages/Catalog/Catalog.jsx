@@ -6,6 +6,17 @@ import { FilterList } from './components/FilterList/FilterList';
 import { ShowList } from './components/ShowList';
 import { itemsData } from './itemsData'; // временные школы
 import { SearchForm } from '../../components/SearchForm/SearchForm';
+import { useDispatch, useSelector } from 'react-redux';
+import { useGetFilteredDataQuery } from '../../api/filterApi';
+import {
+  setCategoryFilter,
+  setRequestFilter,
+  setSortFilter,
+  setSortDirectionFilter,
+  setCheckboxFilter,
+  setPriceFilter,
+  setFilterDefault,
+} from '../../store/filterSlice';
 
 export function Catalog() {
   const [selected, setSelected] = useState('school');
@@ -13,84 +24,94 @@ export function Catalog() {
   const [sortedCards, setSortedCards] = useState(itemsData);
   const [filteredValues, setFilteredValues] = useState(INITIAL_FILTER_STATE);
 
-  console.log(filteredValues);
+  const { filter } = useSelector((state) => state);
+  console.log(filter);
+  const dispatch = useDispatch();
+
+  const [paramsUrl, setParamsUrl] = useState('');
+  const [isChecked, setIsChecked] = useState(false);
+
+  // const {
+  //   data = [],
+  //   error,
+  //   isLoading,
+  // } = useGetFilteredDataQuery([filteredValues.category, paramsUrl]);
+
+  // useEffect(() => {
+  //   filteredDataHandler(filteredValues);
+  // }, []);
 
   const onClickNavHandler = (e) => {
     setSelected(e.target.id);
-    setFilteredValues((prevState) => ({
-      ...prevState,
-      category: e.target.id,
-    }));
+    dispatch(setCategoryFilter(e.target.id));
   };
 
   function handleSubmit(evt) {
     evt.preventDefault();
-    //const data = getFilteredData(filteredValues)
-    //setSortedCards(data)
+    filteredDataHandler(filter);
   }
 
-  function checkboxHandler(category, item) {
-    if (filteredValues[category].includes(item)) {
-      setFilteredValues((prevState) => ({
-        ...prevState,
-        [category]: prevState[category].filter((i) => i !== item),
-      }));
-    } else {
-      setFilteredValues((prevState) => ({
-        ...prevState,
-        [category]: prevState[category].concat(item),
-      }));
-    }
+  function checkboxHandler(key, value) {
+    dispatch(setCheckboxFilter({ key, value }));
   }
 
-  const selectHandler = useCallback((category, item) => {
-    if (filteredValues[category].includes(item)) {
-      setFilteredValues((prevState) => ({
-        ...prevState,
-        [category]: prevState[category].filter((i) => i !== item),
-      }));
-    } else {
-      setFilteredValues((prevState) => ({
-        ...prevState,
-        [category]: prevState[category].concat(item),
-      }));
-    }
-  }, []);
-
-  function rangeHandler(category, value) {
-    if (category === 'price') {
-      setFilteredValues((prevState) => ({
-        ...prevState,
-        [category]: { minVal: value.minVal, maxVal: value.maxVal },
-      }));
-    }
+  function rangeHandler(value) {
+    dispatch(setPriceFilter(value));
   }
 
   function sortHandler(btnId) {
-    setFilteredValues((prevState) => ({
-      ...prevState,
-      sort: btnId,
-    }));
+    dispatch(setSortFilter(btnId));
   }
 
   function sortDirectionHandler() {
-    setFilteredValues((prevState) => ({
-      ...prevState,
-      sortDirection: !prevState.sortDirection,
-    }));
+    dispatch(setSortDirectionFilter());
   }
 
   function searchHandler(e) {
-    setFilteredValues((prevState) => ({
-      ...prevState,
-      request: e.target.value,
-    }));
+    dispatch(setRequestFilter(e.target.value));
   }
 
   function handleReset() {
     setSortedCards(initialCards);
-    setFilteredValues(INITIAL_FILTER_STATE);
+    dispatch(setFilterDefault());
   }
+
+  function filteredDataHandler(sort) {
+    const params = new URLSearchParams();
+    const url = 'https://kinder.acceleratorpracticum.ru/api/v1/';
+    for (const key in sort) {
+      if (key === 'category') continue;
+      if (typeof sort[key] === 'boolean') {
+        params.append(key, sort[key]);
+        continue;
+      }
+      if (!sort[key].length) continue;
+      if (Array.isArray(sort[key])) {
+        sort[key].forEach((value) => params.append(key, value));
+        continue;
+      }
+      if (typeof sort[key] === 'object') {
+        for (const item in sort[key]) {
+          params.append(item, sort[key][item]);
+        }
+        continue;
+      }
+      params.append(key, sort[key]);
+    }
+
+    setParamsUrl(params.toString());
+
+    console.log(url + params);
+
+    // getFilteredData(params);
+
+    // const response = await axios.get(url, {
+    //   headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
+    // });
+    // dispatch(getFilteredData(itemsData));
+  }
+
+  // if (isLoading) return <h1>Идет загрузка...</h1>;
 
   return (
     <section className='catalog'>
@@ -113,7 +134,11 @@ export function Catalog() {
       </nav>
       <div className='list-wrapper'>
         <div className='search-wrapper'>
-          <SearchForm onChange={searchHandler} value={filteredValues.request} />
+          <SearchForm
+            onChange={searchHandler}
+            value={filter.request}
+            onSubmit={handleSubmit}
+          />
           <Sort
             cards={initialCards}
             sortHandler={sortHandler}
@@ -122,9 +147,9 @@ export function Catalog() {
         </div>
         <FilterList
           handleSubmit={handleSubmit}
-          filter={filteredValues}
+          filter={filter}
           checkboxHandler={checkboxHandler}
-          selectHandler={selectHandler}
+          selectHandler={checkboxHandler}
           rangeHandler={rangeHandler}
           handleReset={handleReset}
         />
