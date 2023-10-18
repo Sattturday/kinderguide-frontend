@@ -3,17 +3,15 @@
 @import '../../../../styles/abstract/placeholders';
 
 .service-work {
-  margin-bottom: 47px;
   background-color: $bg-purple;
   min-height: 908px;
 }
 
 .service-work__title {
-  @include text-xxl;
+  @include header-cyan;
   margin-bottom: 16px;
   padding-top: 124px;
   position: relative;
-  color: $title-blue;
   text-align: center;
 }
 

@@ -2,7 +2,6 @@
 @import '../../../../styles/abstract/mixins.scss';
 
 .news-card {
-  padding-bottom: 40px;
   width: 408px;
   display: flex;
   flex-direction: column;
@@ -40,5 +39,5 @@
 
 .news-card__description {
   @include text-l;
-  padding-top: 8px;
+  padding: 8px 0 40px;
 }

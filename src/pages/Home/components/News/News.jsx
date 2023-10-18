@@ -1,4 +1,3 @@
-import { Button } from '../../../../components/common/Button';
 import { NewsData } from '../../../../utils/exampleData';
 import { NewsCard } from '../NewsCard';
 import './News.scss';
