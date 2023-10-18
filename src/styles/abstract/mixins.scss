@@ -108,3 +108,11 @@
   letter-spacing: 1.6px;
   color: $title-blue;
 }
+
+@mixin button {
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  transition: ease-in-out 350ms;
+}
