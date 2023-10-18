@@ -9,6 +9,7 @@ import { useSelector } from 'react-redux';
 import { useLoginMutation } from '../../api/authApi';
 import { setCredentials } from '../../store/authSlice';
 import { useDispatch } from 'react-redux';
+import { closeAllModals } from '../../store/modalsSlice';
 
 export const LoginModal = () => {
   const { data, onChange, errors, isValid } = useFormAndValidation();
@@ -24,11 +25,18 @@ export const LoginModal = () => {
       const response = await login({
         email: data['login-form-email'],
         password: data['login-form-password'],
-      });
+      }).unwrap();
 
-      const userData = await response.JSON();
+      // const userData = await response.json();
+      console.log(response.access);
 
-      dispatch(setCredentials(userData));
+      dispatch(
+        setCredentials({
+          user: true,
+          token: response.access,
+        })
+      );
+      dispatch(closeAllModals());
     } catch (error) {
       console.log(error);
     }
@@ -76,7 +84,7 @@ export const LoginModal = () => {
 
         <Button
           type='submit'
-          width='408px'
+          width='532px'
           size='large'
           color={isValid ? 'orange-fill' : 'orange-dis'}
           disabled={!isValid}

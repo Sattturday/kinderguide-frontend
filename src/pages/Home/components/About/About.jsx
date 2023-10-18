@@ -29,7 +29,7 @@ export function About() {
   return (
     <section className='about' aria-label='Почему выбирают нас'>
       <div className='wrapper'>
-        <h2 className='about__header'>Почему выбирают нас</h2>
+        <h2 className='about__header'>Почему выбирают нас?</h2>
         <ul className='about__list'>
           {cards?.map((card) => (
             <AboutCard key={card.id} dataCard={card} />

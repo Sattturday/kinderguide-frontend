@@ -1,7 +1,7 @@
 import React from 'react';
 import './Favorites.scss';
 import { NavigationFavorites } from '../NavigationFavorites/NavigationFavorites';
-import { ShowList } from '../../../Catalog/components/ShowList';
+import { ShowList } from '../../../../components/ShowList';
 
 export function Favorites({ setStateFavorites, stateFavorites }) {
   return (
