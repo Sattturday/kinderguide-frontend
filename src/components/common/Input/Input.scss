@@ -48,25 +48,24 @@
       background-color: transparent;
       min-height: auto;
 
-
       &::placeholder {
         color: $border-purple;
         opacity: 1;
       }
     }
 
-      &_other {
-        width: 100%;
-        height: 42px;
-        border-radius: 32px;
-        min-height: auto;
-        border: 1px solid $border-purple;
-        background-color: transparent;
+    &_other {
+      width: 100%;
+      height: 42px;
+      border-radius: 32px;
+      min-height: auto;
+      border: 1px solid $border-purple;
+      background-color: transparent;
 
-        &::placeholder {
-          color: $border-purple;
-          opacity: 1;
-        }
+      &::placeholder {
+        color: $border-purple;
+        opacity: 1;
       }
+    }
   }
 }
