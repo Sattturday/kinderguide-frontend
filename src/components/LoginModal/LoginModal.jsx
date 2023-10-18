@@ -9,6 +9,7 @@ import { useSelector } from 'react-redux';
 import { useLoginMutation } from '../../api/authApi';
 import { setCredentials } from '../../store/authSlice';
 import { useDispatch } from 'react-redux';
+import { closeAllModals } from '../../store/modalsSlice';
 
 export const LoginModal = () => {
   const { data, onChange, errors, isValid } = useFormAndValidation();
@@ -26,14 +27,16 @@ export const LoginModal = () => {
         password: data['login-form-password'],
       }).unwrap();
 
-      const userData = await response.JSON();
+      // const userData = await response.json();
+      console.log(response.access);
 
       dispatch(
         setCredentials({
           user: true,
-          token: true,
+          token: response.access,
         })
       );
+      dispatch(closeAllModals());
     } catch (error) {
       console.log(error);
     }
