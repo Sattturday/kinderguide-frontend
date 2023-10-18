@@ -10,7 +10,6 @@ export function useFormAndValidation() {
   const [data, setData] = useState({});
 
   const onChange = (e) => {
-    console.log('меняем инпут');
     setData({ ...data, [e.target.id]: e.target.value });
     setIsValid(e.target.closest('form').checkValidity());
 
@@ -29,59 +28,41 @@ export function useFormAndValidation() {
       }
       return;
     }
-    // Ошибку повтора пароля обрабатываем отдельно в юзЕфеекте
-    if (
-      e.target.id === 'password-repeat' ||
-      e.target.id === 'password-recovery-form-password-repeat'
-    ) {
-      console.log('вводим поле повтора');
-      return;
-    }
 
     if (e.target.id === 'phone') {
-      console.log('инпут телефона');
       return;
     }
 
-    console.log('нет ифов, выставляем ошибку');
     setErrors({
       ...errors,
       [e.target.id]: e.target.validationMessage,
     });
   };
 
-  // эффект срабатывает только если в форме есть инпут password-repeat
+  // эффект срабатывает только если в форме есть телефон
   // выставляет ошибку при несовпадении паролей
   useEffect(() => {
-    // если начали вводить один из двух инпутов
-    if (data['password-repeat'] || data['password']) {
-      // если они не совпадают, выставляем ошибку
-      if (data?.password !== data['password-repeat']) {
-        console.log('пароли не совпадают, выставляем ошибку');
-        setErrors({
-          ...errors,
-          'password-repeat': 'Пароли не совпадают',
-        });
-      }
-      // если совпадают, сбрасываем ошибку
-      else {
-        console.log('пароли  совпадают');
-        setErrors({
-          ...errors,
-          'password-repeat': '',
-        });
-      }
+    if (data.phone && data.phone?.includes('_')) {
+      setErrors({
+        ...errors,
+        phone: 'Введите корректный номер телефона',
+      });
+    } else {
+      setErrors({
+        ...errors,
+        phone: '',
+      });
     }
-  }, [data]);
+  }, [data.phone]);
 
-  // const resetForm = useCallback(
-  //   (newFormValue = {}, newErrors = {}, newIsValid = false) => {
-  //     setData(newFormValue);
-  //     setErrors(newErrors);
-  //     setIsValid(newIsValid);
-  //   },
-  //   [setData, setErrors, setIsValid]
-  // );
+  const resetForm = useCallback(
+    (newFormValue = {}, newErrors = {}, newIsValid = false) => {
+      setData(newFormValue);
+      setErrors(newErrors);
+      setIsValid(newIsValid);
+    },
+    [setData, setErrors, setIsValid]
+  );
 
   return {
     data,
@@ -91,6 +72,6 @@ export function useFormAndValidation() {
     setErrors,
     isValid,
     setIsValid,
-    // resetForm,
+    resetForm,
   };
 }

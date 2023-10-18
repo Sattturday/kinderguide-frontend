@@ -1,6 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit';
 
 import modalsReducer from './modalsSlice';
+import authReducer from './authSlice';
 import { authApi } from '../api/authApi';
 import { userApi } from '../api/userApi';
 import { schoolApi } from '../api/schoolApi';
@@ -11,6 +12,7 @@ import { kindergartenReviewsApi } from '../api/kindergartenReviewsApi';
 export default configureStore({
   reducer: {
     modals: modalsReducer,
+    auth: authReducer,
     [authApi.reducerPath]: authApi.reducer,
     [schoolApi.reducerPath]: schoolApi.reducer,
     [kindergartenApi.reducerPath]: kindergartenApi.reducer,

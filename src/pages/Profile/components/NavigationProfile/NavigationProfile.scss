@@ -11,7 +11,7 @@
 .navigation-profile__item {
   width: 298px;
   @include text-m;
-  color: $blue-link;
+  color: $title-blue;
   @include link;
   padding: 0;
   text-align: start;
@@ -50,5 +50,5 @@
 }
 
 .navigation-profile__item_active {
-  color: $blue-title;
+  color: $title-blue;
 }

@@ -38,7 +38,7 @@ export const Slider = ({
 
   return (
     <div className={'slider' + ` slider_variant_${variant}`} style={{ width }}>
-      <Button variant='square' onClick={goPrev}>
+      <Button variant='square' width='52px' onClick={goPrev}>
         &larr;
       </Button>
       <Swiper
@@ -53,7 +53,7 @@ export const Slider = ({
           <SwiperSlide key={index}>{slide}</SwiperSlide>
         ))}
       </Swiper>
-      <Button variant='square' onClick={goNext}>
+      <Button variant='square' width='52px' onClick={goNext}>
         &rarr;
       </Button>
     </div>
