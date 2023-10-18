@@ -7,7 +7,7 @@ export function Favorites({ stateProfile }) {
     <section className='favorites'>
       {stateProfile === 'school' ? <ShowList /> : ''}
       {stateProfile === 'gardens' ? <ShowList /> : ''}
-      {stateProfile === 'courses' ? <ShowList /> : ''}
+      {stateProfile === 'all' ? <ShowList /> : ''}
     </section>
   );
 }

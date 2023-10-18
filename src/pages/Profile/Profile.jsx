@@ -23,7 +23,11 @@ export function Profile() {
           />
           {stateProfile === 'profile' ? <User dataUser={data} /> : ''}
           {stateProfile === 'schedule' ? <Schedule /> : ''}
-          {stateProfile === 'favorites' ? <Favorites /> : ''}
+          {stateProfile === 'all' || 'gardens' || 'school' ? (
+            <Favorites stateProfile={stateProfile} />
+          ) : (
+            ''
+          )}
         </div>
       </div>
     </section>
