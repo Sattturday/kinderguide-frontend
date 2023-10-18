@@ -15,12 +15,9 @@
   justify-content: center;
   align-items: center;
 
+  @include text-l($fw-semi-bold);
   color: #fefefe;
   text-align: center;
-  font-size: 20px;
-  font-weight: 600;
-  line-height: 130%;
-  letter-spacing: -0.2px;
 
   background-color: #ff7a2c;
   border-radius: 50px;

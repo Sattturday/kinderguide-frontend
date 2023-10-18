@@ -1,9 +1,11 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
+import { BASE_URL } from '../utils/constants';
+
 export const filterApi = createApi({
   reducerPath: 'filterApi',
   baseQuery: fetchBaseQuery({
-    baseUrl: 'https://kinder.acceleratorpracticum.ru/api/v1/',
+    baseUrl: BASE_URL,
   }),
   endpoints: (build) => ({
     getFilteredData: build.query({
