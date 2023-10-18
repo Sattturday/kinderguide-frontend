@@ -22,28 +22,30 @@ export function Catalog() {
   const [selected, setSelected] = useState('school');
   const [initialCards] = useState(itemsData);
   const [sortedCards, setSortedCards] = useState(itemsData);
-  const [filteredValues, setFilteredValues] = useState(INITIAL_FILTER_STATE);
+  // const [filteredValues, setFilteredValues] = useState(INITIAL_FILTER_STATE);
 
   const { filter } = useSelector((state) => state);
   console.log(filter);
   const dispatch = useDispatch();
 
   const [paramsUrl, setParamsUrl] = useState('');
-  const [isChecked, setIsChecked] = useState(false);
+  // const [isChecked, setIsChecked] = useState(false);
 
-  // const {
-  //   data = [],
-  //   error,
-  //   isLoading,
-  // } = useGetFilteredDataQuery([filteredValues.category, paramsUrl]);
+  const {
+    data = [],
+    error,
+    isLoading,
+  } = useGetFilteredDataQuery([filter.category, paramsUrl]);
 
-  // useEffect(() => {
-  //   filteredDataHandler(filteredValues);
-  // }, []);
+  useEffect(() => {
+    filteredDataHandler(filter);
+  }, []);
 
   const onClickNavHandler = (e) => {
+    dispatch(setFilterDefault());
     setSelected(e.target.id);
     dispatch(setCategoryFilter(e.target.id));
+    filteredDataHandler(filter);
   };
 
   function handleSubmit(evt) {
@@ -102,16 +104,9 @@ export function Catalog() {
     setParamsUrl(params.toString());
 
     console.log(url + params);
-
-    // getFilteredData(params);
-
-    // const response = await axios.get(url, {
-    //   headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
-    // });
-    // dispatch(getFilteredData(itemsData));
   }
 
-  // if (isLoading) return <h1>Идет загрузка...</h1>;
+  if (isLoading) return <h1>Идет загрузка...</h1>;
 
   return (
     <section className='catalog'>
