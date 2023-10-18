@@ -1,23 +1,27 @@
 import React, { useState } from 'react';
 import './NavigationProfile.scss';
 import { NavigationFavorites } from '../NavigationFavorites/NavigationFavorites';
-import { Popup } from '../../../../components/common/Popup';
 import { useDispatch, useSelector } from 'react-redux';
 import { openExitProfileModal } from '../../../../store/modalsSlice';
 
 export function NavigationProfile({ setStateProfile, stateProfile }) {
-  const [isOpenFavorites, setIsOpenFavorites] = useState(false);
-
   const dispatch = useDispatch();
+  const [isOpenFavorites, setIsOpenFavorites] = useState(false);
+  const isOpen = useSelector((state) => state.modals.isOpenExitProfileModal);
+
+  const arrowImgClass = isOpenFavorites ? 'favoritesOpen' : '';
+
   const handleClick = (data) => {
     setStateProfile(data);
   };
-  const arrowImgClass = isOpenFavorites ? 'favoritesOpen' : '';
 
   const handleClickFavorites = () => {
     setIsOpenFavorites(!isOpenFavorites);
   };
 
+  const handleClickExit = () => {
+    dispatch(openExitProfileModal());
+  };
   return (
     <nav className='navigation-profile'>
       <button
@@ -30,7 +34,7 @@ export function NavigationProfile({ setStateProfile, stateProfile }) {
       >
         Профиль
       </button>
-      <button
+      {/* <button
         className={
           stateProfile === 'schedule'
             ? 'navigation-profile__item navigation-profile__item_active'
@@ -39,7 +43,7 @@ export function NavigationProfile({ setStateProfile, stateProfile }) {
         onClick={() => handleClick('schedule')}
       >
         Расписание
-      </button>
+      </button> */}
       <button
         className={`navigation-profile__item navigation-profile__item_favorites ${arrowImgClass}`}
         onClick={() => handleClickFavorites()}
@@ -55,12 +59,8 @@ export function NavigationProfile({ setStateProfile, stateProfile }) {
         ''
       )}
       <button
-        className={
-          stateProfile === 'exit'
-            ? 'navigation-profile__item navigation-profile__item_active'
-            : 'navigation-profile__item'
-        }
-        onClick={() => dispatch(openExitProfileModal())}
+        className={'navigation-profile__item'}
+        onClick={() => handleClickExit()}
       >
         Выйти
       </button>

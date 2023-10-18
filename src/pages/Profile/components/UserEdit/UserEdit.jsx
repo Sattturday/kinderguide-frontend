@@ -35,15 +35,6 @@ export function UserEdit({ setEditUser, onSubmit = () => {} }) {
     console.log(data); // eslint-disable-line
   };
 
-  // useEffect(() => {
-  //   if (data.phone && data.phone?.includes('_')) {
-  //     setErrors({
-  //       ...errors,
-  //       phone: 'Введите корректный номер телефона',
-  //     });
-  //   }
-  // }, [data, errors]); // eslint-disable-line
-
   return (
     <form className='user-edit__form'>
       <div className='user__wrapper'>
@@ -129,7 +120,7 @@ export function UserEdit({ setEditUser, onSubmit = () => {} }) {
           errorText={errors['phone']}
         >
           <InputTel
-            isClass='inputTel__profiel'
+            isClass='inputTel__profile'
             variant='info'
             inputId='phone'
             name='phone'
@@ -172,13 +163,13 @@ export function UserEdit({ setEditUser, onSubmit = () => {} }) {
             handleSubmit(e);
           }}
         >
-          Изменить
+          Сохранить
         </Button>
         <Button
           type='button'
           width='188px'
           size='medium'
-          color='empty'
+          color='orange-empty'
           onClick={(e) => {
             e.preventDefault();
             setEditUser(false);
