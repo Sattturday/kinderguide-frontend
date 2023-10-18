@@ -3,15 +3,13 @@
 @import '../../../styles/abstract/placeholders.scss';
 
 .button {
+  @include button;
   padding: 0 30px;
   display: flex;
   justify-content: center;
   align-items: center;
   color: $white;
-  border: none;
-  border-radius: $radii;
-  cursor: pointer;
-  transition: ease-in-out 350ms;
+  border-radius: $radii-l;
   background-color: $button-orange;
 
   &:hover {
@@ -26,11 +24,13 @@
     &_small {
       min-height: 40px;
       @include text-m($fw-bold);
+      line-height: 1.1;
     }
 
     &_medium {
       min-height: 56px;
       @include text-l($fw-semi-bold);
+      line-height: 1.1;
     }
 
     &_large {
@@ -43,11 +43,11 @@
     &_link {
       padding: 0;
       background: transparent;
-      color: $button-cyan-hover;
+      color: $title-blue;
 
       &:hover {
         background-color: transparent;
-        color: $button-cyan;
+        color: $button-blue;
       }
 
       &:active {
@@ -58,10 +58,11 @@
 
     &_square {
       padding: 0;
-      height: 52px;
-      border-radius: $radii-sm;
+      min-width: 52px;
+      min-height: 52px;
       background-color: $button-cyan;
-      color: $blue-title;
+      border-radius: $radii-xs;
+      color: $title-blue;
 
       &:hover {
         background-color: $button-cyan-hover;
@@ -77,7 +78,7 @@
   &_color {
     &_orange-empty {
       background-color: transparent;
-      border: 2px solid $button-orange;
+      border: 1.5px solid $button-orange;
       color: $button-orange;
 
       &:hover {
@@ -87,7 +88,7 @@
 
       &:active {
         background-color: transparent;
-        border: 2px solid $button-orange-active;
+        border: 3px solid $button-orange-active;
         color: $button-orange-active;
       }
     }
@@ -100,7 +101,7 @@
 
     &_blue-empty {
       background-color: transparent;
-      border: 2px solid $button-blue;
+      border: 1.5px solid $button-blue;
       color: $button-blue;
 
       &:hover {
@@ -108,7 +109,7 @@
       }
 
       &:active {
-        @extend %gradient-button;
+        @extend %gradient;
         color: $button-cyan;
         border: 2px solid $button-cyan;
       }

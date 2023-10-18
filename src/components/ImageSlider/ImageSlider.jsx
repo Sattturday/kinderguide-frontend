@@ -8,7 +8,7 @@ import './ImageSlider.scss';
  * Используется для создания интерактивных слайдеров для фото.
  */
 export const ImageSlider = ({ images, width = '50%' }) => {
-  const slides = images.map((image) => (
+  const slides = images?.map((image) => (
     <img className='slider-img' src={image.image_url} alt='Фото школы/сада' />
   ));
 

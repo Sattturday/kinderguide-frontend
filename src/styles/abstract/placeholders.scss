@@ -4,34 +4,6 @@
 }
 
 // Градиенты
-%gradient-button {
+%gradient {
   background: linear-gradient(to right, #6e57d5, #5bc1ff);
-}
-
-%gradient-promo-bg {
-  background: linear-gradient(to right, #6e57d5, #5bc1ff);
-}
-
-%gradient-promo-aside {
-  background: linear-gradient(
-    77deg,
-    rgba(64, 150, 254, 0.74) 87.17%,
-    #7b7ee6 0.13%
-  );
-}
-
-%gradient-howItWorks-bg {
-  background: linear-gradient(
-    97deg,
-    rgba(64, 150, 254, 0.74) 0%,
-    #7b7ee6 94.51%
-  );
-}
-
-%gradient-howItWorks-bg {
-  background: linear-gradient(
-    83deg,
-    #7b7ee6 94.51%,
-    rgba(64, 150, 254, 0.74) 0%
-  );
 }

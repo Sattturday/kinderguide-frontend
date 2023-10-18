@@ -9,18 +9,18 @@
 
 .bread-crumb__li {
   list-style-type: none;
-  color: $blue-link;
+  color: $gray;
   @include text-s;
 }
 
 .bread-crumb__item {
-  color: $blue-link;
+  color: $gray;
   @include link;
   @include text-s;
 }
 
 .bread-crumb__item:after {
   padding: 8px;
-  color: $blue-link;
+  color: $gray;
   content: '/\00a0';
 }

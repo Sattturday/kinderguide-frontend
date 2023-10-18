@@ -3,7 +3,7 @@ import { Sort } from './components/Sort';
 import { INITIAL_FILTER_STATE, NAV_CATEGORY } from '../../utils/filterData';
 import './Catalog.scss';
 import { FilterList } from './components/FilterList/FilterList';
-import { ShowList } from './components/ShowList';
+import { ShowList } from '../../components/ShowList';
 import { itemsData } from './itemsData'; // временные школы
 import { SearchForm } from '../../components/SearchForm/SearchForm';
 import { useDispatch, useSelector } from 'react-redux';

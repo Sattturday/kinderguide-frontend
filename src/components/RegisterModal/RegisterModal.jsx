@@ -63,7 +63,7 @@ export const RegisterModal = () => {
           inputId='first_name'
           variant='form'
           labelText='Имя'
-          errorText={errors['name']}
+          errorText={errors['first_name']}
         >
           <Input
             inputId='first_name'
@@ -73,7 +73,7 @@ export const RegisterModal = () => {
             value={data.first_name}
             placeholder='Введите имя'
             type='text'
-            isValid={!errors['name']?.length}
+            isValid={!errors['first_name']?.length}
           />
         </InputWrapper>
 
@@ -81,7 +81,7 @@ export const RegisterModal = () => {
           inputId='last_name'
           variant='form'
           labelText='Фамилия'
-          errorText={errors['lastname']}
+          errorText={errors['last_name']}
         >
           <Input
             inputId='last_name'
@@ -156,7 +156,7 @@ export const RegisterModal = () => {
         />
         <Button
           type='submit'
-          width='408px'
+          width='532px'
           size='large'
           color={isReadyToSubmit ? 'orange-fill' : 'orange-dis'}
           disabled={!isReadyToSubmit}

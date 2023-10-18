@@ -6,6 +6,7 @@ const initialState = {
   isOpenRegisterSuccessModal: false,
   isOpenLoginModal: false,
   isOpenPasswordRecoveryModal: false,
+  isOpenPasswordRecoveryConfirmModal: false,
   isOpenPasswordRecoverySuccessModal: false,
 };
 
@@ -30,6 +31,9 @@ const modalsSlice = createSlice({
     openPasswordRecoveryModal(state) {
       state.isOpenPasswordRecoveryModal = true;
     },
+    openPasswordRecoveryConfirmModal(state) {
+      state.isOpenPasswordRecoveryConfirmModal = true;
+    },
     openPasswordRecoverySuccessModal(state) {
       state.isOpenPasswordRecoverySuccessModal = true;
     },
@@ -42,6 +46,7 @@ export const {
   openRegisterSuccessModal,
   openLoginModal,
   openPasswordRecoveryModal,
+  openPasswordRecoveryConfirmModal,
   openPasswordRecoverySuccessModal,
   closeAllModals,
 } = modalsSlice.actions;
