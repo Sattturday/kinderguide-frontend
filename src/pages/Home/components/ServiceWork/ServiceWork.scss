@@ -4,35 +4,63 @@
 
 .service-work {
   margin-bottom: 47px;
-  background-image: url('../../../../images/ServiceWork/service-work-bg.png');
-  min-height: 1140px;
+  background-color: $bg-purple;
+  min-height: 908px;
 }
 
 .service-work__title {
-  margin: 0 0 20px;
-  padding-top: 240px;
-  font-weight: $fw-semi-bold;
-  font-size: 50px;
-  line-height: 120%;
-  color: $white;
+  @include text-xxl;
+  margin-bottom: 16px;
+  padding-top: 124px;
+  position: relative;
+  color: $title-blue;
   text-align: center;
+}
+
+.service-work__title::before {
+  content: '';
+  position: absolute;
+  width: 112px;
+  height: 106px;
+  bottom: -20px;
+  left: 70px;
+  background-image: url('../../../../images/ServiceWork/decoration1.svg');
 }
 
 .service-work__subtitle {
-  margin: 0 0 40px;
-  font-size: 22px;
-  font-weight: $fw-light;
-  line-height: 140%;
-  letter-spacing: -0.22px;
+  @include text-l;
+  margin-bottom: 49px;
   text-align: center;
-  color: $white;
+  color: $title-blue;
 }
 
 .service-work__list {
+  position: relative;
   @include list;
   display: grid;
-  grid-template-columns: repeat(2, 632px);
-  grid-template-rows: 218px 250px;
+  grid-template-columns: repeat(2, 500px);
+  grid-template-rows: repeat(2, 230px);
   row-gap: 40px;
-  column-gap: 34px;
+  column-gap: 32px;
+  justify-content: center;
+}
+
+.service-work__list::before {
+  content: '';
+  position: absolute;
+  width: 100px;
+  height: 95px;
+  top: -60px;
+  right: 90px;
+  background-image: url('../../../../images/ServiceWork/decoration2.svg');
+}
+
+.service-work__list::after {
+  content: '';
+  position: absolute;
+  width: 64px;
+  height: 53px;
+  bottom: -30px;
+  left: 95px;
+  background-image: url('../../../../images/ServiceWork/decoration3.svg');
 }
