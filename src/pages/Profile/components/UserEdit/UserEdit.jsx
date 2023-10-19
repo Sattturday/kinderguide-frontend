@@ -3,16 +3,20 @@ import { InputWrapper } from '../../../../components/common/InputWrapper';
 import { Input } from '../../../../components/common/Input';
 import { Button } from '../../../../components/common/Button';
 import { useFormAndValidation } from '../../../../hooks/useFormAndValidation';
-// import { useUpdateUserMutation } from '../../../../api/userApi';
+import {
+  useGetUserQuery,
+  useUpdateUserMutation,
+} from '../../../../api/userApi';
 import { useEffect, useState } from 'react';
 import { InputTel } from '../../../../components/InputTel';
 
-export function UserEdit({ setEditUser, onSubmit = () => {} }) {
+export function UserEdit({ setEditUser }) {
   const [isReadyToSubmit, setIsReadyToSubmit] = useState(false);
 
-  // const [updateUser] = useUpdateUserMutation();
+  const [updateUser] = useUpdateUserMutation();
+  const { data: userData = {} } = useGetUserQuery();
 
-  const { data, onChange, errors, isValid } = useFormAndValidation();
+  const { data, setData, onChange, errors, isValid } = useFormAndValidation();
   useEffect(() => {
     if (data.phone && isValid) {
       // Это костыль, чтобы провалидировать инпут телефона из библиотечки
@@ -25,10 +29,37 @@ export function UserEdit({ setEditUser, onSubmit = () => {} }) {
       setIsReadyToSubmit(false);
     }
   }, [data, isValid]);
+  console.log(data);
 
-  const handleSubmit = (e) => {
+  useEffect(() => {
+    const {
+      first_name,
+      last_name,
+      child_first_name,
+      child_last_name,
+      phone,
+      email,
+    } = userData;
+    setData({
+      first_name: first_name,
+      last_name: last_name,
+      child_first_name: child_first_name,
+      child_last_name: child_last_name,
+      phone: phone,
+      email: email,
+    });
+  }, [setData, userData]);
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    onSubmit(data);
+    await updateUser({
+      first_name: data.first_name,
+      last_name: data.last_name,
+      child_first_name: data.child_first_name,
+      child_last_name: data.child_last_name,
+      phone: data.phone,
+      email: data.email,
+    });
     if (data) {
       setEditUser(false);
     }
@@ -41,36 +72,36 @@ export function UserEdit({ setEditUser, onSubmit = () => {} }) {
         <p className='user-edit__name-text'>Имя родителя</p>
         <InputWrapper
           labelText='Имя'
-          inputId='parent_first_name'
+          inputId='first_name'
           variant='info'
-          errorText={errors['parent_first_name']}
+          errorText={errors['first_name']}
         >
           <Input
-            inputId='parent_first_name'
+            inputId='first_name'
             variant='info'
-            name='parent_first_name'
+            name='first_name'
             onChange={onChange}
-            value={data['parent_first_name']}
+            value={data['first_name']}
             placeholder='Введите имя'
             type='text'
-            isValid={!errors['parent_first_name']?.length}
+            isValid={!errors['first_name']?.length}
           />
         </InputWrapper>
         <InputWrapper
           labelText='Фамилия'
-          inputId='parent_last_name'
+          inputId='last_name'
           variant='info'
-          errorText={errors['parent_last_name']}
+          errorText={errors['last_name']}
         >
           <Input
-            inputId='parent_last_name'
+            inputId='last_name'
             variant='info'
-            name='parent_last_name'
+            name='last_name'
             onChange={onChange}
-            value={data['parent_last_name']}
+            value={data['last_name']}
             placeholder='Введите фамилию'
             type='text'
-            isValid={!errors['parent_last_name']?.length}
+            isValid={!errors['last_name']?.length}
           />
         </InputWrapper>
       </div>

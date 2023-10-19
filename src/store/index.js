@@ -18,6 +18,7 @@ export default configureStore({
     [kindergartenApi.reducerPath]: kindergartenApi.reducer,
     [schoolReviewsApi.reducerPath]: schoolReviewsApi.reducer,
     [kindergartenReviewsApi.reducerPath]: kindergartenReviewsApi.reducer,
+    [userApi.reducerPath]: userApi.reducer,
   },
 
   middleware: (getDefaultMiddleware) =>
@@ -27,6 +28,7 @@ export default configureStore({
       schoolApi.middleware,
       kindergartenApi.middleware,
       schoolReviewsApi.middleware,
-      kindergartenReviewsApi.middleware
+      kindergartenReviewsApi.middleware,
+      userApi.middleware
     ),
 });

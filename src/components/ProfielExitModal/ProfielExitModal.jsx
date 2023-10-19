@@ -3,14 +3,30 @@ import './ProfielExitModal.scss';
 import { Popup } from '../common/Popup';
 import { Button } from '../common/Button';
 import { closeAllModals } from '../../store/modalsSlice';
+import { useNavigate } from 'react-router-dom';
+import { setCredentials } from '../../store/authSlice';
 
 export const ProfielExitModal = () => {
   const dispatch = useDispatch();
-  const isOpen = useSelector((state) => state.modals.isOpenExitProfileModal);
+  const navigate = useNavigate();
 
+  const isOpen = useSelector((state) => state.modals.isOpenExitProfileModal);
+  //закрытие модалки
   const hanldeCloseModal = () => {
     dispatch(closeAllModals());
   };
+
+  // выход из акаунта
+  function signOut() {
+    navigate('/');
+    dispatch(
+      setCredentials({
+        user: false,
+        token: null,
+      })
+    );
+    dispatch(closeAllModals());
+  }
 
   return (
     <Popup isOpen={isOpen} name='profile-modal'>
@@ -19,7 +35,7 @@ export const ProfielExitModal = () => {
       </h2>
       <div className='user-edit__btns'>
         <Button
-          type='submit'
+          type='button'
           width='188px'
           size='medium'
           color={'fill'}
@@ -32,9 +48,7 @@ export const ProfielExitModal = () => {
           width='188px'
           size='medium'
           color='orange-empty'
-          onClick={(e) => {
-            e.preventDefault();
-          }}
+          onClick={signOut}
         >
           Выйти
         </Button>

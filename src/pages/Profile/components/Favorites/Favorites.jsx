@@ -1,6 +1,6 @@
 import React from 'react';
 import './Favorites.scss';
-import { ShowList } from '../../../Catalog/components/ShowList';
+import { ShowList } from '../../../../components/ShowList/ShowList';
 
 export function Favorites({ stateProfile }) {
   return (

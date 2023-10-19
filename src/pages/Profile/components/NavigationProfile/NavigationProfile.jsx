@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
 import './NavigationProfile.scss';
 import { NavigationFavorites } from '../NavigationFavorites/NavigationFavorites';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { openExitProfileModal } from '../../../../store/modalsSlice';
 
 export function NavigationProfile({ setStateProfile, stateProfile }) {
   const dispatch = useDispatch();
   const [isOpenFavorites, setIsOpenFavorites] = useState(false);
-  const isOpen = useSelector((state) => state.modals.isOpenExitProfileModal);
 
   const arrowImgClass = isOpenFavorites ? 'favoritesOpen' : '';
 
@@ -34,16 +33,6 @@ export function NavigationProfile({ setStateProfile, stateProfile }) {
       >
         Профиль
       </button>
-      {/* <button
-        className={
-          stateProfile === 'schedule'
-            ? 'navigation-profile__item navigation-profile__item_active'
-            : 'navigation-profile__item'
-        }
-        onClick={() => handleClick('schedule')}
-      >
-        Расписание
-      </button> */}
       <button
         className={`navigation-profile__item navigation-profile__item_favorites ${arrowImgClass}`}
         onClick={() => handleClickFavorites()}

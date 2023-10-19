@@ -23,10 +23,7 @@
 }
 
 .promo__title {
-  font-size: 50px;
-  font-weight: $fw-normal;
-  line-height: 1.2;
-  letter-spacing: 1.6px;
+  @include header-cyan;
   color: $white;
   margin: 0 0 40px;
 }

@@ -3,14 +3,9 @@ import './Profile.scss';
 import { NavigationProfile } from './components/NavigationProfile/NavigationProfile';
 import { User } from './components/User/User';
 import { Favorites } from './components/Favorites/Favorites';
-import { Schedule } from './components/Schedule/Schedule';
-import { useGetUserQuery } from '../../api/userApi';
 
 export function Profile() {
   const [stateProfile, setStateProfile] = useState('profile');
-
-  const { data = {} } = useGetUserQuery();
-  // console.log(data);
   return (
     <section className='profile'>
       <div className='wrapper'>
@@ -20,8 +15,7 @@ export function Profile() {
             setStateProfile={setStateProfile}
             stateProfile={stateProfile}
           />
-          {stateProfile === 'profile' ? <User dataUser={data} /> : ''}
-          {/* {stateProfile === 'schedule' ? <Schedule /> : ''} */}
+          {stateProfile === 'profile' ? <User /> : ''}
           {stateProfile === 'all' || 'gardens' || 'school' ? (
             <Favorites stateProfile={stateProfile} />
           ) : (

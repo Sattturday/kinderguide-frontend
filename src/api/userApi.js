@@ -4,19 +4,31 @@ import { BASE_URL } from '../utils/constants';
 
 export const userApi = createApi({
   reducerPath: 'userApi',
-  baseQuery: fetchBaseQuery({ baseUrl: BASE_URL }),
+  baseQuery: fetchBaseQuery({
+    baseUrl: BASE_URL,
+    prepareHeaders: (headers, { getState }) => {
+      const token = getState().auth.token;
+      if (token) {
+        headers.set('authorization', `Bearer ${token}`);
+      }
+      return headers;
+    },
+  }),
+  tagTypes: ['Users'],
   endpoints: (build) => ({
     getUser: build.query({
       query: () => ({
         url: 'me',
       }),
+      providesTags: ['Users'],
     }),
     updateUser: build.mutation({
       query: (body) => ({
-        url: 'me',
+        url: 'me/',
         method: 'PATCH',
         body,
       }),
+      invalidatesTags: ['Users'],
     }),
   }),
 });
