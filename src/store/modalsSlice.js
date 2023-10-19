@@ -8,6 +8,7 @@ const initialState = {
   isOpenPasswordRecoveryModal: false,
   isOpenPasswordRecoveryConfirmModal: false,
   isOpenPasswordRecoverySuccessModal: false,
+  isOpenLoginToFavoritePopup: false,
 };
 
 const modalsSlice = createSlice({
@@ -37,6 +38,10 @@ const modalsSlice = createSlice({
     openPasswordRecoverySuccessModal(state) {
       state.isOpenPasswordRecoverySuccessModal = true;
     },
+    openLoginToFavoritePopup(state, action) {
+      state.isOpenLoginToFavoritePopup = true;
+      state.loginToFavoritePopupData = action.payload;
+    },
   },
 });
 
@@ -48,6 +53,7 @@ export const {
   openPasswordRecoveryModal,
   openPasswordRecoveryConfirmModal,
   openPasswordRecoverySuccessModal,
+  openLoginToFavoritePopup,
   closeAllModals,
 } = modalsSlice.actions;
 
