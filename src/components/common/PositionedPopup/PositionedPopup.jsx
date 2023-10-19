@@ -1,11 +1,29 @@
-import { useEffect } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useDispatch } from 'react-redux';
 
 import { closeAllModals } from '../../../store/modalsSlice';
 import './PositionedPopup.scss';
 
 export const PositionedPopup = ({ isOpen, name, children, left, top }) => {
+  const containerRef = useRef(null);
+  // стейты для высоты экрана и для координаты высоты для попапа
+  const [screenHeight, setScreenHeight] = useState(window.innerHeight);
+  const [newTop, setNewTop] = useState(0);
+
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    function handleResize() {
+      setScreenHeight(window.innerHeight);
+    }
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
   useEffect(() => {
     if (!isOpen) return;
 
@@ -14,6 +32,8 @@ export const PositionedPopup = ({ isOpen, name, children, left, top }) => {
         dispatch(closeAllModals());
       }
     };
+
+    setVerticalPosition();
 
     document.addEventListener('keydown', closeByEscape);
     document.body.classList.add('page_lock');
@@ -30,6 +50,21 @@ export const PositionedPopup = ({ isOpen, name, children, left, top }) => {
     }
   };
 
+  // проверяем помещается ли попап в экран, если нет - меняем координату высоты для отображения
+  const setVerticalPosition = () => {
+    if (containerRef.current) {
+      // получаем высоту контейнера попапа
+      const containerHeight =
+        containerRef.current.getBoundingClientRect().height;
+
+      if (screenHeight - top < containerHeight + 20) {
+        setNewTop(top - containerHeight - 54);
+      } else {
+        setNewTop(top);
+      }
+    }
+  };
+
   return (
     <div
       className={`position-popup${
@@ -39,10 +74,11 @@ export const PositionedPopup = ({ isOpen, name, children, left, top }) => {
     >
       <div
         className='position-popup__container'
+        ref={containerRef}
         style={{
           position: 'absolute',
           left,
-          top,
+          top: newTop,
         }}
       >
         {children}
