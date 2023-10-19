@@ -3,10 +3,10 @@ import './InputCheckbox.scss';
 
 export function InputCheckbox({
   name,
-  type,
+  type = 'checkbox',
   variant,
   labelName,
-  text,
+  text = false,
   isChecked,
   onChange,
 }) {
@@ -30,8 +30,14 @@ export function InputCheckbox({
       </label>
       {text && (
         <p className='checkbox__text'>
-          Соглашаюсь с условиями использования
-          <br /> и политикой конфиденциальности
+          Я принимаю условия{' '}
+          <a href='/#' className='checkbox__link'>
+            Пользовательского соглашения
+          </a>{' '}
+          и соглашаюсь с{' '}
+          <a href='/#' className='checkbox__link'>
+            Политикой конфиденциальности.
+          </a>
         </p>
       )}
     </div>

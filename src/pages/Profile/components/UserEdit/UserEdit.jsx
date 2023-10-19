@@ -29,7 +29,6 @@ export function UserEdit({ setEditUser }) {
       setIsReadyToSubmit(false);
     }
   }, [data, isValid]);
-  console.log(data);
 
   useEffect(() => {
     const {

@@ -11,8 +11,6 @@ export const DoubleRange = ({ min, max, value, onChange }) => {
   const maxValRef = useRef(max);
   const range = useRef(null);
 
-  console.log(values);
-
   const getPercent = useCallback(
     (value) => Math.round(((value - min) / (max - min)) * 100),
     [min, max]

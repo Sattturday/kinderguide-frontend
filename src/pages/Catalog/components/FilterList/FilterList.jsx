@@ -50,7 +50,7 @@ export function FilterList({
                       min={0}
                       max={10000000}
                       value={filter.price}
-                      onChange={(value) => rangeHandler(block.category, value)}
+                      onChange={(value) => rangeHandler(value)}
                     />
                   </li>
                 ) : (

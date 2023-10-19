@@ -13,6 +13,7 @@ import { LoginModal } from './components/LoginModal';
 import { PasswordRecoveryModal } from './components/PasswordRecoveryModal';
 import { PasswordRecoverySuccessModal } from './components/PasswordRecoverySuccessModal';
 import { ProfielExitModal } from './components/ProfielExitModal';
+import { LoginToFavoritePopup } from './components/LoginToFavoritPopup';
 
 function App() {
   return (
@@ -27,6 +28,8 @@ function App() {
         <Route path='/password-reset/:id/:token' element={<Home />} />
         <Route path='*' element={<NotFoundPage />} />
       </Routes>
+
+      <LoginToFavoritePopup />
 
       <RegisterModal />
       <RegisterSuccessModal />
