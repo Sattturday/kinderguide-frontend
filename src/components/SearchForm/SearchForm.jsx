@@ -11,6 +11,7 @@ export function SearchForm({ value, onChange, onSubmit }) {
         onChange={onChange}
         variant='search'
         placeholder='Поиск'
+        isValid='true'
       />
       <div className='search__searchIcon'>
         <Button variant='link' size='small' type='submit'>

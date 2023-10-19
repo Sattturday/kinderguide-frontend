@@ -9,7 +9,11 @@ import './ImageSlider.scss';
  */
 export const ImageSlider = ({ images, width = '50%' }) => {
   const slides = images?.map((image) => (
-    <img className='slider-img' src={image.image_url} alt='Фото школы/сада' />
+    <img
+      className='slider-img'
+      src={`https://kinder.acceleratorpracticum.ru${image.image}`}
+      alt='Фото организации'
+    />
   ));
 
   return (

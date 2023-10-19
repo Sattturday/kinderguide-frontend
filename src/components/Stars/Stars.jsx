@@ -3,7 +3,7 @@ import filled from '../../images/Stars/Star-filled.svg';
 import half from '../../images/Stars/Star-half.svg';
 import empty from '../../images/Stars/Star-empty.svg';
 
-export const Stars = ({ rating, reviews }) => {
+export const Stars = ({ rating, children }) => {
   const starFilled = Math.floor(rating);
   const starEmpty = Math.floor(5 - rating);
   const starHalf = 5 - starFilled - starEmpty;
@@ -34,7 +34,7 @@ export const Stars = ({ rating, reviews }) => {
           alt='Пустая звезда'
         />
       ))}
-      {reviews && <p className='stars__reviews'>({reviews})</p>}
+      {children}
     </div>
   );
 };

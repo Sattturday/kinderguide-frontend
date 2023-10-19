@@ -7,6 +7,7 @@ import { ImageSlider } from '../ImageSlider';
 import { Link } from 'react-router-dom';
 import { Activity } from './Activity';
 import { LikeButton } from '../LikeButton';
+import { Reviews } from '../ShowList/Reviews';
 
 export const OrgWrapper = ({ data, feedback, org, link, activities }) => {
   return (
@@ -27,12 +28,14 @@ export const OrgWrapper = ({ data, feedback, org, link, activities }) => {
         </div>
       </div>
       <div className='orgWrapper__ratingWrapper'>
-        <Stars rating={data.rating} reviews={data.reviews}></Stars>
+        <Stars rating={data.rating} reviews={data.reviews}>
+          {<Reviews reviews={data.reviews} />}
+        </Stars>
       </div>
       <div className='orgWrapper__content'>
         <section className='orgWrapper__info' aria-label='Карточка организации'>
           <div className='orgWrapper__imgContainer'>
-            {/* <ImageSlider images={data.album} width='738px' /> */}
+            <ImageSlider images={data.album} width='738px' />
           </div>
           <div className='orgWrapper__section'>
             <h2 className='orgWrapper__sectionHeader'>Описание</h2>
@@ -67,7 +70,7 @@ export const OrgWrapper = ({ data, feedback, org, link, activities }) => {
                 className='orgWrapper__button'
                 variant='primary'
                 type='submit'
-                size='medium'
+                size='large'
                 width='408px'
               >
                 Подать заявление
