@@ -148,7 +148,7 @@ export function Catalog() {
           rangeHandler={rangeHandler}
           handleReset={handleReset}
         />
-        <ShowList cards={sortedCards} />
+        <ShowList cards={sortedCards} selected={selected} />
       </div>
     </section>
   );

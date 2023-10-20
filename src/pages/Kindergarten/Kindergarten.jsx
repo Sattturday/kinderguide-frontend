@@ -1,73 +1,15 @@
 import { OrgWrapper } from '../../components/OrgWrapper';
 import { useGetKindergartenQuery } from '../../api/kindergartenApi';
+import { useParams } from 'react-router-dom';
 import { useGetKindergartenReviewsQuery } from '../../api/kindergartenReviewsApi';
 
-export const Kindergarten = ({ kindergarten_id }) => {
-  const { data: kindergartenData = [] } = useGetKindergartenQuery(1);
-  // const { kindergartenReviewsData = [] } = useGetKindergartenReviewsQuery({
-  //   kindergarten_id,
-  // });
-  // const kindergartenData = {
-  //   id: 123,
-  //   name: 'Сад',
-  //   rating: 4.5,
-  //   reviews: 1,
-  //   description: 'Описание сада',
-  //   telephone: '+7(910)000-00-00',
-  //   address: 'Москва, ул. Льва Толстого, 25',
-  //   underground: 'Московская',
-  //   area: 'Район',
-  //   email: 'school@yandex.ru',
-  //   // album: album,
-  //   price: 100,
-  //   price_of_year: 1200,
-  //   age: '0 - 9',
-  //   working_hours: 'С 8:00 до 20:00',
-  //   group_suze: 'До 15 человек',
-  //   languages:
-  //     'французский тест длинной строкиииииииииииииииииииииииииииииииииииииииииииии иииииииииииииииииииииииииииииииииииии',
-  //   sport_dev: 'футбол',
-  //   create_dev: 'рисование',
-  //   music_dev: 'хор',
-  //   intel_dev:
-  //     'веселая азбука, тест длинной строкиииииииииииииииииииииииииииииииииииииииииииииии',
-  // };
-
-  const kindergartenReviewsData = {
-    count: 0,
-    next: 'string',
-    previous: 'string',
-    results: [
-      {
-        id: 0,
-        content: 'отзыв',
-        grade: 5,
-        author: 'Имя',
-        date_posted: '2019-08-24T14:15:22Z',
-      },
-      {
-        id: 1,
-        content: 'отзыв',
-        grade: 0,
-        author: 'Имя',
-        date_posted: '2019-08-24T14:15:22Z',
-      },
-      {
-        id: 2,
-        content: 'отзыв',
-        grade: 0,
-        author: 'Имя',
-        date_posted: '2019-08-24T14:15:22Z',
-      },
-      {
-        id: 12,
-        content: 'отзыв',
-        grade: 0,
-        author: 'Имя',
-        date_posted: '2019-08-24T14:15:22Z',
-      },
-    ],
-  };
+export const Kindergarten = () => {
+  const { id } = useParams();
+  const { data: kindergartenData = [], isLoading } =
+    useGetKindergartenQuery(id);
+  const { data: kindergartenReviewsData = [] } =
+    useGetKindergartenReviewsQuery(id);
+  if (isLoading) return <h1>Идет загрузка...</h1>;
 
   const activities = [
     {
