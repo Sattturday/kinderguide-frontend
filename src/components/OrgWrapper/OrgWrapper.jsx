@@ -77,9 +77,9 @@ export const OrgWrapper = ({ data, feedback, org, link, activities }) => {
               </Button>
             </div>
           </div>
-          <div className='orgWrapper__map'>
+          {/* <div className='orgWrapper__map'>
             <YandexMap address={data.address} />
-          </div>
+          </div> */}
         </aside>
       </div>
       <section className='orgWrapper__feedback' aria-label='Отзывы'>

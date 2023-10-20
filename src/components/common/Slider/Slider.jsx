@@ -7,6 +7,7 @@ import { Button } from '../Button';
 import left from '../../../images/Slider/arrow-left.svg';
 import right from '../../../images/Slider/arrow-right.svg';
 import './Slider.scss';
+import { useEffect } from 'react';
 
 /**
  * Компонент слайдера.
@@ -28,8 +29,9 @@ export const Slider = ({
   };
 
   const goPrev = () => {
-    console.log('Going to previous slide');
+    console.log(swiperInstance);
     if (swiperInstance) {
+      console.log('Going to previous slide');
       swiperInstance.slidePrev();
     }
   };
@@ -41,23 +43,39 @@ export const Slider = ({
 
   const pagination = variant === 'images' ? { clickable: true } : false;
 
+  useEffect(() => {
+    // Выполнить инициализацию Swiper здесь, когда компонент монтируется
+    new Swiper('.swiper-container', {
+      modules: [Navigation, Pagination, Scrollbar, A11y],
+      spaceBetween: 10,
+      slidesPerView: slidesPerView,
+      pagination: pagination,
+      loop: true,
+      onSwiper: handleSwiper,
+    });
+  }, [slidesPerView, pagination]);
+
   return (
     <div className={'slider' + ` slider_variant_${variant}`} style={{ width }}>
       <Button variant='square' onClick={goPrev}>
         <img src={left} alt='Листать влево' />
       </Button>
-      <Swiper
+      {/* <Swiper
         modules={[Navigation, Pagination, Scrollbar, A11y]}
         spaceBetween={10}
         slidesPerView={slidesPerView}
         pagination={pagination}
         loop={true}
         onSwiper={handleSwiper}
-      >
-        {slides?.map((slide, index) => (
-          <SwiperSlide key={index}>{slide}</SwiperSlide>
-        ))}
-      </Swiper>
+      > */}
+      <div className='swiper-container'>
+        <div className='swiper-wrapper'>
+          {slides?.map((slide, index) => (
+            <SwiperSlide key={index}>{slide}</SwiperSlide>
+          ))}
+        </div>
+      </div>
+      {/* </Swiper> */}
       <Button variant='square' onClick={goNext}>
         <img src={right} alt='Листать вправо' />
       </Button>
