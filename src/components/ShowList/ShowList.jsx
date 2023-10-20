@@ -34,10 +34,10 @@ const cardData = [
   },
 ];
 
-export const ShowList = ({ data = cardData }) => (
+export const ShowList = ({ data = cardData, selected }) => (
   <section className='show-list'>
     {data.map((card) => {
-      return <Card key={card.id} cardData={card} />;
+      return <Card key={card.id} cardData={card} selected={selected} />;
     })}
   </section>
 );
