@@ -5,15 +5,12 @@ import './Card.scss';
 import { LikeButton } from '../../LikeButton/LikeButton';
 import { Link } from 'react-router-dom';
 
-
-export const Card = ({ cardData,selected }) => {
-
+export const Card = ({ cardData, selected }) => {
   const [isLiked, setIsLiked] = useState(false);
 
   const handleLike = () => {
     setIsLiked(!isLiked);
   };
-
 
   return (
     <div className='card'>
