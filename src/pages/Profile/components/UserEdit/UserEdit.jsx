@@ -62,13 +62,12 @@ export function UserEdit({ setEditUser }) {
     if (data) {
       setEditUser(false);
     }
-    console.log(data); // eslint-disable-line
   };
 
   return (
     <form className='user-edit__form'>
-      <div className='user__wrapper'>
-        <p className='user-edit__name-text'>Имя родителя</p>
+      <div className='user__wrapper user__wrapper-edit'>
+        <p className='user-edit__name-text'>Родитель</p>
         <InputWrapper
           labelText='Имя'
           inputId='first_name'
@@ -104,8 +103,8 @@ export function UserEdit({ setEditUser }) {
           />
         </InputWrapper>
       </div>
-      <div className='user__wrapper'>
-        <p className='user-edit__name-text'>Имя ребенка</p>
+      <div className='user__wrapper user__wrapper-edit'>
+        <p className='user-edit__name-text'>Ребёнок</p>
         <InputWrapper
           labelText='Имя'
           inputId='child_first_name'
@@ -141,7 +140,7 @@ export function UserEdit({ setEditUser }) {
           />
         </InputWrapper>
       </div>
-      <div className='user__wrapper'>
+      <div className='user__wrapper user__wrapper-edit'>
         <p className='user-edit__name-text'>Телефон</p>
         <InputWrapper
           labelText='Телефон'
@@ -162,7 +161,7 @@ export function UserEdit({ setEditUser }) {
           />
         </InputWrapper>
       </div>
-      <div className='user__wrapper'>
+      <div className='user__wrapper user__wrapper-edit'>
         <p className='user-edit__name-text'>Email</p>
         <InputWrapper
           labelText='Email'
@@ -186,7 +185,7 @@ export function UserEdit({ setEditUser }) {
         <Button
           type='submit'
           width='188px'
-          size='medium'
+          size='small'
           color={isReadyToSubmit ? 'orange-fill' : 'empty'}
           disabled={!isReadyToSubmit}
           onClick={(e) => {
@@ -198,7 +197,7 @@ export function UserEdit({ setEditUser }) {
         <Button
           type='button'
           width='188px'
-          size='medium'
+          size='small'
           color='orange-empty'
           onClick={(e) => {
             e.preventDefault();

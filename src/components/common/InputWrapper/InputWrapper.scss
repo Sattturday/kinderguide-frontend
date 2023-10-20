@@ -38,6 +38,7 @@
 
 .inputWrapper__label {
   @include text-m;
+  font-weight: $fw-bold;
   color: $black;
   margin: 0;
   padding: 0 0 5px 0;

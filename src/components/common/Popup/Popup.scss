@@ -86,11 +86,14 @@
 
 .popup_type_profile-modal {
   padding-top: 96px;
+  flex-wrap: wrap;
+  align-content: flex-start;
   align-items: flex-start;
   text-align: center;
 }
 
 .popup__container_type_profile-modal {
-  padding: 60px 80px;
+  padding: 60px 60px;
+  max-width: 690px;
   align-items: center;
 }

@@ -2,6 +2,7 @@
 @import '../../../../styles/abstract/mixins.scss';
 
 .navigation-profile {
+  padding-top: 7px;
   width: 298px;
   display: flex;
   flex-direction: column;
@@ -17,8 +18,7 @@
   text-align: start;
   background-color: #fff;
   border: none;
-  line-height: 130%;
-  font-family: 'Manrope', 'Arial', sans-serif;
+  font-family: 'Noto Sans', 'Arial', sans-serif;
 }
 
 .navigation-profile__item_favorites {

@@ -37,7 +37,7 @@ export const ProfielExitModal = () => {
         <Button
           type='button'
           width='188px'
-          size='medium'
+          size='small'
           color={'fill'}
           onClick={hanldeCloseModal}
         >
@@ -46,7 +46,7 @@ export const ProfielExitModal = () => {
         <Button
           type='button'
           width='188px'
-          size='medium'
+          size='small'
           color='orange-empty'
           onClick={signOut}
         >
