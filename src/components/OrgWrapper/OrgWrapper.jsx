@@ -8,6 +8,8 @@ import { Link } from 'react-router-dom';
 import { Activity } from './Activity';
 import { LikeButton } from '../LikeButton';
 import { Reviews } from '../ShowList/Reviews';
+import { Slider } from '../common/Slider/Slider';
+import { exampleSlides } from '../../utils/exampleData';
 
 export const OrgWrapper = ({ data, feedback, org, link, activities }) => {
   return (
@@ -77,9 +79,9 @@ export const OrgWrapper = ({ data, feedback, org, link, activities }) => {
               </Button>
             </div>
           </div>
-          {/* <div className='orgWrapper__map'>
+          <div className='orgWrapper__map'>
             <YandexMap address={data.address} />
-          </div> */}
+          </div>
         </aside>
       </div>
       <section className='orgWrapper__feedback' aria-label='Отзывы'>
