@@ -13,8 +13,23 @@ import { LoginModal } from './components/LoginModal';
 import { PasswordRecoveryModal } from './components/PasswordRecoveryModal';
 
 import { PasswordRecoverySuccessModal } from './components/PasswordRecoverySuccessModal';
+import { useDispatch } from 'react-redux';
+import { setCredentials } from './store/authSlice';
+import { useEffect } from 'react';
+import { useGetUserQuery } from './api/userApi';
 
 function App() {
+  const dispatch = useDispatch();
+  const { data: userData } = useGetUserQuery();
+
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+    console.log('token from LS:', token);
+
+    if (token) {
+    }
+  });
+
   return (
     <Layout>
       <Routes>

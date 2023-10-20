@@ -26,7 +26,7 @@ export const LoginModal = () => {
         email: data['login-form-email'],
         password: data['login-form-password'],
       }).unwrap();
-
+      localStorage.setItem('token', response.access);
       // const userData = await response.json();
       console.log(response.access);
 
