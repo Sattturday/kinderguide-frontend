@@ -8,6 +8,7 @@ import { Link } from 'react-router-dom';
 import { Activity } from './Activity';
 import { LikeButton } from '../LikeButton';
 import { Reviews } from '../ShowList/Reviews';
+import React from 'react';
 
 export const OrgWrapper = ({ data, feedback, org, link, activities }) => {
   return (
@@ -84,6 +85,7 @@ export const OrgWrapper = ({ data, feedback, org, link, activities }) => {
       </div>
       <section className='orgWrapper__feedback' aria-label='Отзывы'>
         <h2 className='orgWrapper__sectionHeader'>Отзывы</h2>
+        {!feedback && <h1>Отзывов еще нет. Будьте первыми</h1>}
         <Feedback feedback={feedback} />
       </section>
     </div>

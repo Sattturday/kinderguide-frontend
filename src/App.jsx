@@ -21,8 +21,8 @@ function App() {
         <Route path='/' element={<Home />} />
         <Route path='/profile' element={<Profile />} />
         <Route path='/catalog' element={<Catalog />} />
-        <Route path='/schools/:id' element={<School />} />
-        <Route path='/kindergartens/:id' element={<Kindergarten />} />
+        <Route path='/school/:id' element={<School />} />
+        <Route path='/kindergarten/:id' element={<Kindergarten />} />
         <Route path='/password-reset/:id/:token' element={<Home />} />
         <Route path='*' element={<NotFoundPage />} />
       </Routes>
