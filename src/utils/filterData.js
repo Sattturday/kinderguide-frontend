@@ -75,7 +75,7 @@ export const INITIAL_FILTER_STATE = {
 
 export const NAV_CATEGORY = [
   { name: 'Школы', category: 'school' },
-  { name: 'Сады', category: 'garden' },
+  { name: 'Сады', category: 'kindergarten' },
   { name: 'Курсы', category: 'course' },
 ];
 

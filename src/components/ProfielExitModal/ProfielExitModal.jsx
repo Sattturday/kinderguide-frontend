@@ -4,11 +4,14 @@ import { Popup } from '../common/Popup';
 import { Button } from '../common/Button';
 import { closeAllModals } from '../../store/modalsSlice';
 import { useNavigate } from 'react-router-dom';
-import { setCredentials } from '../../store/authSlice';
+import { setToken, setUser } from '../../store/authSlice';
+//import { setCredentials } from '../../store/authSlice';
 
 export const ProfielExitModal = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  const currentToken = useSelector((state) => state.auth.token);
 
   const isOpen = useSelector((state) => state.modals.isOpenExitProfileModal);
   //закрытие модалки
@@ -18,13 +21,12 @@ export const ProfielExitModal = () => {
 
   // выход из акаунта
   function signOut() {
+    localStorage.removeItem('token');
     navigate('/');
-    dispatch(
-      setCredentials({
-        user: false,
-        token: null,
-      })
-    );
+    console.log(currentToken);
+
+    //   dispatch(setToken(null));
+    dispatch(setUser(false));
     dispatch(closeAllModals());
   }
 

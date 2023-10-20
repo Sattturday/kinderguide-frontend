@@ -1,9 +1,9 @@
 import './ShowList.scss';
 import { Card } from '../common/Card';
 
-export const ShowList = () => (
+export const ShowList = ({ selected }) => (
   <section className='show-list'>
-    <Card />
+    <Card selected={selected} />
     <Card />
     <Card />
     <Card />

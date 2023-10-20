@@ -17,6 +17,7 @@ export default configureStore({
     auth: authReducer,
     filter: filterReducer,
     [authApi.reducerPath]: authApi.reducer,
+    [userApi.reducerPath]: userApi.reducer,
     [schoolApi.reducerPath]: schoolApi.reducer,
     [kindergartenApi.reducerPath]: kindergartenApi.reducer,
     [schoolReviewsApi.reducerPath]: schoolReviewsApi.reducer,
