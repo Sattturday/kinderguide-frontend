@@ -11,6 +11,7 @@ export const ImageSlider = ({ images, width = '50%' }) => {
   const slides = images?.map((image) => (
     <img
       className='slider-img'
+      // src={image.image}
       src={`https://kinder.acceleratorpracticum.ru${image.image}`}
       alt='Фото организации'
     />
