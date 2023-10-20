@@ -1,40 +1,37 @@
 import { OrgWrapper } from '../../components/OrgWrapper';
 import { useGetKindergartenQuery } from '../../api/kindergartenApi';
 import { useGetKindergartenReviewsQuery } from '../../api/kindergartenReviewsApi';
-// import { album } from '../../utils/constants';
 
 export const Kindergarten = ({ kindergarten_id }) => {
-  // const { kindergartenData = [] } = useGetKindergartenQuery({
-  //   kindergarten_id,
-  // });
+  const { data: kindergartenData = [] } = useGetKindergartenQuery(1);
   // const { kindergartenReviewsData = [] } = useGetKindergartenReviewsQuery({
   //   kindergarten_id,
   // });
-  const kindergartenData = {
-    id: 123,
-    name: 'Сад',
-    rating: 4.5,
-    reviews: 1,
-    description: 'Описание сада',
-    telephone: '+7(910)000-00-00',
-    address: 'Москва, ул. Льва Толстого, 25',
-    underground: 'Московская',
-    area: 'Район',
-    email: 'school@yandex.ru',
-    // album: album,
-    price: 100,
-    price_of_year: 1200,
-    age: '0 - 9',
-    working_hours: 'С 8:00 до 20:00',
-    group_suze: 'До 15 человек',
-    languages:
-      'французский тест длинной строкиииииииииииииииииииииииииииииииииииииииииииии иииииииииииииииииииииииииииииииииииии',
-    sport_dev: 'футбол',
-    create_dev: 'рисование',
-    music_dev: 'хор',
-    intel_dev:
-      'веселая азбука, тест длинной строкиииииииииииииииииииииииииииииииииииииииииииииии',
-  };
+  // const kindergartenData = {
+  //   id: 123,
+  //   name: 'Сад',
+  //   rating: 4.5,
+  //   reviews: 1,
+  //   description: 'Описание сада',
+  //   telephone: '+7(910)000-00-00',
+  //   address: 'Москва, ул. Льва Толстого, 25',
+  //   underground: 'Московская',
+  //   area: 'Район',
+  //   email: 'school@yandex.ru',
+  //   // album: album,
+  //   price: 100,
+  //   price_of_year: 1200,
+  //   age: '0 - 9',
+  //   working_hours: 'С 8:00 до 20:00',
+  //   group_suze: 'До 15 человек',
+  //   languages:
+  //     'французский тест длинной строкиииииииииииииииииииииииииииииииииииииииииииии иииииииииииииииииииииииииииииииииииии',
+  //   sport_dev: 'футбол',
+  //   create_dev: 'рисование',
+  //   music_dev: 'хор',
+  //   intel_dev:
+  //     'веселая азбука, тест длинной строкиииииииииииииииииииииииииииииииииииииииииииииии',
+  // };
 
   const kindergartenReviewsData = {
     count: 0,
