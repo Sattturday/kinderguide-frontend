@@ -17,33 +17,32 @@ import {
 } from '../../store/filterSlice';
 
 export function Catalog() {
-  const [selected, setSelected] = useState('school');
+  const [selected, setSelected] = useState('schools');
   const [paramsUrl, setParamsUrl] = useState('');
 
   const { filter } = useSelector((state) => state);
   const deferredFilter = useDeferredValue(filter);
   const dispatch = useDispatch();
 
-  const { initialCards = [] } = useGetFilteredDataQuery([
-    deferredFilter.category,
-    paramsUrl,
-  ]);
+  const { data = [] } = useGetFilteredDataQuery([filter.category, paramsUrl]);
+
+  console.log(data);
 
   useEffect(() => {
-    filteredDataHandler(deferredFilter);
+    filteredDataHandler(filter);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [filter.sort, filter.sortDirection]);
 
   const onClickNavHandler = (e) => {
     dispatch(setFilterDefault());
     setSelected(e.target.id);
     dispatch(setCategoryFilter(e.target.id));
-    filteredDataHandler(deferredFilter);
+    filteredDataHandler(filter);
   };
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
-    filteredDataHandler(deferredFilter);
+    filteredDataHandler(filter);
   };
 
   const checkboxHandler = (key, value) => {
@@ -128,7 +127,10 @@ export function Catalog() {
           selectHandler={checkboxHandler}
           handleReset={handleReset}
         />
-        <ShowList selected={selected} />
+        <ShowList
+          data={data ? data.results : []}
+          selected={selected.slice(0, -1)}
+        />
       </div>
     </section>
   );

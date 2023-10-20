@@ -37,7 +37,6 @@ const filterSlice = createSlice({
       }
     },
     setPriceFilter(state, action) {
-      console.log('renederrrr');
       state.price.minVal = Math.max(0, action.payload.minVal);
       state.price.maxVal = Math.max(0, action.payload.maxVal);
     },

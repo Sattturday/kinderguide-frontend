@@ -10,7 +10,7 @@ const cardData = [
     name: 'Название школы',
     description:
       'Краткая информация о школе Краткая информация о школеКраткая информация о школеКраткая информация о школеКраткая информация о школе',
-    image: img1,
+    album: [img1],
     price: 1000,
     rating: 3.7,
   },
@@ -19,7 +19,7 @@ const cardData = [
     name: 'Название школы',
     description:
       'Краткая информация о школе Краткая информация о школеКраткая информация о школеКраткая информация о школеКраткая информация о школе',
-    image: img2,
+    album: [img2],
     price: 2000,
     rating: 4.7,
   },
@@ -28,16 +28,16 @@ const cardData = [
     name: 'Название школы',
     description:
       'Краткая информация о школе Краткая информация о школеКраткая информация о школеКраткая информация о школеКраткая информация о школе',
-    image: img3,
+    album: [img3],
     price: 3000,
     rating: 4.9,
   },
 ];
 
-export const ShowList = ({ data = cardData }) => (
+export const ShowList = ({ data = cardData, selected }) => (
   <section className='show-list'>
     {data.map((card) => {
-      return <Card key={card.id} cardData={card} />;
+      return <Card key={card.id} cardData={card} selected={selected} />;
     })}
   </section>
 );
