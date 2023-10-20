@@ -3,91 +3,109 @@ import { useGetKindergartenQuery } from '../../api/kindergartenApi';
 import { useGetKindergartenReviewsQuery } from '../../api/kindergartenReviewsApi';
 
 export const Kindergarten = ({ kindergarten_id }) => {
-  const { kindergartenData = [] } = useGetKindergartenQuery({
-    kindergarten_id,
-  });
-  const { kindergartenReviewsData = [] } = useGetKindergartenReviewsQuery({
-    kindergarten_id,
-  });
+  const { data: kindergartenData = [] } = useGetKindergartenQuery(1);
+  // const { kindergartenReviewsData = [] } = useGetKindergartenReviewsQuery({
+  //   kindergarten_id,
+  // });
+  // const kindergartenData = {
+  //   id: 123,
+  //   name: 'Сад',
+  //   rating: 4.5,
+  //   reviews: 1,
+  //   description: 'Описание сада',
+  //   telephone: '+7(910)000-00-00',
+  //   address: 'Москва, ул. Льва Толстого, 25',
+  //   underground: 'Московская',
+  //   area: 'Район',
+  //   email: 'school@yandex.ru',
+  //   // album: album,
+  //   price: 100,
+  //   price_of_year: 1200,
+  //   age: '0 - 9',
+  //   working_hours: 'С 8:00 до 20:00',
+  //   group_suze: 'До 15 человек',
+  //   languages:
+  //     'французский тест длинной строкиииииииииииииииииииииииииииииииииииииииииииии иииииииииииииииииииииииииииииииииииии',
+  //   sport_dev: 'футбол',
+  //   create_dev: 'рисование',
+  //   music_dev: 'хор',
+  //   intel_dev:
+  //     'веселая азбука, тест длинной строкиииииииииииииииииииииииииииииииииииииииииииииии',
+  // };
 
+  const kindergartenReviewsData = {
+    count: 0,
+    next: 'string',
+    previous: 'string',
+    results: [
+      {
+        id: 0,
+        content: 'отзыв',
+        grade: 5,
+        author: 'Имя',
+        date_posted: '2019-08-24T14:15:22Z',
+      },
+      {
+        id: 1,
+        content: 'отзыв',
+        grade: 0,
+        author: 'Имя',
+        date_posted: '2019-08-24T14:15:22Z',
+      },
+      {
+        id: 2,
+        content: 'отзыв',
+        grade: 0,
+        author: 'Имя',
+        date_posted: '2019-08-24T14:15:22Z',
+      },
+      {
+        id: 12,
+        content: 'отзыв',
+        grade: 0,
+        author: 'Имя',
+        date_posted: '2019-08-24T14:15:22Z',
+      },
+    ],
+  };
+
+  const activities = [
+    {
+      type: 'Возраст групп',
+      text: kindergartenData.age,
+    },
+    {
+      type: 'Время работы',
+      text: kindergartenData.working_hours,
+    },
+    {
+      type: 'Размер группы',
+      text: kindergartenData.group_suze,
+    },
+    {
+      type: 'Иностранные языки',
+      text: kindergartenData.languages,
+    },
+    {
+      type: 'Спортивное развитие',
+      text: kindergartenData.sport_dev,
+    },
+    {
+      type: 'Музыкальное развитие',
+      text: kindergartenData.music_dev,
+    },
+    {
+      type: 'Интеллектуальное развитие',
+      text: kindergartenData.intel_dev,
+    },
+  ];
   return (
     <OrgWrapper
       data={kindergartenData}
-      feedback={kindergartenReviewsData}
+      feedback={kindergartenReviewsData.results}
       org='Детские сады'
-    >
-      <div className='school'>
-        <div className='school__activity'>
-          <h3 className='school__title'>Возраст</h3>
-          {kindergartenData.ages?.map((age) => (
-            <p key={kindergartenData.name + age} className='school__text'>
-              {age}
-            </p>
-          ))}
-        </div>
-        <div className='school'>
-          <div className='school__activity'>
-            <h3 className='school__title'>Время работы</h3>
-            <p className='school__text'>{kindergartenData.working_hours}</p>
-          </div>
-        </div>
-      </div>
-      <div className='school'>
-        <div className='school__activity'>
-          <h3 className='school__title'>Размер группы</h3>
-          <p className='school__text'>{kindergartenData.group_size}</p>
-        </div>
-      </div>
-      <div className='school'>
-        <div className='school__activity'>
-          <h3 className='school__title'>Иностранные языки</h3>
-          {kindergartenData.languages?.map((language) => (
-            <p key={kindergartenData.name + language} className='school__text'>
-              {language}
-            </p>
-          ))}
-        </div>
-      </div>
-      <div className='school'>
-        <div className='school__activity'>
-          <h3 className='school__title'>Спортивное развитие</h3>
-          {kindergartenData.sport_dev?.map((item) => (
-            <p key={kindergartenData.name + item} className='school__text'>
-              {item}
-            </p>
-          ))}
-        </div>
-      </div>
-      <div className='school'>
-        <div className='school__activity'>
-          <h3 className='school__title'>Творческое развитие</h3>
-          {kindergartenData.create_dev?.map((item) => (
-            <p key={kindergartenData.name + item} className='school__text'>
-              {item}
-            </p>
-          ))}
-        </div>
-      </div>
-      <div className='school'>
-        <div className='school__activity'>
-          <h3 className='school__title'>Интеллектуальное развитие</h3>
-          {kindergartenData.intel_dev?.map((item) => (
-            <p key={kindergartenData.name + item} className='school__text'>
-              {item}
-            </p>
-          ))}
-        </div>
-      </div>
-      <div className='school'>
-        <div className='school__activity'>
-          <h3 className='school__title'>Музыкальное развитие</h3>
-          {kindergartenData.music_dev?.map((item) => (
-            <p key={kindergartenData.name + item} className='school__text'>
-              {item}
-            </p>
-          ))}
-        </div>
-      </div>
-    </OrgWrapper>
+      link='kindergartens'
+      activities={activities}
+    />
   );
 };
