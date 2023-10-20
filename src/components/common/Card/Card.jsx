@@ -1,25 +1,14 @@
 import { useState } from 'react';
 
-import img from '../../../images/NewsCard/img1.jpg';
 import { Stars } from '../../Stars';
 import './Card.scss';
 import { LikeButton } from '../../LikeButton/LikeButton';
 
-export const Card = () => {
+export const Card = ({ cardData }) => {
   const [isLiked, setIsLiked] = useState(false);
 
   const handleLike = () => {
     setIsLiked(!isLiked);
-  };
-
-  const cardData = {
-    id: 0,
-    name: 'Название школы',
-    description:
-      'Краткая информация о школе Краткая информация о школеКраткая информация о школеКраткая информация о школеКраткая информация о школе',
-    image: img,
-    price: 1000,
-    rating: 3.7,
   };
 
   return (
