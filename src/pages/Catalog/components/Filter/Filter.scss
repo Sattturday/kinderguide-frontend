@@ -58,8 +58,20 @@
     &_active {
       z-index: 5;
       max-height: 200px;
-      overflow-y: auto;
       opacity: 1;
+      &::-webkit-scrollbar {
+        width: 5px;
+      }
+
+      &::-webkit-scrollbar-track {
+        background-color: #ecf0ff;
+      }
+      &::-webkit-scrollbar-thumb {
+        background-color: #829dfd;
+        border-radius: 20px;
+        height: 40px;
+      }
+      overflow-y: auto;
     }
   }
 

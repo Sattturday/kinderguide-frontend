@@ -87,7 +87,7 @@
   }
 
   &:focus {
-    outline: 1px solid $black;
+    outline: 1px solid $border-purple;
   }
 
   &_invalid {
@@ -107,4 +107,26 @@
   line-height: 1.2;
   letter-spacing: 1.6px;
   color: $title-blue;
+}
+
+@mixin scrollbars {
+  &::-webkit-scrollbar {
+    width: 5px;
+  }
+  &::-webkit-scrollbar-track {
+    background-color: #ecf0ff;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: #829dfd;
+    border-radius: 20px;
+    height: 40px;
+  }
+}
+
+@mixin button {
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  transition: ease-in-out 350ms;
 }

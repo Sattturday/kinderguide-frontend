@@ -58,8 +58,10 @@ export const FILTER_ITEMS = [
 ];
 
 export const INITIAL_FILTER_STATE = {
+  category: 'school',
   request: '',
   sort: '',
+  sortDirection: true,
   profile: [],
   age: [],
   language: [],
