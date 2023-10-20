@@ -7,7 +7,7 @@ import { InputPassword } from '../InputPassword';
 import { Button } from '../common/Button';
 import { useSelector } from 'react-redux';
 import { useLoginMutation } from '../../api/authApi';
-import { setCredentials } from '../../store/authSlice';
+import { setUser, setToken } from '../../store/authSlice';
 import { useDispatch } from 'react-redux';
 import { closeAllModals } from '../../store/modalsSlice';
 
@@ -28,11 +28,14 @@ export const LoginModal = () => {
       }).unwrap();
       localStorage.setItem('token', response.access);
       // const userData = await response.json();
-      console.log(response.access);
 
       dispatch(
-        setCredentials({
+        setUser({
           user: true,
+        })
+      );
+      dispatch(
+        setToken({
           token: response.access,
         })
       );
@@ -87,9 +90,9 @@ export const LoginModal = () => {
           width='532px'
           size='large'
           color={isValid ? 'orange-fill' : 'orange-dis'}
-          disabled={!isValid}
+          disabled={!isValid && isLoading}
         >
-          Войти
+          {isLoading ? 'Вход...' : 'Войти'}
         </Button>
       </form>
     </Popup>
