@@ -18,7 +18,9 @@
   visibility: hidden;
   padding: 106px 0 70px;
   z-index: 110;
-  transition: opacity 0.4s ease;
+  transition:
+    opacity 0.4s ease,
+    visibility 0.4s ease;
 
   &_opened {
     visibility: visible;
