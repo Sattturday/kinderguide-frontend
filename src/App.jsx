@@ -16,6 +16,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setUser, setToken } from './store/authSlice';
 import { useEffect } from 'react';
 import { useGetUserQuery } from './api/userApi';
+import { ProfielExitModal } from './components/ProfielExitModal';
 import { LoginToFavoritePopup } from './components/LoginToFavoritPopup';
 
 function App() {
@@ -50,6 +51,8 @@ function App() {
       <RegisterModal />
       <RegisterSuccessModal />
       <LoginModal />
+      <ProfielExitModal />
+      <PasswordRecoveryModal stepRecovery={1} />
       <PasswordRecoveryModal />
 
       <PasswordRecoverySuccessModal />

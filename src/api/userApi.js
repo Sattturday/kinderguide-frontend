@@ -15,18 +15,21 @@ export const userApi = createApi({
       return headers;
     },
   }),
+  tagTypes: ['Users'],
   endpoints: (build) => ({
     getUser: build.query({
       query: () => ({
         url: 'me/',
       }),
+      providesTags: ['Users'],
     }),
     updateUser: build.mutation({
       query: (body) => ({
-        url: 'me',
+        url: 'me/',
         method: 'PATCH',
         body,
       }),
+      invalidatesTags: ['Users'],
     }),
   }),
 });
