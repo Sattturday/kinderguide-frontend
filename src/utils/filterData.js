@@ -75,8 +75,7 @@ export const INITIAL_FILTER_STATE = {
 
 export const NAV_CATEGORY = [
   { name: 'Школы', category: 'school' },
-  { name: 'Сады', category: 'garden' },
-  // { name: 'Курсы', category: 'course' },
+  { name: 'Сады', category: 'kindergarten' },
 ];
 
 export const METRO_LIST = [

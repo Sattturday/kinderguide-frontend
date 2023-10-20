@@ -128,7 +128,7 @@ export function Catalog() {
           selectHandler={checkboxHandler}
           handleReset={handleReset}
         />
-        <ShowList />
+        <ShowList selected={selected} />
       </div>
     </section>
   );

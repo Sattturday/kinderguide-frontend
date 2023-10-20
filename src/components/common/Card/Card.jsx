@@ -3,20 +3,26 @@ import { useState } from 'react';
 import { Stars } from '../../Stars';
 import './Card.scss';
 import { LikeButton } from '../../LikeButton/LikeButton';
+import { Link } from 'react-router-dom';
 
-export const Card = ({ cardData }) => {
+
+export const Card = ({ cardData,selected }) => {
+
   const [isLiked, setIsLiked] = useState(false);
 
   const handleLike = () => {
     setIsLiked(!isLiked);
   };
 
+
   return (
     <div className='card'>
       <img className='card__img' src={cardData.image} alt='Фото школы' />
       <div className='card__container'>
         <div className='card__title-block'>
-          <h3 className='card__title'>{cardData.name}</h3>
+          <Link to={`/${selected}/${cardData.id}`} className='card__title'>
+            {cardData.name}
+          </Link>
           <LikeButton isLiked={isLiked} onLike={handleLike} />
         </div>
 
