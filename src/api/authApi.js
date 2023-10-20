@@ -18,7 +18,7 @@ export const authApi = createApi({
   endpoints: (build) => ({
     createUser: build.mutation({
       query: (body) => ({
-        url: 'auth/signup',
+        url: 'auth/signup/',
         method: 'POST',
         body,
       }),
@@ -26,7 +26,7 @@ export const authApi = createApi({
 
     login: build.mutation({
       query: (body) => ({
-        url: 'auth/signin',
+        url: 'auth/signin/',
         method: 'POST',
         body,
       }),
@@ -34,7 +34,7 @@ export const authApi = createApi({
 
     resetPas: build.mutation({
       query: (body) => ({
-        url: 'auth/reset',
+        url: 'auth/reset/',
         method: 'POST',
         body,
       }),
@@ -42,7 +42,7 @@ export const authApi = createApi({
 
     confirmResetPas: build.mutation({
       query: (body) => ({
-        url: 'auth/reset/confirm',
+        url: 'auth/reset/confirm/',
         method: 'POST',
         body,
       }),

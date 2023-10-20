@@ -18,7 +18,7 @@ export const userApi = createApi({
   endpoints: (build) => ({
     getUser: build.query({
       query: () => ({
-        url: 'me',
+        url: 'me/',
       }),
     }),
     updateUser: build.mutation({

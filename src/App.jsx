@@ -24,29 +24,6 @@ function App() {
 
   const token = localStorage.getItem('token');
 
-  const checkUser = async () => {
-    try {
-      const response = await fetch(
-        'https://kinder.acceleratorpracticum.ru/api/me111',
-        {
-          headers: {
-            'Content-Type': 'application/json',
-            Authorization: `Barrier ${token}`,
-            zalupa: true,
-          },
-        }
-      );
-      const data = await response.json();
-      console.log(data);
-      console.log(response);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-  useEffect(() => {
-    checkUser();
-  });
-
   useEffect(() => {
     if (token) {
       refetch();
