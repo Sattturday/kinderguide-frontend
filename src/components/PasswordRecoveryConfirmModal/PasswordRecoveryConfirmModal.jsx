@@ -28,7 +28,7 @@ export const PasswordRecoveryConfirmModal = ({ id, token }) => {
       const response = await createNewPass({
         new_password: data['password-recovery-form-password'],
         re_new_password: data['password-recovery-form-password-repeat'],
-        MTY: id,
+        uid: id,
         token: token,
       });
     } catch (error) {
