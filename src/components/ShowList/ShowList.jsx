@@ -3,6 +3,7 @@ import { Card } from '../common/Card';
 import img1 from '../../images/NewsCard/img1.jpg';
 import img2 from '../../images/NewsCard/img2.jpg';
 import img3 from '../../images/NewsCard/img3.jpg';
+import Preloader from '../Preloader/Preloader';
 
 const cardData = [
   {
@@ -34,10 +35,41 @@ const cardData = [
   },
 ];
 
-export const ShowList = ({ data = cardData, selected }) => (
+const schoolName = ['школа', 'школы', 'школ'];
+const gardenName = ['детский сад', 'детксих сада', 'детских садов'];
+
+function getName(value, words) {
+  value = Math.abs(value) % 100;
+  var num = value % 10;
+  if (value > 10 && value < 20) return words[2];
+  if (num > 1 && num < 5) return words[1];
+  if (num === 1) return words[0];
+  return words[2];
+}
+
+export const ShowList = ({
+  data = cardData,
+  selected,
+  category,
+  isLoading,
+}) => (
   <section className='show-list'>
-    {data.map((card) => {
-      return <Card key={card.id} cardData={card} selected={selected} />;
-    })}
+    {isLoading ? (
+      <Preloader />
+    ) : (
+      <>
+        <p className='show-list__info'>
+          Найдено {data.length}{' '}
+          {category === 'schools'
+            ? getName(data.length, schoolName)
+            : getName(data.length, gardenName)}
+        </p>
+        <div className='show-list__items'>
+          {data.map((card) => {
+            return <Card key={card.id} cardData={card} selected={selected} />;
+          })}
+        </div>
+      </>
+    )}
   </section>
 );

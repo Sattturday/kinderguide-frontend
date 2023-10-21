@@ -43,6 +43,9 @@ const filterSlice = createSlice({
     setFilterDefault() {
       return initialState;
     },
+    setFilterAllData(state, action) {
+      state = action.payload;
+    },
   },
 });
 
@@ -54,6 +57,7 @@ export const {
   setCheckboxFilter,
   setPriceFilter,
   setFilterDefault,
+  setFilterAllData,
 } = filterSlice.actions;
 
 export default filterSlice.reducer;

@@ -14,24 +14,41 @@ import {
   setSortDirectionFilter,
   setCheckboxFilter,
   setFilterDefault,
+  setFilterAllData,
 } from '../../store/filterSlice';
+import { useLocation } from 'react-router-dom';
 
 export function Catalog() {
-  const [selected, setSelected] = useState('schools');
-  const [paramsUrl, setParamsUrl] = useState('');
-
-  const { filter } = useSelector((state) => state);
+  const { filter } = useSelector((state) => state, { noopCheck: 'never' });
   const deferredFilter = useDeferredValue(filter);
+
+  const [selected, setSelected] = useState(filter.category);
+  const [paramsUrl, setParamsUrl] = useState('');
+  const path = useLocation().pathname;
+
   const dispatch = useDispatch();
 
-  const { data = [] } = useGetFilteredDataQuery([filter.category, paramsUrl]);
-
-  console.log(data);
+  const { data = [], isLoading } = useGetFilteredDataQuery([
+    filter.category,
+    paramsUrl,
+  ]);
 
   useEffect(() => {
     filteredDataHandler(filter);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [filter.sort, filter.sortDirection]);
+
+  useEffect(() => {
+    localStorage.setItem('filter', JSON.stringify(filter));
+  }, [filter]);
+
+  useEffect(() => {
+    const filterData = JSON.parse(localStorage.getItem('filter'));
+    if (path === 'catalog' && filterData) {
+      dispatch(setFilterAllData(filterData));
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [path]);
 
   const onClickNavHandler = (e) => {
     dispatch(setFilterDefault());
@@ -130,6 +147,8 @@ export function Catalog() {
         <ShowList
           data={data ? data.results : []}
           selected={selected.slice(0, -1)}
+          category={deferredFilter.category}
+          isLoading={isLoading}
         />
       </div>
     </section>
