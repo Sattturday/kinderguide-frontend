@@ -183,7 +183,7 @@ export const RegisterModal = () => {
         />
         <Button
           type='submit'
-          width='532px'
+          width='520px'
           size='large'
           color={isReadyToSubmit ? 'orange-fill' : 'orange-dis'}
           disabled={!isReadyToSubmit & isLoading}

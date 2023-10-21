@@ -11,8 +11,6 @@ export const ProfielExitModal = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const currentToken = useSelector((state) => state.auth.token);
-
   const isOpen = useSelector((state) => state.modals.isOpenExitProfileModal);
   //закрытие модалки
   const hanldeCloseModal = () => {
@@ -23,7 +21,6 @@ export const ProfielExitModal = () => {
   function signOut() {
     localStorage.removeItem('token');
     navigate('/');
-    console.log(currentToken);
 
     //   dispatch(setToken(null));
     dispatch(setUser(false));
@@ -40,7 +37,7 @@ export const ProfielExitModal = () => {
           type='button'
           width='188px'
           size='small'
-          color={'fill'}
+          color={'orange-fill'}
           onClick={hanldeCloseModal}
         >
           Остаться
