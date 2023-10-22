@@ -14,7 +14,11 @@ export const Card = ({ cardData, selected }) => {
 
   return (
     <div className='card'>
-      <img className='card__img' src={cardData.album[0]} alt='Фото школы' />
+      <img
+        className='card__img'
+        src={`https://kinder.acceleratorpracticum.ru/${cardData.album[0].image}`}
+        alt='Фото школы'
+      />
       <div className='card__container'>
         <div className='card__title-block'>
           <Link to={`/${selected}/${cardData.id}`} className='card__title'>
