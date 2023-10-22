@@ -18,7 +18,7 @@ export const School = () => {
     },
     {
       type: 'Время работы',
-      text: '',
+      text: schoolData.working_hours,
     },
     {
       type: 'Возрастные группы',
