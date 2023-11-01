@@ -1,9 +1,10 @@
 import { Link } from 'react-router-dom';
-import './Header.scss';
-import logo from '../../images/logo.svg';
-import { Navigation } from '../../components/Navigation';
 import { useDispatch, useSelector } from 'react-redux';
+
 import { openLoginModal, openRegisterModal } from '../../store/modalsSlice';
+import { Navigation } from '../../components/Navigation';
+import logo from '../../images/logo.svg';
+import './Header.scss';
 
 export const Header = () => {
   const dispatch = useDispatch();

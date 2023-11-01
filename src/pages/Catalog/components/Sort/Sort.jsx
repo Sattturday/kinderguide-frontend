@@ -1,8 +1,9 @@
 import React, { useRef, useState } from 'react';
+import { useSelector } from 'react-redux';
+
 import { useClickOutside } from '../../../../hooks/useClickOutside';
 import { sortButtons } from '../../../../utils/filterData';
 import './Sort.scss';
-import { useSelector } from 'react-redux';
 
 export function Sort({ sortHandler, sortDirectionHandler }) {
   const [isActive, setIsActive] = useState(false);

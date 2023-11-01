@@ -1,6 +1,7 @@
+import { useParams } from 'react-router-dom';
+
 import { OrgWrapper } from '../../components/OrgWrapper';
 import { useGetKindergartenQuery } from '../../api/kindergartenApi';
-import { useParams } from 'react-router-dom';
 import { useGetKindergartenReviewsQuery } from '../../api/kindergartenReviewsApi';
 
 export const Kindergarten = () => {

@@ -1,14 +1,14 @@
-import './PasswordRecoveryModal.scss';
-import { useFormAndValidation } from '../../hooks/useFormAndValidation';
-import { Popup } from '../common/Popup';
-import { InputWrapper } from '../common/InputWrapper';
-import { Input } from '../common/Input';
-
-import { Button } from '../common/Button';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+
+import { useFormAndValidation } from '../../hooks/useFormAndValidation';
 import { useResetPasMutation } from '../../api/authApi';
 import { closeAllModals } from '../../store/modalsSlice';
+import { Popup } from '../common/Popup';
+import { Input } from '../common/Input';
+import { InputWrapper } from '../common/InputWrapper';
+import { Button } from '../common/Button';
+import './PasswordRecoveryModal.scss';
 
 // stepRecovery -  шаг восстановления.
 // пока что  варианты 1 - ввод почты & 2 - создание пароля

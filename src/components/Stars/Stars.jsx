@@ -1,7 +1,7 @@
-import './Stars.scss';
 import filled from '../../images/Stars/Star-filled.svg';
 import half from '../../images/Stars/Star-half.svg';
 import empty from '../../images/Stars/Star-empty.svg';
+import './Stars.scss';
 
 export const Stars = ({ rating, children }) => {
   const starFilled = Math.floor(rating);

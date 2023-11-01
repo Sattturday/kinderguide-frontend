@@ -2,7 +2,6 @@ import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 
 import { closeAllModals } from '../../../store/modalsSlice';
-
 import './Popup.scss';
 
 export const Popup = ({ isOpen, name, children }) => {

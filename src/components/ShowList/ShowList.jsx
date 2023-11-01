@@ -1,16 +1,16 @@
-import './ShowList.scss';
-import { Card } from '../common/Card';
 import img1 from '../../images/NewsCard/img1.jpg';
 import img2 from '../../images/NewsCard/img2.jpg';
 import img3 from '../../images/NewsCard/img3.jpg';
-import Preloader from '../Preloader/Preloader';
+import { Preloader } from '../Preloader';
+import { Card } from '../common/Card';
+import './ShowList.scss';
 
 const cardData = [
   {
     id: 0,
     name: 'Название школы',
     description:
-      'Краткая информация о школе Краткая информация о школеКраткая информация о школеКраткая информация о школеКраткая информация о школе',
+      'Краткая информация о школе Краткая информация о школе Краткая информация о школе Краткая информация о школе Краткая информация о школе Краткая информация о школе Краткая информация о школе Краткая информация о школе Краткая информация о школеКраткая информация о школеКраткая информация о школеКраткая информация о школе',
     album: [img1],
     price: 1000,
     rating: 3.7,

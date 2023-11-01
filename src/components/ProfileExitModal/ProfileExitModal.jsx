@@ -1,13 +1,14 @@
 import { useDispatch, useSelector } from 'react-redux';
-import './ProfielExitModal.scss';
-import { Popup } from '../common/Popup';
-import { Button } from '../common/Button';
-import { closeAllModals } from '../../store/modalsSlice';
 import { useNavigate } from 'react-router-dom';
+
+import { closeAllModals } from '../../store/modalsSlice';
 import { setToken, setUser } from '../../store/authSlice';
 //import { setCredentials } from '../../store/authSlice';
+import { Popup } from '../common/Popup';
+import { Button } from '../common/Button';
+import './ProfileExitModal.scss';
 
-export const ProfielExitModal = () => {
+export const ProfileExitModal = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 

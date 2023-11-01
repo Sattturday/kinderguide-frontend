@@ -1,9 +1,10 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useCallback, useEffect, useRef } from 'react';
-import PropTypes from 'prop-types';
-import './DoubleRange.scss';
 import { useDispatch, useSelector } from 'react-redux';
+import PropTypes from 'prop-types';
+
 import { setPriceFilter } from '../../../../../../store/filterSlice';
+import './DoubleRange.scss';
 
 export const DoubleRange = React.memo(({ min, max }) => {
   const { price } = useSelector((state) => state.filter);

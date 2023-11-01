@@ -1,8 +1,9 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
+
 import { useClickOutside } from '../../../../../../hooks/useClickOutside';
 import './SelectOption.scss';
-import { useSelector } from 'react-redux';
 
 export const SelectOption = React.memo(({ onChange, options }) => {
   const { metro } = useSelector((state) => state.filter);
