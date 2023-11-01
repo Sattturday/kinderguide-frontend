@@ -44,9 +44,21 @@
 }
 
 .card__text {
+  position: relative;
+  display: -webkit-box;
+  display: box;
   @include text-m;
   font-size: 18px;
+  line-height: 1.2;
   max-width: 480px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -ms-line-clamp: 4;
+  -webkit-line-clamp: 4;
+  line-clamp: 4;
+  word-wrap: break-word;
+  -webkit-box-orient: vertical;
+  box-orient: vertical;
 }
 
 .card__price-block {
