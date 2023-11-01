@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import './Profile.scss';
+
 import { NavigationProfile } from './components/NavigationProfile/NavigationProfile';
 import { User } from './components/User/User';
 import { Favorites } from './components/Favorites/Favorites';
+import './Profile.scss';
 
 export function Profile() {
   const [stateProfile, setStateProfile] = useState('profile');

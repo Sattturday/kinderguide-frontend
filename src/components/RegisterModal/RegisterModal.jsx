@@ -1,5 +1,12 @@
-import './RegisterModal.scss';
+import { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
+
 import { useFormAndValidation } from '../../hooks/useFormAndValidation';
+import { useCreateUserMutation } from '../../api/authApi';
+import { closeAllModals } from '../../store/modalsSlice';
+import { setUser, setToken } from '../../store/authSlice';
+import { useLoginMutation } from '../../api/authApi';
 import { Popup } from '../common/Popup';
 import { InputWrapper } from '../common/InputWrapper';
 import { Input } from '../common/Input';
@@ -7,14 +14,8 @@ import { InputTel } from '../InputTel';
 import { InputPassword } from '../InputPassword';
 import { InputCheckbox } from '../InputCheckbox';
 import { Button } from '../common/Button';
-import { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
-import { useCreateUserMutation } from '../../api/authApi';
-import { useDispatch } from 'react-redux';
-import { closeAllModals } from '../../store/modalsSlice';
-import { setUser, setToken } from '../../store/authSlice';
 
-import { useLoginMutation } from '../../api/authApi';
+import './RegisterModal.scss';
 
 export const RegisterModal = () => {
   const [isReadyToSubmit, setIsReadyToSubmit] = useState(false);

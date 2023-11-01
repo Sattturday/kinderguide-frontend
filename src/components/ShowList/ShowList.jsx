@@ -1,9 +1,9 @@
-import './ShowList.scss';
-import { Card } from '../common/Card';
 import img1 from '../../images/NewsCard/img1.jpg';
 import img2 from '../../images/NewsCard/img2.jpg';
 import img3 from '../../images/NewsCard/img3.jpg';
-import Preloader from '../Preloader/Preloader';
+import { Preloader } from '../Preloader';
+import { Card } from '../common/Card';
+import './ShowList.scss';
 
 const cardData = [
   {

@@ -1,7 +1,7 @@
-import { useDispatch, useSelector } from 'react-redux';
-import { openLoginToFavoritePopup } from '../../store/modalsSlice';
 import { useRef } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
+import { openLoginToFavoritePopup } from '../../store/modalsSlice';
 import './LikeButton.scss';
 
 export const LikeButton = ({ isLiked, onLike }) => {

@@ -1,10 +1,11 @@
 import { Link } from 'react-router-dom';
-import './Footer.scss';
+
 import logo from '../../images/Footer/logo_footer.svg';
+import vkLogo from '../../images/Footer/vk-logo-light.svg';
 import whatsappLogo from '../../images/Footer/whatsapp-logo-light.svg';
 import telegramLogo from '../../images/Footer/telegram-logo-light.svg';
-import vkLogo from '../../images/Footer/vk-logo-light.svg';
 import { Navigation } from '../../components/Navigation';
+import './Footer.scss';
 
 export const Footer = () => (
   <footer className='footer'>

@@ -1,7 +1,9 @@
-import './RegisterSuccessModal.scss';
 import { Link } from 'react-router-dom';
-import { Popup } from '../common/Popup';
 import { useSelector } from 'react-redux';
+
+import { Popup } from '../common/Popup';
+import './RegisterSuccessModal.scss';
+
 export const RegisterSuccessModal = ({ email = 'example@mail.ru' }) => {
   const isOpen = useSelector(
     (state) => state.modals.isOpenRegisterSuccessModal

@@ -1,12 +1,12 @@
 import { useState } from 'react';
-import './InputPassword.scss';
-import { Input } from '../common/Input';
+import { useDispatch } from 'react-redux';
+
 import HidePassword from '../../images/Input/HidePassword.svg';
 import ShowPassword from '../../images/Input/ShowPassword.svg';
-import { Button } from '../common/Button';
-
-import { useDispatch } from 'react-redux';
 import { openPasswordRecoveryModal } from '../../store/modalsSlice';
+import { Input } from '../common/Input';
+import { Button } from '../common/Button';
+import './InputPassword.scss';
 
 export const InputPassword = ({
   inputId,

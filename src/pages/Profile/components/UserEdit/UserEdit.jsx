@@ -1,14 +1,16 @@
-import './UserEdit.scss';
+import { useEffect, useState } from 'react';
+
+import { useFormAndValidation } from '../../../../hooks/useFormAndValidation';
 import { InputWrapper } from '../../../../components/common/InputWrapper';
 import { Input } from '../../../../components/common/Input';
 import { Button } from '../../../../components/common/Button';
-import { useFormAndValidation } from '../../../../hooks/useFormAndValidation';
+import { InputTel } from '../../../../components/InputTel';
 import {
   useGetUserQuery,
   useUpdateUserMutation,
 } from '../../../../api/userApi';
-import { useEffect, useState } from 'react';
-import { InputTel } from '../../../../components/InputTel';
+
+import './UserEdit.scss';
 
 export function UserEdit({ setEditUser }) {
   const [isReadyToSubmit, setIsReadyToSubmit] = useState(false);

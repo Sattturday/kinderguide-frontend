@@ -1,8 +1,10 @@
 import React from 'react';
-import './UserData.scss';
+
 import { Button } from '../../../../components/common/Button';
+import { Preloader } from '../../../../components/Preloader';
 import { useGetUserQuery } from '../../../../api/userApi';
-import Preloader from '../../../../components/Preloader/Preloader';
+
+import './UserData.scss';
 
 export function UserData({ setEditUser }) {
   const { data = {}, isSuccess, isLoading } = useGetUserQuery();

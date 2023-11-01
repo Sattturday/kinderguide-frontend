@@ -1,6 +1,5 @@
-import './Feedback.scss';
 import { Stars } from '../../Stars';
-import { Button } from '../../common/Button';
+import './Feedback.scss';
 
 export const Feedback = ({ feedback }) => {
   return (

@@ -1,9 +1,10 @@
-import './Promo.scss';
+import { Link } from 'react-router-dom';
+
 import { Button } from '../../../../components/common/Button';
 import star from '../../../../images/Promo/star.svg';
 import glass from '../../../../images/Promo/magnifying_glass.svg';
 import question from '../../../../images/Promo/question.svg';
-import { Link } from 'react-router-dom';
+import './Promo.scss';
 
 export function Promo() {
   return (

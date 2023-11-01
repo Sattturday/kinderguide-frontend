@@ -1,10 +1,12 @@
 import React from 'react';
-import { Button } from '../../../../components/common/Button';
-import { InputCheckbox } from '../../../../components/InputCheckbox';
+
 import { FILTER_ITEMS, METRO_LIST } from '../../../../utils/filterData';
+import { InputCheckbox } from '../../../../components/InputCheckbox';
+import { Button } from '../../../../components/common/Button';
+import { Filter } from '../Filter/Filter';
+
 import { DoubleRange } from './components/DoubleRange';
 import { SelectOption } from './components/SelectOption/SelectOption';
-import { Filter } from '../Filter/Filter';
 import './FilterList.scss';
 
 export function FilterList({
