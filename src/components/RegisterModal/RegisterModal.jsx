@@ -33,10 +33,12 @@ export const RegisterModal = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(data);
+
     try {
       const response = await createUser(data).unwrap();
       resetForm();
+      setIsConfirm(false);
+
       dispatch(closeAllModals());
 
       const userData = await login({
@@ -66,9 +68,9 @@ export const RegisterModal = () => {
   // экзотические инпуты проверяются в самой форме
 
   useEffect(() => {
-    if (data.phone && isConfirm && isValid) {
+    if (data?.phone && isConfirm && isValid) {
       // Это костыль, чтобы провалидировать инпут телефона из библиотечки
-      if (!data.phone?.includes('_')) {
+      if (!data?.phone?.includes('_')) {
         setIsReadyToSubmit(true);
       } else {
         setIsReadyToSubmit(false);
@@ -76,7 +78,7 @@ export const RegisterModal = () => {
     } else {
       setIsReadyToSubmit(false);
     }
-  }, [data.phone, isValid, isConfirm]);
+  }, [data?.phone, isValid, isConfirm]);
 
   return (
     <Popup isOpen={isOpen} name='register-modal'>
@@ -93,11 +95,12 @@ export const RegisterModal = () => {
           errorText={errors['first_name']}
         >
           <Input
+            pattern='^[А-Яа-яA-Za-z]+$'
             inputId='first_name'
             variant='form'
             name='name'
             onChange={onChange}
-            value={data.first_name}
+            value={data?.first_name || ''}
             placeholder='Введите имя'
             type='text'
             isValid={!errors['first_name']?.length}
@@ -115,7 +118,7 @@ export const RegisterModal = () => {
             variant='form'
             name='lastname'
             onChange={onChange}
-            value={data.last_name}
+            value={data?.last_name || ''}
             placeholder='Введите фамилию'
             type='text'
             isValid={!errors['lastname']?.length}
@@ -132,8 +135,8 @@ export const RegisterModal = () => {
             inputId='phone'
             name='phone'
             onChange={onChange}
-            value={data['phone']}
-            isValid={!data.phone?.includes('_')}
+            value={data?.phone || ''}
+            isValid={!data?.phone?.includes('_')}
           />
         </InputWrapper>
 
@@ -148,7 +151,7 @@ export const RegisterModal = () => {
             variant='form'
             name='email'
             onChange={onChange}
-            value={data['email']}
+            value={data?.email || ''}
             placeholder='Введите email'
             type='email'
             isValid={!errors['email']?.length}
@@ -166,7 +169,7 @@ export const RegisterModal = () => {
             variant='form'
             name='password'
             onChange={onChange}
-            value={data['password']}
+            value={data?.password || ''}
             placeholder='Введите пароль'
             isValid={!errors['password']?.length}
           />

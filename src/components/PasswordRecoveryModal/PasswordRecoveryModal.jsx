@@ -92,7 +92,7 @@ export const PasswordRecoveryModal = () => {
       </form>
 
       <p className='password-recovery-form__message'>
-        Не получили email? Проверьте спам или <span>попробуйте снова</span>.
+        Не получили email? Проверьте спам <br /> или попробуйте снова.
       </p>
     </Popup>
   );
