@@ -5,7 +5,7 @@ import { Button } from '../common/Button';
 import { Stars } from '../Stars';
 import { ImageSlider } from '../ImageSlider';
 import { LikeButton } from '../LikeButton';
-import { Reviews } from '../ShowList/Reviews';
+import { Reviews } from '../Reviews';
 
 import { Feedback } from './Feedback';
 import { Activity } from './Activity';
