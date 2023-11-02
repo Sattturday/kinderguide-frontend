@@ -3,12 +3,18 @@ import React from 'react';
 import { Button } from '../../../../components/common/Button';
 import { Preloader } from '../../../../components/Preloader';
 import { useGetUserQuery } from '../../../../api/userApi';
+import { openExitProfileModal } from '../../../../store/modalsSlice';
 
 import './UserData.scss';
+import { useDispatch } from 'react-redux';
 
 export function UserData({ setEditUser }) {
-  const { data = {}, isSuccess, isLoading } = useGetUserQuery();
+  const dispatch = useDispatch();
 
+  const { data = {}, isSuccess, isLoading } = useGetUserQuery();
+  const handleClickExit = () => {
+    dispatch(openExitProfileModal());
+  };
   return (
     <>
       {isSuccess ? (
@@ -20,14 +26,6 @@ export function UserData({ setEditUser }) {
             </p>
           </div>
           <div className='user__wrapper'>
-            <p className='user__label'>Ребёнок</p>
-            <p className='user__text'>
-              {isLoading
-                ? ' '
-                : `${data.child_first_name} ${data.child_last_name}`}
-            </p>
-          </div>
-          <div className='user__wrapper'>
             <p className='user__label'>Телефон</p>
             <p className='user__text'>{isLoading ? ' ' : `${data.phone}`}</p>
           </div>
@@ -35,17 +33,28 @@ export function UserData({ setEditUser }) {
             <p className='user__label'>Email</p>
             <p className='user__text'> {isLoading ? ' ' : `${data.email}`}</p>
           </div>
-          <Button
-            type='button'
-            width='188px'
-            size='small'
-            color='orange-fill'
-            onClick={(e) => {
-              setEditUser(true);
-            }}
-          >
-            Изменить
-          </Button>
+          <div className='user__btns'>
+            <Button
+              type='button'
+              width='188px'
+              size='small'
+              color='orange-fill'
+              onClick={(e) => {
+                setEditUser(true);
+              }}
+            >
+              Изменить
+            </Button>
+            <Button
+              type='button'
+              width='188px'
+              size='small'
+              color='orange-empty'
+              onClick={() => handleClickExit()}
+            >
+              Выход
+            </Button>
+          </div>
         </div>
       ) : (
         <Preloader />
