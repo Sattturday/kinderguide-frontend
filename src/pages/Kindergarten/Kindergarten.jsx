@@ -26,25 +26,25 @@ export const Kindergarten = () => {
     },
     {
       type: 'Иностранные языки',
-      text: kindergartenData.languages,
+      text: kindergartenData?.languages?.map((i) => i.name).join(', '),
     },
     {
       type: 'Спортивное развитие',
-      text: kindergartenData.sport_dev,
+      text: kindergartenData?.sport_dev?.map((i) => i.name).join(', '),
     },
     {
       type: 'Музыкальное развитие',
-      text: kindergartenData.music_dev,
+      text: kindergartenData?.music_dev?.map((i) => i.name).join(', '),
     },
     {
       type: 'Интеллектуальное развитие',
-      text: kindergartenData.intel_dev,
+      text: kindergartenData?.intel_dev?.map((i) => i.name).join(', '),
     },
   ];
   return (
     <OrgWrapper
       data={kindergartenData}
-      feedback={kindergartenReviewsData.results}
+      feedback={kindergartenReviewsData}
       org='Детские сады'
       activities={activities}
     />

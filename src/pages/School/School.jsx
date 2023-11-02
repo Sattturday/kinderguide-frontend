@@ -3,7 +3,6 @@ import { useGetSchoolQuery } from '../../api/schoolApi';
 import { useParams } from 'react-router-dom';
 import { useGetSchoolReviewsQuery } from '../../api/schoolReviewsApi';
 import React from 'react';
-// import { album } from '../../utils/constants';
 
 export const School = () => {
   const { id } = useParams();
@@ -14,11 +13,11 @@ export const School = () => {
   const activities = [
     {
       type: 'Профиль',
-      text: schoolData.profile,
+      text: schoolData?.profile?.map((i) => i.name).join(', '),
     },
     {
       type: 'Время работы',
-      text: '',
+      text: schoolData.working_hours,
     },
     {
       type: 'Возрастные группы',
@@ -30,13 +29,13 @@ export const School = () => {
     },
     {
       type: 'Иностранные языки',
-      text: schoolData.languages,
+      text: schoolData?.languages?.map((i) => i.name).join(', '),
     },
   ];
   return (
     <OrgWrapper
       data={schoolData}
-      feedback={schoolReviewsData.results}
+      feedback={schoolReviewsData}
       org='Школы'
       activities={activities}
     />
