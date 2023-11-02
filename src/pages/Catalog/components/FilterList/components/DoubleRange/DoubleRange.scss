@@ -29,6 +29,7 @@
 
 .values__left,
 .values__right {
+  box-sizing: border-box;
   padding: 10px;
   padding-left: 33px;
   border-radius: 32px;
