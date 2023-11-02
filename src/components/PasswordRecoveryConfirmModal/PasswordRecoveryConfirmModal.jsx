@@ -1,14 +1,14 @@
-import './PasswordRecoveryConfirmModal.scss';
-import { useFormAndValidation } from '../../hooks/useFormAndValidation';
-import { Popup } from '../common/Popup';
-import { InputWrapper } from '../common/InputWrapper';
-import { InputPassword } from '../InputPassword';
-
-import { Button } from '../common/Button';
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 
+import { useFormAndValidation } from '../../hooks/useFormAndValidation';
 import { useConfirmResetPasMutation } from '../../api/authApi';
+import { InputPassword } from '../InputPassword';
+import { InputWrapper } from '../common/InputWrapper';
+import { Button } from '../common/Button';
+import { Popup } from '../common/Popup';
+
+import './PasswordRecoveryConfirmModal.scss';
 
 // stepRecovery -  шаг восстановления.
 // пока что  варианты 1 - ввод почты & 2 - создание пароля
@@ -28,7 +28,7 @@ export const PasswordRecoveryConfirmModal = ({ id, token }) => {
       const response = await createNewPass({
         new_password: data['password-recovery-form-password'],
         re_new_password: data['password-recovery-form-password-repeat'],
-        MTY: id,
+        uid: id,
         token: token,
       });
     } catch (error) {

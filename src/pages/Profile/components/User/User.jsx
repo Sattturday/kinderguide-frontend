@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import './User.scss';
+
 import { UserEdit } from '../UserEdit/UserEdit';
 import { UserData } from '../UserData/UserData';
+import './User.scss';
 
 export function User() {
   const [editUser, setEditUser] = useState(false);

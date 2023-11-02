@@ -1,15 +1,15 @@
-import './LoginModal.scss';
+import { useSelector, useDispatch } from 'react-redux';
+
 import { useFormAndValidation } from '../../hooks/useFormAndValidation';
+import { useLoginMutation } from '../../api/authApi';
+import { setUser, setToken } from '../../store/authSlice';
+import { closeAllModals } from '../../store/modalsSlice';
 import { Popup } from '../common/Popup';
 import { InputWrapper } from '../common/InputWrapper';
 import { Input } from '../common/Input';
 import { InputPassword } from '../InputPassword';
 import { Button } from '../common/Button';
-import { useSelector } from 'react-redux';
-import { useLoginMutation } from '../../api/authApi';
-import { setUser, setToken } from '../../store/authSlice';
-import { useDispatch } from 'react-redux';
-import { closeAllModals } from '../../store/modalsSlice';
+import './LoginModal.scss';
 
 export const LoginModal = () => {
   const { data, onChange, errors, isValid } = useFormAndValidation();

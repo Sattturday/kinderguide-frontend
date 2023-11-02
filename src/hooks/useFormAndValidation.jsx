@@ -42,7 +42,7 @@ export function useFormAndValidation() {
   // эффект срабатывает только если в форме есть телефон
   // выставляет ошибку при несовпадении паролей
   useEffect(() => {
-    if (data.phone && data.phone?.includes('_')) {
+    if (data?.phone && data?.phone?.includes('_')) {
       setErrors({
         ...errors,
         phone: 'Введите корректный номер телефона',
@@ -53,11 +53,17 @@ export function useFormAndValidation() {
         phone: '',
       });
     }
-  }, [data.phone]);
+  }, [data?.phone]);
 
   const resetForm = useCallback(
-    (newFormValue = {}, newErrors = {}, newIsValid = false) => {
-      setData(newFormValue);
+    (newFormValue, newErrors = {}, newIsValid = false) => {
+      console.log('reset');
+      setData((prev) => {
+        for (const key in prev) {
+          prev[key] = '';
+        }
+      });
+
       setErrors(newErrors);
       setIsValid(newIsValid);
     },

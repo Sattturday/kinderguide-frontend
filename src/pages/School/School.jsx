@@ -1,8 +1,9 @@
+import React from 'react';
+import { useParams } from 'react-router-dom';
+
 import { OrgWrapper } from '../../components/OrgWrapper';
 import { useGetSchoolQuery } from '../../api/schoolApi';
-import { useParams } from 'react-router-dom';
 import { useGetSchoolReviewsQuery } from '../../api/schoolReviewsApi';
-import React from 'react';
 
 export const School = () => {
   const { id } = useParams();

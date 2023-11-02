@@ -1,9 +1,9 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 import { Stars } from '../../Stars';
-import './Card.scss';
 import { LikeButton } from '../../LikeButton/LikeButton';
-import { Link } from 'react-router-dom';
+import './Card.scss';
 
 export const Card = ({ cardData, selected }) => {
   const [isLiked, setIsLiked] = useState(false);
@@ -14,7 +14,11 @@ export const Card = ({ cardData, selected }) => {
 
   return (
     <div className='card'>
-      <img className='card__img' src={cardData.album[0]} alt='Фото школы' />
+      <img
+        className='card__img'
+        src={`https://kinder.acceleratorpracticum.ru/${cardData.album[0].image}`}
+        alt='Фото школы'
+      />
       <div className='card__container'>
         <div className='card__title-block'>
           <Link to={`/${selected}/${cardData.id}`} className='card__title'>

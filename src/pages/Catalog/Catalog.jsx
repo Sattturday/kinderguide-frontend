@@ -1,11 +1,10 @@
-import React, { useDeferredValue, useEffect, useState } from 'react';
-import { Sort } from './components/Sort';
+import { useDeferredValue, useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+
 import { NAV_CATEGORY } from '../../utils/filterData';
-import './Catalog.scss';
-import { FilterList } from './components/FilterList/FilterList';
 import { ShowList } from '../../components/ShowList';
 import { SearchForm } from '../../components/SearchForm/SearchForm';
-import { useDispatch, useSelector } from 'react-redux';
 import { useGetFilteredDataQuery } from '../../api/filterApi';
 import {
   setCategoryFilter,
@@ -16,7 +15,10 @@ import {
   setFilterDefault,
   setFilterAllData,
 } from '../../store/filterSlice';
-import { useLocation } from 'react-router-dom';
+
+import { FilterList } from './components/FilterList/FilterList';
+import { Sort } from './components/Sort';
+import './Catalog.scss';
 
 export function Catalog() {
   const { filter } = useSelector((state) => state, { noopCheck: 'never' });

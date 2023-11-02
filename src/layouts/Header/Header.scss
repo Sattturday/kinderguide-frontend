@@ -4,10 +4,15 @@
 
 .header {
   min-height: 110px;
+  width: 100%;
   padding: 21px 76px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: sticky;
+  top: 0;
+  background-color: #fff;
+  z-index: 999;
 }
 
 .header__left-container {

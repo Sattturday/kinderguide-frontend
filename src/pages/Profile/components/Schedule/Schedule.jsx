@@ -1,7 +1,8 @@
 import React from 'react';
-import './Schedule.scss';
+
 import { EmptyPage } from '../../../../components/common/EmptyPage/EmptyPage';
 import { futureSchedule } from '../../../../utils/emptyPageMessage';
+import './Schedule.scss';
 
 export function Schedule() {
   return (

@@ -1,7 +1,8 @@
-import './PasswordRecoverySuccessModal.scss';
 import { useSelector } from 'react-redux';
+
 import { Popup } from '../common/Popup';
 import { Button } from '../common/Button';
+import './PasswordRecoverySuccessModal.scss';
 
 export const PasswordRecoverySuccessModal = ({
   onClose,
