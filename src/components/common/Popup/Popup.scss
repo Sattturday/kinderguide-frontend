@@ -26,6 +26,9 @@
     visibility: visible;
     opacity: 1;
   }
+  &_type_news-modal {
+    padding: 98px 186px;
+  }
 }
 
 .popup__container {
@@ -51,6 +54,10 @@
   &_type_password-recovery-modal {
     padding: 100px 104px;
     align-items: center;
+  }
+  &_type_news-modal {
+    padding: 50px 64px;
+    width: 1068px;
   }
 }
 

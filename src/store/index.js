@@ -3,6 +3,7 @@ import { configureStore } from '@reduxjs/toolkit';
 import modalsReducer from './modalsSlice';
 import authReducer from './authSlice';
 import filterReducer from './filterSlice';
+import newsPopupSlice from './newsPopupSlice';
 import { authApi } from '../api/authApi';
 import { userApi } from '../api/userApi';
 import { schoolApi } from '../api/schoolApi';
@@ -16,6 +17,7 @@ export default configureStore({
     modals: modalsReducer,
     auth: authReducer,
     filter: filterReducer,
+    newsPopup: newsPopupSlice,
     [authApi.reducerPath]: authApi.reducer,
     [userApi.reducerPath]: userApi.reducer,
     [schoolApi.reducerPath]: schoolApi.reducer,
