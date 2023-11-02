@@ -81,7 +81,7 @@ export const OrgWrapper = ({ data, feedback, org, activities }) => {
             </div>
           </div>
           <div className='orgWrapper__map'>
-            <YandexMap address={data.address} />
+            <YandexMap coordinates={data.coordinates} />
           </div>
         </aside>
       </div>
