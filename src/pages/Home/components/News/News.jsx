@@ -1,8 +1,10 @@
 import React from 'react';
+
 import { NewsData } from '../../../../utils/exampleData';
 import { NewsCard } from '../NewsCard';
-import './News.scss';
 import { Button } from '../../../../components/common/Button/Button';
+
+import './News.scss';
 
 export function News() {
   const [countCardNews, setCountCardNews] = React.useState(6);
@@ -22,7 +24,7 @@ export function News() {
             ))}
           </ul>
         </div>
-        {NewsData.length > 6 ? (
+        {NewsData.length > countCardNews ? (
           <div className='news__container-for-button'>
             <Button
               children='Показать еще'
