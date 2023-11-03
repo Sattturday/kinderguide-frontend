@@ -1,5 +1,5 @@
-import './About.scss';
 import { AboutCard } from '../AboutCard';
+import './About.scss';
 
 export function About() {
   const cards = [

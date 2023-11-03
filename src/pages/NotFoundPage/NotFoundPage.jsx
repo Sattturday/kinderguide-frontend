@@ -1,9 +1,10 @@
 import React from 'react';
-import { EmptyPage } from '../../components/common/EmptyPage';
-
-import { notfoundPage } from '../../utils/emptyPageMessage';
-import './NotFoundPage.scss';
 import { Link } from 'react-router-dom';
+
+import { EmptyPage } from '../../components/common/EmptyPage';
+import { notfoundPage } from '../../utils/emptyPageMessage';
+
+import './NotFoundPage.scss';
 
 export function NotFoundPage() {
   return (

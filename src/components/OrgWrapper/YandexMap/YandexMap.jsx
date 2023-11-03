@@ -1,15 +1,8 @@
-import { useState } from 'react';
 import { YMaps, Map, Placemark } from '@pbe/react-yandex-maps';
 import './YandexMap.scss';
 
 export const YandexMap = (props) => {
-  const [coordinates, setCoordinates] = useState([55.751999, 37.617734]);
-
-  function geocode(ymaps) {
-    ymaps.geocode(props.address).then((result) => {
-      setCoordinates(result.geoObjects.get(0).geometry.getCoordinates());
-    });
-  }
+  const coordinates = props.coordinates || [55.751999, 37.617734];
 
   return (
     <YMaps
@@ -19,23 +12,15 @@ export const YandexMap = (props) => {
       }}
     >
       <Map
-        onLoad={(ymaps) => geocode(ymaps)}
         className='direction'
         defaultState={{
           center: coordinates,
           zoom: 12,
           controls: ['zoomControl', 'fullscreenControl'],
         }}
-        modules={[
-          'control.ZoomControl',
-          'control.FullscreenControl',
-          'geocode',
-          'geolocation',
-        ]}
+        modules={['control.ZoomControl', 'control.FullscreenControl']}
       >
-        {(coordinates[0] !== 55.751999 || coordinates[1] !== 37.617734) && (
-          <Placemark geometry={coordinates} />
-        )}
+        <Placemark geometry={coordinates} />
       </Map>
     </YMaps>
   );

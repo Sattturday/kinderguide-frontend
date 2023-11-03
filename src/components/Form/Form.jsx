@@ -1,5 +1,5 @@
-import './Form.scss';
 import { Button } from '../common/Button';
+import './Form.scss';
 
 export function Form({ variant, button, handleSubmit, name, children }) {
   return (

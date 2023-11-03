@@ -1,14 +1,16 @@
-import './UserEdit.scss';
+import { useEffect, useState } from 'react';
+
+import { useFormAndValidation } from '../../../../hooks/useFormAndValidation';
 import { InputWrapper } from '../../../../components/common/InputWrapper';
 import { Input } from '../../../../components/common/Input';
 import { Button } from '../../../../components/common/Button';
-import { useFormAndValidation } from '../../../../hooks/useFormAndValidation';
+import { InputTel } from '../../../../components/InputTel';
 import {
   useGetUserQuery,
   useUpdateUserMutation,
 } from '../../../../api/userApi';
-import { useEffect, useState } from 'react';
-import { InputTel } from '../../../../components/InputTel';
+
+import './UserEdit.scss';
 
 export function UserEdit({ setEditUser }) {
   const [isReadyToSubmit, setIsReadyToSubmit] = useState(false);
@@ -75,11 +77,12 @@ export function UserEdit({ setEditUser }) {
           errorText={errors['first_name']}
         >
           <Input
+            pattern='^[А-Яа-яA-Za-z]+$'
             inputId='first_name'
             variant='info'
             name='first_name'
             onChange={onChange}
-            value={data['first_name']}
+            value={data?.first_name || ''}
             placeholder='Введите имя'
             type='text'
             isValid={!errors['first_name']?.length}
@@ -92,51 +95,15 @@ export function UserEdit({ setEditUser }) {
           errorText={errors['last_name']}
         >
           <Input
+            pattern='^[А-Яа-яA-Za-z]+$'
             inputId='last_name'
             variant='info'
             name='last_name'
             onChange={onChange}
-            value={data['last_name']}
+            value={data?.last_name || ''}
             placeholder='Введите фамилию'
             type='text'
             isValid={!errors['last_name']?.length}
-          />
-        </InputWrapper>
-      </div>
-      <div className='user__wrapper user__wrapper-edit'>
-        <p className='user-edit__name-text'>Ребёнок</p>
-        <InputWrapper
-          labelText='Имя'
-          inputId='child_first_name'
-          variant='info'
-          errorText={errors['child_first_name']}
-        >
-          <Input
-            inputId='child_first_name'
-            variant='info'
-            name='child_first_name'
-            onChange={onChange}
-            value={data['child_first_name']}
-            placeholder='Введите имя'
-            type='text'
-            isValid={!errors['child_first_name']?.length}
-          />
-        </InputWrapper>
-        <InputWrapper
-          labelText='Фамилия'
-          inputId='child_last_name'
-          variant='info'
-          errorText={errors['child_last_name']}
-        >
-          <Input
-            inputId='child_last_name'
-            variant='info'
-            name='child_last_name'
-            onChange={onChange}
-            value={data['child_last_name']}
-            placeholder='Введите фамилию'
-            type='text'
-            isValid={!errors['child_last_name']?.length}
           />
         </InputWrapper>
       </div>
@@ -156,7 +123,7 @@ export function UserEdit({ setEditUser }) {
             placeholder='Введите телефон'
             type='tel'
             onChange={onChange}
-            value={data['phone']}
+            value={data?.phone || ''}
             isValid={!data.phone?.includes('_')}
           />
         </InputWrapper>
@@ -174,7 +141,7 @@ export function UserEdit({ setEditUser }) {
             variant='info'
             name='email'
             onChange={onChange}
-            value={data.email}
+            value={data?.email || ''}
             placeholder='Введите email'
             type='email'
             isValid={!errors['email']?.length}

@@ -1,3 +1,6 @@
+import { Provider } from 'react-redux';
+
+import store from '../../../../store';
 import { Sort } from './Sort';
 
 // eslint-disable-next-line import/no-anonymous-default-export
@@ -8,6 +11,13 @@ export default {
     layout: 'centered',
   },
   tags: ['autodocs'],
+  decorators: [
+    (Story) => (
+      <Provider store={store}>
+        <Story />
+      </Provider>
+    ),
+  ],
 };
 
 const Template = (arg) => <Sort {...arg} />;

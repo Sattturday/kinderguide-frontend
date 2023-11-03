@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import './NavigationProfile.scss';
-import { NavigationFavorites } from '../NavigationFavorites/NavigationFavorites';
 import { useDispatch } from 'react-redux';
+
 import { openExitProfileModal } from '../../../../store/modalsSlice';
+import { NavigationFavorites } from '../NavigationFavorites/NavigationFavorites';
+import './NavigationProfile.scss';
 
 export function NavigationProfile({ setStateProfile, stateProfile }) {
   const dispatch = useDispatch();

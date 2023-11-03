@@ -1,9 +1,9 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 import { Stars } from '../../Stars';
-import './Card.scss';
 import { LikeButton } from '../../LikeButton/LikeButton';
-import { Link } from 'react-router-dom';
+import './Card.scss';
 
 export const Card = ({ cardData, selected }) => {
   const [isLiked, setIsLiked] = useState(false);

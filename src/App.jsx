@@ -1,4 +1,6 @@
+import { useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 
 import Layout from './layouts/main';
 import { Home } from './pages/Home';
@@ -13,11 +15,9 @@ import { LoginModal } from './components/LoginModal';
 import { PasswordRecoveryModal } from './components/PasswordRecoveryModal';
 import { NewsModal } from './components/NewsModal';
 import { PasswordRecoverySuccessModal } from './components/PasswordRecoverySuccessModal';
-import { useDispatch } from 'react-redux';
 import { setUser, setToken } from './store/authSlice';
-import { useEffect } from 'react';
 import { useGetUserQuery } from './api/userApi';
-import { ProfielExitModal } from './components/ProfielExitModal';
+import { ProfileExitModal } from './components/ProfileExitModal';
 import { LoginToFavoritePopup } from './components/LoginToFavoritPopup';
 
 function App() {
@@ -52,7 +52,7 @@ function App() {
       <RegisterModal />
       <RegisterSuccessModal />
       <LoginModal />
-      <ProfielExitModal />
+      <ProfileExitModal />
       <PasswordRecoveryModal stepRecovery={1} />
       <PasswordRecoveryModal />
       <NewsModal />

@@ -1,3 +1,6 @@
+import { Provider } from 'react-redux';
+
+import store from '../../../../../../store';
 import { SelectOption } from './SelectOption';
 
 export default {
@@ -7,9 +10,16 @@ export default {
     layout: 'centered',
   },
   tags: ['autodocs'],
+  decorators: [
+    (Story) => (
+      <Provider store={store}>
+        <Story />
+      </Provider>
+    ),
+  ],
 };
 
-const Template = (arg) => <SelectOption {...arg} />;
+const Template = (args) => <SelectOption {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {};
