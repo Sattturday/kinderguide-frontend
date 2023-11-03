@@ -2,8 +2,8 @@
 @import '../../styles/abstract/mixins.scss';
 
 .newsModal__title {
-@include text-xl($fw-normal);
-margin-bottom: 14px;
+  @include text-xl($fw-normal);
+  margin-bottom: 14px;
 }
 
 .newsModal__img {
