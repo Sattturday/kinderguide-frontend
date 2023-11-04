@@ -1,8 +1,20 @@
 import './NewsCard.scss';
+import { useDispatch } from 'react-redux';
+import { openNewsModal } from '../../../../store/modalsSlice';
+import { setTitle, setImg, setText } from '../../../../store/newsPopupSlice';
 
 export const NewsCard = ({ dataCard }) => {
+  const dispatch = useDispatch();
+
+  const handleClickCardNew = () => {
+    dispatch(setTitle(dataCard.title));
+    dispatch(setImg(dataCard.image));
+    dispatch(setText(dataCard.content));
+    dispatch(openNewsModal());
+  };
+
   return (
-    <li className='news-card'>
+    <li className='news-card' onClick={handleClickCardNew}>
       <img
         className='news-card__image'
         src={dataCard.image}

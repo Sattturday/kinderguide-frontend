@@ -13,6 +13,7 @@ import { RegisterModal } from './components/RegisterModal';
 import { RegisterSuccessModal } from './components/RegisterSuccessModal';
 import { LoginModal } from './components/LoginModal';
 import { PasswordRecoveryModal } from './components/PasswordRecoveryModal';
+import { NewsModal } from './components/NewsModal';
 import { PasswordRecoverySuccessModal } from './components/PasswordRecoverySuccessModal';
 import { setUser, setToken } from './store/authSlice';
 import { useGetUserQuery } from './api/userApi';
@@ -54,6 +55,7 @@ function App() {
       <ProfileExitModal />
       <PasswordRecoveryModal stepRecovery={1} />
       <PasswordRecoveryModal />
+      <NewsModal />
 
       <PasswordRecoverySuccessModal />
     </Layout>
