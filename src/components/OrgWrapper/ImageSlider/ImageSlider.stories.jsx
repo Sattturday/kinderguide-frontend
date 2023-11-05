@@ -1,4 +1,4 @@
-import { album } from '../../utils/exampleData';
+import { album } from '../../../utils/exampleData';
 import { ImageSlider } from './ImageSlider';
 
 export default {
