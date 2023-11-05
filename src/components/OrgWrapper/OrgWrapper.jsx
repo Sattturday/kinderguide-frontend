@@ -3,10 +3,10 @@ import { Link } from 'react-router-dom';
 
 import { Button } from '../common/Button';
 import { Stars } from '../Stars';
-import { ImageSlider } from '../ImageSlider';
 import { LikeButton } from '../LikeButton';
 import { Reviews } from '../Reviews';
 
+import { ImageSlider } from './ImageSlider';
 import { Feedback } from './Feedback';
 import { Activity } from './Activity';
 import { YandexMap } from './YandexMap';
