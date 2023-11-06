@@ -3,10 +3,10 @@ import React from 'react';
 import { METRO_LIST } from '../../../../utils/filterData';
 import { InputCheckbox } from '../../../../components/InputCheckbox';
 import { Button } from '../../../../components/common/Button';
-import { Filter } from '../Filter/Filter';
 
-import { DoubleRange } from './components/DoubleRange';
-import { SelectOption } from './components/SelectOption/SelectOption';
+import { Filter } from '../Filter';
+import { DoubleRange } from '../DoubleRange';
+import { SelectOption } from '../SelectOption';
 import './FilterList.scss';
 
 export function FilterList({
@@ -19,11 +19,15 @@ export function FilterList({
 }) {
   return (
     <aside className='filter'>
+      {/* Заголовок блока фильтра */}
       <h2 className='filter__title'>Фильтр</h2>
+
+      {/* Форма для применения фильтров */}
       <form name='filter' className='filter-form' onSubmit={handleSubmit}>
         {filterItems.map((block, index) => {
           return (
             <div key={index} className='filter-wrapper'>
+              {/* Компонент Filter для каждой секции фильтров */}
               <Filter
                 title={block.title}
                 variant={`${block.type === 'checkbox' ? 'checkbox' : 'select'}`}
@@ -32,25 +36,31 @@ export function FilterList({
                 }}
               >
                 {block.type === 'checkbox' ? (
+                  // Блок для флажков
                   block.items.map((item, index) => {
                     return (
                       <li key={index} className='filter__list-item'>
+                        {/* Компонент InputCheckbox для каждого элемента списка флажков */}
                         <InputCheckbox
                           labelName={item}
                           name={block.category + index}
                           type={block.type}
                           variant='filter'
+                          // Определение, выбран ли флажок
                           isChecked={filter[block.category].includes(item)}
+                          // Обработчик изменения флажка
                           onChange={() => checkboxHandler(block.category, item)}
                         />
                       </li>
                     );
                   })
                 ) : block.type === 'range' ? (
+                  // Блок для диапазона значений стоимости
                   <li key={index} className='filter__list-range'>
                     <DoubleRange min={0} max={10000000} />
                   </li>
                 ) : (
+                  // Блок для выбора из списка станций метро
                   <li key={index} className='filter__list-select'>
                     <SelectOption
                       options={METRO_LIST}
@@ -64,6 +74,8 @@ export function FilterList({
             </div>
           );
         })}
+
+        {/* Кнопки применения и сброса фильтров */}
         <div className='filter__buttons'>
           <Button
             type='submit'
