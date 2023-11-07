@@ -12,8 +12,8 @@
   box-shadow:
     4px 4px 10px 0px rgba(75, 82, 181, 0.15),
     -4px -4px 10px 0px rgba(75, 82, 181, 0.15);
-    border-radius: 16px;
-    cursor: pointer;
+  border-radius: 16px;
+  cursor: pointer;
 }
 
 .news-card__image {
@@ -46,8 +46,6 @@
 }
 
 .news-card__description {
-
-
   @include text-l;
   margin: 8px 0 40px;
   display: -webkit-box;
