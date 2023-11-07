@@ -1,8 +1,8 @@
 import React from 'react';
 
 import { NewsData } from '../../../../utils/exampleData';
-import { NewsCard } from '../NewsCard';
 import { Button } from '../../../../components/common/Button/Button';
+import { NewsCard } from '../NewsCard';
 
 import './News.scss';
 

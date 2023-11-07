@@ -10,7 +10,7 @@ export const filterApi = createApi({
   endpoints: (build) => ({
     getFilteredData: build.query({
       query: ([category = '', params = '']) =>
-        `v1/${category}${params ? '?' + params : ''}`,
+        `${category}${params ? '?' + params : ''}`,
     }),
   }),
 });
