@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-import { Slider } from '../common/Slider/Slider';
+import { Slider } from '../../common/Slider/Slider';
 import './ImageSlider.scss';
 
 /**
@@ -9,12 +9,7 @@ import './ImageSlider.scss';
  */
 export const ImageSlider = ({ images, width = '50%' }) => {
   const slides = images?.map((image) => (
-    <img
-      className='slider-img'
-      // src={image.image}
-      src={`https://kinder.acceleratorpracticum.ru${image.image}`}
-      alt='Фото организации'
-    />
+    <img className='slider-img' src={image.image} alt='Фото организации' />
   ));
 
   return (

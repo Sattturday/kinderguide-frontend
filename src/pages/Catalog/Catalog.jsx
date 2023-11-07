@@ -2,7 +2,11 @@ import { useDeferredValue, useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { NAV_CATEGORY } from '../../utils/filterData';
+import {
+  FILTER_ITEMS_KINDERGARTENS,
+  FILTER_ITEMS_SCHOOLS,
+  NAV_CATEGORY,
+} from '../../utils/filterData';
 import { ShowList } from '../../components/ShowList';
 import { SearchForm } from '../../components/SearchForm/SearchForm';
 import { useGetFilteredDataQuery } from '../../api/filterApi';
@@ -145,6 +149,11 @@ export function Catalog() {
           checkboxHandler={checkboxHandler}
           selectHandler={checkboxHandler}
           handleReset={handleReset}
+          filterItems={
+            selected === 'kindergartens'
+              ? FILTER_ITEMS_KINDERGARTENS
+              : FILTER_ITEMS_SCHOOLS
+          }
         />
         <ShowList
           data={data ? data.results : []}

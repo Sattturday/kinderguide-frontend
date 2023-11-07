@@ -10,6 +10,7 @@ const initialState = {
   isOpenPasswordRecoveryConfirmModal: false,
   isOpenPasswordRecoverySuccessModal: false,
   isOpenLoginToFavoritePopup: false,
+  isOpenNewsModal: false,
 };
 
 const modalsSlice = createSlice({
@@ -46,6 +47,9 @@ const modalsSlice = createSlice({
       state.isOpenLoginToFavoritePopup = true;
       state.loginToFavoritePopupData = action.payload;
     },
+    openNewsModal(state) {
+      state.isOpenNewsModal = true;
+    },
   },
 });
 
@@ -60,6 +64,7 @@ export const {
   openPasswordRecoverySuccessModal,
   openLoginToFavoritePopup,
   closeAllModals,
+  openNewsModal,
 } = modalsSlice.actions;
 
 export default modalsSlice.reducer;

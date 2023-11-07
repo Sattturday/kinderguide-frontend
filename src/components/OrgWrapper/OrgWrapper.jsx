@@ -3,10 +3,10 @@ import { Link } from 'react-router-dom';
 
 import { Button } from '../common/Button';
 import { Stars } from '../Stars';
-import { ImageSlider } from '../ImageSlider';
 import { LikeButton } from '../LikeButton';
 import { Reviews } from '../Reviews';
 
+import { ImageSlider } from './ImageSlider';
 import { Feedback } from './Feedback';
 import { Activity } from './Activity';
 import { YandexMap } from './YandexMap';
@@ -81,13 +81,13 @@ export const OrgWrapper = ({ data, feedback, org, activities }) => {
             </div>
           </div>
           <div className='orgWrapper__map'>
-            <YandexMap address={data.address} />
+            <YandexMap coordinates={data.coordinates} />
           </div>
         </aside>
       </div>
       <section className='orgWrapper__feedback' aria-label='Отзывы'>
         <h2 className='orgWrapper__sectionHeader'>Отзывы</h2>
-        {!feedback && <h1>Отзывов еще нет. Будьте первыми</h1>}
+        {/*{<h1>Отзывов еще нет. Будьте первыми</h1>}*/}
         <Feedback feedback={feedback} />
       </section>
     </div>

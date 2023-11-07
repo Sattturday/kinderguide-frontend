@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { FILTER_ITEMS, METRO_LIST } from '../../../../utils/filterData';
+import { METRO_LIST } from '../../../../utils/filterData';
 import { InputCheckbox } from '../../../../components/InputCheckbox';
 import { Button } from '../../../../components/common/Button';
 import { Filter } from '../Filter/Filter';
@@ -15,12 +15,13 @@ export function FilterList({
   filter,
   checkboxHandler,
   selectHandler,
+  filterItems,
 }) {
   return (
     <aside className='filter'>
       <h2 className='filter__title'>Фильтр</h2>
       <form name='filter' className='filter-form' onSubmit={handleSubmit}>
-        {FILTER_ITEMS.map((block, index) => {
+        {filterItems.map((block, index) => {
           return (
             <div key={index} className='filter-wrapper'>
               <Filter
