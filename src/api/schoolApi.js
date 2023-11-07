@@ -9,7 +9,29 @@ export const schoolApi = createApi({
     getSchool: build.query({
       query: (school_id) => `schools/${school_id}/`,
     }),
+    getSchoolFavorites: build.query({
+      query: () => ({
+        url: 'me/favoriteschools/',
+      }),
+    }),
+    addSchoolFavorites: build.mutation({
+      query: (school_id) => ({
+        url: `schools/${school_id}/favorite/`,
+        method: 'POST',
+      }),
+    }),
+    removeSchoolFavorites: build.mutation({
+      query: (school_id) => ({
+        url: `schools/${school_id}/favorite/`,
+        method: 'DELETE',
+      }),
+    }),
   }),
 });
 
-export const { useGetSchoolQuery } = schoolApi;
+export const {
+  useGetSchoolQuery,
+  useGetSchoolFavoritesQuery,
+  useAddSchoolFavoritesMutation,
+  useRemoveSchoolFavoritesMutation,
+} = schoolApi;

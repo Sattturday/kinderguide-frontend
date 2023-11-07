@@ -10,10 +10,11 @@
 
 .navigation-favorites__item {
   width: 298px;
+  height: 46px;
   @include text-m;
   color: $black;
   @include link;
-  padding: 0;
+  padding: 0 12px;
   text-align: start;
   background-color: #fff;
   border: none;
@@ -22,5 +23,5 @@
 }
 
 .navigation-favorites__item_active {
-  color: $title-blue;
+  background-color: $bg-lite;
 }

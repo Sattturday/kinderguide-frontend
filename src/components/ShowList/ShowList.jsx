@@ -56,7 +56,7 @@ export const ShowList = ({
   isLoading,
 }) => {
   const location = useLocation();
-  console.log(location.pathname);
+
   return (
     <section className='show-list'>
       {isLoading ? (
