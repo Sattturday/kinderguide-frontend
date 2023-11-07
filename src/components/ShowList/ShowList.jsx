@@ -1,9 +1,11 @@
+import { useLocation } from 'react-router';
 import img1 from '../../images/NewsCard/img1.jpg';
 import img2 from '../../images/NewsCard/img2.jpg';
 import img3 from '../../images/NewsCard/img3.jpg';
 import { Preloader } from '../Preloader';
 import { Card } from '../common/Card';
 import './ShowList.scss';
+import { Link } from 'react-router-dom';
 
 const cardData = [
   {
@@ -52,24 +54,42 @@ export const ShowList = ({
   selected,
   category,
   isLoading,
-}) => (
-  <section className='show-list'>
-    {isLoading ? (
-      <Preloader />
-    ) : (
-      <>
-        <p className='show-list__info'>
-          Найдено {data.length}{' '}
-          {category === 'schools'
-            ? getName(data.length, schoolName)
-            : getName(data.length, gardenName)}
-        </p>
-        <div className='show-list__items'>
-          {data.map((card) => {
-            return <Card key={card.id} cardData={card} selected={selected} />;
-          })}
-        </div>
-      </>
-    )}
-  </section>
-);
+}) => {
+  const location = useLocation();
+  console.log(location.pathname);
+  return (
+    <section className='show-list'>
+      {isLoading ? (
+        <Preloader />
+      ) : (
+        <>
+          {location.pathname === '/catalog' ? (
+            <p className='show-list__info'>
+              Найдено {data.length}{' '}
+              {category === 'schools'
+                ? getName(data.length, schoolName)
+                : getName(data.length, gardenName)}
+            </p>
+          ) : (
+            <div className='show-list__info'>
+              <div className='show-list__icons' />
+              <p className='show-list__paragraph'>
+                <Link to='/' className='show-list__link'>
+                  Авторизуйтесь
+                </Link>
+                , чтобы сохранить список избранного для просмотра на этом и
+                других устройствах
+              </p>
+            </div>
+          )}
+
+          <div className='show-list__items'>
+            {data.map((card) => {
+              return <Card key={card.id} cardData={card} selected={selected} />;
+            })}
+          </div>
+        </>
+      )}
+    </section>
+  );
+};

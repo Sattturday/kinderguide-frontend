@@ -43,6 +43,27 @@ export const Navigation = ({ usedFor }) => {
         )}
       </NavLink>
       <NavLink
+        to='/favorites'
+        // activeClassName='navigation__item_type_active'
+        className={({ isActive }) => {
+          return usedFor === 'footer'
+            ? 'navigation__item navigation__item_type_footer'
+            : isActive
+            ? 'navigation__item navigation__item_type_active'
+            : 'navigation__item';
+        }}
+      >
+        Избранное
+        {usedFor === 'footer' && (
+          <ul className='navigation__item-list'>
+            <li>Все</li>
+            <li>Школы</li>
+            <li>Сады</li>
+            {/* <li>Курсы</li> */}
+          </ul>
+        )}
+      </NavLink>
+      {/* <NavLink
         to='/specialists'
         // activeClassName='navigation__item_type_active'
         className={({ isActive }) => {
@@ -87,7 +108,7 @@ export const Navigation = ({ usedFor }) => {
             <li>Тесты</li>
           </ul>
         )}
-      </NavLink>
+      </NavLink> */}
     </nav>
   );
 };

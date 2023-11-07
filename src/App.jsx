@@ -18,6 +18,7 @@ import { setUser, setToken } from './store/authSlice';
 import { useGetUserQuery } from './api/userApi';
 import { ProfileExitModal } from './components/ProfileExitModal';
 import { LoginToFavoritePopup } from './components/LoginToFavoritPopup';
+import { Favorites } from './pages/Favorites/Favorites';
 
 function App() {
   const dispatch = useDispatch();
@@ -40,6 +41,7 @@ function App() {
         <Route path='/' element={<Home />} />
         <Route path='/profile' element={<Profile />} />
         <Route path='/catalog' element={<Catalog />} />
+        <Route path='/favorites' element={<Favorites />} />
         <Route path='/school/:id' element={<School />} />
         <Route path='/kindergarten/:id' element={<Kindergarten />} />
         <Route path='/password-reset/:id/:token' element={<Home />} />

@@ -9,6 +9,7 @@
 }
 
 .navigation-favorites__item {
+  width: 298px;
   @include text-m;
   color: $black;
   @include link;
