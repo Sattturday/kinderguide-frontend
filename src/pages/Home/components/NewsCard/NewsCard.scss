@@ -46,6 +46,8 @@
 }
 
 .news-card__description {
+
+
   @include text-l;
   margin: 8px 0 40px;
   display: -webkit-box;
@@ -53,4 +55,7 @@
   -webkit-line-clamp: 6;
   overflow: hidden;
   text-overflow: ellipsis;
+  p {
+    margin: 0;
+  }
 }

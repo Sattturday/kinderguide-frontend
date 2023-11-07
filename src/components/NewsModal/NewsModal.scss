@@ -10,10 +10,13 @@
   align-items: center;
   width: 940px;
   height: 408px;
-  object-fit:cover; 
+  object-fit:cover;
 }
 
 .newsModal__text {
   @include text-l($fw-normal);
   margin-top: 36px;
+  p {
+    margin: 0;
+  }
 }
