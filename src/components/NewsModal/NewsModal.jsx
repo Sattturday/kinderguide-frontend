@@ -13,7 +13,10 @@ export const NewsModal = () => {
     <Popup isOpen={isOpen} name='news-modal'>
       <h2 className='newsModal__title'>{title}</h2>
       <img className='newsModal__img' src={img}></img>
-      <p className='newsModal__text'>{text}</p>
+      <p
+        className='newsModal__text'
+        dangerouslySetInnerHTML={{ __html: text }}
+      ></p>
     </Popup>
   );
 };
