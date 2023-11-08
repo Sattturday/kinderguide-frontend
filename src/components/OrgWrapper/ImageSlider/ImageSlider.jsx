@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-import { Slider } from '../common/Slider/Slider';
+import { Slider } from '../../common/Slider/Slider';
 import './ImageSlider.scss';
 
 /**

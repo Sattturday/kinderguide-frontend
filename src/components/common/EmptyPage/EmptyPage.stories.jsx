@@ -1,4 +1,5 @@
 import { EmptyPage } from './EmptyPage';
+import img from '../../../images/emptyScool_icon.svg';
 
 export default {
   title: 'EmptyPage',
@@ -15,4 +16,5 @@ export const Default = Template.bind({});
 Default.args = {
   title: 'К сожалению, в этом разделе пусто',
   text: 'В ближайшее время мы обязательно добавим информацию',
+  img: img,
 };

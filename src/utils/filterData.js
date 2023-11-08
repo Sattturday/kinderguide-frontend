@@ -1,4 +1,4 @@
-export const FILTER_ITEMS = [
+export const FILTER_ITEMS_SCHOOLS = [
   {
     title: 'Профиль',
     category: 'profile',
@@ -57,11 +57,85 @@ export const FILTER_ITEMS = [
   },
 ];
 
+export const FILTER_ITEMS_KINDERGARTENS = [
+  {
+    title: 'Время работы',
+    category: 'openingHours',
+    items: ['ежедневно', 'круглосуточно', 'пн-пт', 'пн-сб'],
+    type: 'checkbox',
+  },
+  {
+    title: 'Размер группы',
+    category: 'groupSize',
+    items: [
+      'до 5 человек',
+      'до 10 человек',
+      'до 15 человек',
+      'до 20 человек',
+      '20 человек и более',
+    ],
+    type: 'checkbox',
+  },
+  {
+    title: 'Развитие',
+    category: 'development',
+    items: ['такое', 'сякое', 'эдакое', 'разное'],
+    type: 'checkbox',
+  },
+  {
+    title: 'Возраст',
+    category: 'age',
+    items: [
+      'дошкольное обучение',
+      'начальная школа',
+      'основная школа',
+      'старшая школа',
+    ],
+    type: 'checkbox',
+  },
+  {
+    title: 'Иностранные языки',
+    category: 'language',
+    items: ['Английский', 'Французский', 'Испанский', 'Китайский'],
+    type: 'checkbox',
+  },
+  {
+    title: 'Округ',
+    category: 'district',
+    items: [
+      'Центральный',
+      'Северный',
+      'Северо-Восточный',
+      'Юго-Западный',
+      'Западный',
+      'Северо-Западный',
+      'Южный',
+      'Восточный',
+      'Юго-Восточный',
+    ],
+    type: 'checkbox',
+  },
+  {
+    title: 'Метро',
+    category: 'metro',
+    items: ['новогиреево', 'Китай город', 'Нагатинская', 'Арбат'],
+    type: 'text',
+  },
+  {
+    title: 'Стоимость',
+    category: 'price',
+    type: 'range',
+  },
+];
+
 export const INITIAL_FILTER_STATE = {
   category: 'schools',
   request: '',
   sort: 'name',
   sortDirection: true,
+  openingHours: [],
+  groupSize: [],
+  development: [],
   profile: [],
   age: [],
   language: [],
@@ -76,6 +150,13 @@ export const INITIAL_FILTER_STATE = {
 export const NAV_CATEGORY = [
   { name: 'Школы', category: 'schools' },
   { name: 'Сады', category: 'kindergartens' },
+];
+
+export const sortButtons = [
+  { title: 'По названию', id: 'name' },
+  { title: 'По стоимости', id: 'price' },
+  { title: 'По отзывам', id: 'reviews' },
+  { title: 'По рейтингу', id: 'rating' },
 ];
 
 export const METRO_LIST = [
@@ -289,11 +370,4 @@ export const METRO_LIST = [
   'Западная',
   'Южная',
   'Ясенево',
-];
-
-export const sortButtons = [
-  { title: 'По названию', id: 'name' },
-  { title: 'По стоимости', id: 'cost' },
-  { title: 'По отзывам', id: 'feedback' },
-  { title: 'По рейтингу', id: 'rate' },
 ];
