@@ -17,16 +17,16 @@ const filterSlice = createSlice({
     },
     // Устанавливает значение текста запроса
     setRequestFilter(state, action) {
-      state.request = action.payload;
+      state.search = action.payload;
     },
     // Устанавливает фильтр сортировки
     setSortFilter(state, action) {
-      state.sort = action.payload;
+      state.ordering = action.payload;
     },
     // Меняет направление сортировки
-    setSortDirectionFilter(state) {
-      state.sortDirection = !state.sortDirection;
-    },
+    // setSortDirectionFilter(state) {
+    //   state.sortDirection = !state.sortDirection;
+    // },
     // Фильтр для установки чекбокса
     setCheckboxFilter(state, action) {
       // Проверяет, содержит ли ключ в массиве определенное значение.

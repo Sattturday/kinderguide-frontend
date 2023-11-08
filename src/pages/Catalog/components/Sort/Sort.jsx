@@ -10,7 +10,7 @@ export function Sort({ sortHandler, sortDirectionHandler }) {
   const [isActive, setIsActive] = useState(false);
 
   // Получение значения сортировки из хранилища Redux
-  const { sort } = useSelector((state) => state.filter);
+  const { ordering } = useSelector((state) => state.filter);
 
   // Создание ссылки на DOM-элемент для определения клика вне области сортировки
   const sortRef = useRef(null);
@@ -60,7 +60,7 @@ export function Sort({ sortHandler, sortDirectionHandler }) {
                 id={button.id}
                 type='button'
                 className={`sort-list__button ${
-                  sort === button.id ? 'sort-list__button_selected' : ''
+                  ordering === button.id ? 'sort-list__button_selected' : ''
                 }`}
                 onClick={onClickSortHandler}
               >

@@ -49,7 +49,7 @@ export function Catalog() {
   useEffect(() => {
     // Обработка изменений в фильтрах сортировки
     filteredDataHandler(filter);
-  }, [filter.sort, filter.sortDirection]);
+  }, [filter.ordering]);
 
   useEffect(() => {
     // Сохранение текущих фильтров в localStorage
@@ -90,7 +90,12 @@ export function Catalog() {
 
   // Обработчик изменения направления сортировки
   const sortDirectionHandler = () => {
-    dispatch(setSortDirectionFilter());
+    const ordering =
+      filter.ordering.slice(0, 1) === '-'
+        ? filter.ordering.slice(1)
+        : `-${filter.ordering}`;
+    console.log(ordering, filter.ordering.slice(0, 1), `-${filter.ordering}`);
+    dispatch(setSortFilter(ordering));
   };
 
   // Обработчик изменения строки поиска
