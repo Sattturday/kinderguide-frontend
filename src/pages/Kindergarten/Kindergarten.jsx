@@ -33,15 +33,19 @@ export const Kindergarten = () => {
     },
     {
       type: 'Спортивное развитие',
-      text: kindergartenData?.sport_dev?.map((i) => i.name).join(', '),
+      text: kindergartenData?.sport_dev,
     },
     {
       type: 'Музыкальное развитие',
-      text: kindergartenData?.music_dev?.map((i) => i.name).join(', '),
+      text: kindergartenData?.music_dev,
     },
     {
       type: 'Интеллектуальное развитие',
-      text: kindergartenData?.intel_dev?.map((i) => i.name).join(', '),
+      text: kindergartenData?.intel_dev,
+    },
+    {
+      type: 'Творческое развитие',
+      text: kindergartenData?.create_dev,
     },
   ];
   return (
