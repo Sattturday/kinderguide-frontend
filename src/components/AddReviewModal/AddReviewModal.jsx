@@ -16,6 +16,8 @@ export const AddReviewModal = ({ isOpen, onSubmit, data, org, isLoading }) => {
       content: value,
       grade: stars,
     });
+    setValue('');
+    setStars(null);
   };
   return (
     <Popup isOpen={isOpen} name='review'>
