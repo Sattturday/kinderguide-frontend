@@ -2,6 +2,7 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 
 import { OrgWrapper } from '../../components/OrgWrapper';
+import { AddSchoolReviewModal } from './components/AddSchoolReviewModal';
 import { useGetSchoolQuery } from '../../api/schoolApi';
 import { useGetSchoolReviewsQuery } from '../../api/schoolReviewsApi';
 
@@ -26,7 +27,7 @@ export const School = () => {
     },
     {
       type: 'Классы',
-      text: schoolData.classes,
+      text: schoolData.classes?.map((i) => i.name).join(', '),
     },
     {
       type: 'Иностранные языки',
@@ -34,11 +35,14 @@ export const School = () => {
     },
   ];
   return (
-    <OrgWrapper
-      data={schoolData}
-      feedback={schoolReviewsData}
-      org='Школы'
-      activities={activities}
-    />
+    <>
+      <OrgWrapper
+        data={schoolData}
+        feedback={schoolReviewsData}
+        org='Школы'
+        activities={activities}
+      />
+      <AddSchoolReviewModal data={schoolData} org='Школы' />
+    </>
   );
 };

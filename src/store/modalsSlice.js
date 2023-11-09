@@ -11,6 +11,8 @@ const initialState = {
   isOpenPasswordRecoverySuccessModal: false,
   isOpenLoginToFavoritePopup: false,
   isOpenNewsModal: false,
+  isOpenAddSchoolReviewModal: false,
+  isOpenAddKindergartenReviewModal: false,
 };
 
 const modalsSlice = createSlice({
@@ -50,6 +52,12 @@ const modalsSlice = createSlice({
     openNewsModal(state) {
       state.isOpenNewsModal = true;
     },
+    openAddSchoolReviewModal(state) {
+      state.isOpenAddSchoolReviewModal = true;
+    },
+    openAddKindergartenReviewModal(state) {
+      state.isOpenAddKindergartenReviewModal = true;
+    },
   },
 });
 
@@ -65,6 +73,8 @@ export const {
   openLoginToFavoritePopup,
   closeAllModals,
   openNewsModal,
+  openAddSchoolReviewModal,
+  openAddKindergartenReviewModal,
 } = modalsSlice.actions;
 
 export default modalsSlice.reducer;

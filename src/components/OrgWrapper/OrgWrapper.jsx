@@ -88,7 +88,7 @@ export const OrgWrapper = ({ data, feedback, org, activities }) => {
       <section className='orgWrapper__feedback' aria-label='Отзывы'>
         <h2 className='orgWrapper__sectionHeader'>Отзывы</h2>
         {/*{<h1>Отзывов еще нет. Будьте первыми</h1>}*/}
-        <Feedback feedback={feedback} />
+        <Feedback feedback={feedback} org={org} />
       </section>
     </div>
   );

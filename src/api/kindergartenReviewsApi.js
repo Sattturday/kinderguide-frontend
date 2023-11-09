@@ -27,6 +27,7 @@ export const kindergartenReviewsApi = createApi({
             ]
           : [{ type: 'KindergartenReviews', id: 'LIST' }],
     }),
+
     createKindergartenReview: build.mutation({
       query: ({ kindergarten_id, body }) => ({
         url: `kindergartens/${kindergarten_id}/reviews/`,
