@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import { OrgWrapper } from '../../components/OrgWrapper';
 import { useGetKindergartenQuery } from '../../api/kindergartenApi';
 import { useGetKindergartenReviewsQuery } from '../../api/kindergartenReviewsApi';
+import { AddKindergartenReviewModal } from './components/AddKindergartenReviewModal';
 
 export const Kindergarten = () => {
   const { id } = useParams();
@@ -15,15 +16,15 @@ export const Kindergarten = () => {
   const activities = [
     {
       type: 'Возраст групп',
-      text: kindergartenData.age,
+      text: kindergartenData?.age_category[0]?.name,
     },
     {
       type: 'Время работы',
-      text: kindergartenData.working_hours,
+      text: kindergartenData.working_hours[0]?.name,
     },
     {
       type: 'Размер группы',
-      text: kindergartenData.group_suze,
+      text: kindergartenData.group_suze[0]?.name,
     },
     {
       type: 'Иностранные языки',
@@ -43,11 +44,14 @@ export const Kindergarten = () => {
     },
   ];
   return (
-    <OrgWrapper
-      data={kindergartenData}
-      feedback={kindergartenReviewsData}
-      org='Детские сады'
-      activities={activities}
-    />
+    <>
+      <OrgWrapper
+        data={kindergartenData}
+        feedback={kindergartenReviewsData}
+        org='Детские сады'
+        activities={activities}
+      />
+      <AddKindergartenReviewModal data={kindergartenData} org='Детские сады' />
+    </>
   );
 };

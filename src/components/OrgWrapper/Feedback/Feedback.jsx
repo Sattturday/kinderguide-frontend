@@ -9,6 +9,7 @@ import {
 } from '../../../store/modalsSlice';
 
 export const Feedback = ({ feedback, org }) => {
+  console.log(feedback);
   const [rating, setRating] = useState(null);
 
   const dispatch = useDispatch();
@@ -20,6 +21,10 @@ export const Feedback = ({ feedback, org }) => {
   };
 
   useEffect(() => {
+    if (feedback.length === 0) {
+      setRating(0);
+      return;
+    }
     setRating(
       (
         feedback?.reduce((acc, cur) => acc + cur.grade, 0) / feedback.length
@@ -32,9 +37,11 @@ export const Feedback = ({ feedback, org }) => {
       <div className='feedback__header'>
         <div className='feedback__rating'>
           <span>{rating}</span>
-          <Stars rating={rating} />
+          <Stars rating={rating || 0} />
           <p>
-            {feedback.length === 1
+            {feedback.length === 0
+              ? 'Отзывов пока нет'
+              : feedback.length === 1
               ? '1 отзыв'
               : feedback.length < 5
               ? `${feedback.length} отзыва`
