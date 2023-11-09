@@ -83,7 +83,7 @@ export const PasswordRecoveryConfirmModal = ({ id, token }) => {
             variant='form'
             name='password'
             onChange={onChange}
-            value={data['password-recovery-form-password']}
+            value={data['password-recovery-form-password'] || ''}
             placeholder='Введите пароль'
             isValid={!errors['password-recovery-form-password']?.length}
           />
@@ -100,7 +100,7 @@ export const PasswordRecoveryConfirmModal = ({ id, token }) => {
             variant='form'
             name='password'
             onChange={onChange}
-            value={data['password-recovery-form-password-repeat']}
+            value={data['password-recovery-form-password-repeat'] || ''}
             placeholder='Введите пароль'
             isValid={!errors['password-recovery-form-password-repeat']?.length}
           />

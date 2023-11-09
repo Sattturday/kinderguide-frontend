@@ -70,7 +70,7 @@ export const PasswordRecoveryModal = () => {
             variant='form'
             name='email'
             onChange={onChange}
-            value={data['password-recovery-form-email']}
+            value={data['password-recovery-form-email'] || ''}
             placeholder='Введите email'
             type='email'
             isValid={!errors['password-recovery-form-email']?.length}

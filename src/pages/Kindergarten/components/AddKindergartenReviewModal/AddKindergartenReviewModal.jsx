@@ -4,7 +4,10 @@ import { AddReviewModal } from '../../../../components/AddReviewModal';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { useCreateKindergartenReviewMutation } from '../../../../api/kindergartenReviewsApi';
-import { closeAllModals } from '../../../../store/modalsSlice';
+import {
+  closeAllModals,
+  openGratitudeModal,
+} from '../../../../store/modalsSlice';
 
 export const AddKindergartenReviewModal = ({ data, org }) => {
   const isOpen = useSelector(
@@ -22,8 +25,9 @@ export const AddKindergartenReviewModal = ({ data, org }) => {
         kindergarten_id: data.id,
         body: reviewData,
       });
-      console.log(response);
+
       dispatch(closeAllModals());
+      dispatch(openGratitudeModal());
     } catch (error) {
       console.log(error);
     }

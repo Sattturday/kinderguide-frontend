@@ -13,6 +13,7 @@ const initialState = {
   isOpenNewsModal: false,
   isOpenAddSchoolReviewModal: false,
   isOpenAddKindergartenReviewModal: false,
+  isOpenGratitudeModal: false,
 };
 
 const modalsSlice = createSlice({
@@ -58,6 +59,9 @@ const modalsSlice = createSlice({
     openAddKindergartenReviewModal(state) {
       state.isOpenAddKindergartenReviewModal = true;
     },
+    openGratitudeModal(state) {
+      state.isOpenGratitudeModal = true;
+    },
   },
 });
 
@@ -75,6 +79,7 @@ export const {
   openNewsModal,
   openAddSchoolReviewModal,
   openAddKindergartenReviewModal,
+  openGratitudeModal,
 } = modalsSlice.actions;
 
 export default modalsSlice.reducer;

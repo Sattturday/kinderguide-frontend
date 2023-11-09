@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 
 import { OrgWrapper } from '../../components/OrgWrapper';
 import { AddSchoolReviewModal } from './components/AddSchoolReviewModal';
+import { AddReviewGratitudeModal } from '../../components/AddReviewGratitudeModal/AddReviewGratitudeModal';
 import { useGetSchoolQuery } from '../../api/schoolApi';
 import { useGetSchoolReviewsQuery } from '../../api/schoolReviewsApi';
 
@@ -43,6 +44,7 @@ export const School = () => {
         activities={activities}
       />
       <AddSchoolReviewModal data={schoolData} org='Школы' />
+      <AddReviewGratitudeModal />
     </>
   );
 };

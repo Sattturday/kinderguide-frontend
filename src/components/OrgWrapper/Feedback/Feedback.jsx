@@ -9,7 +9,6 @@ import {
 } from '../../../store/modalsSlice';
 
 export const Feedback = ({ feedback, org }) => {
-  console.log(feedback);
   const [rating, setRating] = useState(null);
 
   const dispatch = useDispatch();

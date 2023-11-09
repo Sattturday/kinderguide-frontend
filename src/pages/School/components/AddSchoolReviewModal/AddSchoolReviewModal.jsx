@@ -4,7 +4,10 @@ import { AddReviewModal } from '../../../../components/AddReviewModal';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { useCreateSchoolReviewMutation } from '../../../../api/schoolReviewsApi';
-import { closeAllModals } from '../../../../store/modalsSlice';
+import {
+  closeAllModals,
+  openGratitudeModal,
+} from '../../../../store/modalsSlice';
 
 export const AddSchoolReviewModal = ({ data, org }) => {
   const isOpen = useSelector(
@@ -21,8 +24,8 @@ export const AddSchoolReviewModal = ({ data, org }) => {
         school_id: data.id,
         body: reviewData,
       });
-      console.log(response);
       dispatch(closeAllModals());
+      dispatch(openGratitudeModal());
     } catch (error) {
       console.log(error);
     }
