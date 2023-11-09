@@ -3,6 +3,8 @@ import { useParams } from 'react-router-dom';
 import { OrgWrapper } from '../../components/OrgWrapper';
 import { useGetKindergartenQuery } from '../../api/kindergartenApi';
 import { useGetKindergartenReviewsQuery } from '../../api/kindergartenReviewsApi';
+import { AddKindergartenReviewModal } from './components/AddKindergartenReviewModal';
+import { AddReviewGratitudeModal } from '../../components/AddReviewGratitudeModal/AddReviewGratitudeModal';
 
 export const Kindergarten = () => {
   const { id } = useParams();
@@ -43,11 +45,15 @@ export const Kindergarten = () => {
     },
   ];
   return (
-    <OrgWrapper
-      data={kindergartenData}
-      feedback={kindergartenReviewsData}
-      org='Детские сады'
-      activities={activities}
-    />
+    <>
+      <OrgWrapper
+        data={kindergartenData}
+        feedback={kindergartenReviewsData}
+        org='Детские сады'
+        activities={activities}
+      />
+      <AddKindergartenReviewModal data={kindergartenData} org='Детские сады' />
+      <AddReviewGratitudeModal />
+    </>
   );
 };

@@ -53,7 +53,6 @@ function App() {
       <RegisterSuccessModal />
       <LoginModal />
       <ProfileExitModal />
-      <PasswordRecoveryModal stepRecovery={1} />
       <PasswordRecoveryModal />
       <NewsModal />
 
