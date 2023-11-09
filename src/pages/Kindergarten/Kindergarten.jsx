@@ -23,7 +23,7 @@ export const Kindergarten = () => {
     },
     {
       type: 'Размер группы',
-      text: kindergartenData?.group_suze?.map((i) => i.name).join(', '),
+      text: kindergartenData?.group_size?.map((i) => i.name).join(', '),
     },
     {
       type: 'Иностранные языки',
