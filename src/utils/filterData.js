@@ -143,7 +143,7 @@ export const INITIAL_FILTER_STATE = {
   metro: [],
   price: {
     minVal: 0,
-    maxVal: 10000000,
+    maxVal: 500000,
   },
 };
 

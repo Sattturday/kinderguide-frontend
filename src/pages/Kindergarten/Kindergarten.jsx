@@ -15,15 +15,15 @@ export const Kindergarten = () => {
   const activities = [
     {
       type: 'Возраст групп',
-      text: kindergartenData.age,
+      text: kindergartenData?.age_category?.map((i) => i.name).join(', '),
     },
     {
       type: 'Время работы',
-      text: kindergartenData.working_hours,
+      text: kindergartenData?.working_hours?.map((i) => i.name).join(', '),
     },
     {
       type: 'Размер группы',
-      text: kindergartenData.group_suze,
+      text: kindergartenData?.group_suze?.map((i) => i.name).join(', '),
     },
     {
       type: 'Иностранные языки',

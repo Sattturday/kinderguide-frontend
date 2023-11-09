@@ -57,7 +57,7 @@ export function FilterList({
                 ) : block.type === 'range' ? (
                   // Блок для диапазона значений стоимости
                   <li key={index} className='filter__list-range'>
-                    <DoubleRange min={0} max={10000000} />
+                    <DoubleRange min={0} max={500000} />
                   </li>
                 ) : (
                   // Блок для выбора из списка станций метро

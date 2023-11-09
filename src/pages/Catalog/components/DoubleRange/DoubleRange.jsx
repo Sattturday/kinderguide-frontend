@@ -10,6 +10,7 @@ import './DoubleRange.scss';
 export const DoubleRange = React.memo(({ min, max }) => {
   // Получение значения цены из глобального хранилища (Redux Store) и функции dispatch
   const { price } = useSelector((state) => state.filter);
+  console.log(price);
   const dispatch = useDispatch();
   const range = useRef(null);
 
@@ -34,6 +35,7 @@ export const DoubleRange = React.memo(({ min, max }) => {
   const updateRange = useCallback(() => {
     const minPercent = getPercent(price.minVal);
     const maxPercent = getPercent(price.maxVal);
+    console.log(maxPercent);
 
     if (range.current) {
       range.current.style.left = `${minPercent}%`;
@@ -72,7 +74,7 @@ export const DoubleRange = React.memo(({ min, max }) => {
         <div className='values-wrapper'>
           <span className='values-to'>до</span>
           <input
-            placeholder='до 10 000 000'
+            placeholder='до 500 000'
             className='values__right'
             value={price.maxVal}
             onChange={(event) => handleInputChange(event, false)}
@@ -86,6 +88,7 @@ export const DoubleRange = React.memo(({ min, max }) => {
           type='range'
           min={min}
           max={max}
+          step={500}
           value={price.minVal}
           onChange={(event) => handleInputChange(event, true)}
           className={`thumb thumb__left ${
@@ -96,6 +99,7 @@ export const DoubleRange = React.memo(({ min, max }) => {
           type='range'
           min={min}
           max={max}
+          step={500}
           value={price.maxVal}
           onChange={(event) => handleInputChange(event, false)}
           className='thumb thumb__right'
@@ -116,5 +120,5 @@ DoubleRange.propTypes = {
 // Значения по умолчанию для props компонента
 DoubleRange.defaultProps = {
   min: 0,
-  max: 10000000,
+  max: 500000,
 };
