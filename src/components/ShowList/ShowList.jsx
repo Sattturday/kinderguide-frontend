@@ -47,12 +47,7 @@ function getName(value, words) {
   return words[2];
 }
 
-export const ShowList = ({
-  data = cardData,
-  selected,
-  category,
-  isLoading,
-}) => (
+export const ShowList = ({ data = cardData, selected, isLoading }) => (
   <section className='show-list'>
     {isLoading ? (
       <Preloader />
@@ -60,7 +55,7 @@ export const ShowList = ({
       <>
         <p className='show-list__info'>
           Найдено {data.length}{' '}
-          {category === 'schools'
+          {selected === 'schools'
             ? getName(data.length, schoolName)
             : getName(data.length, gardenName)}
         </p>

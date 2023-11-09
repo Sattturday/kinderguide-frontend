@@ -28,7 +28,7 @@ export const School = () => {
     },
     {
       type: 'Классы',
-      text: schoolData.classes?.map((i) => i.name).join(', '),
+      text: schoolData?.classes?.map((i) => i.name).join(', '),
     },
     {
       type: 'Иностранные языки',

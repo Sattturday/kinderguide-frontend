@@ -1,8 +1,8 @@
 import { memo } from 'react';
 
-import Search from '../../images/SearchForm/Search.svg';
-import { Input } from '../common/Input';
-import { Button } from '../common/Button';
+import Search from '../../../../images/SearchForm/Search.svg';
+import { Input } from '../../../../components/common/Input';
+import { Button } from '../../../../components/common/Button';
 import './SearchForm.scss';
 
 export const SearchForm = memo(function SearchForm({
