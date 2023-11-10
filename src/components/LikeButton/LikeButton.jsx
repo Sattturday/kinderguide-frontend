@@ -10,7 +10,8 @@ export const LikeButton = ({ isLiked, onLike }) => {
 
   const buttonRef = useRef(null);
 
-  const handleLike = () => {
+  const handleLike = (e) => {
+    e.stopPropagation();
     if (user) {
       onLike();
     } else {
