@@ -122,7 +122,7 @@ export const RegisterModal = () => {
             value={data?.last_name || ''}
             placeholder='Введите фамилию'
             type='text'
-            isValid={!errors['lastname']?.length}
+            isValid={!errors['last_name']?.length}
           />
         </InputWrapper>
 
