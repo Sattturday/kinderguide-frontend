@@ -10,7 +10,6 @@ import './DoubleRange.scss';
 export const DoubleRange = React.memo(({ min, max }) => {
   // Получение значения цены из глобального хранилища (Redux Store) и функции dispatch
   const { price } = useSelector((state) => state.filter);
-  console.log(price);
   const dispatch = useDispatch();
   const range = useRef(null);
 
@@ -35,7 +34,6 @@ export const DoubleRange = React.memo(({ min, max }) => {
   const updateRange = useCallback(() => {
     const minPercent = getPercent(price.minVal);
     const maxPercent = getPercent(price.maxVal);
-    console.log(maxPercent);
 
     if (range.current) {
       range.current.style.left = `${minPercent}%`;

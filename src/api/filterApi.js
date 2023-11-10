@@ -18,7 +18,7 @@ export const filterApi = createApi({
       // Определение запроса для получения отфильтрованных данных
       query: ([category = '', params = '']) =>
         // Формирование URL-запроса с учетом переданных параметров
-        `${category}${params ? '?' + params : ''}`,
+        `${category}/${params ? '?' + params : ''}`,
     }),
   }),
 });

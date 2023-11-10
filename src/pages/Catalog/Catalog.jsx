@@ -27,6 +27,7 @@ import './Catalog.scss';
 export function Catalog() {
   // Получение текущего состояния фильтров через Redux
   const { filter } = useSelector((state) => state, { noopCheck: 'never' });
+
   // Использование отложенного значения для фильтров, чтобы уменьшить нагрузку на пользовательский интерфейс
   const deferredFilter = useDeferredValue(filter);
 
@@ -44,6 +45,8 @@ export function Catalog() {
     filter.category,
     paramsUrl,
   ]);
+
+  console.log('Query Result:', data);
 
   // Эффекты React для обработки изменений фильтров, сохранения в localStorage и загрузки сохраненных данных из localStorage при загрузке страницы
   useEffect(() => {
@@ -75,6 +78,7 @@ export function Catalog() {
   // Обработчик отправки формы с фильтрами
   const handleSubmit = (evt) => {
     evt.preventDefault();
+    console.log(filter);
     filteredDataHandler(filter);
   };
 
@@ -83,18 +87,19 @@ export function Catalog() {
     dispatch(setCheckboxFilter({ key, value }));
   };
 
-  // Обработчик изменения способа сортировки
+  //Обработчик изменения способа сортировки
   const sortHandler = (btnId) => {
     dispatch(setSortFilter(btnId));
   };
 
   // Обработчик изменения направления сортировки
   const sortDirectionHandler = () => {
-    const ordering =
-      filter.ordering.slice(0, 1) === '-'
-        ? filter.ordering.slice(1)
-        : `-${filter.ordering}`;
-    console.log(ordering, filter.ordering.slice(0, 1), `-${filter.ordering}`);
+    const ordering = filter.ordering.startsWith('-')
+      ? filter.ordering.slice(1)
+      : `-${filter.ordering}`;
+    console.log('filter.ordering', filter.ordering);
+    console.log('ordering', ordering);
+    console.log('filter', filter);
     dispatch(setSortFilter(ordering));
   };
 
@@ -144,7 +149,7 @@ export function Catalog() {
       // В остальных случаях добавляем значение ключа в параметры URL
       params.append(key, sort[key]);
     }
-
+    console.log('URL Parameters:', params.toString());
     // Устанавливаем строку параметров URL в состояние (или в переменную) для дальнейшего использования
     setParamsUrl(params.toString());
   }
