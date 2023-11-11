@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
+import { HashLink } from 'react-router-hash-link';
 import { Button } from '../common/Button';
 import { Stars } from '../Stars';
 import { LikeButton } from '../LikeButton';
@@ -30,11 +30,14 @@ export const OrgWrapper = ({ data, feedback, org, activities }) => {
           <LikeButton isLike={false} onLike={() => console.log('likeTest')} />
         </div>
       </div>
-      <div className='orgWrapper__ratingWrapper'>
+      <HashLink
+        className='orgWrapper__ratingWrapper'
+        to='#orgWrapper__feedback'
+      >
         <Stars rating={data.rating} reviews={data.reviews}>
           {<Reviews reviews={data.reviews} />}
         </Stars>
-      </div>
+      </HashLink>
       <div className='orgWrapper__content'>
         <section className='orgWrapper__info' aria-label='Карточка организации'>
           <div className='orgWrapper__imgContainer'>
@@ -85,7 +88,11 @@ export const OrgWrapper = ({ data, feedback, org, activities }) => {
           </div>
         </aside>
       </div>
-      <section className='orgWrapper__feedback' aria-label='Отзывы'>
+      <section
+        id='orgWrapper__feedback'
+        className='orgWrapper__feedback'
+        aria-label='Отзывы'
+      >
         <h2 className='orgWrapper__sectionHeader'>Отзывы</h2>
         {/*{<h1>Отзывов еще нет. Будьте первыми</h1>}*/}
         <Feedback feedback={feedback} org={org} />
