@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import YandexShare from 'react-yandex-share';
 
 import { Button } from '../common/Button';
 import { Stars } from '../Stars';
@@ -27,6 +28,18 @@ export const OrgWrapper = ({ data, feedback, org, activities }) => {
       <div className='orgWrapper__headerWrapper'>
         <h1 className='orgWrapper__header'>{data.name}</h1>
         <div className='orgWrapper__favourite'>
+          <YandexShare
+            content={{ title: 'My page' }}
+            theme={{
+              lang: 'en',
+              services: 'vkontakte,telegram,whatsapp',
+              colorScheme: 'whiteblack',
+              curtain: 'true',
+              limit: '0',
+              moreButtonType: 'short',
+              copy: 'hidden',
+            }}
+          />
           <LikeButton isLike={false} onLike={() => console.log('likeTest')} />
         </div>
       </div>
@@ -65,8 +78,18 @@ export const OrgWrapper = ({ data, feedback, org, activities }) => {
             </p>
             <p className='orgWrapper__perMonth'>{data.price} &#8381; в месяц</p>
             <p className='orgWrapper__title'>Контакты</p>
-            <p className='orgWrapper__contacts'>Телефон: {data.telephone}</p>
-            <p className='orgWrapper__contacts'>Почта: {data.email}</p>
+            <p className='orgWrapper__contacts'>
+              Сайт:{' '}
+              <a href={data.website} target='_blank' rel='noopener noreferrer'>
+                {data.website}
+              </a>
+            </p>
+            <p className='orgWrapper__contacts'>
+              Телефон: <a href={`tel:${data.telephone}`}>{data.telephone}</a>
+            </p>
+            <p className='orgWrapper__contacts'>
+              Почта: <a href='mailto:school35@ya.ru'>{data.email}</a>
+            </p>
             <p className='orgWrapper__contacts'>Адрес: {data.address}</p>
             <div className='orgWrapper__buttonWrapper'>
               <Button
