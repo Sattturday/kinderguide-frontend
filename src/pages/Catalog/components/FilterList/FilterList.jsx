@@ -1,6 +1,5 @@
 import React from 'react';
 
-import { METRO_LIST } from '../../../../utils/filterData';
 import { InputCheckbox } from '../../../../components/InputCheckbox';
 import { Button } from '../../../../components/common/Button';
 
@@ -63,9 +62,9 @@ export function FilterList({
                   // Блок для выбора из списка станций метро
                   <li key={index} className='filter__list-select'>
                     <SelectOption
-                      options={METRO_LIST}
-                      onChange={(o) => {
-                        selectHandler(block.category, o);
+                      options={block.items}
+                      onChange={(selectedOption) => {
+                        selectHandler(block.category, selectedOption);
                       }}
                     />
                   </li>

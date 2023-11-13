@@ -23,27 +23,27 @@ const filterSlice = createSlice({
     setSortFilter(state, action) {
       state.ordering = action.payload;
     },
-    // Меняет направление сортировки
-    // setSortDirectionFilter(state) {
-    //   state.sortDirection = !state.sortDirection;
-    // },
     // Фильтр для установки чекбокса
     setCheckboxFilter(state, action) {
+      const { key, value } = action.payload;
       // Проверяет, содержит ли ключ в массиве определенное значение.
-      if (state[action.payload.key].includes(action.payload.value)) {
-        return {
-          ...state,
-          [action.payload.key]: state[action.payload.key].filter(
-            (i) => i !== action.payload.value
-          ),
-        };
+      if (state[key].includes(value)) {
+        state[key] = state[key].filter((i) => i !== value);
       } else {
-        return {
-          ...state,
-          [action.payload.key]: state[action.payload.key].concat(
-            action.payload.value
-          ),
-        };
+        state[key].push(value);
+      }
+    },
+    setObjectFilter(state, action) {
+      const { key, value } = action.payload;
+
+      const objIndex = state[key].findIndex((obj) => obj.slug === value.slug);
+
+      if (objIndex !== -1) {
+        // Уже существует, удаляем
+        state[key] = state[key].filter((obj) => obj.slug !== value.slug);
+      } else {
+        // Не существует, добавляем
+        state[key].push(value);
       }
     },
     // Устанавливает фильтр цены
@@ -69,6 +69,7 @@ export const {
   setSortFilter,
   setSortDirectionFilter,
   setCheckboxFilter,
+  setObjectFilter,
   setPriceFilter,
   setFilterDefault,
   setFilterAllData,

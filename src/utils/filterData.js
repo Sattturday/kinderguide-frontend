@@ -45,12 +45,6 @@ export const FILTER_ITEMS_SCHOOLS = [
     type: 'checkbox',
   },
   {
-    title: 'Метро',
-    category: 'metro',
-    items: ['новогиреево', 'Китай город', 'Нагатинская', 'Арбат'],
-    type: 'text',
-  },
-  {
     title: 'Стоимость',
     category: 'price',
     type: 'range',
@@ -116,12 +110,6 @@ export const FILTER_ITEMS_KINDERGARTENS = [
     type: 'checkbox',
   },
   {
-    title: 'Метро',
-    category: 'metro',
-    items: ['новогиреево', 'Китай город', 'Нагатинская', 'Арбат'],
-    type: 'text',
-  },
-  {
     title: 'Стоимость',
     category: 'price',
     type: 'range',
@@ -132,7 +120,6 @@ export const INITIAL_FILTER_STATE = {
   category: 'schools',
   search: '',
   ordering: 'name',
-  // sortDirection: true,
   openingHours: [],
   groupSize: [],
   development: [],
@@ -140,7 +127,7 @@ export const INITIAL_FILTER_STATE = {
   age: [],
   language: [],
   district: [],
-  metro: [],
+  underground: [],
   price: {
     minVal: 0,
     maxVal: 500000,
@@ -155,7 +142,7 @@ export const NAV_CATEGORY = [
 export const sortButtons = [
   { title: 'По названию', id: 'name' },
   { title: 'По стоимости', id: 'price' },
-  { title: 'По отзывам', id: 'reviews' },
+  { title: 'По отзывам', id: '-reviews_count' },
   { title: 'По рейтингу', id: 'rating' },
 ];
 
