@@ -20,6 +20,10 @@ export const filterApi = createApi({
         // Формирование URL-запроса с учетом переданных параметров
         `${category}/${params ? '?' + params : ''}`,
     }),
+    getAreaFilters: build.query({
+      // Определение запроса для получения фильтров метро
+      query: () => 'area',
+    }),
     getMetroFilters: build.query({
       // Определение запроса для получения фильтров метро
       query: () => 'underground',
@@ -28,4 +32,8 @@ export const filterApi = createApi({
 });
 
 // Деструктуризация для использования сгенерированного хука запроса
-export const { useGetFilteredDataQuery, useGetMetroFiltersQuery } = filterApi;
+export const {
+  useGetFilteredDataQuery,
+  useGetAreaFiltersQuery,
+  useGetMetroFiltersQuery,
+} = filterApi;

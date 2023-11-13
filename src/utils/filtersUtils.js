@@ -7,7 +7,7 @@ import {
 // Функция для формирования строки параметров URL на основе фильтров
 export function buildUrlParams(filters) {
   const params = new URLSearchParams();
-  const arrayObjectKeys = ['underground'];
+  const arrayObjectKeys = ['underground', 'area'];
 
   for (const key in filters) {
     if (key === 'category') continue;
@@ -30,8 +30,8 @@ export function buildUrlParams(filters) {
       key === 'price' &&
       (filters[key].minVal !== 0 || filters[key].maxVal !== 500000)
     ) {
-      params.append('price_min', filters[key].minVal);
-      params.append('price_max', filters[key].maxVal);
+      params.append('min_price', filters[key].minVal);
+      params.append('max_price', filters[key].maxVal);
       continue;
     }
 
@@ -49,11 +49,17 @@ export function buildUrlParams(filters) {
 }
 
 // Функция формирования списка фильтров
-export function getFilterItems(selected, metroFilters) {
+export function getFilterItems(selected, areaFilters, metroFilters) {
   return selected === 'kindergartens'
     ? FILTER_ITEMS_KINDERGARTENS
     : [
         ...FILTER_ITEMS_SCHOOLS,
+        {
+          category: 'area',
+          title: 'Округ',
+          type: 'select-filter',
+          items: areaFilters,
+        },
         {
           category: 'underground',
           title: 'Метро',

@@ -1,10 +1,11 @@
-import { useDeferredValue, useEffect, useMemo, useState } from 'react';
+import { useDeferredValue, useEffect, useMemo, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { ShowList } from '../../components/ShowList';
 import { buildUrlParams, getFilterItems } from '../../utils/filtersUtils';
 import {
   useGetFilteredDataQuery,
+  useGetAreaFiltersQuery,
   useGetMetroFiltersQuery,
 } from '../../api/filterApi';
 import {
@@ -23,11 +24,8 @@ import { Nav } from './components/Nav/Nav';
 import './Catalog.scss';
 
 export function Catalog() {
-  // Получение текущего состояния фильтров через Redux
   const { filter } = useSelector((state) => state, { noopCheck: 'never' });
-
-  // Использование отложенного значения для фильтров, чтобы уменьшить нагрузку на пользовательский интерфейс
-  const deferredFilter = useDeferredValue(filter);
+  const isResetRef = useRef(false);
 
   // Хранение выбранной категории (школы или сады)
   const [selected, setSelected] = useState(filter.category);
@@ -35,10 +33,14 @@ export function Catalog() {
   // Управление URL для получения данных с сервера
   const [paramsUrl, setParamsUrl] = useState('');
 
+  // Использование отложенного значения для фильтров, чтобы уменьшить нагрузку на пользовательский интерфейс
+  const deferredFilter = useDeferredValue(filter);
+
   const dispatch = useDispatch();
 
-  // Получение списка всех объектов метро
+  // Получение списка всех объектов фильтров
   const { data: metroFilters } = useGetMetroFiltersQuery();
+  const { data: areaFilters } = useGetAreaFiltersQuery();
 
   // Получение отфильтрованных данных с сервера на основе выбранных фильтров
   const { data = [], isLoading } = useGetFilteredDataQuery([
@@ -47,12 +49,17 @@ export function Catalog() {
   ]);
 
   // Формирование списка фильтров
-  const filterItems = useMemo(
-    () => getFilterItems(selected, metroFilters),
-    [selected, metroFilters]
-  );
+  const filterItems = getFilterItems(selected, areaFilters, metroFilters);
 
-  // Сортировка
+  // Обработка изменений фильтра после сброса
+  useEffect(() => {
+    if (isResetRef.current) {
+      updateParamsUrl(filter);
+      isResetRef.current = false;
+    }
+  }, [filter]);
+
+  // Обработка изменений фильтра сортировки
   useEffect(() => {
     updateParamsUrl(filter);
   }, [filter.ordering]);
@@ -106,6 +113,7 @@ export function Catalog() {
 
   // Обработчик сброса всех фильтров
   const handleReset = () => {
+    isResetRef.current = true;
     dispatch(setFilterDefault());
   };
 

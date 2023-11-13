@@ -7,6 +7,7 @@ import { Filter } from '../Filter';
 import { DoubleRange } from '../DoubleRange';
 import { SelectOption } from '../SelectOption';
 import './FilterList.scss';
+import { SelectFilter } from '../SelectFilter/SelectFilter';
 
 export function FilterList({
   handleSubmit,
@@ -58,7 +59,7 @@ export function FilterList({
                   <li key={index} className='filter__list-range'>
                     <DoubleRange min={0} max={500000} />
                   </li>
-                ) : (
+                ) : block.type === 'select' ? (
                   // Блок для выбора из списка станций метро
                   <li key={index} className='filter__list-select'>
                     <SelectOption
@@ -68,6 +69,26 @@ export function FilterList({
                       }}
                     />
                   </li>
+                ) : (
+                  block?.items?.map((item, index) => {
+                    return (
+                      <li key={index} className='filter__list-select'>
+                        <SelectFilter
+                          option={item}
+                          labelName={item.name}
+                          name={block.category + index}
+                          type={block.type}
+                          // Определение, выбран ли флажок
+                          isChecked={filter[block.category].some(
+                            (obj) => obj.slug === item.slug
+                          )}
+                          onChange={(selectedOption) => {
+                            selectHandler(block.category, selectedOption);
+                          }}
+                        />
+                      </li>
+                    );
+                  })
                 )}
               </Filter>
             </div>

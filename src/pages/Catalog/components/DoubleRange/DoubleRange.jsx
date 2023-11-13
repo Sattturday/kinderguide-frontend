@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useRef } from 'react';
+import React, { useCallback, useEffect, useMemo, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 
@@ -8,20 +8,19 @@ import { debounce } from '../../../../utils/utils';
 import './DoubleRange.scss';
 
 export const DoubleRange = React.memo(({ min, max }) => {
-  // Получение значения цены из глобального хранилища (Redux Store) и функции dispatch
   const { price } = useSelector((state) => state.filter);
   const dispatch = useDispatch();
   const range = useRef(null);
 
-  // Функция debounce, откладывающая обновление в течение 300мс
-  const debouncedSetPriceFilter = useRef(debounce(dispatch, 300));
+  // Функция debounce, откладывающая обновление в течение 50мс
+  const debouncedSetPriceFilter = useRef(debounce(dispatch, 50));
 
   // Callback для изменения цены с использованием debounce
   const setPriceFilterCallback = useCallback(
     (newPrice) => {
       debouncedSetPriceFilter.current(setPriceFilter(newPrice));
     },
-    [dispatch, price]
+    [dispatch]
   );
 
   // Функция, вычисляющая процент значения относительно минимального и максимального
@@ -109,13 +108,11 @@ export const DoubleRange = React.memo(({ min, max }) => {
   );
 });
 
-// Определение типов для props компонента
 DoubleRange.propTypes = {
   min: PropTypes.number.isRequired,
   max: PropTypes.number.isRequired,
 };
 
-// Значения по умолчанию для props компонента
 DoubleRange.defaultProps = {
   min: 0,
   max: 500000,

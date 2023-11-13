@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import { useClickOutside } from '../../../../hooks/useClickOutside';
 import './SelectOption.scss';
 
-export const SelectOption = React.memo(({ onChange, onRemove, options }) => {
+export const SelectOption = React.memo(({ onChange, options }) => {
   const { underground } = useSelector((state) => state.filter); // Получаем выбранные опции из Redux
 
   const [inputValue, setInputValue] = useState(''); // Состояние для текста поиска
