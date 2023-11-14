@@ -2,38 +2,55 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 import { BASE_URL } from '../utils/constants';
 
-// Создание API для выполнения запросов
 export const filterApi = createApi({
-  // Имя редюсера, который будет создан
   reducerPath: 'filterApi',
-
-  // Установка базового URL для запросов
   baseQuery: fetchBaseQuery({
     baseUrl: BASE_URL,
   }),
-
-  // Определение конечных точек для выполнения запросов
   endpoints: (build) => ({
+    // Определение запроса для получения отфильтрованных данных
     getFilteredData: build.query({
-      // Определение запроса для получения отфильтрованных данных
       query: ([category = '', params = '']) =>
-        // Формирование URL-запроса с учетом переданных параметров
         `${category}/${params ? '?' + params : ''}`,
     }),
+    // Определение запросов для получения фильтров школ
+    getProfileFilters: build.query({
+      query: () => 'profile/',
+    }),
+    getClassFilters: build.query({
+      query: () => 'classes/',
+    }),
+    // Определение запросов для получения фильтров садов
+    getWorkingFilters: build.query({
+      query: () => 'working_hours/',
+    }),
+    getGroupSizeFilters: build.query({
+      query: () => 'group_size/',
+    }),
+    getAgeFilters: build.query({
+      query: () => 'age_category/',
+    }),
+    // Определение запросов для получения общих фильтров
+    getLanguageFilters: build.query({
+      query: () => 'languages/',
+    }),
     getAreaFilters: build.query({
-      // Определение запроса для получения фильтров метро
-      query: () => 'area',
+      query: () => 'area/',
     }),
     getMetroFilters: build.query({
-      // Определение запроса для получения фильтров метро
-      query: () => 'underground',
+      query: () => 'underground/',
     }),
   }),
 });
 
-// Деструктуризация для использования сгенерированного хука запроса
 export const {
   useGetFilteredDataQuery,
+  useGetProfileFiltersQuery,
+  useGetClassFiltersQuery,
+  useGetWorkingFiltersQuery,
+  useGetGroupSizeFiltersQuery,
+  useGetAgeFiltersQuery,
+  useGetLanguageFiltersQuery,
   useGetAreaFiltersQuery,
   useGetMetroFiltersQuery,
 } = filterApi;

@@ -1,4 +1,4 @@
-import { useDeferredValue, useEffect, useMemo, useRef, useState } from 'react';
+import { useDeferredValue, useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { ShowList } from '../../components/ShowList';
@@ -7,6 +7,12 @@ import {
   useGetFilteredDataQuery,
   useGetAreaFiltersQuery,
   useGetMetroFiltersQuery,
+  useGetProfileFiltersQuery,
+  useGetClassFiltersQuery,
+  useGetLanguageFiltersQuery,
+  useGetGroupSizeFiltersQuery,
+  useGetWorkingFiltersQuery,
+  useGetAgeFiltersQuery,
 } from '../../api/filterApi';
 import {
   setCategoryFilter,
@@ -15,6 +21,7 @@ import {
   setCheckboxFilter,
   setFilterDefault,
   setObjectFilter,
+  setFilterReset,
 } from '../../store/filterSlice';
 
 import { FilterList } from './components/FilterList/FilterList';
@@ -39,8 +46,14 @@ export function Catalog() {
   const dispatch = useDispatch();
 
   // Получение списка всех объектов фильтров
-  const { data: metroFilters } = useGetMetroFiltersQuery();
+  const { data: workingFilters } = useGetWorkingFiltersQuery();
+  const { data: groupSizeFilters } = useGetGroupSizeFiltersQuery();
+  const { data: ageFilters } = useGetAgeFiltersQuery();
+  const { data: profileFilters } = useGetProfileFiltersQuery();
+  const { data: classFilters } = useGetClassFiltersQuery();
+  const { data: languageFilters } = useGetLanguageFiltersQuery();
   const { data: areaFilters } = useGetAreaFiltersQuery();
+  const { data: metroFilters } = useGetMetroFiltersQuery();
 
   // Получение отфильтрованных данных с сервера на основе выбранных фильтров
   const { data = [], isLoading } = useGetFilteredDataQuery([
@@ -49,7 +62,17 @@ export function Catalog() {
   ]);
 
   // Формирование списка фильтров
-  const filterItems = getFilterItems(selected, areaFilters, metroFilters);
+  const filterItems = getFilterItems(
+    selected,
+    workingFilters,
+    groupSizeFilters,
+    ageFilters,
+    profileFilters,
+    classFilters,
+    languageFilters,
+    areaFilters,
+    metroFilters
+  );
 
   // Обработка изменений фильтра после сброса
   useEffect(() => {
@@ -90,8 +113,8 @@ export function Catalog() {
   };
 
   // Обработчик изменения флажков (checkbox)
-  const checkboxHandler = (key, value) => {
-    dispatch(setCheckboxFilter({ key, value }));
+  const checkboxHandler = (key) => {
+    dispatch(setCheckboxFilter({ key }));
   };
 
   // Обработчик изменения флажков (select)
@@ -114,7 +137,7 @@ export function Catalog() {
   // Обработчик сброса всех фильтров
   const handleReset = () => {
     isResetRef.current = true;
-    dispatch(setFilterDefault());
+    dispatch(setFilterReset());
   };
 
   return (

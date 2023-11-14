@@ -1,13 +1,18 @@
-import {
-  FILTER_ITEMS_KINDERGARTENS,
-  FILTER_ITEMS_SCHOOLS,
-  METRO_COLOR_LIST,
-} from './filterData';
+import { METRO_COLOR_LIST } from './filterData';
 
 // Функция для формирования строки параметров URL на основе фильтров
 export function buildUrlParams(filters) {
   const params = new URLSearchParams();
-  const arrayObjectKeys = ['underground', 'area'];
+  const arrayObjectKeys = [
+    'working_hours',
+    'group_size',
+    'age_category',
+    'profile',
+    'classes',
+    'languages',
+    'area',
+    'underground',
+  ];
 
   for (const key in filters) {
     if (key === 'category') continue;
@@ -21,7 +26,7 @@ export function buildUrlParams(filters) {
       continue;
     }
 
-    if (typeof filters[key] === 'boolean') {
+    if (typeof filters[key] === 'boolean' && filters[key] === true) {
       params.append(key, filters[key]);
       continue;
     }
@@ -49,23 +54,113 @@ export function buildUrlParams(filters) {
 }
 
 // Функция формирования списка фильтров
-export function getFilterItems(selected, areaFilters, metroFilters) {
+export function getFilterItems(
+  selected,
+  workingFilters,
+  groupSizeFilters,
+  ageFilters,
+  profileFilters,
+  classFilters,
+  languageFilters,
+  areaFilters,
+  metroFilters
+) {
+  // Константы для общих частей фильтров
+  const commonFilters = [
+    {
+      category: 'languages',
+      title: 'Иностранные языки',
+      type: 'select-filter',
+      items: languageFilters,
+    },
+    {
+      category: 'area',
+      title: 'Округ',
+      type: 'select-filter',
+      items: areaFilters,
+    },
+    {
+      category: 'underground',
+      title: 'Метро',
+      type: 'select',
+      items: metroFilters,
+    },
+    {
+      title: 'Стоимость',
+      category: 'price',
+      type: 'range',
+    },
+  ];
+
+  // Константы для булевых фильтров
+  const booleanFilters = [
+    {
+      category: 'devs',
+      title: 'Развитие',
+      type: 'checkbox',
+      items: [
+        {
+          name: 'Интеллектуальное',
+          slug: 'intel_dev',
+        },
+        {
+          name: 'Музыкальное',
+          slug: 'music_dev',
+        },
+        {
+          name: 'Спортивное',
+          slug: 'sport_dev',
+        },
+        {
+          name: 'Творческое',
+          slug: 'create_dev',
+        },
+      ],
+    },
+  ];
+
   return selected === 'kindergartens'
-    ? FILTER_ITEMS_KINDERGARTENS
-    : [
-        ...FILTER_ITEMS_SCHOOLS,
+    ? [
         {
-          category: 'area',
-          title: 'Округ',
+          category: 'working_hours',
+          title: 'Время работы',
           type: 'select-filter',
-          items: areaFilters,
+          items: workingFilters,
         },
         {
-          category: 'underground',
-          title: 'Метро',
-          type: 'select',
-          items: metroFilters,
+          category: 'group_size',
+          title: 'Размер группы',
+          type: 'select-filter',
+          items: groupSizeFilters,
         },
+        ...booleanFilters,
+        {
+          category: 'preparing_for_school',
+          title: 'Подготовка к школе',
+          type: 'boolean',
+        },
+        {
+          category: 'age_category',
+          title: 'Возраст',
+          type: 'select-filter',
+          items: ageFilters,
+        },
+        ...commonFilters,
+      ]
+    : [
+        {
+          category: 'profile',
+          title: 'Профиль',
+          type: 'select-filter',
+          items: profileFilters,
+        },
+        {
+          category: 'classes',
+          title: 'Классы',
+          type: 'select-filter',
+          items: classFilters,
+        },
+        ...commonFilters,
       ];
 }
 

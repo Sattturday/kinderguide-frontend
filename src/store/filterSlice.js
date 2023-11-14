@@ -25,26 +25,18 @@ const filterSlice = createSlice({
     },
     // Фильтр для установки чекбокса
     setCheckboxFilter(state, action) {
-      const { key, value } = action.payload;
-      // Проверяет, содержит ли ключ в массиве определенное значение.
-      if (state[key].includes(value)) {
-        state[key] = state[key].filter((i) => i !== value);
-      } else {
-        state[key].push(value);
-      }
+      const { key } = action.payload;
+
+      state[key] = !state[key];
     },
     setObjectFilter(state, action) {
       const { key, value } = action.payload;
-
       const objIndex = state[key].findIndex((obj) => obj.slug === value.slug);
 
-      if (objIndex !== -1) {
-        // Уже существует, удаляем
-        state[key] = state[key].filter((obj) => obj.slug !== value.slug);
-      } else {
-        // Не существует, добавляем
-        state[key].push(value);
-      }
+      state[key] =
+        objIndex !== -1
+          ? state[key].filter((obj) => obj.slug !== value.slug)
+          : [...state[key], value];
     },
     // Устанавливает фильтр цены
     setPriceFilter(state, action) {
@@ -54,6 +46,10 @@ const filterSlice = createSlice({
     // Возвращает состояние фильтра к начальному состоянию
     setFilterDefault() {
       return initialState;
+    },
+    // Возвращает состояние фильтра к начальному состоянию, кроме категории
+    setFilterReset(state) {
+      return { ...initialState, category: state.category };
     },
     // Устанавливает все данные фильтра
     setFilterAllData(state, action) {
@@ -72,6 +68,7 @@ export const {
   setObjectFilter,
   setPriceFilter,
   setFilterDefault,
+  setFilterReset,
   setFilterAllData,
 } = filterSlice.actions;
 

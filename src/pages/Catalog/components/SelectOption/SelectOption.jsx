@@ -82,7 +82,7 @@ export const SelectOption = React.memo(({ onChange, options }) => {
               setIsOpen(false); // Закрываем список
               setInputValue(''); // Очищаем поле поиска
             }}
-            key={index} // Уникальный ключ для списка опций
+            key={option.slug}
             className={`option${
               isOptionSelected(option.name) ? ' selected' : ''
             }`}
