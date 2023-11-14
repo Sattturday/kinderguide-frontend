@@ -102,11 +102,11 @@
 
 @mixin header-cyan($font-weight: $fw-normal) {
   margin: 0;
-  font-size: 50px;
+  font-size: 48px;
   font-weight: $font-weight;
   line-height: 1.2;
   letter-spacing: 1.4px;
-  color: $title-blue;
+  color: $black;
 }
 
 @mixin scrollbars {
