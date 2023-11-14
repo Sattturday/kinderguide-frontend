@@ -1,8 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './NavigationFavorites.scss';
 
-export function NavigationFavorites() {
-  const [stateProfile, setStateProfile] = useState('all');
+export function NavigationFavorites({ stateProfile, setStateProfile }) {
   const handleClick = (data) => {
     setStateProfile(data);
   };

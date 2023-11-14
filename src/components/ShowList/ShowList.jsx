@@ -54,6 +54,7 @@ export const ShowList = ({
   selected,
   category,
   isLoading,
+  stateProfile,
 }) => {
   const location = useLocation();
 
@@ -85,7 +86,14 @@ export const ShowList = ({
 
           <div className='show-list__items'>
             {data.map((card) => {
-              return <Card key={card.id} cardData={card} selected={selected} />;
+              return (
+                <Card
+                  key={card.id}
+                  cardData={card}
+                  selected={selected}
+                  stateProfile={stateProfile}
+                />
+              );
             })}
           </div>
         </>
