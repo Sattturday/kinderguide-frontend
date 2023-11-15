@@ -8,12 +8,10 @@ import './Card.scss';
 
 import {
   useAddKindergartenFavoritesMutation,
-  useGetKindergartenFavoritesQuery,
   useRemoveKindergartenFavoritesMutation,
 } from '../../../api/kindergartenApi';
 import {
   useAddSchoolFavoritesMutation,
-  useGetSchoolFavoritesQuery,
   useRemoveSchoolFavoritesMutation,
 } from '../../../api/schoolApi';
 import { useSelector } from 'react-redux';
@@ -25,9 +23,7 @@ export const Card = ({ cardData, selected, stateProfile }) => {
   const navigate = useNavigate();
 
   const { filter } = useSelector((state) => state, { noopCheck: 'never' });
-  const { data: dataKindergartenFavorites = [] } =
-    useGetKindergartenFavoritesQuery();
-  const { data: dataSchoolFavorites = [] } = useGetSchoolFavoritesQuery();
+
   const [addSchoolFavorites] = useAddSchoolFavoritesMutation();
   const [removeSchoolFavorites] = useRemoveSchoolFavoritesMutation();
   const [addKindergartenFavorites] = useAddKindergartenFavoritesMutation();
@@ -39,35 +35,21 @@ export const Card = ({ cardData, selected, stateProfile }) => {
   }, [cardData.is_favorited]);
 
   const handleLike = () => {
-    if (stateProfile === 'gardens') {
-      cardData.is_favorited
-        ? removeKindergartenFavorites(cardData.id)
-        : addKindergartenFavorites(cardData.id);
-      setIsLiked(!isLiked);
+    const id = cardData.id;
+    console.log(filter.category, stateProfile);
+
+    if (cardData.type === 'kindergartens' || stateProfile === 'gardens') {
+      const mutation = isLiked
+        ? removeKindergartenFavorites(id)
+        : addKindergartenFavorites(id);
+      mutation.then(() => setIsLiked((prev) => !prev));
     }
-    if (stateProfile === 'school') {
-      cardData.is_favorited
-        ? removeSchoolFavorites(cardData.id)
-        : addSchoolFavorites(cardData.id);
-      setIsLiked(!isLiked);
-    }
-    if (filter.category === 'kindergartens') {
-      const res = dataKindergartenFavorites.results
-        .filter((card) => card.id === cardData.id)
-        .map((res) => res.id);
-      res.length > 0
-        ? removeKindergartenFavorites(res)
-        : addKindergartenFavorites(cardData.id);
-      setIsLiked(!isLiked);
-    }
-    if (filter.category === 'schools') {
-      const res = dataSchoolFavorites.results
-        .filter((card) => card.id === cardData.id)
-        .map((res) => res.id);
-      res.length > 0
-        ? removeSchoolFavorites(res)
-        : addSchoolFavorites(cardData.id);
-      setIsLiked(!isLiked);
+
+    if (cardData.type === 'schools' || stateProfile === 'school') {
+      const mutation = isLiked
+        ? removeSchoolFavorites(id)
+        : addSchoolFavorites(id);
+      mutation.then(() => setIsLiked((prev) => !prev));
     }
   };
 
@@ -81,7 +63,7 @@ export const Card = ({ cardData, selected, stateProfile }) => {
       <div className='card__container'>
         <div className='card__title-block'>
           <h3 className='card__title'>{cardData.name}</h3>
-          <LikeButton isLiked={isLiked} onLike={handleLike} />
+          <LikeButton isLiked={cardData.is_favorited} onLike={handleLike} />
         </div>
 
         <p className='card__text'>{cardData.description}</p>

@@ -41,7 +41,10 @@ export const OrgWrapper = ({ data, feedback, org, activities }) => {
               copy: 'hidden',
             }}
           />
-          <LikeButton isLike={false} onLike={() => console.log('likeTest')} />
+          <LikeButton
+            isLiked={data.is_favorited}
+            onLike={() => console.log(data.is_favorited)}
+          />
         </div>
       </div>
       <HashLink

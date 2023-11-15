@@ -23,8 +23,13 @@ export function Favorites() {
 
   const dataFavorites =
     stateProfile === 'school'
-      ? dataSchoolFavorites.results
-      : dataKindergartenFavorites.results;
+      ? dataSchoolFavorites?.results || []
+      : stateProfile === 'gardens'
+      ? dataKindergartenFavorites?.results || []
+      : [
+          ...(dataSchoolFavorites?.results || []),
+          ...(dataKindergartenFavorites?.results || []),
+        ];
 
   return (
     <section className='favorites'>

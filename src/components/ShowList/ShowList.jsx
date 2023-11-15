@@ -65,7 +65,6 @@ export const ShowList = ({
   isLoading,
   stateProfile,
 }) => {
-  console.log(selected);
   const [isList, setIsList] = useState(true);
 
   function toggleList() {
@@ -113,10 +112,10 @@ export const ShowList = ({
           </div>
           {isList ? (
             <div className='show-list__items'>
-              {data.map((card) => {
+              {data.map((card, index) => {
                 return (
                   <Card
-                    key={card.id}
+                    key={index}
                     cardData={card}
                     selected={selected}
                     stateProfile={stateProfile}
