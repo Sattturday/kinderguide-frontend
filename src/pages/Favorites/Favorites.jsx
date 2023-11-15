@@ -18,17 +18,12 @@ export function Favorites() {
   const { data: dataKindergartenFavorites = [] } =
     useGetKindergartenFavoritesQuery();
   const { data: dataSchoolFavorites = [] } = useGetSchoolFavoritesQuery();
-  // const { data = [] } = useGetSchoolAllQuery();
-  const { data = [] } = useGetKindergartenAllQuery();
 
-  // const dataFavorites = dataCard.results;
   const dataFavorites =
     stateProfile === 'school'
       ? dataSchoolFavorites.results
       : dataKindergartenFavorites.results;
-  // const dataFavorites = () => {
-  //   if
-  // }
+
   return (
     <section className='favorites'>
       <div className='wrapper'>

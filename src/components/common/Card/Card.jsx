@@ -21,8 +21,7 @@ export const Card = ({ cardData, selected, stateProfile }) => {
   const { filter } = useSelector((state) => state, { noopCheck: 'never' });
   const { data: dataKindergartenFavorites = [] } =
     useGetKindergartenFavoritesQuery();
-  const { data: dataSchoolFavorites = [], isLoading } =
-    useGetSchoolFavoritesQuery();
+  const { data: dataSchoolFavorites = [] } = useGetSchoolFavoritesQuery();
   const [addSchoolFavorites] = useAddSchoolFavoritesMutation();
   const [removeSchoolFavorites] = useRemoveSchoolFavoritesMutation();
   const [addKindergartenFavorites] = useAddKindergartenFavoritesMutation();
