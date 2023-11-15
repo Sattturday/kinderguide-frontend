@@ -18,7 +18,7 @@ import { PasswordRecoverySuccessModal } from './components/PasswordRecoverySucce
 import { setUser, setToken } from './store/authSlice';
 import { useGetUserQuery } from './api/userApi';
 import { ProfileExitModal } from './components/ProfileExitModal';
-import { LoginToFavoritePopup } from './components/LoginToFavoritPopup';
+import { LoginToFavoritePopup } from './components/LoginToFavoritePopup';
 
 function App() {
   const dispatch = useDispatch();

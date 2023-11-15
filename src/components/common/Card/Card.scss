@@ -71,3 +71,7 @@
   @include text-l($fw-semi-bold);
   letter-spacing: 0.8px;
 }
+
+.card__reviews {
+  @include text-l($fw-semi-bold);
+}
