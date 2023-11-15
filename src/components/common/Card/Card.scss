@@ -38,9 +38,6 @@
   letter-spacing: 0.7px;
   text-decoration: none;
   color: $black;
-  &:hover {
-    text-decoration: underline;
-  }
 }
 
 .card__text {
@@ -70,4 +67,8 @@
 .card__price {
   @include text-l($fw-semi-bold);
   letter-spacing: 0.8px;
+}
+
+.card__reviews {
+  @include text-l($fw-semi-bold);
 }

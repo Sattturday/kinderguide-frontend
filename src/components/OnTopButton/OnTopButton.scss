@@ -1,0 +1,27 @@
+@import '../../styles/abstract/constants.scss';
+@import '../../styles/abstract/mixins.scss';
+
+.on-top-button {
+  position: absolute;
+  right: 26px;
+  opacity: 0;
+  transition: 0.5s;
+
+  &_visible {
+    opacity: 1;
+  }
+}
+
+.on-top-button__container {
+  @include link;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: $button-cyan url('./images/arrow.svg') no-repeat center;
+  border-radius: 50%;
+  width: 52px;
+  height: 52px;
+
+  position: fixed;
+  bottom: 200px;
+}

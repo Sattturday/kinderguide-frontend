@@ -18,7 +18,7 @@ import { PasswordRecoverySuccessModal } from './components/PasswordRecoverySucce
 import { setUser, setToken } from './store/authSlice';
 import { useGetUserQuery } from './api/userApi';
 import { ProfileExitModal } from './components/ProfileExitModal';
-import { LoginToFavoritePopup } from './components/LoginToFavoritPopup';
+import { LoginToFavoritePopup } from './components/LoginToFavoritePopup';
 import { Favorites } from './pages/Favorites/Favorites';
 
 function App() {
@@ -43,8 +43,8 @@ function App() {
         <Route path='/profile' element={<Profile />} />
         <Route path='/catalog' element={<Catalog />} />
         <Route path='/favorites' element={<Favorites />} />
-        <Route path='/school/:id' element={<School />} />
-        <Route path='/kindergarten/:id' element={<Kindergarten />} />
+        <Route path='/schools/:id' element={<School />} />
+        <Route path='/kindergartens/:id' element={<Kindergarten />} />
         <Route path='/password-reset/:id/:token' element={<Home />} />
         <Route path='*' element={<NotFoundPage />} />
       </Routes>
@@ -55,7 +55,6 @@ function App() {
       <RegisterSuccessModal />
       <LoginModal />
       <ProfileExitModal />
-      <PasswordRecoveryModal stepRecovery={1} />
       <PasswordRecoveryModal />
       <NewsModal />
 

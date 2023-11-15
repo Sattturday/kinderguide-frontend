@@ -1,4 +1,5 @@
 import { useState } from 'react';
+
 import {
   useGetKindergartenAllQuery,
   useGetKindergartenFavoritesQuery,
@@ -9,8 +10,9 @@ import {
   useGetSchoolFavoritesQuery,
 } from '../../api/schoolApi';
 import { ShowList } from '../../components/ShowList';
-import './Favorites.scss';
+
 import { NavigationFavorites } from './components/NavigationFavorites';
+import './Favorites.scss';
 
 export function Favorites() {
   const [stateProfile, setStateProfile] = useState('all');
@@ -33,7 +35,11 @@ export function Favorites() {
             stateProfile={stateProfile}
             setStateProfile={setStateProfile}
           />
-          <ShowList data={dataFavorites} stateProfile={stateProfile} />
+          <ShowList
+            data={dataFavorites}
+            selected='favorites'
+            stateProfile={stateProfile}
+          />
         </div>
       </div>
     </section>

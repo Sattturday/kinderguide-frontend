@@ -60,7 +60,7 @@ export const LoginModal = () => {
             variant='form'
             name='email'
             onChange={onChange}
-            value={data['login-form-email']}
+            value={data['login-form-email'] || ''}
             placeholder='Введите email'
             type='email'
             isValid={!errors['login-form-email']?.length}
@@ -78,7 +78,7 @@ export const LoginModal = () => {
             variant='form'
             name='password'
             onChange={onChange}
-            value={data['login-form-password']}
+            value={data['login-form-password'] || ''}
             placeholder='Введите пароль'
             isValid={!errors['login-form-password']?.length}
             forgetPassword

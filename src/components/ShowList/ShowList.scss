@@ -7,6 +7,12 @@
   gap: 12px;
 }
 
+.show-list__infoWrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
 .show-list__info {
   display: flex;
   gap: 12px;
@@ -30,4 +36,11 @@
   width: 24px;
   height: 24px;
   background-image: url('../../images/Favorites/icon.svg');
+}
+
+.show-list__mapWrapper {
+  width: 100%;
+  height: 529px;
+  border-radius: 10px;
+  overflow: hidden;
 }

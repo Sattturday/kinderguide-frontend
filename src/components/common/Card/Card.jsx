@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
+import img from '../../../images/NewsCard/img5.png';
 import { Stars } from '../../Stars';
 import { LikeButton } from '../../LikeButton/LikeButton';
 import './Card.scss';
+
 import {
   useAddKindergartenFavoritesMutation,
   useGetKindergartenFavoritesQuery,
@@ -17,7 +19,11 @@ import {
 import { useSelector } from 'react-redux';
 
 export const Card = ({ cardData, selected, stateProfile }) => {
-  const [isLiked, setIsLiked] = useState();
+  const [isLiked, setIsLiked] = useState(false);
+  const image = cardData.album.length > 0 ? cardData.album[0].image : img;
+
+  const navigate = useNavigate();
+
   const { filter } = useSelector((state) => state, { noopCheck: 'never' });
   const { data: dataKindergartenFavorites = [] } =
     useGetKindergartenFavoritesQuery();
@@ -65,22 +71,16 @@ export const Card = ({ cardData, selected, stateProfile }) => {
     }
   };
 
+  const handleClick = () => {
+    navigate(`/${filter.category}/${cardData.id}`);
+  };
+
   return (
-    <div className='card'>
-      <img
-        className='card__img'
-        src={
-          cardData.album[0]
-            ? cardData.album[0].image
-            : 'http://kinder.acceleratorpracticum.ru/media/kindergartens/115.jpg'
-        }
-        alt='Фото школы'
-      />
+    <div className='card' onClick={handleClick}>
+      <img className='card__img' src={image} alt='Фото школы или сада' />
       <div className='card__container'>
         <div className='card__title-block'>
-          <Link to={`/${selected}/${cardData.id}`} className='card__title'>
-            {cardData.name}
-          </Link>
+          <h3 className='card__title'>{cardData.name}</h3>
           <LikeButton isLiked={isLiked} onLike={handleLike} />
         </div>
 
@@ -88,7 +88,9 @@ export const Card = ({ cardData, selected, stateProfile }) => {
 
         <div className='card__price-block'>
           <p className='card__price'>{`от ${cardData.price} ₽/мес.`}</p>
-          <Stars rating={cardData.rating} />
+          <Stars rating={cardData.rating}>
+            <p className='card__reviews'>{cardData.reviews || 0}</p>
+          </Stars>
         </div>
       </div>
     </div>

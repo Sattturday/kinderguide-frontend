@@ -1,136 +1,148 @@
-import { useDeferredValue, useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useDeferredValue, useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import {
-  FILTER_ITEMS_KINDERGARTENS,
-  FILTER_ITEMS_SCHOOLS,
-  NAV_CATEGORY,
-} from '../../utils/filterData';
 import { ShowList } from '../../components/ShowList';
-import { SearchForm } from '../../components/SearchForm/SearchForm';
-import { useGetFilteredDataQuery } from '../../api/filterApi';
+import { buildUrlParams, getFilterItems } from '../../utils/filtersUtils';
+import {
+  useGetFilteredDataQuery,
+  useGetAreaFiltersQuery,
+  useGetMetroFiltersQuery,
+  useGetProfileFiltersQuery,
+  useGetClassFiltersQuery,
+  useGetLanguageFiltersQuery,
+  useGetGroupSizeFiltersQuery,
+  useGetWorkingFiltersQuery,
+  useGetAgeFiltersQuery,
+} from '../../api/filterApi';
 import {
   setCategoryFilter,
   setRequestFilter,
   setSortFilter,
-  setSortDirectionFilter,
   setCheckboxFilter,
   setFilterDefault,
-  setFilterAllData,
+  setObjectFilter,
+  setFilterReset,
 } from '../../store/filterSlice';
 
 import { FilterList } from './components/FilterList/FilterList';
 import { Sort } from './components/Sort';
+import { SearchForm } from './components/SearchForm';
+import { Nav } from './components/Nav/Nav';
 import './Catalog.scss';
 
 export function Catalog() {
   const { filter } = useSelector((state) => state, { noopCheck: 'never' });
-  const deferredFilter = useDeferredValue(filter);
+  const isResetRef = useRef(false);
 
+  // Хранение выбранной категории (школы или сады)
   const [selected, setSelected] = useState(filter.category);
+
+  // Управление URL для получения данных с сервера
   const [paramsUrl, setParamsUrl] = useState('');
-  const path = useLocation().pathname;
+
+  // Использование отложенного значения для фильтров, чтобы уменьшить нагрузку на пользовательский интерфейс
+  const deferredFilter = useDeferredValue(filter);
 
   const dispatch = useDispatch();
 
+  // Получение списка всех объектов фильтров
+  const { data: workingFilters } = useGetWorkingFiltersQuery();
+  const { data: groupSizeFilters } = useGetGroupSizeFiltersQuery();
+  const { data: ageFilters } = useGetAgeFiltersQuery();
+  const { data: profileFilters } = useGetProfileFiltersQuery();
+  const { data: classFilters } = useGetClassFiltersQuery();
+  const { data: languageFilters } = useGetLanguageFiltersQuery();
+  const { data: areaFilters } = useGetAreaFiltersQuery();
+  const { data: metroFilters } = useGetMetroFiltersQuery();
+
+  // Получение отфильтрованных данных с сервера на основе выбранных фильтров
   const { data = [], isLoading } = useGetFilteredDataQuery([
     filter.category,
     paramsUrl,
   ]);
 
-  useEffect(() => {
-    filteredDataHandler(filter);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [filter.sort, filter.sortDirection]);
+  // Формирование списка фильтров
+  const filterItems = getFilterItems(
+    selected,
+    workingFilters,
+    groupSizeFilters,
+    ageFilters,
+    profileFilters,
+    classFilters,
+    languageFilters,
+    areaFilters,
+    metroFilters
+  );
 
+  // Обработка изменений фильтра после сброса
   useEffect(() => {
-    localStorage.setItem('filter', JSON.stringify(filter));
+    if (isResetRef.current) {
+      updateParamsUrl(filter);
+      isResetRef.current = false;
+    }
   }, [filter]);
 
+  // Обработка изменений фильтра сортировки
   useEffect(() => {
-    const filterData = JSON.parse(localStorage.getItem('filter'));
-    if (path === 'catalog' && filterData) {
-      dispatch(setFilterAllData(filterData));
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [path]);
-
-  const onClickNavHandler = (e) => {
-    dispatch(setFilterDefault());
-    setSelected(e.target.id);
-    dispatch(setCategoryFilter(e.target.id));
-    filteredDataHandler(filter);
-  };
-
-  const handleSubmit = (evt) => {
-    evt.preventDefault();
-    filteredDataHandler(filter);
-  };
-
-  const checkboxHandler = (key, value) => {
-    dispatch(setCheckboxFilter({ key, value }));
-  };
+    updateParamsUrl(filter);
+  }, [filter.ordering]);
 
   const sortHandler = (btnId) => {
     dispatch(setSortFilter(btnId));
   };
 
   const sortDirectionHandler = () => {
-    dispatch(setSortDirectionFilter());
+    const ordering = filter.ordering.startsWith('-')
+      ? filter.ordering.slice(1)
+      : `-${filter.ordering}`;
+
+    dispatch(setSortFilter(ordering));
   };
 
+  // Обработчик изменения строки поиска
   const searchHandler = (e) => {
     dispatch(setRequestFilter(e.target.value));
   };
 
-  const handleReset = () => {
-    dispatch(setFilterDefault());
+  // Обработчик переключения между категориями "школы" и "сады"
+  const onClickNavHandler = (e) => {
+    dispatch(setFilterDefault()); // Сброс всех фильтров
+    setSelected(e.target.id); // Сохранение выбранной категории в состоянии
+    dispatch(setCategoryFilter(e.target.id)); // Сохранение выбранной категории в хранилище (Redux)
+    updateParamsUrl(filter); // Обработка отфильтрованных данных
   };
 
-  function filteredDataHandler(sort) {
-    const params = new URLSearchParams();
-    for (const key in sort) {
-      if (key === 'category') continue;
-      if (typeof sort[key] === 'boolean') {
-        params.append(key, sort[key]);
-        continue;
-      }
-      if (!sort[key].length) continue;
-      if (Array.isArray(sort[key])) {
-        sort[key].forEach((value) => params.append(key, value));
-        continue;
-      }
-      if (typeof sort[key] === 'object') {
-        for (const item in sort[key]) {
-          params.append(item, sort[key][item]);
-        }
-        continue;
-      }
-      params.append(key, sort[key]);
-    }
-    setParamsUrl(params.toString());
+  // Обработчик изменения флажков (checkbox)
+  const checkboxHandler = (key) => {
+    dispatch(setCheckboxFilter({ key }));
+  };
+
+  // Обработчик изменения флажков (select)
+  const selectHandler = (key, value) => {
+    dispatch(setObjectFilter({ key, value }));
+  };
+
+  // Функция для обработки отфильтрованных данных перед запросом на сервер
+  function updateParamsUrl(filters) {
+    const paramsUrl = buildUrlParams(filters);
+    setParamsUrl(paramsUrl);
   }
+
+  // Обработчик отправки формы с фильтрами
+  const handleSubmit = (evt) => {
+    evt.preventDefault();
+    updateParamsUrl(filter);
+  };
+
+  // Обработчик сброса всех фильтров
+  const handleReset = () => {
+    isResetRef.current = true;
+    dispatch(setFilterReset());
+  };
 
   return (
     <section className='catalog'>
-      <nav className='catalog__nav'>
-        {NAV_CATEGORY.map((item, index) => {
-          return (
-            <button
-              id={item.category}
-              type='button'
-              key={index}
-              className={`catalog__nav-item ${
-                selected === item.category ? 'catalog__nav-item_selected' : ''
-              }`}
-              onClick={onClickNavHandler}
-            >
-              {item.name}
-            </button>
-          );
-        })}
-      </nav>
+      <Nav selected={selected} onClickNavHandler={onClickNavHandler} />
       <div className='list-wrapper'>
         <div className='search-wrapper'>
           <SearchForm
@@ -147,18 +159,13 @@ export function Catalog() {
           handleSubmit={handleSubmit}
           filter={deferredFilter}
           checkboxHandler={checkboxHandler}
-          selectHandler={checkboxHandler}
+          selectHandler={selectHandler}
           handleReset={handleReset}
-          filterItems={
-            selected === 'kindergartens'
-              ? FILTER_ITEMS_KINDERGARTENS
-              : FILTER_ITEMS_SCHOOLS
-          }
+          filterItems={filterItems}
         />
         <ShowList
           data={data ? data.results : []}
-          selected={selected.slice(0, -1)}
-          category={deferredFilter.category}
+          selected={selected}
           isLoading={isLoading}
         />
       </div>

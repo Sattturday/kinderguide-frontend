@@ -1,6 +1,10 @@
 import { ServiceWorkCard } from '../ServiceWorkCard';
 import './ServiceWork.scss';
 
+import team from '../../../../images/ServiceWork/Rectangle 358.svg';
+import orangewave from '../../../../images/ServiceWork/Linked Path Group.svg';
+import plus from '../../../../images/ServiceWork/decoration2.svg';
+
 export function ServiceWork() {
   const cards = [
     {
@@ -11,20 +15,15 @@ export function ServiceWork() {
     },
     {
       id: '2',
-      title: 'Находите необходимы курсы и секции',
-      description: 'На сайте вы найдете  более 80 направлений курсов и секций.',
+      title: 'Добавляйте найденные учебные заведения в избранное',
+      description:
+        'Теперь не нужно беспокоится, что вы потеряете контакт школ или детских садов, которые вам не подошли.',
     },
     {
       id: '3',
-      title: 'Ищите  репетитора по компетенциям',
-      description:
-        'На сайте вы найдете  более 80 направлений курсов и секций. Помогите ребенку, выбрать кем стать.',
-    },
-    {
-      id: '4',
       title: 'Читайте и отзывы и рекомендации',
       description:
-        'На нашем сайте отзывы реальных людей, которые помогут вам определится с выбором, образовательной программы или заведения.',
+        'На нашем сайте отзывы реальных людей, которые помогут вам определится с выбором, образовательного заведения.',
     },
   ];
 
@@ -37,11 +36,30 @@ export function ServiceWork() {
         <p className='service-work__subtitle'>
           Упрости себе жизнь, используя наш полезный сервис
         </p>
-        <ul className='service-work__list'>
-          {cards?.map((card) => (
-            <ServiceWorkCard key={card.id} dataCard={card} />
-          ))}
-        </ul>
+        <div className='service-work__wrapper'>
+          <img
+            className='service-work__img-team'
+            src={team}
+            alt='фотография людей, смотрящих на монитор'
+          />
+          <ul className='service-work__list'>
+            {cards?.map((card) => (
+              <ServiceWorkCard key={card.id} dataCard={card} />
+            ))}
+          </ul>
+        </div>
+      </div>
+      <img
+        className='service-work__img-wave'
+        src={orangewave}
+        alt='Декоративная картинка'
+      />
+      <div className='service-work__img-wrapper'>
+        <img
+          className='service-work__img-plus'
+          src={plus}
+          alt='Декоративная картинка'
+        />
       </div>
     </section>
   );

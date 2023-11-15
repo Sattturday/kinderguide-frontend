@@ -1,12 +1,11 @@
-import React from 'react';
 import { Provider } from 'react-redux';
 
-import store from '../../../../../../store';
-import { DoubleRange } from './DoubleRange';
+import store from '../../../../store';
+import { SelectOption } from './SelectOption';
 
 export default {
-  title: 'DoubleRange',
-  component: DoubleRange,
+  title: 'SelectOption',
+  component: SelectOption,
   parameters: {
     layout: 'centered',
   },
@@ -20,10 +19,7 @@ export default {
   ],
 };
 
-const Template = (args) => <DoubleRange {...args} />;
+const Template = (args) => <SelectOption {...args} />;
 
 export const Default = Template.bind({});
-Default.args = {
-  min: 0,
-  max: 10000000,
-};
+Default.args = {};
