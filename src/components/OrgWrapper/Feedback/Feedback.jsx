@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Stars } from '../../Stars';
 import './Feedback.scss';
 import addIcon from './images/fi-rr-edit.svg';
@@ -7,9 +7,11 @@ import {
   openAddSchoolReviewModal,
   openAddKindergartenReviewModal,
 } from '../../../store/modalsSlice';
+import { AddMoreButton } from '../../AddMoreButton';
 
 export const Feedback = ({ feedback, org }) => {
   const [rating, setRating] = useState(null);
+  const [displayedCards, setDisplayedCards] = React.useState(6);
 
   const dispatch = useDispatch();
 
@@ -53,7 +55,7 @@ export const Feedback = ({ feedback, org }) => {
         </div>
       </div>
       <div className='feedback__list'>
-        {feedback?.map((fb) => (
+        {feedback?.slice(0, displayedCards).map((fb) => (
           <div key={fb.id} className='feedback__item'>
             <div className='feedback__titleWrapper'>
               <h3 className='feedback__title'>{fb.author}</h3>
@@ -63,6 +65,12 @@ export const Feedback = ({ feedback, org }) => {
           </div>
         ))}
       </div>
+      <AddMoreButton
+        cards={feedback}
+        count={6}
+        displayedCards={displayedCards}
+        setDisplayedCards={setDisplayedCards}
+      />
     </div>
   );
 };
