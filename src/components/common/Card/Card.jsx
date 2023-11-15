@@ -1,10 +1,11 @@
 import { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 import { Stars } from '../../Stars';
 import { LikeButton } from '../../LikeButton/LikeButton';
 import './Card.scss';
 import img from '../../../images/NewsCard/img5.png';
+import { Reviews } from '../../Reviews';
 
 export const Card = ({ cardData, selected }) => {
   const [isLiked, setIsLiked] = useState(false);
@@ -32,7 +33,9 @@ export const Card = ({ cardData, selected }) => {
 
         <div className='card__price-block'>
           <p className='card__price'>{`от ${cardData.price} ₽/мес.`}</p>
-          <Stars rating={cardData.rating} />
+          <Stars rating={cardData.rating}>
+            <p className='card__reviews'>{cardData.reviews || 0}</p>
+          </Stars>
         </div>
       </div>
     </div>

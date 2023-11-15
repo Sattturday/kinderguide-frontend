@@ -1,146 +1,24 @@
-export const FILTER_ITEMS_SCHOOLS = [
-  {
-    title: 'Профиль',
-    category: 'profile',
-    items: [
-      'Общеобразовательный',
-      'Естественно-научный',
-      'Гуманитарный',
-      'Социально-экономический',
-      'Технологичный',
-    ],
-    type: 'checkbox',
-  },
-  {
-    title: 'Возраст',
-    category: 'age',
-    items: [
-      'дошкольное обучение',
-      'начальная школа',
-      'основная школа',
-      'старшая школа',
-    ],
-    type: 'checkbox',
-  },
-  {
-    title: 'Иностранные языки',
-    category: 'language',
-    items: ['Английский', 'Французский', 'Испанский', 'Китайский'],
-    type: 'checkbox',
-  },
-  {
-    title: 'Округ',
-    category: 'district',
-    items: [
-      'Центральный',
-      'Северный',
-      'Северо-Восточный',
-      'Юго-Западный',
-      'Западный',
-      'Северо-Западный',
-      'Южный',
-      'Восточный',
-      'Юго-Восточный',
-    ],
-    type: 'checkbox',
-  },
-  {
-    title: 'Метро',
-    category: 'metro',
-    items: ['новогиреево', 'Китай город', 'Нагатинская', 'Арбат'],
-    type: 'text',
-  },
-  {
-    title: 'Стоимость',
-    category: 'price',
-    type: 'range',
-  },
-];
-
-export const FILTER_ITEMS_KINDERGARTENS = [
-  {
-    title: 'Время работы',
-    category: 'openingHours',
-    items: ['ежедневно', 'круглосуточно', 'пн-пт', 'пн-сб'],
-    type: 'checkbox',
-  },
-  {
-    title: 'Размер группы',
-    category: 'groupSize',
-    items: [
-      'до 5 человек',
-      'до 10 человек',
-      'до 15 человек',
-      'до 20 человек',
-      '20 человек и более',
-    ],
-    type: 'checkbox',
-  },
-  {
-    title: 'Развитие',
-    category: 'development',
-    items: ['такое', 'сякое', 'эдакое', 'разное'],
-    type: 'checkbox',
-  },
-  {
-    title: 'Возраст',
-    category: 'age',
-    items: [
-      'дошкольное обучение',
-      'начальная школа',
-      'основная школа',
-      'старшая школа',
-    ],
-    type: 'checkbox',
-  },
-  {
-    title: 'Иностранные языки',
-    category: 'language',
-    items: ['Английский', 'Французский', 'Испанский', 'Китайский'],
-    type: 'checkbox',
-  },
-  {
-    title: 'Округ',
-    category: 'district',
-    items: [
-      'Центральный',
-      'Северный',
-      'Северо-Восточный',
-      'Юго-Западный',
-      'Западный',
-      'Северо-Западный',
-      'Южный',
-      'Восточный',
-      'Юго-Восточный',
-    ],
-    type: 'checkbox',
-  },
-  {
-    title: 'Метро',
-    category: 'metro',
-    items: ['новогиреево', 'Китай город', 'Нагатинская', 'Арбат'],
-    type: 'text',
-  },
-  {
-    title: 'Стоимость',
-    category: 'price',
-    type: 'range',
-  },
-];
-
 export const INITIAL_FILTER_STATE = {
   category: 'schools',
   search: '',
   ordering: 'name',
-  // sortDirection: true,
-  openingHours: [],
-  groupSize: [],
-  development: [],
+
+  intel_dev: false,
+  sport_dev: false,
+  create_dev: false,
+  music_dev: false,
+  preparing_for_school: false,
+
+  working_hours: [],
+  group_size: [],
+  age_category: [],
+
   profile: [],
-  age: [],
-  language: [],
-  district: [],
-  metro: [],
+  classes: [],
+
+  languages: [],
+  area: [],
+  underground: [],
   price: {
     minVal: 0,
     maxVal: 500000,
@@ -155,8 +33,8 @@ export const NAV_CATEGORY = [
 export const sortButtons = [
   { title: 'По названию', id: 'name' },
   { title: 'По стоимости', id: 'price' },
-  { title: 'По отзывам', id: 'reviews' },
-  { title: 'По рейтингу', id: 'rating' },
+  { title: 'По отзывам', id: '-reviews_count' },
+  { title: 'По рейтингу', id: '-rating' },
 ];
 
 export const METRO_LIST = [
