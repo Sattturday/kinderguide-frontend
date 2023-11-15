@@ -12,8 +12,6 @@ export const AddMoreButton = ({
     setDisplayedCards(displayedCards + count);
   }
 
-  console.log(cards.length);
-  console.log(displayedCards);
   return (
     <>
       {displayedCards < cards.length ? (

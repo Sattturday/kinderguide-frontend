@@ -39,7 +39,7 @@ export const School = () => {
     <>
       <OrgWrapper
         data={schoolData}
-        feedback={schoolReviewsData}
+        feedback={schoolReviewsData.filter((i) => i.content.length > 0)}
         org='Школы'
         activities={activities}
       />

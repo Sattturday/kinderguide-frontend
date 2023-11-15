@@ -4,7 +4,7 @@ import { OrgWrapper } from '../../components/OrgWrapper';
 import { useGetKindergartenQuery } from '../../api/kindergartenApi';
 import { useGetKindergartenReviewsQuery } from '../../api/kindergartenReviewsApi';
 import { AddKindergartenReviewModal } from './components/AddKindergartenReviewModal';
-import { AddReviewGratitudeModal } from '../../components/AddReviewGratitudeModal/AddReviewGratitudeModal';
+import { AddReviewGratitudeModal } from '../../components/AddReviewGratitudeModal';
 
 export const Kindergarten = () => {
   const { id } = useParams();
@@ -52,7 +52,7 @@ export const Kindergarten = () => {
     <>
       <OrgWrapper
         data={kindergartenData}
-        feedback={kindergartenReviewsData}
+        feedback={kindergartenReviewsData.filter((i) => i.content.length > 0)}
         org='Детские сады'
         activities={activities}
       />
