@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import { useLocation } from 'react-router';
+import { Link } from 'react-router-dom';
 
 import img1 from '../../images/NewsCard/img1.jpg';
 import img2 from '../../images/NewsCard/img2.jpg';
@@ -45,7 +47,9 @@ const cardData = [
 
 const schoolName = ['школа', 'школы', 'школ'];
 const gardenName = ['детский сад', 'детксих сада', 'детских садов'];
+
 const coordinates = cardData.map((card) => card.coordinates);
+
 function getName(value, words) {
   value = Math.abs(value) % 100;
   var num = value % 10;
@@ -55,11 +59,20 @@ function getName(value, words) {
   return words[2];
 }
 
-export const ShowList = ({ data = cardData, selected, isLoading }) => {
+export const ShowList = ({
+  data = cardData,
+  selected,
+  isLoading,
+  stateProfile,
+}) => {
   const [isList, setIsList] = useState(true);
+
   function toggleList() {
     setIsList(!isList);
   }
+
+  const location = useLocation();
+
   return (
     <section className='show-list'>
       {isLoading ? (
@@ -67,27 +80,46 @@ export const ShowList = ({ data = cardData, selected, isLoading }) => {
       ) : (
         <>
           <div className='show-list__infoWrapper'>
-            <p className='show-list__info'>
-              Найдено {data.length}{' '}
-              {selected === 'schools'
-                ? getName(data.length, schoolName)
-                : getName(data.length, gardenName)}
-            </p>
-            {isList ? (
-              <Button onClick={toggleList} variant='link'>
-                На карте
-              </Button>
+            {location.pathname === '/catalog' ? (
+              <p className='show-list__info'>
+                Найдено {data.length}{' '}
+                {selected === 'schools'
+                  ? getName(data.length, schoolName)
+                  : getName(data.length, gardenName)}
+              </p>
             ) : (
-              <Button onClick={toggleList} variant='link'>
-                Списком
-              </Button>
+              <div className='show-list__info'>
+                <div className='show-list__icons' />
+                <p className='show-list__paragraph'>
+                  <Link to='/' className='show-list__link'>
+                    Авторизуйтесь
+                  </Link>
+                  , чтобы сохранить список избранного для просмотра на этом и
+                  других устройствах
+                </p>
+              </div>
             )}
+            {selected !== 'favorites' &&
+              (isList ? (
+                <Button onClick={toggleList} variant='link'>
+                  На карте
+                </Button>
+              ) : (
+                <Button onClick={toggleList} variant='link'>
+                  Списком
+                </Button>
+              ))}
           </div>
           {isList ? (
             <div className='show-list__items'>
-              {data.map((card) => {
+              {data.map((card, index) => {
                 return (
-                  <Card key={card.id} cardData={card} selected={selected} />
+                  <Card
+                    key={index}
+                    cardData={card}
+                    selected={selected}
+                    stateProfile={stateProfile}
+                  />
                 );
               })}
             </div>
