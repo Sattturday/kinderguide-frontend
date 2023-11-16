@@ -2,6 +2,10 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 import { BASE_URL } from '../utils/constants';
 
+const getAuthToken = () => {
+  return localStorage.getItem('token');
+};
+
 export const filterApi = createApi({
   reducerPath: 'filterApi',
   baseQuery: fetchBaseQuery({
@@ -10,8 +14,15 @@ export const filterApi = createApi({
   endpoints: (build) => ({
     // Определение запроса для получения отфильтрованных данных
     getFilteredData: build.query({
-      query: ([category = '', params = '']) =>
-        `${category}/${params ? '?' + params : ''}`,
+      query: ([category = '', params = '']) => {
+        const token = getAuthToken();
+        const authHeader = token ? { Authorization: `Bearer ${token}` } : {};
+
+        return {
+          url: `${category}/${params ? '?' + params : ''}`,
+          headers: authHeader,
+        };
+      },
     }),
     // Определение запросов для получения фильтров школ
     getProfileFilters: build.query({

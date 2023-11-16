@@ -53,4 +53,5 @@ export const {
   useGetKindergartenFavoritesQuery,
   useAddKindergartenFavoritesMutation,
   useRemoveKindergartenFavoritesMutation,
+  useGetSyncedKindergartenFavoritesQuery,
 } = kindergartenApi;
