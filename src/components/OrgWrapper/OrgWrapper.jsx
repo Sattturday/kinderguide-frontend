@@ -41,10 +41,7 @@ export const OrgWrapper = ({ data, feedback, org, activities }) => {
               copy: 'hidden',
             }}
           />
-          <LikeButton
-            isLiked={data.is_favorited}
-            onLike={() => console.log(data.is_favorited)}
-          />
+          <LikeButton />
         </div>
       </div>
       <HashLink
@@ -121,7 +118,6 @@ export const OrgWrapper = ({ data, feedback, org, activities }) => {
         aria-label='Отзывы'
       >
         <h2 className='orgWrapper__sectionHeader'>Отзывы</h2>
-        {/*{<h1>Отзывов еще нет. Будьте первыми</h1>}*/}
         <Feedback feedback={feedback} org={org} />
       </section>
     </div>
