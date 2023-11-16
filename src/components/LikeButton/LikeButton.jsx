@@ -15,17 +15,20 @@ export const LikeButton = ({ isLiked, onLike }) => {
     if (user) {
       onLike();
     } else {
-      // Получаем DOM-элемент кнопки и ее координаты
-      const buttonElement = buttonRef.current;
-      const buttonRect = buttonElement.getBoundingClientRect();
+      console.log(isLiked);
+      onLike();
 
-      // Определяем координаты left и top
-      const coordinates = {
-        left: buttonRect.left,
-        top: buttonRect.top + 30, // Добавляем высоту кнопки
-      };
+      // // Получаем DOM-элемент кнопки и ее координаты
+      // const buttonElement = buttonRef.current;
+      // const buttonRect = buttonElement.getBoundingClientRect();
 
-      dispatch(openLoginToFavoritePopup(coordinates));
+      // // Определяем координаты left и top
+      // const coordinates = {
+      //   left: buttonRect.left,
+      //   top: buttonRect.top + 30, // Добавляем высоту кнопки
+      // };
+
+      // dispatch(openLoginToFavoritePopup(coordinates));
     }
   };
 
