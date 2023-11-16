@@ -2,8 +2,11 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 import { BASE_URL } from '../utils/constants';
 
+// const BASE_URL = 'https://kinder.acceleratorpracticum.ru/api/v1/';
+
 export const authApi = createApi({
   reducerPath: 'authApi',
+
   baseQuery: fetchBaseQuery({
     baseUrl: BASE_URL,
     prepareHeaders: (headers, { getState }) => {
@@ -47,6 +50,19 @@ export const authApi = createApi({
         body,
       }),
     }),
+
+    getYandexLink: build.query({
+      query: () =>
+        `${BASE_URL}auth/o/yandex-oauth2/?redirect_uri=https://kinder.acceleratorpracticum.ru/api/v1/auth/response_social/`,
+    }),
+
+    loginWithYandex: build.mutation({
+      query: (body) => ({
+        url: 'auth/o/yandex-oauth2/',
+        method: 'POST',
+        body,
+      }),
+    }),
   }),
 });
 
@@ -55,4 +71,6 @@ export const {
   useLoginMutation,
   useResetPasMutation,
   useConfirmResetPasMutation,
+  useGetYandexLinkQuery,
+  useLoginWithYandexMutation,
 } = authApi;

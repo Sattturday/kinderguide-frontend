@@ -1,7 +1,10 @@
 import { useSelector, useDispatch } from 'react-redux';
 
 import { useFormAndValidation } from '../../hooks/useFormAndValidation';
-import { useLoginMutation } from '../../api/authApi';
+import {
+  useLoginMutation,
+  useLoginWithYandexMutation,
+} from '../../api/authApi';
 import { setUser, setToken } from '../../store/authSlice';
 import { closeAllModals } from '../../store/modalsSlice';
 import { Popup } from '../common/Popup';
@@ -11,12 +14,19 @@ import { InputPassword } from '../InputPassword';
 import { Button } from '../common/Button';
 import './LoginModal.scss';
 
+import { YandexLogin } from '../YandexLogin/YandexLogin';
+import { LineWithWord } from '../common/LineWithWord';
+
 export const LoginModal = () => {
   const { data, onChange, errors, isValid } = useFormAndValidation();
   const isOpen = useSelector((state) => state.modals.isOpenLoginModal);
 
   const [login, { isLoading, isError }] = useLoginMutation();
+  const [loginWithYandex] = useLoginWithYandexMutation();
   const dispatch = useDispatch();
+
+  // const clientID = '39d6510b37da4e88bb71a191ae780a50'; // Мой
+  const clientID = '6afee0ba90144d71804d1029ef2849fa'; // Эдика
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -45,56 +55,107 @@ export const LoginModal = () => {
     }
   };
 
+  const handleYandexLogin = async (data) => {
+    const formData = new FormData();
+    // eslint-disable-next-line
+    for (let key in data) {
+      formData.append(key, data[key]);
+    }
+
+    try {
+      const response = await loginWithYandex(formData);
+
+      localStorage.setItem('token', response?.access);
+      // const userData = await response.json();
+
+      dispatch(
+        setUser({
+          user: true,
+        })
+      );
+      dispatch(
+        setToken({
+          token: response?.access,
+        })
+      );
+      dispatch(closeAllModals());
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
-    <Popup isOpen={isOpen} name='login-modal'>
-      <h2 className='login-modal__title'>Вход</h2>
-      <form onSubmit={(e) => handleSubmit(e)}>
-        <InputWrapper
-          inputId='login-form-email'
-          variant='form'
-          labelText='Email'
-          errorText={errors['login-form-email']}
-        >
-          <Input
+    <>
+      <Popup isOpen={isOpen} name='login-modal'>
+        <h2 className='login-modal__title'>Вход</h2>
+
+        <form onSubmit={(e) => handleSubmit(e)}>
+          <InputWrapper
             inputId='login-form-email'
             variant='form'
-            name='email'
-            onChange={onChange}
-            value={data['login-form-email'] || ''}
-            placeholder='Введите email'
-            type='email'
-            isValid={!errors['login-form-email']?.length}
-          />
-        </InputWrapper>
+            labelText='Email'
+            errorText={errors['login-form-email']}
+          >
+            <Input
+              inputId='login-form-email'
+              variant='form'
+              name='email'
+              onChange={onChange}
+              value={data['login-form-email'] || ''}
+              placeholder='Введите email'
+              type='email'
+              isValid={!errors['login-form-email']?.length}
+            />
+          </InputWrapper>
 
-        <InputWrapper
-          inputId='login-form-password'
-          variant='form'
-          labelText='Пароль'
-          errorText={errors['login-form-password']}
-        >
-          <InputPassword
+          <InputWrapper
             inputId='login-form-password'
             variant='form'
-            name='password'
-            onChange={onChange}
-            value={data['login-form-password'] || ''}
-            placeholder='Введите пароль'
-            isValid={!errors['login-form-password']?.length}
-            forgetPassword
-          />
-        </InputWrapper>
+            labelText='Пароль'
+            errorText={errors['login-form-password']}
+          >
+            <InputPassword
+              inputId='login-form-password'
+              variant='form'
+              name='password'
+              onChange={onChange}
+              value={data['login-form-password'] || ''}
+              placeholder='Введите пароль'
+              isValid={!errors['login-form-password']?.length}
+              forgetPassword
+            />
+          </InputWrapper>
 
-        <Button
-          type='submit'
-          width='532px'
-          size='large'
-          color={isValid ? 'orange-fill' : 'orange-dis'}
-          disabled={!isValid && isLoading}
+          <Button
+            type='submit'
+            width='532px'
+            size='large'
+            color={isValid ? 'orange-fill' : 'orange-dis'}
+            disabled={!isValid && isLoading}
+          >
+            {isLoading ? 'Вход...' : 'Войти'}
+          </Button>
+        </form>
+        <LineWithWord text='или' />
+
+        <YandexLogin
+          clientID={clientID}
+          onSuccess={(data) => handleYandexLogin(data)}
         >
-          {isLoading ? 'Вход...' : 'Войти'}
-        </Button>
-      </form>
-    </Popup>
+          <Button type='button' width='532px' color='orange-empty' size='large'>
+            Войти с помощью Яндекс ID
+          </Button>
+        </YandexLogin>
+
+        {/* <YandexLogin2
+          clientID='39d6510b37da4e88bb71a191ae780a50'
+          onSuccess={(data) => console.log(data)}
+        >
+          <Button type='button' width='532px' color='orange-empty' size='large'>
+            Войти с помощью Яндекс ID2
+          </Button>
+        </YandexLogin2> */}
+      </Popup>
+    </>
   );
 };

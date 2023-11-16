@@ -1,0 +1,20 @@
+@import '../../../styles/abstract/mixins.scss';
+
+.text {
+  @include text-l(400);
+  display: flex;
+  gap: 16px;
+  max-width: 484px;
+  align-items: center;
+  margin: 20px auto;
+
+  &::before,
+  &::after {
+    display: block;
+    content: '';
+    width: 484px;
+    height: 1px;
+    opacity: 0.5;
+    background: #4b4b4b;
+  }
+}
