@@ -14,6 +14,7 @@ import { InputTel } from '../InputTel';
 import { InputPassword } from '../InputPassword';
 import { InputCheckbox } from '../InputCheckbox';
 import { Button } from '../common/Button';
+import { LineWithWord } from '../common/LineWithWord';
 
 import './RegisterModal.scss';
 
@@ -195,6 +196,7 @@ export const RegisterModal = () => {
           {isLoading ? 'Подождите' : 'Зарегистрироваться'}
         </Button>
       </form>
+      <LineWithWord text='Или' />
     </Popup>
   );
 };
