@@ -1,10 +1,11 @@
 import React from 'react';
 import './NavigationFavorites.scss';
 
-export function NavigationFavorites({ setStateProfile, stateProfile }) {
+export function NavigationFavorites({ stateProfile, setStateProfile }) {
   const handleClick = (data) => {
     setStateProfile(data);
   };
+
   return (
     <nav className='navigation-favorites'>
       <button
