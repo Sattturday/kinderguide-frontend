@@ -20,7 +20,7 @@ export const ProfileExitModal = () => {
 
   // выход из акаунта
   function signOut() {
-    localStorage.removeItem('token');
+    localStorage.clear();
     navigate('/');
 
     //   dispatch(setToken(null));

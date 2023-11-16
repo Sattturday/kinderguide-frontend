@@ -15,6 +15,7 @@ export function UserData({ setEditUser }) {
   const handleClickExit = () => {
     dispatch(openExitProfileModal());
   };
+
   return (
     <>
       {isSuccess ? (

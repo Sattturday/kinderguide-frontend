@@ -1,49 +1,56 @@
-import { useEffect, useState } from 'react';
-import {
-  useAddKindergartenFavoritesMutation,
-  useGetKindergartenFavoritesQuery,
-} from '../../api/kindergartenApi';
-import {
-  useAddSchoolFavoritesMutation,
-  useGetSchoolFavoritesQuery,
-} from '../../api/schoolApi';
+import { useState } from 'react';
+import { useSelector } from 'react-redux';
+
+import { useGetKindergartenFavoritesQuery } from '../../api/kindergartenApi';
+import { useGetSchoolFavoritesQuery } from '../../api/schoolApi';
 import { ShowList } from '../../components/ShowList';
-import { useLocalStorage } from '../../hooks/useLocalStorage';
+
 import { NavigationFavorites } from './components/NavigationFavorites';
 import './Favorites.scss';
-import { useSelector } from 'react-redux';
-import {
-  useSyncFavoriteKindergartensMutation,
-  useSyncFavoriteSchoolsMutation,
-} from '../../api/userApi';
 
 export function Favorites() {
-  const user = useSelector((state) => state.auth.user);
-
-  // Локальные состояния для управления текущим типом профиля и избранными элементами
+  // Локальные состояния для управления текущим типом вкладки избранного
   const [stateProfile, setStateProfile] = useState('all');
-  // const [localSchoolFavorites, setLocalSchoolFavorites] = useLocalStorage(
-  //   'schoolFavorites',
-  //   []
-  // );
-  // const [localKindergartenFavorites, setLocalKindergartenFavorites] =
-  //   useLocalStorage('kindergartenFavorites', []);
 
   // Получаем избранные элементы из API
   const { data: dataKindergartenFavorites = [] } =
     useGetKindergartenFavoritesQuery();
   const { data: dataSchoolFavorites = [] } = useGetSchoolFavoritesQuery();
 
+  // Получаем данные из локального хранилища для неавторизованного пользователя
+  const localSchoolFavorites =
+    JSON.parse(localStorage.getItem('localSchoolFavorites')) || [];
+  const localKindergartenFavorites =
+    JSON.parse(localStorage.getItem('localKindergartenFavorites')) || [];
+
+  // Получаем информацию о пользователе из Redux
+  const user = useSelector((state) => state.auth.user);
+
   // Формируем данные для отображения в компоненте ShowList
-  const dataFavorites =
-    stateProfile === 'school'
-      ? dataSchoolFavorites?.results || []
-      : stateProfile === 'gardens'
-      ? dataKindergartenFavorites?.results || []
-      : [
-          ...(dataSchoolFavorites?.results || []),
-          ...(dataKindergartenFavorites?.results || []),
-        ];
+  let dataToShow = [];
+
+  if (user) {
+    // Дополнительная логика для авторизованного пользователя
+    if (stateProfile === 'school') {
+      dataToShow = dataSchoolFavorites?.results || [];
+    } else if (stateProfile === 'gardens') {
+      dataToShow = dataKindergartenFavorites?.results || [];
+    } else {
+      dataToShow = [
+        ...(dataSchoolFavorites?.results || []),
+        ...(dataKindergartenFavorites?.results || []),
+      ];
+    }
+  } else {
+    // Логика для неавторизованного пользователя
+    if (stateProfile === 'school') {
+      dataToShow = localSchoolFavorites;
+    } else if (stateProfile === 'gardens') {
+      dataToShow = localKindergartenFavorites;
+    } else {
+      dataToShow = [...localSchoolFavorites, ...localKindergartenFavorites];
+    }
+  }
 
   // Возвращаем разметку компонента
   return (
@@ -57,7 +64,7 @@ export function Favorites() {
             setStateProfile={setStateProfile}
           />
           {/* Компонент для отображения списка избранных элементов */}
-          <ShowList data={dataFavorites} selected='favorites' />
+          <ShowList data={dataToShow} selected='favorites' />
         </div>
       </div>
     </section>

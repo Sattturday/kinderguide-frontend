@@ -33,7 +33,7 @@ export const userApi = createApi({
     }),
     syncFavoriteKindergartens: build.mutation({
       query: (body) => ({
-        url: 'me/add_favoritekindegartens/',
+        url: 'me/add_favoritekindergartens/',
         method: 'POST',
         body,
       }),
