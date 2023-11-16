@@ -24,6 +24,18 @@ export const filterApi = createApi({
         };
       },
     }),
+    // Определение запроса для получения отфильтрованных данных без пагинации
+    getFilteredDataFull: build.query({
+      query: ([category = '', params = '']) => {
+        const token = getAuthToken();
+        const authHeader = token ? { Authorization: `Bearer ${token}` } : {};
+
+        return {
+          url: `${category}/all/${params ? '?' + params : ''}`,
+          headers: authHeader,
+        };
+      },
+    }),
     // Определение запросов для получения фильтров школ
     getProfileFilters: build.query({
       query: () => 'profile/',
@@ -56,6 +68,7 @@ export const filterApi = createApi({
 
 export const {
   useGetFilteredDataQuery,
+  useGetFilteredDataFullQuery,
   useGetProfileFiltersQuery,
   useGetClassFiltersQuery,
   useGetWorkingFiltersQuery,

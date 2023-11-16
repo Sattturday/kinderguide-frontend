@@ -1,10 +1,10 @@
 import { useState } from 'react';
-import { useLocation } from 'react-router';
+// import { useLocation } from 'react-router';
 import { Link } from 'react-router-dom';
 
-import img1 from '../../images/NewsCard/img1.jpg';
-import img2 from '../../images/NewsCard/img2.jpg';
-import img3 from '../../images/NewsCard/img3.jpg';
+// import img1 from '../../images/NewsCard/img1.jpg';
+// import img2 from '../../images/NewsCard/img2.jpg';
+// import img3 from '../../images/NewsCard/img3.jpg';
 import { Preloader } from '../Preloader';
 import { Card } from '../common/Card';
 import { Button } from '../common/Button';
@@ -13,43 +13,41 @@ import { BigMap } from '../BigMap/BigMap';
 import './ShowList.scss';
 import { useSelector } from 'react-redux';
 
-const cardData = [
-  {
-    id: 0,
-    name: 'Название школы',
-    description:
-      'Краткая информация о школе Краткая информация о школе Краткая информация о школе Краткая информация о школе Краткая информация о школе Краткая информация о школе Краткая информация о школе Краткая информация о школе Краткая информация о школеКраткая информация о школеКраткая информация о школеКраткая информация о школе',
-    album: [img1],
-    price: 1000,
-    rating: 3.7,
-    coordinates: [55.6279099, 37.60823370062961],
-  },
-  {
-    id: 1,
-    name: 'Название школы',
-    description:
-      'Краткая информация о школе Краткая информация о школеКраткая информация о школеКраткая информация о школеКраткая информация о школе',
-    album: [img2],
-    price: 2000,
-    rating: 4.7,
-    coordinates: [55.9279099, 37.90823370062961],
-  },
-  {
-    id: 2,
-    name: 'Название школы',
-    description:
-      'Краткая информация о школе Краткая информация о школеКраткая информация о школеКраткая информация о школеКраткая информация о школе',
-    album: [img3],
-    price: 3000,
-    rating: 4.9,
-    coordinates: [55.4279099, 37.50823370062961],
-  },
-];
+// const cardData = [
+//   {
+//     id: 0,
+//     name: 'Название школы',
+//     description:
+//       'Краткая информация о школе Краткая информация о школе Краткая информация о школе Краткая информация о школе Краткая информация о школе Краткая информация о школе Краткая информация о школе Краткая информация о школе Краткая информация о школеКраткая информация о школеКраткая информация о школеКраткая информация о школе',
+//     album: [img1],
+//     price: 1000,
+//     rating: 3.7,
+//     coordinates: [55.6279099, 37.60823370062961],
+//   },
+//   {
+//     id: 1,
+//     name: 'Название школы',
+//     description:
+//       'Краткая информация о школе Краткая информация о школеКраткая информация о школеКраткая информация о школеКраткая информация о школе',
+//     album: [img2],
+//     price: 2000,
+//     rating: 4.7,
+//     coordinates: [55.9279099, 37.90823370062961],
+//   },
+//   {
+//     id: 2,
+//     name: 'Название школы',
+//     description:
+//       'Краткая информация о школе Краткая информация о школеКраткая информация о школеКраткая информация о школеКраткая информация о школе',
+//     album: [img3],
+//     price: 3000,
+//     rating: 4.9,
+//     coordinates: [55.4279099, 37.50823370062961],
+//   },
+// ];
 
 const schoolName = ['школа', 'школы', 'школ'];
 const gardenName = ['детский сад', 'детксих сада', 'детских садов'];
-
-const coordinates = cardData.map((card) => card.coordinates);
 
 function getName(value, words) {
   value = Math.abs(value) % 100;
@@ -60,7 +58,7 @@ function getName(value, words) {
   return words[2];
 }
 
-export const ShowList = ({ data = cardData, selected, isLoading }) => {
+export const ShowList = ({ data, selected, isLoading, fullData }) => {
   const user = useSelector((state) => state.auth.user);
   const [isList, setIsList] = useState(true);
 
@@ -113,7 +111,7 @@ export const ShowList = ({ data = cardData, selected, isLoading }) => {
             </div>
           ) : (
             <div className='show-list__mapWrapper'>
-              <BigMap cardData={cardData} />
+              <BigMap key={fullData.id} cardData={fullData} />
             </div>
           )}
         </>

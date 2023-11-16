@@ -1,7 +1,11 @@
 import { Map, Placemark, YMaps } from '@pbe/react-yandex-maps';
-import './BigMap.module.scss.css';
+import './BigMap.module.scss';
 
 export const BigMap = ({ cardData }) => {
+  console.log(cardData);
+  console.log(cardData[0]);
+  console.log(cardData[0].coordinates);
+
   return (
     <YMaps
       query={{
