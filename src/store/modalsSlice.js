@@ -62,6 +62,10 @@ const modalsSlice = createSlice({
     openGratitudeModal(state) {
       state.isOpenGratitudeModal = true;
     },
+    openLoginToReviewPopup(state, action) {
+      state.isOpenLoginToReviewPopup = true;
+      state.loginToReviewPopupData = action.payload;
+    },
   },
 });
 
@@ -80,6 +84,7 @@ export const {
   openAddSchoolReviewModal,
   openAddKindergartenReviewModal,
   openGratitudeModal,
+  openLoginToReviewPopup,
 } = modalsSlice.actions;
 
 export default modalsSlice.reducer;

@@ -5,6 +5,7 @@ import { ShowList } from '../../components/ShowList';
 import { buildUrlParams, getFilterItems } from '../../utils/filtersUtils';
 import {
   useGetFilteredDataQuery,
+  useGetFilteredDataFullQuery,
   useGetAreaFiltersQuery,
   useGetMetroFiltersQuery,
   useGetProfileFiltersQuery,
@@ -24,10 +25,10 @@ import {
   setFilterReset,
 } from '../../store/filterSlice';
 
-import { FilterList } from './components/FilterList/FilterList';
+import { FilterList } from './components/FilterList';
 import { Sort } from './components/Sort';
 import { SearchForm } from './components/SearchForm';
-import { Nav } from './components/Nav/Nav';
+import { Nav } from './components/Nav';
 import './Catalog.scss';
 
 export function Catalog() {
@@ -61,6 +62,10 @@ export function Catalog() {
     paramsUrl,
   ]);
 
+  const { data: fullData = [] } = useGetFilteredDataFullQuery([
+    filter.category,
+    paramsUrl,
+  ]);
   // Формирование списка фильтров
   const filterItems = getFilterItems(
     selected,
@@ -165,6 +170,7 @@ export function Catalog() {
         />
         <ShowList
           data={data ? data.results : []}
+          fullData={fullData ? fullData : []}
           selected={selected}
           isLoading={isLoading}
         />

@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+
 import { useFavoritesContext } from '../contexts/FavoritesContext';
 import {
   useAddKindergartenFavoritesMutation,
@@ -21,8 +22,39 @@ const useFavorite = (cardData) => {
   const type = cardData.type;
 
   useEffect(() => {
-    // здесь можно сохранить избранное в LS
-  }, [id, type, isFavorite]);
+    const localFavoritesKey =
+      type === 'school' ? 'localSchoolFavorites' : 'localKindergartenFavorites';
+
+    // Получаем текущий массив избранных из локального хранилища
+    const localFavorites =
+      JSON.parse(localStorage.getItem(localFavoritesKey)) || [];
+
+    // Проверяем, лайкнута ли карточка
+    const isLiked = isFavorite(id, type);
+
+    // Проверяем, есть ли карточка уже в массиве
+    const cardIndex = localFavorites.findIndex(
+      (item) => item.id === id && item.type === type
+    );
+
+    // Если карточка лайкнута и есть в массиве, обновляем ее статус
+    if (isLiked && cardIndex !== -1) {
+      localFavorites[cardIndex] = { ...cardData, isLiked: true };
+      localStorage.setItem(localFavoritesKey, JSON.stringify(localFavorites));
+    } else if (isLiked) {
+      // Если карточки нет в массиве, добавляем новую
+      localFavorites.push({ ...cardData, isLiked: true });
+      localStorage.setItem(localFavoritesKey, JSON.stringify(localFavorites));
+    } else {
+      // Если лайк снят, удаляем карточку из массива избранных
+      const updatedFavorites = localFavorites.filter(
+        (item) => item.id !== id || item.type !== type
+      );
+
+      // Сохраняем обновленный массив в локальное хранилище
+      localStorage.setItem(localFavoritesKey, JSON.stringify(updatedFavorites));
+    }
+  }, [id, type, isFavorite(id, type)]); // Обновленная зависимость
 
   const handleLike = () => {
     if (type === 'kindergarten') {
