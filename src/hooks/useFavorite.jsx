@@ -54,7 +54,7 @@ const useFavorite = (cardData) => {
       // Сохраняем обновленный массив в локальное хранилище
       localStorage.setItem(localFavoritesKey, JSON.stringify(updatedFavorites));
     }
-  }, [id, type, isFavorite(id, type)]); // Обновленная зависимость
+  }, [id, type, isFavorite(id, type)]);
 
   const handleLike = () => {
     if (type === 'kindergarten') {

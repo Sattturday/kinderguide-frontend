@@ -1,11 +1,11 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
+
 import {
   useSyncFavoriteKindergartensMutation,
   useSyncFavoriteSchoolsMutation,
 } from '../api/userApi';
-import { useGetKindergartenFavoritesQuery } from '../api/kindergartenApi';
-import { useGetSchoolFavoritesQuery } from '../api/schoolApi';
+
 const FavoritesContext = createContext();
 
 export const useFavoritesContext = () => {
@@ -43,33 +43,9 @@ export const FavoritesProvider = ({ children }) => {
     return favorites[type]?.[id] || false;
   };
 
-  // useEffect(() => {
-  //   if (!isSynced && user) {
-  //     // Выполняем синхронизацию с сервером при входе
-  //     const favoriteKindergartens = favorites.kindergarten
-  //       ? Object.keys(favorites.kindergarten)
-  //           .filter((id) => favorites.kindergarten[id])
-  //           .map((id) => parseInt(id, 10))
-  //       : [];
-  //     const favoriteSchools = favorites.school
-  //       ? Object.keys(favorites.school)
-  //           .filter((id) => favorites.school[id])
-  //           .map((id) => parseInt(id, 10))
-  //       : [];
-
-  //     syncFavoriteKindergartens({ kindergartens: favoriteKindergartens });
-  //     syncFavoriteSchools({ school: favoriteSchools });
-
-  //     // Помечаем, что синхронизация выполнена
-  //     setIsSynced(true);
-  //   }
-  // }, [
-  //   favorites,
-  //   user,
-  //   isSynced,
-  //   syncFavoriteKindergartens,
-  //   syncFavoriteSchools,
-  // ]);
+  const resetFavorites = () => {
+    setFavorites({});
+  };
 
   useEffect(() => {
     if (!isSynced && user) {
@@ -85,21 +61,40 @@ export const FavoritesProvider = ({ children }) => {
             .map((id) => parseInt(id, 10))
         : [];
 
-      syncFavoriteKindergartens({ kindergartens: favoriteKindergartens });
-      syncFavoriteSchools({ school: favoriteSchools })
+      syncFavoriteKindergartens({ kindergartens: favoriteKindergartens })
         .unwrap()
-        .then((updatedFavorites) => {
-          console.log('hi');
-          // Обновляем избранное в приложении с использованием полученных данных
-          setFavorites(updatedFavorites);
-
-          // Помечаем, что синхронизация выполнена
-          setIsSynced(true);
+        .then((updatedKindergartens) => {
+          // Обновляем локальное состояние favorites для детских садов
+          setFavorites((prev) => ({
+            ...prev,
+            kindergarten: updatedKindergartens.reduce((acc, card) => {
+              acc[card.id] = true;
+              return acc;
+            }, {}),
+          }));
         })
         .catch((error) => {
-          // Обработка ошибок при обновлении избранного
-          console.error('Failed to sync favorites:', error);
+          console.error('Error syncing kindergartens:', error);
         });
+
+      syncFavoriteSchools({ school: favoriteSchools })
+        .unwrap()
+        .then((updatedSchools) => {
+          // Обновляем локальное состояние favorites для школ
+          setFavorites((prev) => ({
+            ...prev,
+            school: updatedSchools.reduce((acc, card) => {
+              acc[card.id] = true;
+              return acc;
+            }, {}),
+          }));
+        })
+        .catch((error) => {
+          console.error('Error syncing schools:', error);
+        });
+
+      // Помечаем, что синхронизация выполнена
+      setIsSynced(true);
     }
   }, [
     favorites,
@@ -116,7 +111,7 @@ export const FavoritesProvider = ({ children }) => {
 
   return (
     <FavoritesContext.Provider
-      value={{ addFavorite, removeFavorite, isFavorite }}
+      value={{ addFavorite, removeFavorite, isFavorite, resetFavorites }}
     >
       {children}
     </FavoritesContext.Provider>

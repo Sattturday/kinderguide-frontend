@@ -15,7 +15,6 @@ export const LikeButton = ({ isLiked, onLike }) => {
     if (user) {
       onLike();
     } else {
-      console.log(isLiked);
       onLike();
 
       // // Получаем DOM-элемент кнопки и ее координаты

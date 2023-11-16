@@ -7,8 +7,10 @@ import { setToken, setUser } from '../../store/authSlice';
 import { Popup } from '../common/Popup';
 import { Button } from '../common/Button';
 import './ProfileExitModal.scss';
+import { useFavoritesContext } from '../../contexts/FavoritesContext';
 
 export const ProfileExitModal = () => {
+  const { resetFavorites } = useFavoritesContext();
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -21,6 +23,7 @@ export const ProfileExitModal = () => {
   // выход из акаунта
   function signOut() {
     localStorage.clear();
+    resetFavorites();
     navigate('/');
 
     //   dispatch(setToken(null));
