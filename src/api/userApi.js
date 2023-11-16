@@ -31,7 +31,28 @@ export const userApi = createApi({
       }),
       invalidatesTags: ['Users'],
     }),
+    syncFavoriteKindergartens: build.mutation({
+      query: (body) => ({
+        url: 'me/add_favoritekindegartens/',
+        method: 'POST',
+        body,
+      }),
+      invalidatesTags: ['Users'],
+    }),
+    syncFavoriteSchools: build.mutation({
+      query: (body) => ({
+        url: 'me/add_favoriteschools/',
+        method: 'POST',
+        body,
+      }),
+      invalidatesTags: ['Users'],
+    }),
   }),
 });
 
-export const { useGetUserQuery, useUpdateUserMutation } = userApi;
+export const {
+  useGetUserQuery,
+  useUpdateUserMutation,
+  useSyncFavoriteKindergartensMutation,
+  useSyncFavoriteSchoolsMutation,
+} = userApi;

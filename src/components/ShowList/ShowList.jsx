@@ -11,6 +11,7 @@ import { Button } from '../common/Button';
 import { BigMap } from '../BigMap/BigMap';
 
 import './ShowList.scss';
+import { useSelector } from 'react-redux';
 
 const cardData = [
   {
@@ -59,19 +60,13 @@ function getName(value, words) {
   return words[2];
 }
 
-export const ShowList = ({
-  data = cardData,
-  selected,
-  isLoading,
-  stateProfile,
-}) => {
+export const ShowList = ({ data = cardData, selected, isLoading }) => {
+  const user = useSelector((state) => state.auth.user);
   const [isList, setIsList] = useState(true);
 
   function toggleList() {
     setIsList(!isList);
   }
-
-  const location = useLocation();
 
   return (
     <section className='show-list'>
@@ -80,14 +75,7 @@ export const ShowList = ({
       ) : (
         <>
           <div className='show-list__infoWrapper'>
-            {location.pathname === '/catalog' ? (
-              <p className='show-list__info'>
-                Найдено {data.length}{' '}
-                {selected === 'schools'
-                  ? getName(data.length, schoolName)
-                  : getName(data.length, gardenName)}
-              </p>
-            ) : (
+            {selected === 'favorites' && !user ? (
               <div className='show-list__info'>
                 <div className='show-list__icons' />
                 <p className='show-list__paragraph'>
@@ -98,7 +86,14 @@ export const ShowList = ({
                   других устройствах
                 </p>
               </div>
-            )}
+            ) : selected === 'catalog' ? (
+              <p className='show-list__info'>
+                Найдено {data.length}{' '}
+                {selected === 'schools'
+                  ? getName(data.length, schoolName)
+                  : getName(data.length, gardenName)}
+              </p>
+            ) : null}
             {selected !== 'favorites' &&
               (isList ? (
                 <Button onClick={toggleList} variant='link'>
@@ -112,15 +107,8 @@ export const ShowList = ({
           </div>
           {isList ? (
             <div className='show-list__items'>
-              {data.map((card, index) => {
-                return (
-                  <Card
-                    key={index}
-                    cardData={card}
-                    selected={selected}
-                    stateProfile={stateProfile}
-                  />
-                );
+              {data.map((card) => {
+                return <Card key={`${card.type}_${card.id}`} cardData={card} />;
               })}
             </div>
           ) : (
