@@ -28,7 +28,7 @@ export const Feedback = ({ feedback, org }) => {
       const buttonRect = buttonElement.getBoundingClientRect();
       const coordinates = {
         left: buttonRect.left + 110,
-        top: buttonRect.top + 30,
+        top: buttonRect.top + 20,
       };
 
       dispatch(openLoginToReviewPopup(coordinates));

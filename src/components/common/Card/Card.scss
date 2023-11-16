@@ -10,6 +10,7 @@
   border: 1px solid $border-purple;
   border-radius: 16px;
   z-index: 1;
+  cursor: pointer;
 }
 
 .card__img {
@@ -38,9 +39,6 @@
   letter-spacing: 0.7px;
   text-decoration: none;
   color: $black;
-  &:hover {
-    text-decoration: underline;
-  }
 }
 
 .card__text {
@@ -70,4 +68,8 @@
 .card__price {
   @include text-l($fw-semi-bold);
   letter-spacing: 0.8px;
+}
+
+.card__reviews {
+  @include text-l($fw-semi-bold);
 }

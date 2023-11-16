@@ -1,22 +1,21 @@
-import { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
+import img from '../../../images/NewsCard/img5.png';
 import { Stars } from '../../Stars';
 import { LikeButton } from '../../LikeButton/LikeButton';
+import useFavorite from '../../../hooks/useFavorite';
 import './Card.scss';
-import img from '../../../images/NewsCard/img5.png';
 
-export const Card = ({ cardData, selected }) => {
-  const [isLiked, setIsLiked] = useState(false);
+export const Card = ({ cardData }) => {
   const image = cardData.album.length > 0 ? cardData.album[0].image : img;
   const navigate = useNavigate();
+  const { filter } = useSelector((state) => state, { noopCheck: 'never' });
 
-  const handleLike = () => {
-    setIsLiked(!isLiked);
-  };
+  const { isLiked, handleLike } = useFavorite(cardData);
 
   const handleClick = () => {
-    navigate(`/${selected}/${cardData.id}`);
+    navigate(`/${cardData.type}s/${cardData.id}`);
   };
 
   return (
@@ -32,7 +31,9 @@ export const Card = ({ cardData, selected }) => {
 
         <div className='card__price-block'>
           <p className='card__price'>{`от ${cardData.price} ₽/мес.`}</p>
-          <Stars rating={cardData.rating} />
+          <Stars rating={cardData.rating}>
+            <p className='card__reviews'>{cardData.reviews || 0}</p>
+          </Stars>
         </div>
       </div>
     </div>

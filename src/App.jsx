@@ -20,6 +20,7 @@ import { useGetUserQuery } from './api/userApi';
 import { ProfileExitModal } from './components/ProfileExitModal';
 import { LoginToFavoritePopup } from './components/LoginToFavoritePopup';
 import { LoginToReviewPopup } from './components/LoginToReviewPopup';
+import { Favorites } from './pages/Favorites';
 
 function App() {
   const dispatch = useDispatch();
@@ -42,6 +43,7 @@ function App() {
         <Route path='/' element={<Home />} />
         <Route path='/profile' element={<Profile />} />
         <Route path='/catalog' element={<Catalog />} />
+        <Route path='/favorites' element={<Favorites />} />
         <Route path='/schools/:id' element={<School />} />
         <Route path='/kindergartens/:id' element={<Kindergarten />} />
         <Route path='/password-reset/:id/:token' element={<Home />} />

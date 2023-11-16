@@ -1,0 +1,17 @@
+@import '../../styles/abstract/constants.scss';
+@import '../../styles/abstract/mixins.scss';
+
+.favorites {
+  margin-bottom: 200px;
+}
+
+.favorites__title {
+  @include text-xl;
+  margin-bottom: 48px;
+  color: $title-blue;
+}
+
+.favorites__block {
+  display: flex;
+  gap: 32px;
+}
