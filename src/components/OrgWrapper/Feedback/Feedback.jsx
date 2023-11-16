@@ -1,24 +1,38 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { Stars } from '../../Stars';
 import './Feedback.scss';
 import addIcon from './images/fi-rr-edit.svg';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import {
   openAddSchoolReviewModal,
   openAddKindergartenReviewModal,
+  openLoginToReviewPopup,
 } from '../../../store/modalsSlice';
 import { AddMoreButton } from '../../AddMoreButton';
 
 export const Feedback = ({ feedback, org }) => {
+  const user = useSelector((state) => state.auth.user);
   const [rating, setRating] = useState(null);
   const [displayedCards, setDisplayedCards] = React.useState(6);
 
   const dispatch = useDispatch();
+  const buttonRef = useRef(null);
 
   const handleAddClick = () => {
-    org === 'Школы'
-      ? dispatch(openAddSchoolReviewModal())
-      : dispatch(openAddKindergartenReviewModal());
+    if (user) {
+      org === 'Школы'
+        ? dispatch(openAddSchoolReviewModal())
+        : dispatch(openAddKindergartenReviewModal());
+    } else {
+      const buttonElement = buttonRef.current;
+      const buttonRect = buttonElement.getBoundingClientRect();
+      const coordinates = {
+        left: buttonRect.left + 110,
+        top: buttonRect.top + 30,
+      };
+
+      dispatch(openLoginToReviewPopup(coordinates));
+    }
   };
 
   useEffect(() => {
@@ -49,7 +63,11 @@ export const Feedback = ({ feedback, org }) => {
               : `${feedback.length} отзывов`}
           </p>
         </div>
-        <div onClick={() => handleAddClick()} className='feedback__add'>
+        <div
+          ref={buttonRef}
+          onClick={() => handleAddClick()}
+          className='feedback__add'
+        >
           <img src={addIcon} alt='Добавить отзыв' />
           <span>Написать отзыв</span>
         </div>

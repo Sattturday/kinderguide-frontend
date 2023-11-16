@@ -27,7 +27,7 @@ export const OrgWrapper = ({ data, feedback, org, activities }) => {
       <div className='orgWrapper__headerWrapper'>
         <h1 className='orgWrapper__header'>{data.name}</h1>
         <div className='orgWrapper__favourite'>
-          <LikeButton isLike={false} onLike={() => console.log('likeTest')} />
+          <LikeButton />
         </div>
       </div>
       <div className='orgWrapper__ratingWrapper'>
@@ -87,7 +87,6 @@ export const OrgWrapper = ({ data, feedback, org, activities }) => {
       </div>
       <section className='orgWrapper__feedback' aria-label='Отзывы'>
         <h2 className='orgWrapper__sectionHeader'>Отзывы</h2>
-        {/*{<h1>Отзывов еще нет. Будьте первыми</h1>}*/}
         <Feedback feedback={feedback} org={org} />
       </section>
     </div>

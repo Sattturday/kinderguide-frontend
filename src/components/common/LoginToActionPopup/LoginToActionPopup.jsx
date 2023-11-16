@@ -1,20 +1,13 @@
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
-import { openLoginModal, openRegisterModal } from '../../store/modalsSlice';
-import { PositionedPopup } from '../common/PositionedPopup';
-import { Button } from '../common/Button';
-import './LoginToFavoritePopup.scss';
+import { openLoginModal, openRegisterModal } from '../../../store/modalsSlice';
+import { PositionedPopup } from '../PositionedPopup';
+import { Button } from '../Button';
+import './LoginToActionPopup.scss';
 
-export const LoginToFavoritePopup = () => {
+export const LoginToActionPopup = ({ children, isOpen, popupData }) => {
   const widthPopup = 450;
   const dispatch = useDispatch();
-  const isOpen = useSelector(
-    (state) => state.modals.isOpenLoginToFavoritePopup
-  );
-
-  const popupData = useSelector(
-    (state) => state.modals.loginToFavoritePopupData
-  );
 
   return (
     <PositionedPopup
@@ -24,9 +17,7 @@ export const LoginToFavoritePopup = () => {
       top={popupData?.top + 10}
     >
       <div className='popup-favorite'>
-        <p className='popup-favorite__description'>
-          Войдите в личный кабинет, чтобы добавить <br /> в&nbsp;избранное
-        </p>
+        {children}
         <p className='popup-favorite__register'>
           В первый раз здесь?&nbsp;
           <button type='button' onClick={() => dispatch(openRegisterModal())}>

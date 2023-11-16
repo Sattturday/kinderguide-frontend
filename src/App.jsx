@@ -18,11 +18,12 @@ import { PasswordRecoverySuccessModal } from './components/PasswordRecoverySucce
 import { setUser, setToken } from './store/authSlice';
 import { useGetUserQuery } from './api/userApi';
 import { ProfileExitModal } from './components/ProfileExitModal';
-import { LoginToFavoritePopup } from './components/LoginToFavoritPopup';
+import { LoginToFavoritePopup } from './components/LoginToFavoritePopup';
+import { LoginToReviewPopup } from './components/LoginToReviewPopup';
 
 function App() {
   const dispatch = useDispatch();
-  const { data = {}, isLoading, isError, refetch } = useGetUserQuery();
+  const { data = {}, refetch } = useGetUserQuery();
 
   const token = localStorage.getItem('token');
 
@@ -48,6 +49,7 @@ function App() {
       </Routes>
 
       <LoginToFavoritePopup />
+      <LoginToReviewPopup />
 
       <RegisterModal />
       <RegisterSuccessModal />
