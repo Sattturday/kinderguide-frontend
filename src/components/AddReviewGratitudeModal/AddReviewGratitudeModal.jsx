@@ -21,7 +21,7 @@ export const AddReviewGratitudeModal = () => {
         type='button'
         size='large'
         width='520px'
-        color='orange-fill'
+        color='fill'
         onClick={() => dispatch(closeAllModals())}
       >
         Хорошо

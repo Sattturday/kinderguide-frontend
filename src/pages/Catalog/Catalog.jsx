@@ -66,6 +66,7 @@ export function Catalog() {
     filter.category,
     paramsUrl,
   ]);
+
   // Формирование списка фильтров
   const filterItems = getFilterItems(
     selected,

@@ -39,7 +39,7 @@ export function UserData({ setEditUser }) {
               type='button'
               width='188px'
               size='small'
-              color='orange-fill'
+              color='fill'
               onClick={(e) => {
                 setEditUser(true);
               }}
@@ -50,7 +50,7 @@ export function UserData({ setEditUser }) {
               type='button'
               width='188px'
               size='small'
-              color='orange-empty'
+              color='empty'
               onClick={() => handleClickExit()}
             >
               Выход

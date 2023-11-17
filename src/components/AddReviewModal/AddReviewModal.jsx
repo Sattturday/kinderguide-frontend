@@ -37,7 +37,7 @@ export const AddReviewModal = ({ isOpen, onSubmit, data, org, isLoading }) => {
           type='submit'
           size='large'
           width='804px'
-          color={stars ? 'orange-fill' : 'orange-empty'}
+          color={stars ? 'fill' : 'dis'}
           disabled={!stars || isLoading}
         >
           Отправить отзыв
