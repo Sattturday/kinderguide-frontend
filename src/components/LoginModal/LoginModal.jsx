@@ -137,7 +137,7 @@ export const LoginModal = () => {
             type='submit'
             width='532px'
             size='large'
-            color={isValid ? 'orange-fill' : 'orange-dis'}
+            color={isValid ? 'fill' : 'dis'}
             disabled={!isValid && isLoading}
           >
             {isLoading ? 'Вход...' : 'Войти'}
@@ -149,7 +149,7 @@ export const LoginModal = () => {
           clientID={clientID}
           onSuccess={(data) => handleYandexLogin(data)}
         >
-          <Button type='button' width='532px' color='orange-empty' size='large'>
+          <Button type='button' width='532px' color='empty' size='large'>
             Войти с помощью Яндекс ID
           </Button>
         </YandexLogin>
@@ -158,7 +158,7 @@ export const LoginModal = () => {
           clientID='39d6510b37da4e88bb71a191ae780a50'
           onSuccess={(data) => console.log(data)}
         >
-          <Button type='button' width='532px' color='orange-empty' size='large'>
+          <Button type='button' width='532px' color='empty' size='large'>
             Войти с помощью Яндекс ID2
           </Button>
         </YandexLogin2> */}

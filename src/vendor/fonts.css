@@ -4,11 +4,12 @@
   font-weight: 400;
   font-display: swap;
   src:
-    url('./fonts/noto_sans_regular.eot'),
-    url('./fonts/noto_sans_regular.eot?#iefix') format('embedded-opentype'),
-    url('./fonts/noto_sans_regular.woff2') format('woff2'),
-    url('./fonts/noto_sans_regular.woff') format('woff'),
-    url('./fonts/noto_sans_regular.ttf') format('truetype');
+    url('./fonts/noto_sans/noto_sans_regular.eot'),
+    url('./fonts/noto_sans/noto_sans_regular.eot?#iefix')
+      format('embedded-opentype'),
+    url('./fonts/noto_sans/noto_sans_regular.woff2') format('woff2'),
+    url('./fonts/noto_sans/noto_sans_regular.woff') format('woff'),
+    url('./fonts/noto_sans/noto_sans_regular.ttf') format('truetype');
 }
 
 @font-face {
@@ -17,12 +18,12 @@
   font-weight: 500;
   font-display: swap;
   src:
-    url('./fonts/noto_sans_display_medium.eot'),
-    url('./fonts/noto_sans_display_medium.eot?#iefix')
+    url('./fonts/noto_sans/noto_sans_display_medium.eot'),
+    url('./fonts/noto_sans/noto_sans_display_medium.eot?#iefix')
       format('embedded-opentype'),
-    url('./fonts/noto_sans_display_medium.woff2') format('woff2'),
-    url('./fonts/noto_sans_display_medium.woff') format('woff'),
-    url('./fonts/noto_sans_display_medium.ttf') format('truetype');
+    url('./fonts/noto_sans/noto_sans_display_medium.woff2') format('woff2'),
+    url('./fonts/noto_sans/noto_sans_display_medium.woff') format('woff'),
+    url('./fonts/noto_sans/noto_sans_display_medium.ttf') format('truetype');
 }
 
 @font-face {
@@ -31,11 +32,12 @@
   font-weight: 600;
   font-display: swap;
   src:
-    url('./fonts/noto_sans_semibold.eot'),
-    url('./fonts/noto_sans_semibold.eot?#iefix') format('embedded-opentype'),
-    url('./fonts/noto_sans_semibold.woff2') format('woff2'),
-    url('./fonts/noto_sans_semibold.woff') format('woff'),
-    url('./fonts/noto_sans_semibold.ttf') format('truetype');
+    url('./fonts/noto_sans/noto_sans_semibold.eot'),
+    url('./fonts/noto_sans/noto_sans_semibold.eot?#iefix')
+      format('embedded-opentype'),
+    url('./fonts/noto_sans/noto_sans_semibold.woff2') format('woff2'),
+    url('./fonts/noto_sans/noto_sans_semibold.woff') format('woff'),
+    url('./fonts/noto_sans/noto_sans_semibold.ttf') format('truetype');
 }
 
 @font-face {
@@ -44,9 +46,64 @@
   font-weight: 700;
   font-display: swap;
   src:
-    url('./fonts/noto_sans_bold.eot'),
-    url('./fonts/noto_sans_bold.eot?#iefix') format('embedded-opentype'),
-    url('./fonts/noto_sans_bold.woff2') format('woff2'),
-    url('./fonts/noto_sans_bold.woff') format('woff'),
-    url('./fonts/noto_sans_bold.ttf') format('truetype');
+    url('./fonts/noto_sans/noto_sans_bold.eot'),
+    url('./fonts/noto_sans/noto_sans_bold.eot?#iefix')
+      format('embedded-opentype'),
+    url('./fonts/noto_sans/noto_sans_bold.woff2') format('woff2'),
+    url('./fonts/noto_sans/noto_sans_bold.woff') format('woff'),
+    url('./fonts/noto_sans/noto_sans_bold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src:
+    url('./fonts/raleway/raleway_regular.eot'),
+    url('./fonts/raleway/raleway_regular.eot?#iefix')
+      format('embedded-opentype'),
+    url('./fonts/raleway/raleway_regular.woff2') format('woff2'),
+    url('./fonts/raleway/raleway_regular.woff') format('woff'),
+    url('./fonts/raleway/raleway_regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src:
+    url('./fonts/raleway/raleway_medium.eot'),
+    url('./fonts/raleway/raleway_medium.eot?#iefix') format('embedded-opentype'),
+    url('./fonts/raleway/raleway_medium.woff2') format('woff2'),
+    url('./fonts/raleway/raleway_medium.woff') format('woff'),
+    url('./fonts/raleway/raleway_medium.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src:
+    url('./fonts/raleway/raleway_semibold.eot'),
+    url('./fonts/raleway/raleway_semibold.eot?#iefix')
+      format('embedded-opentype'),
+    url('./fonts/raleway/raleway_semibold.woff2') format('woff2'),
+    url('./fonts/raleway/raleway_semibold.woff') format('woff'),
+    url('./fonts/raleway/raleway_semibold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src:
+    url('./fonts/raleway/raleway_bold.eot'),
+    url('./fonts/raleway/raleway_bold.eot?#iefix') format('embedded-opentype'),
+    url('./fonts/raleway/raleway_bold.woff2') format('woff2'),
+    url('./fonts/raleway/raleway_bold.woff') format('woff'),
+    url('./fonts/raleway/raleway_bold.ttf') format('truetype');
 }

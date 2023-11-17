@@ -9,28 +9,27 @@
   justify-content: center;
   align-items: center;
   color: $white;
-  border-radius: $radii-l;
-  background-color: $button-orange;
+  border-radius: $radii-m;
+  background-color: $button-violet;
 
   &:hover {
-    background-color: $button-orange-hover;
+    background-color: $button-violet-hover;
   }
 
   &:active {
-    background-color: $button-orange-active;
+    background-color: $button-violet-active;
   }
 
   &_size {
     &_small {
       min-height: 40px;
-      @include text-m($fw-bold);
-      line-height: 1.1;
+      @include text-m($fw-semi-bold);
+      line-height: 1.25;
     }
 
     &_medium {
       min-height: 56px;
       @include text-l($fw-semi-bold);
-      line-height: 1.1;
     }
 
     &_large {
@@ -43,16 +42,16 @@
     &_link {
       padding: 0;
       background: transparent;
-      color: $title-blue;
+      color: $button-blue-link;
 
       &:hover {
         background-color: transparent;
-        color: $button-blue;
+        color: $button-violet-hover;
       }
 
       &:active {
         background-color: transparent;
-        color: $button-cyan-active;
+        color: $button-violet-active;
       }
     }
 
@@ -76,26 +75,26 @@
   }
 
   &_color {
-    &_orange-empty {
+    &_empty {
       background-color: transparent;
-      border: 1.5px solid $button-orange;
-      color: $button-orange;
+      border: 2px solid $button-violet;
+      color: $button-violet;
 
       &:hover {
         background-color: transparent;
-        opacity: 0.9;
+        opacity: 0.8;
       }
 
       &:active {
         background-color: transparent;
-        border: 3px solid $button-orange-active;
-        color: $button-orange-active;
+        border: 2px solid $button-violet-active;
+        color: $button-violet-active;
       }
     }
 
-    &_orange-dis {
-      background-color: $button-orange-dis;
-      color: $black;
+    &_dis {
+      background-color: $button-violet-dis;
+      color: $button-violet-text-dis;
       @include disabled;
     }
 

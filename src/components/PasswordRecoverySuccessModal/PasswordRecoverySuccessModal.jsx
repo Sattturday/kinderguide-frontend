@@ -32,7 +32,7 @@ export const PasswordRecoverySuccessModal = ({
         type='button'
         width='532px'
         size='large'
-        color={'orange-fill'}
+        color={'fill'}
         onClick={(e) => {
           handleSubmit(e);
         }}

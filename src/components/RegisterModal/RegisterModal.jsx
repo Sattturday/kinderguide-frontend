@@ -190,7 +190,7 @@ export const RegisterModal = () => {
           type='submit'
           width='520px'
           size='large'
-          color={isReadyToSubmit ? 'orange-fill' : 'orange-dis'}
+          color={isReadyToSubmit ? 'fill' : 'dis'}
           disabled={!isReadyToSubmit & isLoading}
         >
           {isLoading ? 'Подождите' : 'Зарегистрироваться'}
