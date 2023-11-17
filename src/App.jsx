@@ -19,6 +19,7 @@ import { setUser, setToken } from './store/authSlice';
 import { useGetUserQuery } from './api/userApi';
 import { ProfileExitModal } from './components/ProfileExitModal';
 import { LoginToFavoritePopup } from './components/LoginToFavoritePopup';
+import ProtectedRouteElement from './utils/ProtectedRoute';
 import { LoginToReviewPopup } from './components/LoginToReviewPopup';
 import { Favorites } from './pages/Favorites';
 
@@ -31,7 +32,6 @@ function App() {
   useEffect(() => {
     if (token) {
       refetch();
-
       dispatch(setToken({ token: token }));
       dispatch(setUser({ user: data }));
     }
@@ -41,7 +41,10 @@ function App() {
     <Layout>
       <Routes>
         <Route path='/' element={<Home />} />
-        <Route path='/profile' element={<Profile />} />
+        <Route
+          path='/profile'
+          element={<ProtectedRouteElement element={Profile} token={token} />}
+        />
         <Route path='/catalog' element={<Catalog />} />
         <Route path='/favorites' element={<Favorites />} />
         <Route path='/schools/:id' element={<School />} />

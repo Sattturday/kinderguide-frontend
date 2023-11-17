@@ -1,9 +1,14 @@
 import { NavLink } from 'react-router-dom';
+
+import { useFavoritesContext } from '../../contexts/FavoritesContext';
 import './Navigation.scss';
 
 // В зависимости от  места использования меняется ширина блока навигации
 // За это отвечает пропс usedFor, применяющий модификатор
 export const Navigation = ({ usedFor }) => {
+  const { favoritesCount } = useFavoritesContext();
+  const count = favoritesCount.school + favoritesCount.kindergarten;
+
   return (
     <nav className={`navigation navigation_${usedFor}`}>
       <NavLink
@@ -54,6 +59,9 @@ export const Navigation = ({ usedFor }) => {
         }}
       >
         Избранное
+        {usedFor === 'header' && (
+          <span className='navigation__item-count'>{count ? count : ''}</span>
+        )}
         {usedFor === 'footer' && (
           <ul className='navigation__item-list'>
             <li>Все</li>

@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 
 import { useGetYandexLinkQuery } from '../../api/authApi';
-import { useState } from 'react';
 
 function YandexHiddenFrame({ redirectTo }) {
   return <iframe hidden={true} title='yandex-hidden-frame' src={redirectTo} />;
@@ -49,8 +48,6 @@ function getCurrentUrl() {
 }
 
 function getStateParams(url) {
-  if (!url) return null;
-  console.log('url', url);
   const parts = url.split('&');
   const state = parts[2].split('=')[1];
   console.log('Стейт из ссылки нашего бэка', state);
@@ -58,18 +55,16 @@ function getStateParams(url) {
 }
 
 function YandexLogin({ children, onSuccess, clientID }) {
-  const [isSent, setIsSent] = useState(false);
   const { data, isLoading } = useGetYandexLinkQuery();
 
   const handleMessageFromPopup = function handleMessageFromPopup(event) {
     if (event.data.source === 'yandex-login') {
-      if (!isSent) {
-        onSuccess(event.data.payload);
-        setIsSent(true);
-      }
+      onSuccess(event.data.payload);
     }
   };
 
+  // let onClick = () => {};
+  useEffect();
   const onClick = function onClick() {
     sessionStorage.setItem('yandexAutoLoginDisabled', 'false');
     const currentUrl = getCurrentUrl();
@@ -107,9 +102,9 @@ function YandexLogin({ children, onSuccess, clientID }) {
 
       window.close();
     }
-    // return () => {
-    //   window.removeEventListener('message', handleMessageFromPopup);
-    // };
+    return () => {
+      window.removeEventListener('message', handleMessageFromPopup);
+    };
   });
 
   useEffect(() => {
@@ -117,10 +112,9 @@ function YandexLogin({ children, onSuccess, clientID }) {
       const autoLoginDIsabled = sessionStorage.getItem(
         'yandexAutoLoginDisabled'
       );
-      const stateUrl = getStateParams(data?.authorization_url);
       frameRedirectTo =
         autoLoginDIsabled !== 'true'
-          ? getYandexAuthUrl(clientID, getCurrentUrl(), stateUrl)
+          ? getYandexAuthUrl(clientID, getCurrentUrl())
           : null;
       window.addEventListener('message', handleMessageFromPopup, {
         once: false,
@@ -136,7 +130,6 @@ function YandexLogin({ children, onSuccess, clientID }) {
   return (
     <div>
       {cloned}
-      {/* {children} */}
       {frameRedirectTo && <YandexHiddenFrame redirectTo={frameRedirectTo} />}
     </div>
   );

@@ -1,7 +1,6 @@
 import React from 'react';
 
 import { NewsData } from '../../../../utils/exampleData';
-// import { Button } from '../../../../components/common/Button';
 import { NewsCard } from '../NewsCard';
 
 import star from '../../../../images/ServiceWork/decoration3.svg';
@@ -11,15 +10,8 @@ import './News.scss';
 import { AddMoreButton } from '../../../../components/AddMoreButton';
 
 export function News() {
-  // const [countCardNews, setCountCardNews] = React.useState(5);
-  // const [countMoreNews, setCountMoreNews] = React.useState(5);
-  //
-  // function addMoreMovies() {
-  //   setCountCardNews(countCardNews + countMoreNews);
-  // }
-
   const [displayedCards, setDisplayedCards] = React.useState(5);
-  console.log(displayedCards);
+  //console.log(displayedCards);
 
   return (
     <section className='news'>

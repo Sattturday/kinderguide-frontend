@@ -8,6 +8,8 @@ import './Header.scss';
 
 export const Header = () => {
   const dispatch = useDispatch();
+  const token = localStorage.getItem('token');
+
   const user = useSelector((state) => state.auth.user);
   return (
     <header className='header'>
@@ -17,7 +19,7 @@ export const Header = () => {
         </Link>
         <Navigation usedFor='header' />
       </div>
-      {user ? (
+      {token ? (
         <Link to='profile' className='header__profile' />
       ) : (
         <div className='header__auth-area'>

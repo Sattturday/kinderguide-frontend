@@ -1,4 +1,5 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
 
 import { Button } from '../../../../components/common/Button';
 import { Preloader } from '../../../../components/Preloader';
@@ -6,7 +7,6 @@ import { useGetUserQuery } from '../../../../api/userApi';
 import { openExitProfileModal } from '../../../../store/modalsSlice';
 
 import './UserData.scss';
-import { useDispatch } from 'react-redux';
 
 export function UserData({ setEditUser }) {
   const dispatch = useDispatch();
