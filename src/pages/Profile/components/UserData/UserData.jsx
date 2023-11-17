@@ -18,9 +18,9 @@ export function UserData({ setEditUser }) {
 
   return (
     <>
-      {isSuccess ? (
+      {true ? (
         <div>
-          <div className='user__wrapper user__wrapper_top'>
+          <div className='user__wrapper'>
             <p className='user__label'>Родитель</p>
             <p className='user__text'>
               {isLoading ? ' ' : `${data.first_name} ${data.last_name}`}
@@ -30,7 +30,7 @@ export function UserData({ setEditUser }) {
             <p className='user__label'>Телефон</p>
             <p className='user__text'>{isLoading ? ' ' : `${data.phone}`}</p>
           </div>
-          <div className='user__wrapper user__wrapper_bottom'>
+          <div className='user__wrapper'>
             <p className='user__label'>Email</p>
             <p className='user__text'> {isLoading ? ' ' : `${data.email}`}</p>
           </div>

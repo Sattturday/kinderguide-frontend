@@ -6,8 +6,16 @@
   margin-bottom: 200px;
 }
 
+.profile__wrapper {
+  background-image: url('../../images/Profile/bg-profile.svg');
+  background-repeat: no-repeat;
+}
+
 .profile__title {
+  padding: 40px 40px 0;
+  max-width: 412px;
   @include text-xl;
-  margin-bottom: 48px;
+  font-weight: $fw-semi-bold;
+  margin-bottom: 100px;
   color: $title-blue;
 }

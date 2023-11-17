@@ -9,7 +9,6 @@ export function User() {
 
   return (
     <section className='user'>
-      <div className='user__avatar' />
       {editUser ? (
         <UserEdit setEditUser={setEditUser} />
       ) : (
