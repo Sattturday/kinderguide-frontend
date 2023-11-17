@@ -16,6 +16,7 @@ import './LoginModal.scss';
 
 import { YandexLogin } from '../YandexLogin/YandexLogin';
 import { LineWithWord } from '../common/LineWithWord';
+import { useState } from 'react';
 
 export const LoginModal = () => {
   const { data, onChange, errors, isValid } = useFormAndValidation();
@@ -56,14 +57,20 @@ export const LoginModal = () => {
   };
 
   const handleYandexLogin = async (data) => {
-    const formData = new FormData();
-    // eslint-disable-next-line
-    for (let key in data) {
-      formData.append(key, data[key]);
-    }
+    console.log('отправляем на сервер', data);
+
+    const formData = Object.keys(data)
+      .map(
+        (key) => encodeURIComponent(key) + '=' + encodeURIComponent(data[key])
+      )
+      .join('&');
 
     try {
       const response = await loginWithYandex(formData);
+
+      if (!response?.success) {
+        throw new Error('Ошибка. Не получил токен яндекса');
+      }
 
       localStorage.setItem('token', response?.access);
       // const userData = await response.json();
