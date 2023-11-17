@@ -1,16 +1,15 @@
-import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
 import img from '../../../images/NewsCard/img5.png';
 import { Stars } from '../../Stars';
 import { LikeButton } from '../../LikeButton/LikeButton';
 import useFavorite from '../../../hooks/useFavorite';
+
 import './Card.scss';
 
 export const Card = ({ cardData }) => {
   const image = cardData.album.length > 0 ? cardData.album[0].image : img;
   const navigate = useNavigate();
-  const { filter } = useSelector((state) => state, { noopCheck: 'never' });
 
   const { isLiked, handleLike } = useFavorite(cardData);
 
