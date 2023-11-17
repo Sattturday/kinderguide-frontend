@@ -1,0 +1,27 @@
+@import '../../../../styles/abstract/constants.scss';
+@import '../../../../styles/abstract/mixins.scss';
+
+.navigation-favorites {
+  padding-left: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.navigation-favorites__item {
+  width: 298px;
+  height: 46px;
+  @include text-m;
+  color: $black;
+  @include link;
+  padding: 0 12px;
+  text-align: start;
+  background-color: #fff;
+  border: none;
+  line-height: 130%;
+  font-family: 'Manrope', 'Arial', sans-serif;
+}
+
+.navigation-favorites__item_active {
+  background-color: $bg-lite;
+}

@@ -1,0 +1,82 @@
+@import '../../../../styles/abstract/constants.scss';
+@import '../../../../styles/abstract/mixins';
+
+.news {
+  background-color: $bg-purple;
+  padding: 100px 0 196px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.news__container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 60px;
+}
+
+.news__title {
+  @include text-xl(500);
+  font-size: 48px;
+  padding-bottom: 40px;
+}
+
+.news__list {
+  @include list;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 30px;
+  position: relative;
+  z-index: 2;
+}
+
+.news__list::before {
+  content: '';
+  width: 432px;
+  height: 259px;
+  position: absolute;
+  top: -147px;
+  right: 412px;
+  background-image: url('../../../../images/News/Group\ 21.svg');
+  z-index: -1;
+}
+
+.news__list::after {
+  content: '';
+  width: 155px;
+  height: 41px;
+  position: absolute;
+  bottom: -100px;
+  left: 0px;
+  background-image: url('../../../../images/News/Vector\ 37.svg');
+  z-index: -1;
+}
+
+.news__container-for-button {
+  width: 298px;
+  margin: 0 auto;
+}
+
+.news__img-wawe {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.news__img-wave {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 371px;
+  height: 253px;
+}
+
+.news__img-star {
+  position: absolute;
+  bottom: 78px;
+  left: 516px;
+  width: 64px;
+  height: 54px;
+}

@@ -1,0 +1,29 @@
+@import '../../styles/abstract/constants.scss';
+
+.catalog {
+  padding: 0 76px 200px;
+}
+
+.list-wrapper {
+  display: grid;
+  grid-template-columns: 300px 1fr 1fr;
+  grid-template-areas:
+    '. search search'
+    'aside content content';
+  column-gap: 32px;
+}
+
+.search-wrapper {
+  display: flex;
+  justify-content: space-between;
+  grid-area: search;
+  margin-bottom: 40px;
+}
+
+.filter {
+  grid-area: aside;
+}
+
+.show-list {
+  grid-area: content;
+}
