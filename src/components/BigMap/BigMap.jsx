@@ -2,10 +2,6 @@ import { Map, Placemark, YMaps } from '@pbe/react-yandex-maps';
 import './BigMap.module.scss';
 
 export const BigMap = ({ cardData }) => {
-  console.log(cardData);
-  console.log(cardData[0]);
-  console.log(cardData[0].coordinates);
-
   return (
     <YMaps
       query={{
@@ -23,7 +19,18 @@ export const BigMap = ({ cardData }) => {
         modules={['control.ZoomControl', 'control.FullscreenControl']}
       >
         {cardData.map((card) => (
-          <Placemark geometry={card.coordinates} />
+          <Placemark
+            key={card.id}
+            geometry={card.coordinates}
+            options={{
+              iconColor: 'violet',
+            }}
+            properties={{
+              hintContent: `<h2>${card.name}</h2>`,
+              balloonContent: `<div><a href=/${card.type}s/${card.id}>${card.name}</a></div>`,
+            }}
+            modules={['geoObject.addon.balloon', 'geoObject.addon.hint']}
+          />
         ))}
       </Map>
     </YMaps>
