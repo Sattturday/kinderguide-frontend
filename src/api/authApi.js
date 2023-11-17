@@ -9,7 +9,7 @@ export const authApi = createApi({
 
   baseQuery: fetchBaseQuery({
     baseUrl: BASE_URL,
-    credentials: 'include',
+    // credentials: 'include',
     prepareHeaders: (headers, { getState }) => {
       const token = localStorage.getItem('token');
 
@@ -65,10 +65,10 @@ export const authApi = createApi({
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded',
         },
-        // fetchOptions: {
-        //   credentials: 'include', // Установите credentials только для этого конкретного запроса
-        // },
-        // credentials: 'include',
+        fetchOptions: {
+          credentials: 'include', // Установите credentials только для этого конкретного запроса
+        },
+        credentials: 'include',
       }),
     }),
   }),
