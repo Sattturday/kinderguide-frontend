@@ -68,8 +68,8 @@ export function UserEdit({ setEditUser }) {
 
   return (
     <form className='user-edit__form'>
-      <div className='user__wrapper user__wrapper-edit'>
-        <p className='user-edit__name-text'>Родитель</p>
+      <p className='user-edit__name-text'>Родитель</p>
+      <div className='user__wrapper-edit'>
         <InputWrapper
           labelText='Имя'
           inputId='first_name'
@@ -107,8 +107,7 @@ export function UserEdit({ setEditUser }) {
           />
         </InputWrapper>
       </div>
-      <div className='user__wrapper user__wrapper-edit'>
-        <p className='user-edit__name-text'>Телефон</p>
+      <div className='user__wrapper-edit'>
         <InputWrapper
           labelText='Телефон'
           inputId='phone'
@@ -127,9 +126,6 @@ export function UserEdit({ setEditUser }) {
             isValid={!data.phone?.includes('_')}
           />
         </InputWrapper>
-      </div>
-      <div className='user__wrapper user__wrapper-edit'>
-        <p className='user-edit__name-text'>Email</p>
         <InputWrapper
           labelText='Email'
           inputId='email'

@@ -18,7 +18,7 @@ export function UserData({ setEditUser }) {
 
   return (
     <>
-      {true ? (
+      {isSuccess ? (
         <div>
           <div className='user__wrapper'>
             <p className='user__label'>Родитель</p>

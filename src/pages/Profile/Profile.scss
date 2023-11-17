@@ -4,18 +4,42 @@
 .profile {
   margin-top: 40px;
   margin-bottom: 200px;
+  position: relative;
 }
 
 .profile__wrapper {
+  height: 628px;
   background-image: url('../../images/Profile/bg-profile.svg');
   background-repeat: no-repeat;
+  background-size: contain;
 }
 
 .profile__title {
   padding: 40px 40px 0;
   max-width: 412px;
+  position: relative;
   @include text-xl;
   font-weight: $fw-semi-bold;
   margin-bottom: 100px;
   color: $title-blue;
+}
+
+.profile__title::before {
+  content: '';
+  position: absolute;
+  width: 112px;
+  height: 107px;
+  top: 75px;
+  right: -540px;
+  background-image: url('../../images/ServiceWork/snowflake.svg');
+}
+
+.profile::after {
+  content: '';
+  position: absolute;
+  width: 251px;
+  height: 136px;
+  bottom: 75px;
+  right: 150px;
+  background-image: url('../../images/Profile/big-notes-blue.svg');
 }
