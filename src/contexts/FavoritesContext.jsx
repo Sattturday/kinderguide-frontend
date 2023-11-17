@@ -20,10 +20,37 @@ export const FavoritesProvider = ({ children }) => {
     const storedFavorites = JSON.parse(localStorage.getItem('favorites'));
     return storedFavorites || {};
   });
+
+  const [favoritesCount, setFavoritesCount] = useState(() => {
+    const storedFavoritesCount = JSON.parse(
+      localStorage.getItem('favoritesCount')
+    );
+    return storedFavoritesCount || { kindergarten: 0, school: 0 };
+  });
+
   const [isSynced, setIsSynced] = useState(false);
 
   const [syncFavoriteKindergartens] = useSyncFavoriteKindergartensMutation();
   const [syncFavoriteSchools] = useSyncFavoriteSchoolsMutation();
+
+  const updateFavoritesCount = () => {
+    const kindergartenCount = Object.keys(favorites.kindergarten || {}).length;
+    const schoolCount = Object.keys(favorites.school || {}).length;
+
+    setFavoritesCount({
+      kindergarten: kindergartenCount,
+      school: schoolCount,
+    });
+
+    // Сохраняем обновленное значение счетчика в локальное хранилище
+    localStorage.setItem(
+      'favoritesCount',
+      JSON.stringify({
+        kindergarten: kindergartenCount,
+        school: schoolCount,
+      })
+    );
+  };
 
   const addFavorite = (id, type) => {
     setFavorites((prev) => ({
@@ -33,10 +60,14 @@ export const FavoritesProvider = ({ children }) => {
   };
 
   const removeFavorite = (id, type) => {
-    setFavorites((prev) => ({
-      ...prev,
-      [type]: { ...(prev[type] || {}), [id]: false },
-    }));
+    setFavorites((prev) => {
+      const updatedFavorites = {
+        ...prev,
+        [type]: { ...(prev[type] || {}), [id]: false },
+      };
+      delete updatedFavorites[type][id]; // Удаляем элемент из избранного
+      return updatedFavorites;
+    });
   };
 
   const isFavorite = (id, type) => {
@@ -45,7 +76,16 @@ export const FavoritesProvider = ({ children }) => {
 
   const resetFavorites = () => {
     setFavorites({});
+    setFavoritesCount({
+      kindergarten: 0,
+      school: 0,
+    });
+    setIsSynced(false);
   };
+  useEffect(() => {
+    // Обновляем счетчик при каждом изменении favorites
+    updateFavoritesCount();
+  }, [favorites]);
 
   useEffect(() => {
     if (!isSynced && user) {
@@ -72,6 +112,33 @@ export const FavoritesProvider = ({ children }) => {
               return acc;
             }, {}),
           }));
+
+          // Обновляем избранные детские сады в LS на основе пришедших данных
+          const localKindergartenFavorites =
+            JSON.parse(localStorage.getItem('localKindergartenFavorites')) ||
+            [];
+
+          updatedKindergartens.forEach((updatedKindergarten) => {
+            // Проверяем, есть ли такой объект в localKindergartenFavorites
+            const existingIndex = localKindergartenFavorites.findIndex(
+              (localKindergarten) =>
+                localKindergarten.id === updatedKindergarten.id
+            );
+
+            // Если объект не найден, добавляем его в localKindergartenFavorites
+            if (existingIndex === -1) {
+              localKindergartenFavorites.push({
+                ...updatedKindergarten,
+                isLiked: true, // Добавляем свойство isLiked
+              });
+            }
+          });
+
+          // Сохраняем обновленные избранные детские сады в локальное хранилище
+          localStorage.setItem(
+            'localKindergartenFavorites',
+            JSON.stringify(localKindergartenFavorites)
+          );
         })
         .catch((error) => {
           console.error('Error syncing kindergartens:', error);
@@ -88,6 +155,31 @@ export const FavoritesProvider = ({ children }) => {
               return acc;
             }, {}),
           }));
+
+          // Обновляем избранные детские школы в LS на основе пришедших данных
+          const localSchoolFavorites =
+            JSON.parse(localStorage.getItem('localSchoolFavorites')) || [];
+
+          updatedSchools.forEach((updatedSchool) => {
+            // Проверяем, есть ли такой объект в localSchoolFavorites
+            const existingIndex = localSchoolFavorites.findIndex(
+              (localSchool) => localSchool.id === updatedSchool.id
+            );
+
+            // Если объект не найден, добавляем его в localSchoolFavorites
+            if (existingIndex === -1) {
+              localSchoolFavorites.push({
+                ...updatedSchool,
+                isLiked: true, // Добавляем свойство isLiked
+              });
+            }
+          });
+
+          // Сохраняем обновленные избранные детские школы в локальное хранилище
+          localStorage.setItem(
+            'localSchoolFavorites',
+            JSON.stringify(localSchoolFavorites)
+          );
         })
         .catch((error) => {
           console.error('Error syncing schools:', error);
@@ -111,7 +203,13 @@ export const FavoritesProvider = ({ children }) => {
 
   return (
     <FavoritesContext.Provider
-      value={{ addFavorite, removeFavorite, isFavorite, resetFavorites }}
+      value={{
+        addFavorite,
+        removeFavorite,
+        isFavorite,
+        resetFavorites,
+        favoritesCount,
+      }}
     >
       {children}
     </FavoritesContext.Provider>

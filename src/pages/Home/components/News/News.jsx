@@ -19,7 +19,7 @@ export function News() {
   // }
 
   const [displayedCards, setDisplayedCards] = React.useState(5);
-  console.log(displayedCards);
+  //console.log(displayedCards);
 
   return (
     <section className='news'>
