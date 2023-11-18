@@ -9,7 +9,7 @@ import './NotFoundPage.scss';
 export function NotFoundPage() {
   return (
     <div className='not-found'>
-      <EmptyPage title={notfoundPage.title} size='small' margin='medium'>
+      <EmptyPage variant='notfound' data={notfoundPage}>
         <Link to={'/'} className='not-found__link'>
           На главную
         </Link>
