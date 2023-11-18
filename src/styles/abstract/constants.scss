@@ -7,11 +7,16 @@ $gray: hsla(237, 85%, 27%, 0.3);
 $orange: hsla(45, 99%, 65%, 1);
 
 //Кнопки
-$button-orange: hsla(22, 100%, 59%, 1);
-$button-orange-hover: hsla(22, 100%, 59%, 0.9);
-$button-orange-active: hsla(22, 100%, 51%, 1);
+$button-violet: hsla(251, 60%, 59%, 1);
+$button-violet-hover: hsla(251, 60%, 59%, 0.8);
+$button-violet-active: hsla(251, 69%, 59%, 1);
 
-$button-orange-dis: hsla(22, 100%, 59%, 0.4);
+$button-violet-dis: hsla(259, 36%, 39%, 0.3);
+$button-violet-text-dis: hsla(238, 32%, 15%, 0.63);
+
+$button-empty-dis: hsla(238, 32%, 15%, 0.55);
+
+$button-blue-link: hsla(251, 47%, 26%, 1);
 
 $button-blue: hsla(235, 82%, 60%, 1);
 $button-blue-hover: hsla(227, 100%, 96%, 1);

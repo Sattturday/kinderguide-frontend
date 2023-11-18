@@ -149,7 +149,7 @@ export function UserEdit({ setEditUser }) {
           type='submit'
           width='188px'
           size='small'
-          color={isReadyToSubmit ? 'orange-fill' : 'orange-dis'}
+          color={isReadyToSubmit ? 'fill' : 'dis'}
           disabled={!isReadyToSubmit}
           onClick={(e) => {
             handleSubmit(e);
@@ -161,7 +161,7 @@ export function UserEdit({ setEditUser }) {
           type='button'
           width='188px'
           size='small'
-          color='orange-empty'
+          color='empty'
           onClick={(e) => {
             e.preventDefault();
             setEditUser(false);
