@@ -9,11 +9,12 @@ const initialState = {
   isOpenPasswordRecoveryModal: false,
   isOpenPasswordRecoveryConfirmModal: false,
   isOpenPasswordRecoverySuccessModal: false,
-  isOpenLoginToFavoritePopup: false,
   isOpenNewsModal: false,
   isOpenAddSchoolReviewModal: false,
   isOpenAddKindergartenReviewModal: false,
   isOpenGratitudeModal: false,
+  isOpenLoginToFavoritePopup: false,
+  loginToFavoritePopupShown: false, // Добавляем поле для отслеживания показа попапа
 };
 
 const modalsSlice = createSlice({
@@ -22,7 +23,9 @@ const modalsSlice = createSlice({
   reducers: {
     closeAllModals(state) {
       for (const key in state) {
-        state[key] = false;
+        if (key !== 'loginToFavoritePopupShown') {
+          state[key] = false;
+        }
       }
     },
     openRegisterModal(state) {
@@ -49,6 +52,7 @@ const modalsSlice = createSlice({
     openLoginToFavoritePopup(state, action) {
       state.isOpenLoginToFavoritePopup = true;
       state.loginToFavoritePopupData = action.payload;
+      state.loginToFavoritePopupShown = true; // Устанавливаем флаг показа попапа
     },
     openNewsModal(state) {
       state.isOpenNewsModal = true;

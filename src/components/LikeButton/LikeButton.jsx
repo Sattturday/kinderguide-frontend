@@ -6,6 +6,9 @@ import './LikeButton.scss';
 
 export const LikeButton = ({ isLiked, onLike }) => {
   const user = useSelector((state) => state.auth.user);
+  const isLoginToFavoritePopupShown = useSelector(
+    (state) => state.modals.loginToFavoritePopupShown
+  );
   const dispatch = useDispatch();
 
   const buttonRef = useRef(null);
@@ -15,19 +18,20 @@ export const LikeButton = ({ isLiked, onLike }) => {
     if (user) {
       onLike();
     } else {
+      if (!isLoginToFavoritePopupShown) {
+        // Получаем DOM-элемент кнопки и ее координаты
+        const buttonElement = buttonRef.current;
+        const buttonRect = buttonElement.getBoundingClientRect();
+
+        // Определяем координаты left и top
+        const coordinates = {
+          left: buttonRect.left,
+          top: buttonRect.top + 30, // Добавляем высоту кнопки
+        };
+
+        dispatch(openLoginToFavoritePopup(coordinates));
+      }
       onLike();
-
-      // // Получаем DOM-элемент кнопки и ее координаты
-      // const buttonElement = buttonRef.current;
-      // const buttonRect = buttonElement.getBoundingClientRect();
-
-      // // Определяем координаты left и top
-      // const coordinates = {
-      //   left: buttonRect.left,
-      //   top: buttonRect.top + 30, // Добавляем высоту кнопки
-      // };
-
-      // dispatch(openLoginToFavoritePopup(coordinates));
     }
   };
 
