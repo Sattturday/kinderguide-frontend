@@ -15,6 +15,9 @@ import { InputPassword } from '../InputPassword';
 import { InputCheckbox } from '../InputCheckbox';
 import { Button } from '../common/Button';
 import { LineWithWord } from '../common/LineWithWord';
+import { YandexLogin } from '../YandexLogin/YandexLogin';
+
+import { useLoginWithYandexMutation } from '../../api/authApi';
 
 import './RegisterModal.scss';
 
@@ -30,6 +33,9 @@ export const RegisterModal = () => {
   const [createUser, { isLoading, isError }] = useCreateUserMutation();
   const [login, { isLoading: isLoadingLogin, isError: isErrorLogin }] =
     useLoginMutation();
+  const [loginWithYandex] = useLoginWithYandexMutation();
+
+  const clientID = '6afee0ba90144d71804d1029ef2849fa'; // Эдика
 
   const dispatch = useDispatch();
 
@@ -63,6 +69,42 @@ export const RegisterModal = () => {
     } catch (error) {
       console.log(error);
     } finally {
+    }
+  };
+
+  const handleYandexLogin = async (data) => {
+    console.log('отправляем на сервер', data);
+
+    const formData = Object.keys(data)
+      .map(
+        (key) => encodeURIComponent(key) + '=' + encodeURIComponent(data[key])
+      )
+      .join('&');
+
+    try {
+      const response = await loginWithYandex(formData);
+      console.log('response', response);
+
+      if (!response?.access) {
+        throw new Error('Ошибка. Не получил токен яндекса');
+      }
+
+      localStorage.setItem('token', response?.access);
+      // const userData = await response.json();
+
+      dispatch(
+        setUser({
+          user: true,
+        })
+      );
+      dispatch(
+        setToken({
+          token: response?.access,
+        })
+      );
+      dispatch(closeAllModals());
+    } catch (error) {
+      console.log(error);
     }
   };
 
@@ -190,13 +232,21 @@ export const RegisterModal = () => {
           type='submit'
           width='520px'
           size='large'
-          color={isReadyToSubmit ? 'orange-fill' : 'orange-dis'}
+          color={isReadyToSubmit ? 'fill' : 'dis'}
           disabled={!isReadyToSubmit & isLoading}
         >
           {isLoading ? 'Подождите' : 'Зарегистрироваться'}
         </Button>
       </form>
       <LineWithWord text='Или' />
+      <YandexLogin
+        clientID={clientID}
+        onSuccess={(data) => handleYandexLogin(data)}
+      >
+        <Button type='button' width='532px' color='empty' size='large'>
+          Войти с помощью Яндекс ID
+        </Button>
+      </YandexLogin>
     </Popup>
   );
 };

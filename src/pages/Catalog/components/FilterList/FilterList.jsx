@@ -124,7 +124,7 @@ export function FilterList({
             type='button'
             width='100%'
             size='medium'
-            color='orange-empty'
+            color='empty'
             onClick={handleReset}
           >
             Сбросить

@@ -16,16 +16,16 @@ Default.args = {
   children: 'Press me',
 };
 
-export const OrangeEmpty = Template.bind({});
-OrangeEmpty.args = {
+export const Empty = Template.bind({});
+Empty.args = {
   children: 'Empty orange',
-  color: 'orange-empty',
+  color: 'empty',
 };
 
-export const OrangeDisable = Template.bind({});
-OrangeDisable.args = {
+export const Disable = Template.bind({});
+Disable.args = {
   children: 'Empty orange',
-  color: 'orange-dis',
+  color: 'dis',
 };
 
 export const BlueEmpty = Template.bind({});

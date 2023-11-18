@@ -110,7 +110,7 @@ export const PasswordRecoveryConfirmModal = ({ id, token }) => {
           type='submit'
           width='532px'
           size='large'
-          color={isReadyToSubmit ? 'orange-fill' : 'orange-dis'}
+          color={isReadyToSubmit ? 'fill' : 'dis'}
           disabled={!isReadyToSubmit && isLoading}
           onClick={(e) => {
             handleSubmit(e);

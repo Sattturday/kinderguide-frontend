@@ -13,8 +13,11 @@ import { Feedback } from './Feedback';
 import { Activity } from './Activity';
 import { YandexMap } from './YandexMap';
 import './OrgWrapper.scss';
+import useFavorite from '../../hooks/useFavorite';
 
 export const OrgWrapper = ({ data, feedback, org, activities }) => {
+  const { isLiked, handleLike } = useFavorite(data);
+
   return (
     <div className='orgWrapper'>
       <nav className='orgWrapper__nav'>
@@ -41,7 +44,7 @@ export const OrgWrapper = ({ data, feedback, org, activities }) => {
               copy: 'hidden',
             }}
           />
-          <LikeButton />
+          <LikeButton isLiked={isLiked} onLike={handleLike} />
         </div>
       </div>
       <HashLink

@@ -26,7 +26,7 @@ export const ProfileExitModal = () => {
     resetFavorites();
     navigate('/');
 
-    //   dispatch(setToken(null));
+    // dispatch(setToken(null));
     dispatch(setUser(false));
     dispatch(closeAllModals());
   }
@@ -41,7 +41,7 @@ export const ProfileExitModal = () => {
           type='button'
           width='188px'
           size='small'
-          color={'orange-fill'}
+          color={'fill'}
           onClick={hanldeCloseModal}
         >
           Остаться
@@ -50,7 +50,7 @@ export const ProfileExitModal = () => {
           type='button'
           width='188px'
           size='small'
-          color='orange-empty'
+          color='empty'
           onClick={signOut}
         >
           Выйти

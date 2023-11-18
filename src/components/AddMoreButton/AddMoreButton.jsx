@@ -18,8 +18,8 @@ export const AddMoreButton = ({
         <div className='feedback__container-for-button'>
           <Button
             variant='square'
-            color='blue-empty'
-            size='small'
+            color='empty'
+            size='medium'
             type='button'
             children='Показать еще'
             width='298px'
