@@ -1,28 +1,19 @@
-import scheduleImage from '../images/schedule_icon.svg';
-import emptySchool from '../images/emptyScool_icon.svg';
-
-export const searchMessage = {
-  title: 'По вашему запросу ничего не найдено',
-  text: 'Попробуйте ввести запрос по другому или воспользуйтесь каталогом в разделе образования',
-};
+import emptySchool from '../images/emptySchool_icon.svg';
+import notfound from '../images/404.svg';
 
 export const notfoundPage = {
-  title: 'Такая страница не найдена.',
+  title: 'Такая страница не найдена',
+  img: notfound,
+  imgName: 'Ошибка 404',
 };
 
-export const futureСontent = {
-  title:
-    'Совсем скоро тут будут статьи от наших экспертов, подборки полезных ресурсов, инструкции - все что вы хотели узнать, но не знали где найти.',
-};
-
-export const futureSchedule = {
-  title: 'В ближайшее время добавим расписание.',
-  img: scheduleImage,
-  imgName: 'Иконка расписания',
-};
-
-export const favoriteSchool = {
+export const favoriteOrg = {
   title: 'Добавьте понравившуюся школу или сад, чтобы они появились здесь.',
   img: emptySchool,
   imgName: 'Иконка избранного',
+};
+
+export const searchMessage = {
+  title: 'По вашему запросу ничего не найдено.',
+  text: 'Попробуйте изменить параметры поиска или ввести запрос по другому.',
 };

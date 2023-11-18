@@ -30,7 +30,7 @@ export const Input = ({
       }`}
       placeholder={placeholder}
       type={type}
-      required={required}
+      //required={required}
       minLength={minLength}
       maxLength={maxLength}
       pattern={pattern}
