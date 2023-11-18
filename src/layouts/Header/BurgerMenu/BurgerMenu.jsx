@@ -8,13 +8,13 @@ export const BurgerMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <>
-      {!isOpen && (
-        <img
-          src={burgerIcon}
-          alt='Открыть боковое меню'
-          onClick={() => setIsOpen(true)}
-        />
-      )}
+      {/* {!isOpen && ( */}
+      <img
+        src={burgerIcon}
+        alt='Открыть боковое меню'
+        onClick={() => setIsOpen(true)}
+      />
+      {/* )} */}
       {/* {isOpen && ( */}
       <div
         className={isOpen ? 'burger-menu burger-menu_open' : 'burger-menu'}
