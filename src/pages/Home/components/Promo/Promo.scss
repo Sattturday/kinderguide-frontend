@@ -3,7 +3,10 @@
 @import '../../../../styles/abstract/placeholders.scss';
 
 .promo {
-  background-color: #ecf0ff;
+  background: url('./images/foto.svg') #ecf0ff;
+  background-repeat: no-repeat;
+  background-position: bottom 28px right 32px;
+  background-size: 721px 553px;
   min-height: 630px;
   padding: 88px 0 0;
 
@@ -16,6 +19,9 @@
     min-height: 381px;
   }
   @include media-small {
+    padding: 0;
+    background-size: 320px 242px;
+    background-position: left 0 top 20px;
   }
 }
 
@@ -23,6 +29,10 @@
   width: 627px;
   @include media-medium {
     width: 364px;
+  }
+
+  @include media-small {
+    width: 288px;
   }
   a {
     color: inherit;
@@ -35,83 +45,110 @@
   @include text-xxl;
   color: #1f1f29;
   margin: 0 0 40px;
+  @include media-medium {
+    font-size: 28px;
+  }
+  @include media-small {
+    margin-top: 282px;
+    margin-bottom: 32px;
+    font-size: 24px;
+  }
 }
 
-.promo__image-container {
-  z-index: 5;
-  position: relative;
-  width: 513px;
-  height: 504px;
-  overflow: visible;
-  border-radius: 50%;
-  background: #b8c7ff;
-  background-repeat: no-repeat;
-  background-position: bottom;
-  margin-right: 75px;
-
-  img {
-    position: absolute;
-    width: 64px;
-    height: 64px;
-
-    &:nth-child(1) {
-      top: -49px;
-      right: 38px;
-    }
-
-    &:nth-child(2) {
-      bottom: 194px;
-      left: -95px;
-    }
-
-    &:nth-child(3) {
-      top: 189px;
-      right: 25px;
-      width: 90px;
-      height: 90px;
-    }
-    &:nth-child(4) {
-      bottom: 50px;
-      right: -19px;
-      width: 151px;
-      height: 45px;
-    }
-    &:nth-child(5) {
-      top: -13px;
-      left: -31px;
-      width: 240px;
-      height: 144px;
-      z-index: 2;
-    }
-    &:nth-child(6) {
-      bottom: 0;
-      left: 15px;
-      width: 479px;
-      height: 442px;
-      z-index: 2;
+.promo__button {
+  display: none;
+  &_desktop {
+    @media screen and (min-width: 1201px) {
+      display: block;
     }
   }
-
-  span {
-    @include text-l(400);
-    position: absolute;
-    z-index: 10;
-    text-align: center;
-    padding: 16px 32px;
-    height: 58px;
-    background-color: white;
-    color: $title-blue;
-
-    &:nth-of-type(1) {
-      bottom: 95px;
-      left: -137px;
-      border-radius: 24px 24px 0 24px;
+  &_tablet {
+    @media screen and (max-width: 1200px) and (min-width: 701px) {
+      display: block;
     }
-
-    &:nth-of-type(2) {
-      top: 51px;
-      right: -71px;
-      border-radius: 24px 24px 24px 0;
+  }
+  &_mobile {
+    @media screen and (max-width: 700px) {
+      display: block;
     }
   }
 }
+
+// .promo__image-container {
+//   z-index: 5;
+//   position: relative;
+//   width: 513px;
+//   height: 504px;
+//   overflow: visible;
+//   border-radius: 50%;
+//   background: #b8c7ff;
+//   background-repeat: no-repeat;
+//   background-position: bottom;
+//   margin-right: 75px;
+
+//   img {
+//     position: absolute;
+//     width: 64px;
+//     height: 64px;
+
+//     &:nth-child(1) {
+//       top: -49px;
+//       right: 38px;
+//     }
+
+//     &:nth-child(2) {
+//       bottom: 194px;
+//       left: -95px;
+//     }
+
+//     &:nth-child(3) {
+//       top: 189px;
+//       right: 25px;
+//       width: 90px;
+//       height: 90px;
+//     }
+//     &:nth-child(4) {
+//       bottom: 50px;
+//       right: -19px;
+//       width: 151px;
+//       height: 45px;
+//     }
+//     &:nth-child(5) {
+//       top: -13px;
+//       left: -31px;
+//       width: 240px;
+//       height: 144px;
+//       z-index: 2;
+//     }
+//     &:nth-child(6) {
+//       bottom: 0;
+//       left: 15px;
+//       width: 479px;
+//       height: 442px;
+//       z-index: 2;
+//     }
+//   }
+
+//   span {
+//     @include text-l(400);
+//     position: absolute;
+//     z-index: 10;
+//     text-align: center;
+//     padding: 16px 32px;
+//     height: 58px;
+//     background-color: white;
+//     color: $title-blue;
+
+//     &:nth-of-type(1) {
+//       bottom: 95px;
+//       left: -137px;
+//       border-radius: 24px 24px 0 24px;
+//     }
+
+//     &:nth-of-type(2) {
+//       top: 51px;
+//       right: -71px;
+//       border-radius: 24px 24px 24px 0;
+//     }
+// }
+// }
