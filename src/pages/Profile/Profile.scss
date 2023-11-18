@@ -27,11 +27,13 @@
 .profile__title::before {
   content: '';
   position: absolute;
-  width: 112px;
-  height: 107px;
-  top: 75px;
-  right: -540px;
+  width: 100px;
+  height: 100px;
+  top: 82px;
+  right: -591px;
   background-image: url('../../images/ServiceWork/snowflake.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 
 .profile::after {
@@ -39,7 +41,7 @@
   position: absolute;
   width: 251px;
   height: 136px;
-  bottom: 75px;
-  right: 150px;
+  bottom: -63px;
+  right: 142px;
   background-image: url('../../images/Profile/big-notes-blue.svg');
 }
