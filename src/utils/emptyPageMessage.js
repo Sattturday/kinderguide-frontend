@@ -7,7 +7,7 @@ export const notfoundPage = {
   imgName: 'Ошибка 404',
 };
 
-export const favoriteSchool = {
+export const favoriteOrg = {
   title: 'Добавьте понравившуюся школу или сад, чтобы они появились здесь.',
   img: emptySchool,
   imgName: 'Иконка избранного',

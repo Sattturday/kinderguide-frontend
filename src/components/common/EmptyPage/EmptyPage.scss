@@ -2,15 +2,49 @@
 @import '../../../styles/abstract/mixins.scss';
 
 .empty-page {
+  width: 100%;
+  max-width: 958px;
+  height: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%;
-  height: auto;
+
+  &_type {
+    &_catalog {
+      min-height: 417px;
+      max-width: 918px;
+      background:
+        url(../../../images/star.svg) 0 0 no-repeat,
+        url(../../../images/balls.svg) 100% 100% no-repeat;
+      background-size: auto, auto;
+
+      h2 {
+        @include text-xl($fw-semi-bold);
+        padding: 80px 0 28px;
+        padding-left: 70px;
+        color: $button-blue-link;
+      }
+    }
+
+    &_favorite {
+      h2 {
+        @include text-xl($fw-semi-bold);
+        padding-bottom: 42px;
+        color: $button-cyan;
+        text-align: center;
+        max-width: 830px;
+      }
+
+      img {
+        padding-left: 0;
+        width: 120px;
+        height: 120px;
+      }
+    }
+  }
 }
 
 .empty-page__title {
-  max-width: 940px;
   @include text-l($fw-semi-bold);
   padding: 46px 0 39px;
   color: $blue-dark;
@@ -18,9 +52,8 @@
 
 .empty-page__text {
   @include text-l($fw-semi-bold);
-  padding: 46px 0 39px;
   color: $blue-dark;
-  max-width: 848px;
+  padding-left: 70px;
 }
 
 .empty-page__image {

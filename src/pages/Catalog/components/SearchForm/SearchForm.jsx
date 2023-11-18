@@ -12,10 +12,9 @@ export const SearchForm = memo(function SearchForm({
   onSubmit,
   onClear,
 }) {
-  const handleClear = () => {
-    if (onClear) {
-      onClear();
-    }
+  const handleClear = (e) => {
+    onClear();
+    onSubmit({ preventDefault: () => {} }); // передаем заглушку для preventDefault
   };
 
   return (

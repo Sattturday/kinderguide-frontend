@@ -112,7 +112,7 @@ export function Catalog() {
 
   // Обработчик очистки поля
   const clearSearchField = () => {
-    dispatch(setRequestFilter('')); // или любая другая логика очистки поля
+    dispatch(setRequestFilter(''));
   };
 
   // Обработчик переключения между категориями "школы" и "сады"
