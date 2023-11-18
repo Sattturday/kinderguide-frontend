@@ -21,8 +21,8 @@ export const Navigation = ({ usedFor }) => {
           return usedFor === 'footer'
             ? 'navigation__item navigation__item_type_footer'
             : isActive
-            ? 'navigation__item navigation__item_type_active'
-            : 'navigation__item';
+              ? 'navigation__item navigation__item_type_active'
+              : 'navigation__item';
         }}
       >
         Главная
@@ -34,8 +34,8 @@ export const Navigation = ({ usedFor }) => {
           return usedFor === 'footer'
             ? 'navigation__item navigation__item_type_footer'
             : isActive
-            ? 'navigation__item navigation__item_type_active'
-            : 'navigation__item';
+              ? 'navigation__item navigation__item_type_active'
+              : 'navigation__item';
         }}
       >
         Образование
@@ -54,8 +54,8 @@ export const Navigation = ({ usedFor }) => {
           return usedFor === 'footer'
             ? 'navigation__item navigation__item_type_footer'
             : isActive
-            ? 'navigation__item navigation__item_type_active'
-            : 'navigation__item';
+              ? 'navigation__item navigation__item_type_active'
+              : 'navigation__item';
         }}
       >
         Избранное
