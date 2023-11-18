@@ -24,9 +24,9 @@ export function Home() {
   return (
     <>
       <Promo />
-      <About />
+      {/* <About />
       <ServiceWork />
-      <News />
+      <News /> */}
       <PasswordRecoveryConfirmModal id={id} token={token} />
     </>
   );

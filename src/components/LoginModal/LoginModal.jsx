@@ -67,8 +67,9 @@ export const LoginModal = () => {
 
     try {
       const response = await loginWithYandex(formData);
+      console.log('response', response);
 
-      if (!response?.success) {
+      if (!response?.access) {
         throw new Error('Ошибка. Не получил токен яндекса');
       }
 
