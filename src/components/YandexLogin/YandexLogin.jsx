@@ -58,15 +58,15 @@ function getStateParams(url) {
 }
 
 function YandexLogin({ children, onSuccess, clientID }) {
-  const [isSent, setIsSent] = useState(false);
+  // const [isSent, setIsSent] = useState(false);
   const { data, isLoading } = useGetYandexLinkQuery();
 
   const handleMessageFromPopup = function handleMessageFromPopup(event) {
     if (event.data.source === 'yandex-login') {
-      if (!isSent) {
-        onSuccess(event.data.payload);
-        setIsSent(true);
-      }
+      // if (!isSent) {
+      onSuccess(event.data.payload);
+      // setIsSent(true);
+      // }
     }
   };
 
