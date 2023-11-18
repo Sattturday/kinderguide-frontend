@@ -20,6 +20,10 @@ export const Navigation = ({ usedFor }) => {
         className={({ isActive }) => {
           return usedFor === 'footer'
             ? 'navigation__item navigation__item_type_footer'
+            : isActive && usedFor === 'burger'
+            ? 'navigation__item navigation__item_type_burger navigation__item_type_burger_active'
+            : usedFor === 'burger'
+            ? 'navigation__item navigation__item_type_burger'
             : isActive
               ? 'navigation__item navigation__item_type_active'
               : 'navigation__item';
@@ -33,19 +37,23 @@ export const Navigation = ({ usedFor }) => {
         className={({ isActive }) => {
           return usedFor === 'footer'
             ? 'navigation__item navigation__item_type_footer'
+            : isActive && usedFor === 'burger'
+            ? 'navigation__item navigation__item_type_burger navigation__item_type_burger_active'
+            : usedFor === 'burger'
+            ? 'navigation__item navigation__item_type_burger'
             : isActive
               ? 'navigation__item navigation__item_type_active'
               : 'navigation__item';
         }}
       >
         Образование
-        {usedFor === 'footer' && (
+        {/* {usedFor === 'footer' && (
           <ul className='navigation__item-list'>
             <li>Школы</li>
             <li>Сады</li>
-            {/* <li>Курсы</li> */}
+            <li>Курсы</li>
           </ul>
-        )}
+        )} */}
       </NavLink>
       <NavLink
         to='/favorites'
@@ -53,6 +61,10 @@ export const Navigation = ({ usedFor }) => {
         className={({ isActive }) => {
           return usedFor === 'footer'
             ? 'navigation__item navigation__item_type_footer'
+            : isActive && usedFor === 'burger'
+            ? 'navigation__item navigation__item_type_burger navigation__item_type_burger_active'
+            : usedFor === 'burger'
+            ? 'navigation__item navigation__item_type_burger'
             : isActive
               ? 'navigation__item navigation__item_type_active'
               : 'navigation__item';
@@ -62,14 +74,14 @@ export const Navigation = ({ usedFor }) => {
         {usedFor === 'header' && (
           <span className='navigation__item-count'>{count ? count : ''}</span>
         )}
-        {usedFor === 'footer' && (
+        {/* {usedFor === 'footer' && (
           <ul className='navigation__item-list'>
             <li>Все</li>
             <li>Школы</li>
             <li>Сады</li>
-            {/* <li>Курсы</li> */}
+            <li>Курсы</li>
           </ul>
-        )}
+        )} */}
       </NavLink>
       {/* <NavLink
         to='/specialists'

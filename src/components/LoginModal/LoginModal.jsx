@@ -67,14 +67,18 @@ export const LoginModal = () => {
 
     try {
       const response = await loginWithYandex(formData);
+      // console.log('response', response);
+      // console.log('response?.data?.access', response?.data?.access);
 
-      if (!response?.success) {
+      if (!response?.data?.access) {
+        // console.log('выкидываем ошибку');
         throw new Error('Ошибка. Не получил токен яндекса');
       }
 
-      localStorage.setItem('token', response?.access);
+      localStorage.setItem('token', response?.data?.access);
       // const userData = await response.json();
 
+      // console.log('авторизируем');
       dispatch(
         setUser({
           user: true,
@@ -82,7 +86,7 @@ export const LoginModal = () => {
       );
       dispatch(
         setToken({
-          token: response?.access,
+          token: response?.data?.access,
         })
       );
       dispatch(closeAllModals());
@@ -137,7 +141,7 @@ export const LoginModal = () => {
             type='submit'
             width='532px'
             size='large'
-            color={isValid ? 'orange-fill' : 'orange-dis'}
+            color={isValid ? 'fill' : 'dis'}
             disabled={!isValid && isLoading}
           >
             {isLoading ? 'Вход...' : 'Войти'}
@@ -149,7 +153,7 @@ export const LoginModal = () => {
           clientID={clientID}
           onSuccess={(data) => handleYandexLogin(data)}
         >
-          <Button type='button' width='532px' color='orange-empty' size='large'>
+          <Button type='button' width='532px' color='empty' size='large'>
             Войти с помощью Яндекс ID
           </Button>
         </YandexLogin>
@@ -158,7 +162,7 @@ export const LoginModal = () => {
           clientID='39d6510b37da4e88bb71a191ae780a50'
           onSuccess={(data) => console.log(data)}
         >
-          <Button type='button' width='532px' color='orange-empty' size='large'>
+          <Button type='button' width='532px' color='empty' size='large'>
             Войти с помощью Яндекс ID2
           </Button>
         </YandexLogin2> */}

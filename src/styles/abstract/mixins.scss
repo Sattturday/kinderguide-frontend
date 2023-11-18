@@ -1,3 +1,22 @@
+// для media-запросов
+@mixin media-medium {
+  @media (max-width: $medium-width) {
+    @content;
+  }
+}
+
+@mixin media-small {
+  @media (max-width: $small-width) {
+    @content;
+  }
+}
+
+@mixin media-mobile {
+  @media (max-width: $mobile-width) {
+    @content;
+  }
+}
+
 @mixin link {
   text-decoration: none;
   transition: 1s;

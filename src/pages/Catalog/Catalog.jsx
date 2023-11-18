@@ -66,6 +66,7 @@ export function Catalog() {
     filter.category,
     paramsUrl,
   ]);
+
   // Формирование списка фильтров
   const filterItems = getFilterItems(
     selected,
@@ -107,6 +108,11 @@ export function Catalog() {
   // Обработчик изменения строки поиска
   const searchHandler = (e) => {
     dispatch(setRequestFilter(e.target.value));
+  };
+
+  // Обработчик очистки поля
+  const clearSearchField = () => {
+    dispatch(setRequestFilter('')); // или любая другая логика очистки поля
   };
 
   // Обработчик переключения между категориями "школы" и "сады"
@@ -152,8 +158,9 @@ export function Catalog() {
         <div className='search-wrapper'>
           <SearchForm
             onChange={searchHandler}
-            value={deferredFilter.request}
+            value={deferredFilter.search}
             onSubmit={handleSubmit}
+            onClear={clearSearchField}
           />
           <Sort
             sortHandler={sortHandler}
