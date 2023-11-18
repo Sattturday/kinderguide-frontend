@@ -1,0 +1,29 @@
+@import '../../../styles/abstract/mixins.scss';
+
+.burger-menu {
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-height: 176px;
+  width: calc(100% + 0px);
+  background-color: white;
+  padding-left: 12px;
+  border-radius: 0 0 10px 10px;
+}
+
+.burger-menu__close-btn {
+  @include button;
+  width: 22px;
+  height: 22px;
+  background-image: url('../images/burger_icon_close.svg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: absolute;
+  top: 8px;
+  right: 12px;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}

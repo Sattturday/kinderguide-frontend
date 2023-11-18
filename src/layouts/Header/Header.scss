@@ -5,7 +5,7 @@
 .header {
   min-height: 110px;
   width: 100%;
-  padding: 21px 76px;
+  padding: 30px 76px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -13,17 +13,31 @@
   top: 0;
   background-color: #fff;
   z-index: 99;
+
+  @media screen and (max-width: 1200px) {
+    padding: 19px 32px;
+  }
+  @media screen and (max-width: 700px) {
+    padding: 16px;
+    min-height: 72px;
+  }
 }
 
 .header__left-container {
   display: flex;
-  align-items: center;
+  align-items: end;
 }
 
 .header__logo {
   width: 116px;
   height: 40px;
-  margin-right: 80px;
+  margin-right: 229px;
+  @media screen and (max-width: 1200px) {
+    margin-right: 62px;
+  }
+  @media screen and (max-width: 700px) {
+    margin-right: 0;
+  }
 }
 
 .header__profile {
@@ -32,17 +46,33 @@
   background-image: url('../../images/profile_icon.svg');
   background-position: center;
   background-repeat: no-repeat;
+  @media screen and (max-width: 700px) {
+    width: 24px;
+    height: 24px;
+    background-size: contain;
+  }
 }
 
 .header__auth-area {
   display: flex;
   align-items: center;
   min-height: 43px;
+  @media screen and (max-width: 1200px) {
+    display: none;
+  }
+}
+
+.header__auth-icon {
+  @include link;
+  display: none;
+  @media screen and (max-width: 1200px) {
+    display: block;
+  }
 }
 
 .header__auth-btn {
   @include link;
-  @include text-l($fw-normal);
+  @include text-l(600);
   border: none;
   background: inherit;
 
@@ -59,14 +89,14 @@
   }
 
   &_registration {
-    background: linear-gradient(to right, #6e57d5, #5bc1ff);
-
+    @include text-m(600);
     height: 40px;
     width: 188px;
 
     padding: 7px 17px;
-    border-radius: 50px;
-    color: $white;
+    border-radius: 12px;
+    border: 2px solid #6e57d5;
+    color: #6e57d5;
     text-align: center;
   }
 }
