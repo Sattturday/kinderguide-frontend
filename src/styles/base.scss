@@ -46,4 +46,10 @@ html {
 .wrapper {
   margin: auto;
   padding: 0 76px;
+  @include media-medium {
+    padding: 0 32px;
+  }
+  @include media-small {
+    padding: 0 16px;
+  }
 }

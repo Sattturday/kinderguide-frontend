@@ -21,7 +21,7 @@ function checkAccessKey() {
     const item = part.split('=');
     result[item[0]] = decodeURIComponent(item[1]);
   });
-  console.log('keys', result);
+  // console.log('keys', result);
   return result;
 }
 
@@ -34,7 +34,7 @@ function getYandexAuthUrl(clientID, redirectUrl, stateUrl) {
   requestUrl += '&redirect_uri=' + redirectUrl;
   requestUrl += '&state=' + stateUrl;
   // requestUrl += '&display=popup';
-  console.log('Ссылка от нашего бэка', requestUrl);
+  // console.log('Ссылка от нашего бэка', requestUrl);
   return requestUrl;
 }
 
@@ -50,10 +50,10 @@ function getCurrentUrl() {
 
 function getStateParams(url) {
   if (!url) return null;
-  console.log('url', url);
+  // console.log('url', url);
   const parts = url.split('&');
   const state = parts[2].split('=')[1];
-  console.log('Стейт из ссылки нашего бэка', state);
+  // console.log('Стейт из ссылки нашего бэка', state);
   return state;
 }
 
