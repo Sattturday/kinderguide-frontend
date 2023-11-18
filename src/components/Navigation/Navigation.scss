@@ -8,17 +8,17 @@
 
   &_header {
     width: 452px;
-    @media screen and (max-width: 1200px) {
+    @include media-medium {
       width: 389px;
     }
-    @media screen and (max-width: 700px) {
+    @include media-small {
       display: none;
     }
   }
 
   &_footer {
     width: 380px;
-    @media screen and (max-width: 1200px) {
+    @include media-medium {
       width: 295px;
     }
   }
@@ -27,7 +27,7 @@
     margin-top: 38px;
   }
 
-  @media screen and (max-width: 700px) {
+  @include media-small {
     flex-direction: column;
     min-height: 137px;
     align-items: start;
@@ -48,7 +48,7 @@
   padding: 2px 16px;
   border-radius: 12px;
 
-  @media screen and (max-width: 1200px) {
+  @include media-medium {
     font-size: 16px;
     line-height: 1.25;
   }
@@ -72,7 +72,7 @@
     color: #fefefe;
     letter-spacing: 0.3px;
 
-    @media screen and (max-width: 1200px) {
+    @include media-medium {
       font-size: 14px;
       line-height: 1.25;
     }
