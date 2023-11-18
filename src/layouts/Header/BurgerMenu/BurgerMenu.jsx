@@ -15,18 +15,18 @@ export const BurgerMenu = () => {
           onClick={() => setIsOpen(true)}
         />
       )}
-      {isOpen && (
-        <div
-          className='burger-menu burger-menu_open'
+      {/* {isOpen && ( */}
+      <div
+        className={isOpen ? 'burger-menu burger-menu_open' : 'burger-menu'}
+        onClick={() => setIsOpen(false)}
+      >
+        <button
+          className='burger-menu__close-btn'
           onClick={() => setIsOpen(false)}
-        >
-          <button
-            className='burger-menu__close-btn'
-            onClick={() => setIsOpen(false)}
-          />
-          <Navigation usedFor='burger' />
-        </div>
-      )}
+        />
+        <Navigation usedFor='burger' />
+      </div>
+      {/* )} */}
     </>
   );
 };
