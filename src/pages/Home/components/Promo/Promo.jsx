@@ -19,12 +19,23 @@ export function Promo() {
           <h2 className='promo__title'>
             Помогаем найти лучший образовательный центр для вашего ребёнка
           </h2>
-
-          <Button width='408px' size='large'>
-            <Link to='catalog'>Перейти в каталог</Link>
-          </Button>
+          <div className='promo__button promo__button_desktop'>
+            <Button width='408px' size='large'>
+              <Link to='catalog'>Перейти в каталог</Link>
+            </Button>
+          </div>
+          <div className='promo__button promo__button_tablet'>
+            <Button width='300px' size='large'>
+              <Link to='catalog'>Перейти в каталог</Link>
+            </Button>
+          </div>
+          <div className='promo__button promo__button_mobile'>
+            <Button width='288px' size='large'>
+              <Link to='catalog'>Перейти в каталог</Link>
+            </Button>
+          </div>
         </div>
-        <div className='promo__image-container'>
+        {/* <div className='promo__image-container'>
           <img src={star} alt='Какой детский сад лучше?' />
           <img src={glass} alt='Как найти хорошую школу?' />
           <img src={question} alt='Вопросительный знак' />
@@ -33,7 +44,7 @@ export function Promo() {
           <img src={girl} alt='Девушка' />
           <span>Как найти хорошую школу?</span>
           <span>Какой детский сад лучше?</span>
-        </div>
+        </div> */}
       </div>
     </section>
   );
