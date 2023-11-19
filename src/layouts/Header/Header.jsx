@@ -4,6 +4,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { openLoginModal, openRegisterModal } from '../../store/modalsSlice';
 import { Navigation } from '../../components/Navigation';
 import logo from '../../images/logo.svg';
+import loginIcon from './images/icon_login.svg';
+import { BurgerMenu } from './BurgerMenu';
 import './Header.scss';
 
 export const Header = () => {
@@ -13,6 +15,9 @@ export const Header = () => {
   const user = useSelector((state) => state.auth.user);
   return (
     <header className='header'>
+      <div className='header__burger'>
+        <BurgerMenu />
+      </div>
       <div className='header__left-container'>
         <Link to='/'>
           <img className='header__logo' src={logo} alt='logo' />
@@ -22,20 +27,28 @@ export const Header = () => {
       {token ? (
         <Link to='profile' className='header__profile' />
       ) : (
-        <div className='header__auth-area'>
-          <button
+        <>
+          <div className='header__auth-area'>
+            <button
+              onClick={() => dispatch(openLoginModal())}
+              className='header__auth-btn header__auth-btn_login'
+            >
+              Войти
+            </button>
+            <button
+              onClick={() => dispatch(openRegisterModal())}
+              className='header__auth-btn header__auth-btn_registration'
+            >
+              Создать аккаунт
+            </button>
+          </div>
+          <img
+            src={loginIcon}
+            alt='Кнопка для авторизации'
+            className='header__auth-icon'
             onClick={() => dispatch(openLoginModal())}
-            className='header__auth-btn header__auth-btn_login'
-          >
-            Войти
-          </button>
-          <button
-            onClick={() => dispatch(openRegisterModal())}
-            className='header__auth-btn header__auth-btn_registration'
-          >
-            Создать аккаунт
-          </button>
-        </div>
+          />
+        </>
       )}
     </header>
   );

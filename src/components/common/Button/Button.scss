@@ -30,11 +30,19 @@
     &_medium {
       min-height: 56px;
       @include text-l($fw-semi-bold);
+
+      @include media-medium {
+        min-height: 52px;
+      }
     }
 
     &_large {
       min-height: 68px;
       @include text-l($fw-semi-bold);
+
+      @include media-medium {
+        min-height: 52px;
+      }
     }
   }
 

@@ -67,14 +67,18 @@ export const LoginModal = () => {
 
     try {
       const response = await loginWithYandex(formData);
+      // console.log('response', response);
+      // console.log('response?.data?.access', response?.data?.access);
 
-      if (!response?.success) {
+      if (!response?.data?.access) {
+        // console.log('выкидываем ошибку');
         throw new Error('Ошибка. Не получил токен яндекса');
       }
 
-      localStorage.setItem('token', response?.access);
+      localStorage.setItem('token', response?.data?.access);
       // const userData = await response.json();
 
+      // console.log('авторизируем');
       dispatch(
         setUser({
           user: true,
@@ -82,7 +86,7 @@ export const LoginModal = () => {
       );
       dispatch(
         setToken({
-          token: response?.access,
+          token: response?.data?.access,
         })
       );
       dispatch(closeAllModals());

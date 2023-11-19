@@ -110,6 +110,11 @@ export function Catalog() {
     dispatch(setRequestFilter(e.target.value));
   };
 
+  // Обработчик очистки поля
+  const clearSearchField = () => {
+    dispatch(setRequestFilter(''));
+  };
+
   // Обработчик переключения между категориями "школы" и "сады"
   const onClickNavHandler = (e) => {
     dispatch(setFilterDefault()); // Сброс всех фильтров
@@ -153,8 +158,9 @@ export function Catalog() {
         <div className='search-wrapper'>
           <SearchForm
             onChange={searchHandler}
-            value={deferredFilter.request}
+            value={deferredFilter.search}
             onSubmit={handleSubmit}
+            onClear={clearSearchField}
           />
           <Sort
             sortHandler={sortHandler}
