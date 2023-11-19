@@ -1,18 +1,6 @@
 // для media-запросов
-@mixin media-large {
-  @media (max-width: $large-width) {
-    @content;
-  }
-}
-
 @mixin media-medium {
   @media (max-width: $medium-width) {
-    @content;
-  }
-}
-
-@mixin media-netbook {
-  @media (max-width: $netbook-width) {
     @content;
   }
 }

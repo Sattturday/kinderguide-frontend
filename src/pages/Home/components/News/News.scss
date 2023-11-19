@@ -3,7 +3,7 @@
 
 .news {
   background-color: $bg-purple;
-  padding: 116px 0 253px;
+  padding: 100px 0 196px;
   display: flex;
   flex-direction: column;
   position: relative;
@@ -12,16 +12,13 @@
 .news__container {
   display: flex;
   flex-direction: column;
-  margin-bottom: 47px;
+  margin-bottom: 60px;
 }
 
 .news__title {
   @include text-xl(500);
   font-size: 48px;
   padding-bottom: 40px;
-  @include media-large {
-    font-size: 28px;
-  }
 }
 
 .news__list {
@@ -33,18 +30,6 @@
   gap: 30px;
   position: relative;
   z-index: 2;
-
-  @include media-large {
-    gap: 22px;
-    width: 70%;
-    margin: 0 auto;
-    justify-content: center;
-  }
-
-  @include media-netbook {
-    width: 100%;
-    justify-content: space-between;
-  }
 }
 
 .news__list::before {
@@ -56,14 +41,6 @@
   right: 412px;
   background-image: url('../../../../images/News/Group\ 21.svg');
   z-index: -1;
-
-  @include media-large {
-    width: 30%;
-    background-size: contain;
-    background-repeat: no-repeat;
-    top: -78px;
-    right: 227px;
-  }
 }
 
 .news__list::after {
@@ -71,18 +48,10 @@
   width: 155px;
   height: 41px;
   position: absolute;
-  bottom: -155px;
+  bottom: -100px;
   left: 0px;
   background-image: url('../../../../images/News/Vector\ 37.svg');
   z-index: -1;
-
-  @include media-large {
-    background-size: contain;
-    background-repeat: no-repeat;
-    width: 30%;
-    width: 135px;
-    height: 37px;
-  }
 }
 
 .news__container-for-button {
@@ -102,21 +71,12 @@
   right: 0;
   width: 371px;
   height: 253px;
-
-  @include media-large {
-    width: 137px;
-    height: 120px;
-  }
 }
 
 .news__img-star {
   position: absolute;
-  bottom: 77px;
+  bottom: 78px;
   left: 516px;
   width: 64px;
   height: 54px;
-
-  @include media-large {
-    display: none;
-  }
 }

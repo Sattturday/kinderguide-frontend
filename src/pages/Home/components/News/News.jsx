@@ -39,14 +39,12 @@ export function News() {
         {/*) : (*/}
         {/*  ''*/}
         {/*)}*/}
-        <div className='news__container-for-button'>
-          <AddMoreButton
-            cards={NewsData}
-            count={5}
-            displayedCards={displayedCards}
-            setDisplayedCards={setDisplayedCards}
-          />
-        </div>
+        <AddMoreButton
+          cards={NewsData}
+          count={5}
+          displayedCards={displayedCards}
+          setDisplayedCards={setDisplayedCards}
+        />
       </div>
       <img
         className='news__img-wave'
