@@ -22,9 +22,9 @@ export const kindergartenReviewsApi = createApi({
       providesTags: (result) =>
         result
           ? [
-            ...result.map(({ id }) => ({ type: 'KindergartenReviews', id })),
-            { type: 'KindergartenReviews', id: 'LIST' },
-          ]
+              ...result.map(({ id }) => ({ type: 'KindergartenReviews', id })),
+              { type: 'KindergartenReviews', id: 'LIST' },
+            ]
           : [{ type: 'KindergartenReviews', id: 'LIST' }],
     }),
 
