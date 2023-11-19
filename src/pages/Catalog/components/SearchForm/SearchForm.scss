@@ -1,7 +1,8 @@
 @import '../../../../styles/abstract/constants.scss';
+@import '../../../../styles/abstract/mixins.scss';
 
 .search {
-  width: 478px;
+  width: 518px;
   position: relative;
   height: 100px;
 }
@@ -41,5 +42,33 @@
 
   &:hover {
     opacity: 0.8;
+  }
+}
+
+@include media-medium {
+  .search {
+    width: 380px;
+    position: relative;
+    height: 36px;
+  }
+}
+
+@include media-mobile {
+  .search {
+    width: 231px;
+    position: relative;
+    height: 36px;
+  }
+  .search__searchIcon {
+    top: 0;
+  }
+  .search__searchImg {
+    width: 16px;
+    aspect-ratio: 1 / 1;
+    object-fit: contain;
+
+    &:hover {
+      opacity: 0.8;
+    }
   }
 }
