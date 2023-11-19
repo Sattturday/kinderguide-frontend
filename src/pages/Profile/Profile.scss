@@ -11,7 +11,7 @@
   height: 628px;
   background-image: url('../../images/Profile/bg-profile.svg');
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: cover;
 }
 
 .profile__title {
@@ -24,13 +24,13 @@
   color: $title-blue;
 }
 
-.profile__title::before {
+.profile::before {
   content: '';
   position: absolute;
   width: 100px;
   height: 100px;
-  top: 82px;
-  right: -591px;
+  top: 80px;
+  right: 360px;
   background-image: url('../../images/ServiceWork/snowflake.svg');
   background-size: contain;
   background-repeat: no-repeat;
@@ -44,4 +44,72 @@
   bottom: -63px;
   right: 142px;
   background-image: url('../../images/Profile/big-notes-blue.svg');
+}
+
+@media screen and (max-width: 768px) {
+  .profile {
+    margin-top: 18px;
+    margin-bottom: 100px;
+  }
+  .profile__title {
+    padding: 32px 0 0 32px;
+    margin-bottom: 56px;
+    font-size: 28px;
+  }
+
+  .profile__wrapper {
+    height: 514px;
+    background-image: url('../../images/Profile/bg-profile-iPad.svg');
+    background-size: contain;
+  }
+
+  .profile::before {
+    width: 64px;
+    height: 64px;
+    top: 58px;
+    right: 171px;
+  }
+
+  .profile::after {
+    width: 192px;
+    height: 114px;
+    bottom: -58px;
+    right: 62px;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .profile {
+    display: flex;
+    margin-bottom: 40px;
+  }
+
+  .profile__title {
+    margin-bottom: 62px;
+    padding: 20px 0 0 16px;
+    font-size: 20px;
+  }
+
+  .profile::before {
+    width: 40px;
+    height: 40px;
+    top: 47px;
+    right: 67px;
+  }
+
+  .profile::after {
+    background-image: url('../../images/Profile/big-notes-blue-mob.svg');
+    width: 89px;
+    height: 50px;
+    bottom: -24px;
+    right: 67px;
+  }
+
+  .profile__wrapper {
+    width: 320px;
+    height: 547px;
+    background-image: url('../../images/Profile/bg-profile-mob.svg');
+  }
 }

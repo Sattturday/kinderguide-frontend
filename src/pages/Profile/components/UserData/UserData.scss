@@ -4,3 +4,18 @@
   display: flex;
   gap: 32px;
 }
+
+@media screen and (max-width: 768px) {
+  .user__btns {
+    margin-top: 33px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .user__btns {
+    padding: 0;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+}

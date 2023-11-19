@@ -3,6 +3,7 @@
 
 .user-edit__name-text {
   @include text-l;
+  font-weight: 600;
   margin-bottom: 33px;
   width: 155px;
 }
@@ -14,7 +15,42 @@
 }
 
 .user-edit__btns {
-  margin-top: 25px;
+  margin-top: 12px;
   display: flex;
   gap: 32px;
+}
+
+@media screen and (max-width: 768px) {
+  .user-edit__name-text {
+    margin-top: -16px;
+    font-size: 18px;
+    line-height: 1.2;
+    letter-spacing: -0.18px;
+  }
+
+  .user__wrapper-edit {
+    gap: 20px;
+  }
+
+  .user-edit__btns {
+    gap: 20px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .user__wrapper-edit {
+    padding-left: 20px;
+    flex-direction: column;
+  }
+
+  .user-edit__name-text {
+    padding-left: 20px;
+  }
+
+  .user-edit__btns {
+    padding: 0;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
 }

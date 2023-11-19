@@ -7,7 +7,8 @@
 
 .user__wrapper {
   margin-bottom: 32px;
-  width: 729px;
+  margin-right: 40px;
+  max-width: 729px;
   padding: 25px 60px;
   display: flex;
   gap: 60px;
@@ -16,10 +17,52 @@
 }
 
 .user__label {
-  @include text-m;
+  margin: 0;
   width: 84px;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 130%;
+  letter-spacing: -0.18px;
 }
 
 .user__text {
-  @include text-m;
+  margin: 0;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 130%;
+  letter-spacing: -0.18px;
+}
+
+@media screen and (max-width: 768px) {
+  .user {
+    margin-left: 32px;
+  }
+
+  .user__wrapper {
+    max-width: 427px;
+    padding: 21px 12px;
+    margin-bottom: 20px;
+    gap: 35px;
+  }
+
+  .user__label {
+    font-size: 15px;
+    letter-spacing: -0.15px;
+  }
+
+  .user__text {
+    font-size: 15px;
+    letter-spacing: -0.15px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .user {
+    margin-left: 0;
+  }
+  .user__wrapper {
+    padding: 26px 12px;
+    margin: 0 auto 16px;
+    max-width: 288px;
+  }
 }

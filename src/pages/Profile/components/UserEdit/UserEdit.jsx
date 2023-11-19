@@ -73,13 +73,13 @@ export function UserEdit({ setEditUser }) {
         <InputWrapper
           labelText='Имя'
           inputId='first_name'
-          variant='info'
+          variant='profile'
           errorText={errors['first_name']}
         >
           <Input
             pattern='^[А-Яа-яA-Za-z]+$'
             inputId='first_name'
-            variant='info'
+            variant='profile'
             name='first_name'
             onChange={onChange}
             value={data?.first_name || ''}
@@ -91,13 +91,13 @@ export function UserEdit({ setEditUser }) {
         <InputWrapper
           labelText='Фамилия'
           inputId='last_name'
-          variant='info'
+          variant='profile'
           errorText={errors['last_name']}
         >
           <Input
             pattern='^[А-Яа-яA-Za-z]+$'
             inputId='last_name'
-            variant='info'
+            variant='profile'
             name='last_name'
             onChange={onChange}
             value={data?.last_name || ''}
@@ -111,12 +111,12 @@ export function UserEdit({ setEditUser }) {
         <InputWrapper
           labelText='Телефон'
           inputId='phone'
-          variant='info'
+          variant='profile'
           errorText={errors['phone']}
         >
           <InputTel
             isClass='inputTel__profile'
-            variant='info'
+            variant='profile'
             inputId='phone'
             name='phone'
             placeholder='Введите телефон'
@@ -129,12 +129,12 @@ export function UserEdit({ setEditUser }) {
         <InputWrapper
           labelText='Email'
           inputId='email'
-          variant='info'
+          variant='profile'
           errorText={errors['email']}
         >
           <Input
             inputId='email'
-            variant='info'
+            variant='profile'
             name='email'
             onChange={onChange}
             value={data?.email || ''}
@@ -147,7 +147,7 @@ export function UserEdit({ setEditUser }) {
       <div className='user-edit__btns'>
         <Button
           type='submit'
-          width='188px'
+          width='204px'
           size='small'
           color={isReadyToSubmit ? 'fill' : 'dis'}
           disabled={!isReadyToSubmit}
@@ -159,7 +159,7 @@ export function UserEdit({ setEditUser }) {
         </Button>
         <Button
           type='button'
-          width='188px'
+          width='204px'
           size='small'
           color='empty'
           onClick={(e) => {
