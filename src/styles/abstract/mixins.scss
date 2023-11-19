@@ -29,6 +29,13 @@
   }
 }
 
+// этот для вещей, которые должны быть только на устройствах, подддерживающих эффекты наведения
+@mixin media-hover {
+  @media (hover: hover) {
+    @content;
+  }
+}
+
 @mixin link {
   text-decoration: none;
   transition: 1s;

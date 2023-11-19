@@ -78,13 +78,13 @@ export function Catalog() {
     setList(data);
   }, [data]);
 
-  useEffect(() => {
-    document.addEventListener('scroll', scrollHandler);
+  // useEffect(() => {
+  //   document.addEventListener('scroll', scrollHandler);
 
-    return function () {
-      document.removeEventListener('scroll', scrollHandler);
-    };
-  }, []);
+  //   return function () {
+  //     document.removeEventListener('scroll', scrollHandler);
+  //   };
+  // }, []);
 
   const scrollHandler = (evt) => {
     console.log(list);
