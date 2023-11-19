@@ -1,11 +1,15 @@
 import { useNavigate } from 'react-router-dom';
 
 import img from '../../../images/NewsCard/img5.png';
-import { Stars } from '../../Stars';
-import { LikeButton } from '../../LikeButton/LikeButton';
+import star from '../../../images/Stars/Star-filled.svg';
 import useFavorite from '../../../hooks/useFavorite';
+import { getName } from '../../../utils/utils';
+import { LikeButton } from '../../LikeButton/LikeButton';
+import { Stars } from '../../Stars';
 
 import './Card.scss';
+
+const reviewName = ['отзыв', 'отзыва', 'отзывов'];
 
 export const Card = ({ cardData }) => {
   const image = cardData.album.length > 0 ? cardData.album[0].image : img;
@@ -31,8 +35,20 @@ export const Card = ({ cardData }) => {
         <div className='card__price-block'>
           <p className='card__price'>{`от ${cardData.price} ₽/мес.`}</p>
           <Stars rating={cardData.rating}>
-            <p className='card__reviews'>{cardData.reviews || 0}</p>
+            <p className='card__reviews'>&nbsp;{cardData.reviews || 0}</p>
           </Stars>
+        </div>
+
+        <div className='card__price-block-s'>
+          <p className='card__price'>{`от ${cardData.price} ₽/мес.`}</p>
+          <div className='card__reviews-s'>
+            <p>{cardData.rating || 0}&nbsp;</p>
+            <img src={star} alt='star' />
+            <span>
+              &nbsp;&nbsp;{cardData.reviews || 0}&nbsp;
+              {getName(cardData.reviews, reviewName)}
+            </span>
+          </div>
         </div>
       </div>
     </div>
