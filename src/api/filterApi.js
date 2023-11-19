@@ -14,12 +14,13 @@ export const filterApi = createApi({
   endpoints: (build) => ({
     // Определение запроса для получения отфильтрованных данных
     getFilteredData: build.query({
-      query: ([category = '', params = '']) => {
+      query: ([category = '', params = '', currentPage = '']) => {
         const token = getAuthToken();
         const authHeader = token ? { Authorization: `Bearer ${token}` } : {};
 
         return {
-          url: `${category}/${params ? '?' + params : ''}`,
+          //url: `${category}/${params ? '?' + params : ''}`,
+          url: `${category}/?${params ? `${params}&` : ''}page=${currentPage}`,
           headers: authHeader,
         };
       },
