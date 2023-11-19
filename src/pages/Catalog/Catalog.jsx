@@ -44,6 +44,12 @@ export function Catalog() {
   // Использование отложенного значения для фильтров, чтобы уменьшить нагрузку на пользовательский интерфейс
   const deferredFilter = useDeferredValue(filter);
 
+  // Стейты для пагинации
+  const [currentPage, setCurrentPage] = useState(1);
+  const [fetching, setFetching] = useState(false);
+  const [totalCount, setTotalCount] = useState(0);
+  const [list, setList] = useState([]);
+
   const dispatch = useDispatch();
 
   // Получение списка всех объектов фильтров
@@ -60,12 +66,41 @@ export function Catalog() {
   const { data = [], isLoading } = useGetFilteredDataQuery([
     filter.category,
     paramsUrl,
+    currentPage,
   ]);
 
   const { data: fullData = [] } = useGetFilteredDataFullQuery([
     filter.category,
     paramsUrl,
   ]);
+
+  useEffect(() => {
+    setList(data);
+  }, [data]);
+
+  useEffect(() => {
+    document.addEventListener('scroll', scrollHandler);
+
+    return function () {
+      document.removeEventListener('scroll', scrollHandler);
+    };
+  }, []);
+
+  const scrollHandler = (evt) => {
+    console.log(list);
+    setTotalCount(list.count);
+    if (
+      evt.target.documentElement.scrollHeight -
+        (evt.target.documentElement.scrollTop + window.innerHeight) <
+        100 &&
+      list.results.length < totalCount
+    ) {
+      setFetching(true);
+      console.log('скролл');
+      console.log(totalCount);
+      console.log(data.results.length);
+    }
+  };
 
   // Формирование списка фильтров
   const filterItems = getFilterItems(
