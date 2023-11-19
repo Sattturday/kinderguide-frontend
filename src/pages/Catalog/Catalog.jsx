@@ -132,7 +132,7 @@ export function Catalog() {
     dispatch(setSortFilter(btnId));
   };
 
-  const sortDirectionHandler = () => {
+  const sortDirectionHandler = (e) => {
     const ordering = filter.ordering.startsWith('-')
       ? filter.ordering.slice(1)
       : `-${filter.ordering}`;
