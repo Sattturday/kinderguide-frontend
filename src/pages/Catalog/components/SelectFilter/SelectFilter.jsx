@@ -10,7 +10,6 @@ export function SelectFilter({ option, isChecked, onChange }) {
           isChecked ? ' select-filter__label_checked' : ''
         }`}
       >
-        {option.name}
         <input
           type='checkbox'
           className='select-filter__input'
@@ -19,6 +18,8 @@ export function SelectFilter({ option, isChecked, onChange }) {
           checked={isChecked || false}
           onChange={() => onChange(option)}
         />
+        <span className='select-filter__checkbox'></span>
+        <p>{option.name}</p>
       </label>
     </div>
   );
