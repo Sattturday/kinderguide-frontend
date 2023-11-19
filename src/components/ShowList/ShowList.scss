@@ -29,7 +29,15 @@
 .show-list__items {
   display: flex;
   flex-direction: column;
-  gap: 23px;
+  gap: 24px;
+
+  @include media-medium {
+    gap: 16px;
+  }
+
+  @include media-small {
+    gap: 10px;
+  }
 }
 
 .show-list__icons {

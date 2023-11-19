@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
 import { searchMessage } from '../../utils/emptyPageMessage';
+import { getName } from '../../utils/utils';
 import { Preloader } from '../Preloader';
 import { Card } from '../common/Card';
 import { Button } from '../common/Button';
@@ -13,15 +14,6 @@ import './ShowList.scss';
 
 const schoolName = ['школа', 'школы', 'школ'];
 const gardenName = ['детский сад', 'детксих сада', 'детских садов'];
-
-function getName(value, words) {
-  value = Math.abs(value) % 100;
-  var num = value % 10;
-  if (value > 10 && value < 20) return words[2];
-  if (num > 1 && num < 5) return words[1];
-  if (num === 1) return words[0];
-  return words[2];
-}
 
 export const ShowList = ({ data, selected, isLoading, fullData }) => {
   const user = useSelector((state) => state.auth.user);
@@ -49,7 +41,7 @@ export const ShowList = ({ data, selected, isLoading, fullData }) => {
                   других устройствах
                 </p>
               </div>
-            ) : selected === 'catalog' ? (
+            ) : selected !== 'favorites' ? (
               <p className='show-list__info'>
                 Найдено {data.length}{' '}
                 {selected === 'schools'
