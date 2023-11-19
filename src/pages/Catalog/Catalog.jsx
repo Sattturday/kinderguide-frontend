@@ -63,13 +63,13 @@ export function Catalog() {
   const { data: metroFilters } = useGetMetroFiltersQuery();
 
   // Получение отфильтрованных данных с сервера на основе выбранных фильтров
-  const { data = [], isLoading } = useGetFilteredDataQuery([
-    filter.category,
-    paramsUrl,
-    //currentPage,
-  ]);
+  // const { data = [], isLoading } = useGetFilteredDataQuery([
+  //   filter.category,
+  //   paramsUrl,
+  //   //currentPage,
+  // ]);
 
-  const { data: fullData = [] } = useGetFilteredDataFullQuery([
+  const { data: fullData = [], isLoading } = useGetFilteredDataFullQuery([
     filter.category,
     paramsUrl,
   ]);
@@ -210,7 +210,8 @@ export function Catalog() {
             filterItems={filterItems}
           />
           <ShowList
-            data={data ? data.results : []}
+            // data={data ? data.results : []}
+            data={fullData ? fullData : []}
             fullData={fullData ? fullData : []}
             selected={selected}
             isLoading={isLoading}
