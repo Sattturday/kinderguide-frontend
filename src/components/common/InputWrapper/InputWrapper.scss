@@ -54,6 +54,49 @@
   -webkit-box-orient: vertical;
   overflow: hidden;
   margin: 0;
-  padding: 5px 0 0 0;
-  height: 23px;
+  padding: 5px 0 12px 0;
+}
+
+@include media-medium {
+  .inputWrapper {
+    &_kind {
+      &_form {
+        width: 300px;
+      }
+
+      &_password {
+        width: 300px;
+      }
+
+      &_info {
+        width: 300px;
+      }
+
+      &_search {
+        width: 380px;
+      }
+    }
+  }
+}
+
+@include media-mobile {
+  .inputWrapper {
+    &_kind {
+      &_form {
+        width: 288px;
+      }
+
+      &_password {
+        width: 288px;
+      }
+
+      &_info {
+        width: 298px;
+      }
+
+      &_search {
+        width: 478px;
+      }
+    }
+  }
 }
