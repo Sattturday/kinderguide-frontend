@@ -3,7 +3,7 @@ import './Nav.scss';
 
 export function Nav({ selected, onClickNavHandler }) {
   return (
-    <nav className='catalog__nav'>
+    <nav className={`catalog__nav catalog__nav_${selected}`}>
       {NAV_CATEGORY.map((item, index) => {
         return (
           <button

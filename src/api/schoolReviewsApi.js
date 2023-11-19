@@ -22,9 +22,9 @@ export const schoolReviewsApi = createApi({
       providesTags: (result) =>
         result
           ? [
-            ...result.map(({ id }) => ({ type: 'SchoolReviews', id })),
-            { type: 'SchoolReviews', id: 'LIST' },
-          ]
+              ...result.map(({ id }) => ({ type: 'SchoolReviews', id })),
+              { type: 'SchoolReviews', id: 'LIST' },
+            ]
           : [{ type: 'SchoolReviews', id: 'LIST' }],
     }),
 
