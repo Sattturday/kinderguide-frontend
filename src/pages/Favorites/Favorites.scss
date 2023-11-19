@@ -2,13 +2,40 @@
 @import '../../styles/abstract/mixins.scss';
 
 .favorites {
-  margin-bottom: 200px;
+  @include margin-main;
+
+  & .wrapper > * {
+    @include padding-widget-main;
+
+    @include media-small {
+      @include margin-padding-null;
+    }
+  }
+
+  @include media-990 {
+    margin-top: 32px;
+    margin-bottom: 48px;
+    padding-bottom: 0;
+  }
+
+  @include media-small {
+    margin-top: 24px;
+    margin-bottom: 40px;
+  }
 }
 
 .favorites__title {
-  @include text-xl;
+  @include text-xl($fw-semi-bold);
   margin-bottom: 48px;
   color: $title-blue;
+
+  @include media-990 {
+    @include text-xls($fw-normal);
+  }
+
+  @include media-small {
+    @include text-l($fw-semi-bold);
+  }
 }
 
 .favorites__block {
