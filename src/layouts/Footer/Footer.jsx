@@ -19,14 +19,14 @@ export const Footer = () => (
         <p className='footer__feedback'>KinderGuide@yandex.ru</p>
         <div className='footer__social-network-area'>
           <Link to='/' className='footer__social-network-item'>
-            <img src={whatsappLogo} alt='ссылка на ватсап' />
-          </Link>{' '}
-          <Link to='/' className='footer__social-network-item'>
             <img src={telegramLogo} alt='ссылка на телеграм' />
           </Link>
           <Link to='/' className='footer__social-network-item'>
             <img src={vkLogo} alt='ссылка на вконтакте' />
           </Link>
+          <Link to='/' className='footer__social-network-item'>
+            <img src={whatsappLogo} alt='ссылка на ватсап' />
+          </Link>{' '}
         </div>
       </div>
     </div>

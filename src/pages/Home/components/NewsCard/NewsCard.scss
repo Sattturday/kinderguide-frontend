@@ -11,22 +11,34 @@
 
 .news-card__largeCard {
   width: 846px;
-  min-height: 428px;
+  max-height: 402px;
   background-color: $white;
   display: flex;
-  padding: 20px 32px 20px 32px;
+  padding: 20px 32px 20px 23px;
   border-radius: 16px;
   border: 4px solid var(--background-hover, $border-lilac);
+  @include media-large {
+    width: 460px;
+    min-height: 240px;
+    padding: 16px;
+  }
 }
 
 .news-card__normalCard {
   width: 408px;
+  max-height: 402px;
   background-color: $white;
   display: flex;
   flex-direction: column-reverse;
-  padding: 20px;
+  padding: 28px 20px 20px 20px;
   border-radius: 16px;
   border: 4px solid var(--Violet, $border-violet);
+
+  @include media-large {
+    width: 220px;
+    max-height: 240px;
+    padding: 16px;
+  }
 }
 
 .news-card__orange-border {
@@ -37,16 +49,28 @@
   padding: 20px;
   border-radius: 16px;
   border: 4px solid var(--Orange, #ff7a2c);
+
+  @include media-large {
+    width: 220px;
+    max-height: 240px;
+    padding: 16px;
+  }
 }
 
 .news-card__image-largeCard {
-  max-width: 376px;
+  max-width: 339px;
+  max-height: 354px;
   object-fit: cover;
   border-radius: 16px;
+  @include media-large {
+    max-width: 214px;
+    max-height: 203px;
+  }
 }
 
 .news-card__image-normalCard {
   max-width: 354px;
+
   border-radius: 16px;
   padding: 0;
   max-height: 170px;
@@ -56,18 +80,31 @@
 
 .news-card__info-largeCard {
   min-width: 386px;
-  padding: 20px 20px 20px 40px;
+  padding: 0px 20px 20px 30px;
+  @include media-large {
+    min-width: 198px;
+    padding: 0px 16px 16px 16px;
+    max-height: 203px;
+  }
 }
 
 .news-card__date {
   @include text-s;
   line-height: 1.2;
+  @include media-large {
+    font-size: 12px;
+  }
 }
 
 .news-card__title {
   @include text-l($fw-semi-bold);
   margin-top: 12px;
   margin-bottom: 20px;
+  @include media-large {
+    font-size: 14px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+  }
 }
 
 .news-card__description-largeCard {
@@ -81,11 +118,14 @@
   p {
     margin: 0;
   }
+  @include media-large {
+    font-size: 14px;
+  }
 }
 
 .news-card__description-normalCard {
   @include text-l;
-  margin: 8px 0 40px;
+  margin: 8px 0 22px;
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
@@ -93,5 +133,8 @@
   text-overflow: ellipsis;
   p {
     margin: 0;
+  }
+  @include media-large {
+    display: none;
   }
 }

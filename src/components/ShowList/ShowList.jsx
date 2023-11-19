@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
+import mapIcon from '../../images/Catalog/map_icon.svg';
 import { searchMessage } from '../../utils/emptyPageMessage';
 import { getName } from '../../utils/utils';
 import { Preloader } from '../Preloader';
@@ -53,7 +54,8 @@ export const ShowList = ({ data, selected, isLoading, fullData }) => {
               data.length !== 0 &&
               (isList ? (
                 <Button onClick={toggleList} variant='link'>
-                  На карте
+                  На карте&nbsp;
+                  <img src={mapIcon} alt='map icon' />
                 </Button>
               ) : (
                 <Button onClick={toggleList} variant='link'>
