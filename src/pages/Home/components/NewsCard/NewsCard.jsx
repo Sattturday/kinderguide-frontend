@@ -28,8 +28,8 @@ export const NewsCard = ({ dataCard }) => {
         isLargeCard
           ? 'news-card__largeCard news-card'
           : isOrangeCard
-          ? 'news-card__orange-border news-card'
-          : 'news-card__normalCard news-card'
+            ? 'news-card__orange-border news-card'
+            : 'news-card__normalCard news-card'
       }
       onClick={handleClickCardNew}
     >

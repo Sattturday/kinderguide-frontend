@@ -120,47 +120,47 @@ export function getFilterItems(
 
   return selected === 'kindergartens'
     ? [
-        {
-          category: 'working_hours',
-          title: 'Время работы',
-          type: 'select-filter',
-          items: workingFilters,
-        },
-        {
-          category: 'group_size',
-          title: 'Размер группы',
-          type: 'select-filter',
-          items: groupSizeFilters,
-        },
-        ...booleanFilters,
-        {
-          category: 'preparing_for_school',
-          title: 'Подготовка к школе',
-          type: 'boolean',
-        },
-        {
-          category: 'age_category',
-          title: 'Возраст',
-          type: 'select-filter',
-          items: ageFilters,
-        },
-        ...commonFilters,
-      ]
+      {
+        category: 'working_hours',
+        title: 'Время работы',
+        type: 'select-filter',
+        items: workingFilters,
+      },
+      {
+        category: 'group_size',
+        title: 'Размер группы',
+        type: 'select-filter',
+        items: groupSizeFilters,
+      },
+      ...booleanFilters,
+      {
+        category: 'preparing_for_school',
+        title: 'Подготовка к школе',
+        type: 'boolean',
+      },
+      {
+        category: 'age_category',
+        title: 'Возраст',
+        type: 'select-filter',
+        items: ageFilters,
+      },
+      ...commonFilters,
+    ]
     : [
-        {
-          category: 'profile',
-          title: 'Профиль',
-          type: 'select-filter',
-          items: profileFilters,
-        },
-        {
-          category: 'classes',
-          title: 'Классы',
-          type: 'select-filter',
-          items: classFilters,
-        },
-        ...commonFilters,
-      ];
+      {
+        category: 'profile',
+        title: 'Профиль',
+        type: 'select-filter',
+        items: profileFilters,
+      },
+      {
+        category: 'classes',
+        title: 'Классы',
+        type: 'select-filter',
+        items: classFilters,
+      },
+      ...commonFilters,
+    ];
 }
 
 // Функция определения цвета ветки
