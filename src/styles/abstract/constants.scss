@@ -8,7 +8,7 @@ $orange: hsla(45, 99%, 65%, 1);
 $blue-dark: hsla(251, 44%, 20%, 1);
 
 //Кнопки
-$button-violet: hsla(251, 60%, 59%, 1);
+$button-violet: hsla(251, 60%, 59%, 0.4);
 $button-violet-hover: hsla(251, 60%, 59%, 0.8);
 $button-violet-active: hsla(251, 69%, 59%, 1);
 
@@ -33,9 +33,9 @@ $bg-gray: hsla(214, 26%, 95%, 1);
 $bg-lite: hsl(227, 100%, 96%);
 
 //Рамка
-$border-purple: hsla(227, 100%, 86%, 1);
+$border-purple: hsla(251, 60%, 59%, 0.4);
 $border-violet: hsla(251, 60%, 59%, 1);
-$border-lilac: hsla(227, 97%, 75%, 1);
+$border-lilac: hsla(227, 100%, 86%, 1);
 
 //Ошибка
 $error: hsla(349, 100%, 35%, 1);
