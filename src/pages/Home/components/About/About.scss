@@ -3,20 +3,240 @@
 @import '../../../../styles/abstract/placeholders';
 
 .about {
-  padding: 152px 0;
+  padding: 150px 0 0;
+}
+
+.about__wrapper {
+  display: grid;
+  grid-template-areas:
+  "one two"
+  "three four";
+  grid-template-rows: 31% 50%;
+  grid-template-columns: 49% 49%;
+  gap: 4% 2%;
+}
+
+.about__containerOne {
+  grid-area: one;
+  background: url('../../../../images/About/CardOneDesctop.svg') no-repeat;
+  background-size: contain;
+  aspect-ratio: 2.39;
+  width: 100%;
+  display: flex;
+  align-items: center;
 }
 
 .about__header {
-  @include header-cyan;
-  text-align: center;
-  padding: 0;
-  margin-bottom: 64px;
+  margin-left: 6%;
+  width: 60%;
+  font-size: 48px;
+  font-weight: $fw-normal;
+  line-height: 1.2;
 }
 
-.about__list {
-  @include list;
+.about__containerTwo {
+  grid-area: two;
+  overflow: visible;
   width: 100%;
-  display: grid;
-  grid-template-columns: repeat(3, auto);
-  justify-content: space-between;
+  background-size: contain;
+  aspect-ratio: 2.39;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
 }
+
+.two {
+  background: url('../../../../images/About/CardTwoDesctop.svg') no-repeat;
+  background-size: contain;
+  width: 100%;
+  aspect-ratio: 1.51;
+}
+
+.about__infoWrapperTwo {
+  width: 58%;
+  margin-left: 30%;
+  margin-top: 6%;
+}
+
+.about__containerThree {
+  grid-area: three;
+  background: url('../../../../images/About/CardThreeDesctop.svg') no-repeat;
+  background-size: contain;
+  aspect-ratio: 1.51;
+  width: 100%;
+}
+
+.about__infoWrapperThree {
+  width: 67%;
+  margin-left: 30%;
+  margin-top: 6%;
+}
+
+.about__containerFour {
+  grid-area: four;
+  background: url('../../../../images/About/CardFourDesctop.svg') no-repeat;
+  aspect-ratio: 1.51;
+  background-size: contain;
+  width: 100%;
+}
+
+.about__infoWrapperFour {
+  width: 63%;
+  margin-left: 6%;
+  margin-top: 30%;
+}
+
+.about__title {
+  @include text-l($fw-semi-bold);
+  margin-bottom: 16px;
+}
+
+.about__text {
+  @include text-l;
+}
+
+@media screen and (max-width: 1250px) {
+  .about__header {
+    font-size: 38px;
+  }
+
+  .about__title {
+    @include text-m($fw-semi-bold);
+    margin-bottom: 12px;
+  }
+
+  .about__text {
+    @include text-m;
+  }
+}
+
+@media screen and (max-width: 950px) {
+  .about {
+    padding: 80px 0 0;
+  }
+
+  .about__wrapper {
+    grid-template-rows: 34% 50%;
+    grid-template-columns: 49% 49%;
+    gap: 3% 2%;
+    justify-content: center;
+  }
+
+    .about__containerOne {
+      background: url('../../../../images/About/CardOnePad.svg') no-repeat;
+      aspect-ratio: 1.68;
+      background-size: contain;
+    }
+
+  .about__header {
+    font-size: 28px;
+  }
+
+  .about__containerTwo {
+    aspect-ratio: 1.68;
+  }
+
+  .two {
+    background: url('../../../../images/About/CardTwoPad.svg') no-repeat;
+    aspect-ratio: 1.14;
+    background-size: contain;
+  }
+
+  .about__containerThree {
+    background: url('../../../../images/About/CardThreePad.svg') no-repeat;
+    aspect-ratio: 1.14;
+    background-size: contain;
+  }
+
+  .about__containerFour {
+    background: url('../../../../images/About/CardFourPad.svg') no-repeat;
+    aspect-ratio: 1.14;
+    background-size: contain;
+  }
+
+  .about__title {
+    @include text-m($fw-semi-bold);
+    margin-bottom: 8px;
+  }
+
+  .about__text {
+    @include text-s;
+  }
+}
+
+@include media-small {
+  .about {
+    padding: 40px 0 0;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  .about__wrapper {
+    display: grid;
+    grid-template-areas:
+  "one"
+  "two"
+  "four"
+  "three";
+    grid-template-rows: auto;
+    grid-template-columns: 100%;
+    gap: 20px;
+  }
+
+  .about__containerOne {
+    background: url('../../../../images/About/CardOneMob.svg') no-repeat;
+    background-size: contain;
+    aspect-ratio: 2.4;
+  }
+
+  .about__containerTwo {
+    aspect-ratio: 1.79;
+    width: 100%;
+  }
+
+  .two {
+    background: url('../../../../images/About/CardTwoMob.svg') no-repeat;
+    aspect-ratio: 0.97;
+    background-size: contain;
+    width: 100%;
+  }
+
+  .about__containerThree {
+    background: url('../../../../images/About/CardThreeMob.svg') no-repeat;
+    background-size: contain;
+    aspect-ratio: 0.97;
+  }
+
+  .about__containerFour {
+    background: url('../../../../images/About/CardFourMob.svg') no-repeat;
+    aspect-ratio: 0.97;
+    background-size: contain;
+    margin-top: -30%;
+  }
+
+  .about__infoWrapperFour {
+    width: 70%;
+    margin-left: 6%;
+    margin-top: 34%;
+  }
+
+  .about__text {
+    @include text-m;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .about__header {
+    font-size: 20px;
+    width: 55%;
+  }
+
+  .about__title {
+    margin-bottom: 0;
+  }
+
+  .about__text {
+    @include text-s;
+  }
+}
+
