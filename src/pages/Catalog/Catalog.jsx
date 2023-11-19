@@ -188,9 +188,9 @@ export function Catalog() {
 
   return (
     <section className='catalog'>
-      <Nav selected={selected} onClickNavHandler={onClickNavHandler} />
-      <div className='list-wrapper'>
-        <div className='search-wrapper'>
+      <div className='wrapper'>
+        <Nav selected={selected} onClickNavHandler={onClickNavHandler} />
+        <div className='catalog__wrapper'>
           <SearchForm
             onChange={searchHandler}
             value={deferredFilter.search}
@@ -201,21 +201,21 @@ export function Catalog() {
             sortHandler={sortHandler}
             sortDirectionHandler={sortDirectionHandler}
           />
+          <FilterList
+            handleSubmit={handleSubmit}
+            filter={deferredFilter}
+            checkboxHandler={checkboxHandler}
+            selectHandler={selectHandler}
+            handleReset={handleReset}
+            filterItems={filterItems}
+          />
+          <ShowList
+            data={data ? data.results : []}
+            fullData={fullData ? fullData : []}
+            selected={selected}
+            isLoading={isLoading}
+          />
         </div>
-        <FilterList
-          handleSubmit={handleSubmit}
-          filter={deferredFilter}
-          checkboxHandler={checkboxHandler}
-          selectHandler={selectHandler}
-          handleReset={handleReset}
-          filterItems={filterItems}
-        />
-        <ShowList
-          data={data ? data.results : []}
-          fullData={fullData ? fullData : []}
-          selected={selected}
-          isLoading={isLoading}
-        />
       </div>
     </section>
   );

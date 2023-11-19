@@ -1,29 +1,35 @@
 @import '../../styles/abstract/constants.scss';
 
 .catalog {
-  padding: 0 76px 200px;
+  padding: 34px 0 60px;
 }
 
-.list-wrapper {
+.catalog__wrapper {
+  padding: 0 32px 50px;
   display: grid;
-  grid-template-columns: 300px 1fr 1fr;
-  grid-template-areas:
-    '. search search'
-    'aside content content';
+  grid-template-columns: 298px auto auto;
+  grid-template-rows: auto auto;
   column-gap: 32px;
+  row-gap: 36px;
+  border-radius: 0 0 $radii-m $radii-m;
+  background-color: $bg-purple;
 }
 
-.search-wrapper {
-  display: flex;
-  justify-content: space-between;
-  grid-area: search;
-  margin-bottom: 40px;
+.search {
+  grid-column: 2 / 3;
+}
+
+.sort {
+  grid-column: 3 / 4;
+  justify-self: end;
 }
 
 .filter {
-  grid-area: aside;
+  grid-row: 2 / 3;
+  grid-column: 1 / 2;
 }
 
 .show-list {
-  grid-area: content;
+  grid-row: 2 / 3;
+  grid-column: 2 / 4;
 }

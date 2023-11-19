@@ -54,9 +54,9 @@ export function Sort({ sortHandler, sortDirectionHandler }) {
         {/* Перебор sortButtons для отображения отдельных опций сортировки */}
         {sortButtons.map((button) => {
           return (
-            <li className='sort-list__item' key={button.id}>
+            <li className='sort-list__items' key={button.id}>
               {/* Кнопка, представляющая каждую опцию сортировки */}
-              <button
+              {/* <button
                 id={button.id}
                 type='button'
                 className={`sort-list__button ${
@@ -64,8 +64,25 @@ export function Sort({ sortHandler, sortDirectionHandler }) {
                 }`}
                 onClick={onClickSortHandler}
               >
+                <span className='sort-list__radio'></span>
                 {button.title}
-              </button>
+              </button> */}
+              <label className='panel__label'>
+                <input
+                  id={button.id}
+                  className='panel__radio'
+                  type='radio'
+                  name={button.id}
+                  checked={ordering === button.id}
+                  onChange={onClickSortHandler}
+                />
+                <span
+                  className={`panel__radio-new ${
+                    ordering === button.id ? 'panel__radio-selected' : ''
+                  }`}
+                ></span>
+                <span className='panel__radio-name'>{button.title}</span>
+              </label>
             </li>
           );
         })}
