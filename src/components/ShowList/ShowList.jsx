@@ -30,39 +30,41 @@ export const ShowList = ({ data, selected, isLoading, fullData }) => {
         <Preloader />
       ) : (
         <>
-          <div className='show-list__infoWrapper'>
-            {selected === 'favorites' && !user ? (
-              <div className='show-list__info'>
-                <div className='show-list__icons' />
-                <p className='show-list__paragraph'>
-                  <Link to='/' className='show-list__link'>
-                    Авторизуйтесь
-                  </Link>
-                  , чтобы сохранить список избранного для просмотра на этом и
-                  других устройствах
+          {selected !== 'favorites' || !user ? (
+            <div className='show-list__infoWrapper'>
+              {selected === 'favorites' && !user ? (
+                <div className='show-list__info'>
+                  <div className='show-list__icons' />
+                  <p className='show-list__paragraph'>
+                    <Link to='/' className='show-list__link'>
+                      Авторизуйтесь
+                    </Link>
+                    , чтобы сохранить список избранного для просмотра на этом и
+                    других устройствах
+                  </p>
+                </div>
+              ) : selected !== 'favorites' ? (
+                <p className='show-list__info'>
+                  Найдено {data.length}{' '}
+                  {selected === 'schools'
+                    ? getName(data.length, schoolName)
+                    : getName(data.length, gardenName)}
                 </p>
-              </div>
-            ) : selected !== 'favorites' ? (
-              <p className='show-list__info'>
-                Найдено {data.length}{' '}
-                {selected === 'schools'
-                  ? getName(data.length, schoolName)
-                  : getName(data.length, gardenName)}
-              </p>
-            ) : null}
-            {selected !== 'favorites' &&
-              data.length !== 0 &&
-              (isList ? (
-                <Button onClick={toggleList} variant='link'>
-                  На карте&nbsp;
-                  <img src={mapIcon} alt='map icon' />
-                </Button>
-              ) : (
-                <Button onClick={toggleList} variant='link'>
-                  Списком
-                </Button>
-              ))}
-          </div>
+              ) : null}
+              {selected !== 'favorites' &&
+                data.length !== 0 &&
+                (isList ? (
+                  <Button onClick={toggleList} variant='link'>
+                    На карте&nbsp;
+                    <img src={mapIcon} alt='map icon' />
+                  </Button>
+                ) : (
+                  <Button onClick={toggleList} variant='link'>
+                    Списком
+                  </Button>
+                ))}
+            </div>
+          ) : null}
           {data.length !== 0 && isList ? (
             <div className='show-list__items'>
               {data.map((card) => {

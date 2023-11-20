@@ -71,7 +71,7 @@ export const Navigation = ({ usedFor }) => {
         }}
       >
         Избранное
-        {usedFor === 'header' && (
+        {(usedFor === 'header' || usedFor === 'burger') && count > 0 && (
           <span className='navigation__item-count'>{count ? count : ''}</span>
         )}
         {/* {usedFor === 'footer' && (
