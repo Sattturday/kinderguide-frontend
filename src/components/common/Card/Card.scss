@@ -1,47 +1,125 @@
 @import '../../../styles/abstract/constants.scss';
 @import '../../../styles/abstract/mixins.scss';
+@import '../../../styles/abstract/placeholders.scss';
 
 .card {
-  padding: 20px;
-  max-width: 958px;
+  padding: 21px 24px;
+  max-width: 894px;
   display: flex;
   align-items: center;
   gap: 20px;
+  background-color: $white;
   border: 1px solid $border-purple;
   border-radius: 16px;
   z-index: 1;
   cursor: pointer;
+  transition: ease-in-out 350ms;
+
+  @include media-hover {
+    &:hover {
+      box-shadow:
+        4px 4px 15px 0px rgba(64, 45, 147, 0.15),
+        -4px -4px 15px 0px rgba(64, 45, 147, 0.15);
+    }
+  }
+
+  @include media-medium {
+    padding: 15px;
+    max-width: 640px;
+    gap: 12px;
+  }
+
+  @include media-small {
+    padding: 10px;
+    max-width: 288px;
+    gap: 8px;
+  }
 }
 
 .card__img {
-  width: 217px;
-  aspect-ratio: 1 / 0.9;
+  width: 210px;
+  aspect-ratio: 1 / 0.87;
   object-fit: cover;
-  border-radius: 16px;
+  border-radius: 12px;
   background-color: $bg-gray;
+
+  @include media-medium {
+    width: 133px;
+    aspect-ratio: 1 / 1;
+  }
+
+  @include media-small {
+    width: 105px;
+  }
 }
 
 .card__container {
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 14px;
+
+  @include media-medium {
+    gap: 8px;
+  }
+
+  @include media-small {
+    min-height: 106px;
+    justify-content: space-between;
+  }
 }
 
 .card__title-block {
+  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  .like-button {
+    @include media-small {
+      position: absolute;
+      top: 3px;
+      left: -46px;
+      background-color: $bg-lite-s;
+      border-radius: 9px;
+      background-image: url(../../../images/Card/Heart.svg);
+
+      &_active {
+        background-image: url(../../../images/Card/like_active.svg);
+      }
+    }
+  }
 }
 
 .card__title {
   @include text-l($fw-semi-bold);
-  letter-spacing: 0.7px;
+  @extend %font-add;
   text-decoration: none;
   color: $black;
+
+  @include media-medium {
+    @include text-m($fw-semi-bold);
+  }
+
+  @include media-small {
+    position: relative;
+    line-height: 1.2;
+    display: -webkit-box;
+    display: box;
+    font-size: 15px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -ms-line-clamp: 3;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    word-wrap: break-word;
+    -webkit-box-orient: vertical;
+    box-orient: vertical;
+  }
 }
 
 .card__text {
+  min-height: 88px;
   position: relative;
   display: -webkit-box;
   display: box;
@@ -57,19 +135,92 @@
   word-wrap: break-word;
   -webkit-box-orient: vertical;
   box-orient: vertical;
+
+  @include media-medium {
+    min-height: 57px;
+    @include text-m;
+    -ms-line-clamp: 3;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+  }
+
+  @include media-small {
+    display: none;
+  }
 }
 
 .card__price-block {
+  @extend %font-add;
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  @include media-medium {
+    display: none;
+  }
 }
 
 .card__price {
+  @extend %font-add;
   @include text-l($fw-semi-bold);
+  line-height: 1.2;
   letter-spacing: 0.8px;
+
+  @include media-medium {
+    @include text-m($fw-semi-bold);
+  }
 }
 
 .card__reviews {
   @include text-l($fw-semi-bold);
+  line-height: 1.1;
+}
+
+.card__price-block-s {
+  display: none;
+
+  @include media-medium {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  @include media-small {
+    flex-direction: column;
+    gap: 7px;
+  }
+}
+
+.card__reviews-s {
+  display: flex;
+  align-items: center;
+
+  p {
+    @extend %font-add;
+    @include text-m($fw-semi-bold);
+    line-height: 1;
+
+    @include media-small {
+      @include text-xs;
+      line-height: 1;
+    }
+  }
+
+  img {
+    width: 16px;
+    aspect-ratio: 1 /1;
+  }
+
+  span {
+    @extend %font-add;
+    @include text-s;
+    padding-right: 5px;
+    line-height: 1;
+    color: $blue-lite;
+
+    @include media-small {
+      @include text-xs;
+      line-height: 1;
+      padding-left: 5px;
+    }
+  }
 }

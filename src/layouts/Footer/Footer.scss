@@ -17,9 +17,9 @@
   color: #fefefe;
   display: flex;
   justify-content: space-between;
-  height: 190px;
+  height: 192px;
   border-bottom: 2px solid #7a7fe6;
-  margin-bottom: 28px;
+  margin-bottom: 25px;
   @include media-medium {
     margin-bottom: 36px;
   }
@@ -43,6 +43,7 @@
   width: 304px;
   display: flex;
   flex-direction: column;
+  gap: 7px;
   @include media-medium {
     width: 168px;
   }
@@ -66,7 +67,7 @@
 .footer__documents {
   display: flex;
   justify-content: flex-start;
-  gap: 48px;
+  gap: 64px;
   margin-left: 4px;
   @include media-small {
     flex-direction: column;

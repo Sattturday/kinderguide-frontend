@@ -10,14 +10,12 @@ import './InputPassword.scss';
 
 export const InputPassword = ({
   inputId,
-  labelText,
-  errorText,
   name,
   onChange,
   placeholder,
   value,
   isValid,
-  forgetPassword, // Ю. Предполагаю сюда переменную boolean для отображения надписи "забыли пароль?" на нужных полях
+  forgetPassword,
 }) => {
   const [type, setType] = useState('password');
   const dispatch = useDispatch();

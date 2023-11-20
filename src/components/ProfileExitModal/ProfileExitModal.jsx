@@ -26,7 +26,7 @@ export const ProfileExitModal = () => {
     resetFavorites();
     navigate('/');
 
-    //   dispatch(setToken(null));
+    // dispatch(setToken(null));
     dispatch(setUser(false));
     dispatch(closeAllModals());
   }
