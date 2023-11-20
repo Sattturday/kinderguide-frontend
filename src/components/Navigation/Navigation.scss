@@ -9,9 +9,6 @@
   &_header {
     width: 452px;
     @include media-medium {
-      width: 389px;
-    }
-    @include media-small {
       display: none;
     }
   }
@@ -21,16 +18,19 @@
     @include media-medium {
       width: 295px;
     }
+    @include media-small {
+      flex-direction: column;
+      min-height: 137px;
+      align-items: start;
+      width: 100%;
+    }
   }
 
   &_burger {
-    margin-top: 38px;
-  }
-
-  @include media-small {
     flex-direction: column;
     min-height: 137px;
     align-items: start;
+    margin-top: 38px;
   }
 }
 
@@ -83,7 +83,7 @@
     width: 100%;
     justify-content: start;
     font-size: 18px;
-    font-weight: 600px;
+    font-weight: 600;
     line-height: 1.2;
     border-radius: 0;
 

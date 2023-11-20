@@ -22,7 +22,7 @@
   @include media-small {
     padding: 0;
     background-size: 320px 242px;
-    background-position: left 0 top 20px;
+    background-position: left 50% top 20px;
   }
 }
 
@@ -34,6 +34,7 @@
 
   @include media-small {
     width: 288px;
+    margin: 0 auto;
   }
   a {
     color: inherit;
