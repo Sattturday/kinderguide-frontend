@@ -15,12 +15,9 @@
 }
 
 .filter__subtitle {
-  color: #1f1f29;
-  @include text-m;
-  font-size: 18px;
-
+  @include text-l;
+  color: $black;
   flex-grow: 1;
-  margin: 0;
 }
 
 .filter__subtitle-caret {
@@ -37,13 +34,13 @@
 }
 
 .filter__list {
-  box-sizing: border-box;
-  width: 100%;
+  @include list;
   max-height: 0;
-  padding: 0;
-  margin: 0;
-  margin-bottom: 12px;
-
+  margin-top: 6px;
+  width: 100%;
+  display: none;
+  flex-direction: column;
+  gap: 14px;
   opacity: 0;
   overflow: hidden;
   -webkit-transition: all 0.4s linear;
@@ -51,14 +48,16 @@
   transition: all 0.4s linear;
 
   &_checkbox {
-    display: flex;
+    display: none;
     flex-direction: column;
-    gap: 20px;
 
     &_active {
+      display: flex;
       z-index: 5;
       max-height: 200px;
       opacity: 1;
+      overflow-y: auto;
+
       &::-webkit-scrollbar {
         width: 5px;
       }
@@ -66,19 +65,22 @@
       &::-webkit-scrollbar-track {
         background-color: #ecf0ff;
       }
+
       &::-webkit-scrollbar-thumb {
         background-color: #829dfd;
         border-radius: 20px;
         height: 40px;
       }
-      overflow-y: auto;
     }
   }
 
-  &_select_active {
-    z-index: 5;
-    max-height: none;
-    overflow: visible;
-    opacity: 1;
+  &_select {
+    &_active {
+      display: flex;
+      z-index: 5;
+      max-height: none;
+      overflow: visible;
+      opacity: 1;
+    }
   }
 }

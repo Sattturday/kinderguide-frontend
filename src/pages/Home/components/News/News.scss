@@ -3,22 +3,40 @@
 
 .news {
   background-color: $bg-purple;
-  padding: 100px 0 196px;
+  padding: 116px 0 253px;
   display: flex;
   flex-direction: column;
   position: relative;
+
+  @include media-netbook {
+    padding: 23px 0 122px;
+  }
+
+  @include media-mobile {
+    padding: 40px 0 87px;
+  }
 }
 
 .news__container {
   display: flex;
   flex-direction: column;
-  margin-bottom: 60px;
+  margin-bottom: 47px;
+  @include media-netbook {
+    margin-bottom: 33px;
+  }
 }
 
 .news__title {
   @include text-xl(500);
   font-size: 48px;
   padding-bottom: 40px;
+  @include media-large {
+    font-size: 28px;
+  }
+  @include media-mobile {
+    font-size: 20px;
+    padding-bottom: 35px;
+  }
 }
 
 .news__list {
@@ -27,9 +45,21 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  gap: 30px;
+  gap: 29px;
   position: relative;
   z-index: 2;
+
+  @include media-large {
+    gap: 21px;
+  }
+  @include media-netbook {
+    gap: 15px;
+  }
+  @include media-small {
+    display: grid;
+    gap: 19px;
+    justify-items: center;
+  }
 }
 
 .news__list::before {
@@ -41,6 +71,20 @@
   right: 412px;
   background-image: url('../../../../images/News/Group\ 21.svg');
   z-index: -1;
+
+  @include media-large {
+    width: 30%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    top: -78px;
+    right: 227px;
+  }
+
+  @include media-small {
+    width: 53%;
+    top: -63px;
+    right: 2px;
+  }
 }
 
 .news__list::after {
@@ -48,10 +92,22 @@
   width: 155px;
   height: 41px;
   position: absolute;
-  bottom: -100px;
+  bottom: -155px;
   left: 0px;
   background-image: url('../../../../images/News/Vector\ 37.svg');
   z-index: -1;
+
+  @include media-large {
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 30%;
+    width: 135px;
+    height: 37px;
+  }
+
+  @include media-mobile {
+    display: none;
+  }
 }
 
 .news__container-for-button {
@@ -71,12 +127,24 @@
   right: 0;
   width: 371px;
   height: 253px;
+
+  @include media-large {
+    width: 170px;
+    height: 120px;
+  }
+  @include media-mobile {
+    display: none;
+  }
 }
 
 .news__img-star {
   position: absolute;
-  bottom: 78px;
+  bottom: 77px;
   left: 516px;
   width: 64px;
   height: 54px;
+
+  @include media-large {
+    display: none;
+  }
 }

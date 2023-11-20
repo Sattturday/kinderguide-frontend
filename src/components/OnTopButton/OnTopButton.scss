@@ -6,6 +6,7 @@
   right: 26px;
   opacity: 0;
   transition: 0.5s;
+  z-index: 5;
 
   &_visible {
     opacity: 1;
@@ -16,12 +17,18 @@
   @include link;
   margin: 0;
   padding: 0;
+  width: 52px;
+  height: 52px;
   border: none;
   background: $button-cyan url('./images/arrow.svg') no-repeat center;
   border-radius: 50%;
-  width: 52px;
-  height: 52px;
 
   position: fixed;
   bottom: 200px;
+  right: 12px;
+
+  @include media-medium {
+    width: 44px;
+    height: 44px;
+  }
 }

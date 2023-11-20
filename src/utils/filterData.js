@@ -33,8 +33,8 @@ export const NAV_CATEGORY = [
 export const sortButtons = [
   { title: 'По названию', id: 'name' },
   { title: 'По стоимости', id: 'price' },
-  { title: 'По отзывам', id: '-reviews_count' },
-  { title: 'По рейтингу', id: '-rating' },
+  { title: 'По отзывам', id: 'reviews_count' },
+  { title: 'По рейтингу', id: 'rating' },
 ];
 
 export const METRO_LIST = [

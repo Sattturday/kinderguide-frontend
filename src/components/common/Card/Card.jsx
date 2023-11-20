@@ -33,7 +33,7 @@ export const Card = ({ cardData }) => {
         <p className='card__text'>{cardData.description}</p>
 
         <div className='card__price-block'>
-          <p className='card__price'>{`от ${cardData.price} ₽/мес.`}</p>
+          <p className='card__price'>{`от ${cardData.price || 0} ₽/мес.`}</p>
           <Stars rating={cardData.rating}>
             <p className='card__reviews'>&nbsp;{cardData.reviews || 0}</p>
           </Stars>

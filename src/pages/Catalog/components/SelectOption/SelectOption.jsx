@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 
 import { useClickOutside } from '../../../../hooks/useClickOutside';
 import './SelectOption.scss';
+import { findLineByStation } from '../../../../utils/filtersUtils';
 
 export const SelectOption = React.memo(({ onChange, options }) => {
   const { underground } = useSelector((state) => state.filter); // Получаем выбранные опции из Redux
@@ -60,6 +61,12 @@ export const SelectOption = React.memo(({ onChange, options }) => {
               className='option-badge'
             >
               {selectedOption.name} {/* Выводим название опции */}
+              <span
+                className='metro-color'
+                style={{
+                  backgroundColor: `#${findLineByStation(selectedOption.name)}`,
+                }}
+              ></span>
               <span className='remove-btn'>&times;</span>{' '}
               {/* Кнопка удаления опции */}
             </button>
@@ -74,7 +81,7 @@ export const SelectOption = React.memo(({ onChange, options }) => {
       </div>
       <ul className={`options ${isOpen ? 'show' : ''}`}>
         {/* Выводим список опций */}
-        {searchOption.map((option, index) => (
+        {searchOption.map((option) => (
           <li
             onClick={(e) => {
               e.stopPropagation(); // Останавливаем всплытие события
@@ -88,6 +95,10 @@ export const SelectOption = React.memo(({ onChange, options }) => {
             }`}
           >
             {option.name} {/* Выводим название опции */}
+            <span
+              className='metro-color'
+              style={{ backgroundColor: `#${findLineByStation(option.name)}` }}
+            ></span>
           </li>
         ))}
       </ul>

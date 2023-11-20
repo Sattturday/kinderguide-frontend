@@ -15,9 +15,6 @@ export const Header = () => {
   const user = useSelector((state) => state.auth.user);
   return (
     <header className='header'>
-      <div className='header__burger'>
-        <BurgerMenu />
-      </div>
       <div className='header__left-container'>
         <Link to='/'>
           <img className='header__logo' src={logo} alt='logo' />
@@ -42,14 +39,11 @@ export const Header = () => {
               Создать аккаунт
             </button>
           </div>
-          <img
-            src={loginIcon}
-            alt='Кнопка для авторизации'
-            className='header__auth-icon'
-            onClick={() => dispatch(openLoginModal())}
-          />
         </>
       )}
+      <div className='header__burger'>
+        <BurgerMenu />
+      </div>
     </header>
   );
 };

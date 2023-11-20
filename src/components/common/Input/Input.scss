@@ -13,6 +13,7 @@
 
     &_password {
       @include formInput;
+      width: 100%;
       padding: 20px 60px 20px 20px;
       border-radius: $radii-s;
     }
@@ -21,6 +22,14 @@
       width: 408px;
       height: 72px;
       padding: 20px 26px;
+      border-radius: $radii-s;
+      background-color: $white;
+    }
+
+    &_profile {
+      max-width: 408px;
+      height: 80px;
+      padding: 25px 20px;
       border-radius: $radii-s;
       background-color: $white;
     }
@@ -73,6 +82,14 @@
   border: 1px solid $error;
 }
 
+// @media screen and (max-width: 768px) {
+//   .input {
+//     &_kind {
+//       &_profile {
+//         max-width: 300px;
+//         height: 52px;
+//         padding: 20px 16px;
+//       }
 @include media-medium {
   .input {
     &_kind {
@@ -87,6 +104,12 @@
       &_info {
         width: 300px;
         height: 58px;
+        padding: 20px 16px;
+      }
+
+      &_profile {
+        max-width: 300px;
+        height: 52px;
         padding: 20px 16px;
       }
 
@@ -106,15 +129,26 @@
   }
 }
 
+@media screen and (max-width: 600px) {
+  .input {
+    &_kind {
+      &_profile {
+        max-width: 288px;
+        height: 5px;
+        padding: 20px 16px;
+      }
+    }
+  }
+}
 @include media-mobile {
   .input {
     &_kind {
       &_form {
-        width: 288px;
+        @include text-xm;
       }
 
       &_password {
-        width: 288px;
+        @include text-xm;
       }
 
       &_info {

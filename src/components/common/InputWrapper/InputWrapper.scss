@@ -9,17 +9,19 @@
 
   &_kind {
     &_form {
-      width: 520px;
       margin-bottom: 2px;
     }
 
     &_password {
-      width: 520px;
       margin-bottom: 2px;
     }
 
     &_info {
       width: 298px;
+    }
+
+    &_profile {
+      width: 408px;
     }
 
     &_search {
@@ -42,6 +44,14 @@
   color: $black;
   margin: 0;
   padding: 0 0 5px 0;
+
+  @include media-medium {
+    padding-bottom: 1px;
+  }
+
+  @include media-netbook {
+    @include text-xm($fw-semi-bold);
+  }
 }
 
 .inputWrapper__error {
@@ -60,14 +70,6 @@
 @include media-medium {
   .inputWrapper {
     &_kind {
-      &_form {
-        width: 300px;
-      }
-
-      &_password {
-        width: 300px;
-      }
-
       &_info {
         width: 300px;
       }
@@ -82,20 +84,22 @@
 @include media-mobile {
   .inputWrapper {
     &_kind {
-      &_form {
-        width: 288px;
-      }
-
-      &_password {
-        width: 288px;
-      }
-
       &_info {
         width: 298px;
       }
 
       &_search {
         width: 478px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .inputWrapper {
+    &_kind {
+      &_profile {
+        max-width: 300px;
       }
     }
   }

@@ -1,6 +1,18 @@
 // для media-запросов
+@mixin media-large {
+  @media (max-width: $large-width) {
+    @content;
+  }
+}
+
 @mixin media-medium {
   @media (max-width: $medium-width) {
+    @content;
+  }
+}
+
+@mixin media-netbook {
+  @media (max-width: $netbook-width) {
     @content;
   }
 }
@@ -13,6 +25,19 @@
 
 @mixin media-mobile {
   @media (max-width: $mobile-width) {
+    @content;
+  }
+}
+
+@mixin media-990 {
+  @media (max-width: 990px) {
+    @content;
+  }
+}
+
+// этот для вещей, которые должны быть только на устройствах, подддерживающих эффекты наведения
+@mixin media-hover {
+  @media (hover: hover) {
     @content;
   }
 }
@@ -41,20 +66,28 @@
   list-style: none;
 }
 
-@mixin text-xs {
+@mixin text-xs($font-weight: $fw-light) {
   margin: 0;
   font-size: 12px;
-  font-weight: $fw-light;
+  font-weight: $font-weight;
   line-height: 1.3;
   letter-spacing: -0.14px;
 }
 
-@mixin text-s {
+@mixin text-s($font-weight: $fw-light) {
   margin: 0;
   font-size: 14px;
-  font-weight: $fw-light;
+  font-weight: $font-weight;
   line-height: 1.3;
   letter-spacing: -0.14px;
+}
+
+@mixin text-xm($font-weight: $fw-light) {
+  margin: 0;
+  font-size: 15px;
+  font-weight: $font-weight;
+  line-height: 1.3;
+  letter-spacing: -0.15px;
 }
 
 @mixin text-m($font-weight: $fw-light) {
@@ -65,12 +98,34 @@
   letter-spacing: -0.16px;
 }
 
+@mixin text-ml($font-weight: $fw-light) {
+  margin: 0;
+  font-size: 18px;
+  font-weight: $font-weight;
+  line-height: 1.2;
+  letter-spacing: -0.18px;
+}
+
 @mixin text-l($font-weight: $fw-light) {
   margin: 0;
   font-size: 20px;
   font-weight: $font-weight;
   line-height: 1.3;
   letter-spacing: -0.2px;
+}
+
+@mixin text-xls($font-weight: $fw-light) {
+  margin: 0;
+  font-size: 24px;
+  font-weight: $font-weight;
+  line-height: 1.2;
+}
+
+@mixin text-xlm($font-weight: $fw-light) {
+  margin: 0;
+  font-size: 28px;
+  font-weight: $font-weight;
+  line-height: 1.2;
 }
 
 @mixin text-xl($font-weight: $fw-light) {
@@ -115,15 +170,12 @@
 }
 
 @mixin formInput {
-  width: 520px;
   height: 68px;
 
   @include media-medium {
-    width: 300px;
     height: 50px;
   }
   @include media-mobile {
-    width: 288px;
     height: 50px;
   }
 }
@@ -142,10 +194,10 @@
     width: 5px;
   }
   &::-webkit-scrollbar-track {
-    background-color: #ecf0ff;
+    background-color: $button-cyan;
   }
   &::-webkit-scrollbar-thumb {
-    background-color: #829dfd;
+    background-color: $button-cyan-hover;
     border-radius: 20px;
     height: 40px;
   }
@@ -157,4 +209,66 @@
   background-color: transparent;
   cursor: pointer;
   transition: ease-in-out 350ms;
+}
+
+// Отступы для контейнеров страниц
+@mixin margin-main {
+  margin-top: 40px;
+  margin-bottom: 60px;
+  padding-bottom: 40px;
+}
+
+// Отступы для виджетов
+@mixin padding-widget-main {
+  padding-right: 32px;
+  padding-left: 32px;
+}
+
+// Обнуление отступов
+@mixin margin-padding-null {
+  padding: 0;
+  margin: 0;
+}
+
+// Эффекты
+@mixin border-color-transition {
+  transition: border-color 0.3s ease;
+}
+
+// Popups
+@mixin popup-container-main {
+  margin-top: 0;
+  width: 100%;
+  max-width: 680px;
+  gap: 20px;
+
+  @include media-medium {
+    max-width: 364px;
+  }
+
+  @include media-small {
+    max-width: 320px;
+  }
+}
+
+@mixin popup-paddings-main {
+  @include media-medium {
+    padding: 20px 32px 32px;
+  }
+
+  @include media-small {
+    padding: 40px 16px;
+  }
+}
+
+@mixin popup-form-main {
+  display: flex;
+  flex-direction: column;
+}
+
+// Popup button
+@mixin popup-button-main {
+  @include media-medium {
+    @include text-m($fw-semi-bold);
+  }
 }

@@ -128,12 +128,12 @@ export const RegisterModal = () => {
   }, [data?.phone, isValid, isConfirm]);
 
   return (
-    <Popup isOpen={isOpen} name='register-modal'>
-      <h2 className='register-modal__title'>Регистрация</h2>
+    <Popup isOpen={isOpen} name='register-modal' title='Регистрация'>
       <form
         onSubmit={(e) => {
           handleSubmit(e);
         }}
+        className='register-form'
       >
         <InputWrapper
           inputId='first_name'
@@ -233,10 +233,11 @@ export const RegisterModal = () => {
         />
         <Button
           type='submit'
-          width='520px'
+          width='100%'
           size='large'
           color={isReadyToSubmit ? 'fill' : 'dis'}
           disabled={!isReadyToSubmit & isLoading}
+          className='register-form__button'
         >
           {isLoading ? 'Подождите' : 'Зарегистрироваться'}
         </Button>
@@ -246,8 +247,14 @@ export const RegisterModal = () => {
         clientID={clientID}
         onSuccess={(data) => handleYandexLogin(data)}
       >
-        <Button type='button' width='532px' color='empty' size='large'>
-          Войти с помощью Яндекс ID
+        <Button
+          type='button'
+          width='100%'
+          color='empty'
+          size='large'
+          className='register-form__button'
+        >
+          Войти через Яндекс ID
         </Button>
       </YandexLogin>
     </Popup>

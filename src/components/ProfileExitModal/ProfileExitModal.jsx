@@ -36,7 +36,7 @@ export const ProfileExitModal = () => {
       <h2 className='profile-modal__title'>
         Вы уверены, что хотите выйти из аккаунта?
       </h2>
-      <div className='user-edit__btns'>
+      <div className='profile-exit__btns profile-exit__btns_desktop'>
         <Button
           type='button'
           width='188px'
@@ -50,6 +50,46 @@ export const ProfileExitModal = () => {
           type='button'
           width='188px'
           size='small'
+          color='empty'
+          onClick={signOut}
+        >
+          Выйти
+        </Button>
+      </div>
+      <div className='profile-exit__btns profile-exit__btns_tablet'>
+        <Button
+          type='button'
+          width='300px'
+          size='medium'
+          color={'fill'}
+          onClick={hanldeCloseModal}
+        >
+          Остаться
+        </Button>
+        <Button
+          type='button'
+          width='300px'
+          size='medium'
+          color='empty'
+          onClick={signOut}
+        >
+          Выйти
+        </Button>
+      </div>
+      <div className='profile-exit__btns profile-exit__btns_mobile'>
+        <Button
+          type='button'
+          width='288px'
+          size='medium'
+          color={'fill'}
+          onClick={hanldeCloseModal}
+        >
+          Остаться
+        </Button>
+        <Button
+          type='button'
+          width='288px'
+          size='medium'
           color='empty'
           onClick={signOut}
         >

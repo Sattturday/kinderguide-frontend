@@ -14,13 +14,15 @@ export const Button = ({
   children,
   onClick,
   disabled = false,
+  className = '',
 }) => (
   <button
     className={
       'button' +
       ` button_variant_${variant}` +
       ` button_size_${size}` +
-      ` button_color_${color}`
+      ` button_color_${color}` +
+      ` ${className ? className : ''}`
     }
     type={type}
     onClick={onClick}
@@ -60,6 +62,10 @@ Button.propTypes = {
    * Действие, выполняемое при нажатии на кнопку
    */
   onClick: PropTypes.func,
+  /**
+   * Дополнительный класс
+   */
+  className: PropTypes.string,
 };
 
 Button.defaultProps = {
@@ -70,4 +76,5 @@ Button.defaultProps = {
   width: 'auto',
   children: '',
   onClick: undefined,
+  className: '',
 };

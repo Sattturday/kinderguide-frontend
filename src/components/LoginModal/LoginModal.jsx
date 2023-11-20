@@ -6,7 +6,7 @@ import {
   useLoginWithYandexMutation,
 } from '../../api/authApi';
 import { setUser, setToken } from '../../store/authSlice';
-import { closeAllModals } from '../../store/modalsSlice';
+import { closeAllModals, openRegisterModal } from '../../store/modalsSlice';
 import { Popup } from '../common/Popup';
 import { InputWrapper } from '../common/InputWrapper';
 import { Input } from '../common/Input';
@@ -56,6 +56,11 @@ export const LoginModal = () => {
     }
   };
 
+  const handleRegisterClick = () => {
+    dispatch(closeAllModals());
+    dispatch(openRegisterModal());
+  };
+
   const handleYandexLogin = async (data) => {
     console.log('отправляем на сервер', data);
 
@@ -97,10 +102,8 @@ export const LoginModal = () => {
 
   return (
     <>
-      <Popup isOpen={isOpen} name='login-modal'>
-        <h2 className='login-modal__title'>Вход</h2>
-
-        <form onSubmit={(e) => handleSubmit(e)}>
+      <Popup isOpen={isOpen} name='login-modal' title='Вход'>
+        <form onSubmit={(e) => handleSubmit(e)} className='login-form'>
           <InputWrapper
             inputId='login-form-email'
             variant='form'
@@ -139,22 +142,39 @@ export const LoginModal = () => {
 
           <Button
             type='submit'
-            width='532px'
+            width='100%'
             size='large'
             color={isValid ? 'fill' : 'dis'}
             disabled={!isValid && isLoading}
+            className='login-form__button'
           >
             {isLoading ? 'Вход...' : 'Войти'}
           </Button>
         </form>
+        <Button
+          type='button'
+          width='100%'
+          color='empty'
+          size='large'
+          className='login-form__button'
+          onClick={handleRegisterClick}
+        >
+          Зарегистрироваться
+        </Button>
         <LineWithWord text='или' />
 
         <YandexLogin
           clientID={clientID}
           onSuccess={(data) => handleYandexLogin(data)}
         >
-          <Button type='button' width='532px' color='empty' size='large'>
-            Войти с помощью Яндекс ID
+          <Button
+            type='button'
+            width='100%'
+            color='empty'
+            size='large'
+            className='login-form__button'
+          >
+            Войти через Яндекс ID
           </Button>
         </YandexLogin>
 

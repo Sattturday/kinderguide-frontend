@@ -44,7 +44,7 @@ function App() {
         <Route path='/' element={<Home />} />
         <Route
           path='/profile'
-          element={<ProtectedRouteElement element={Profile} token={token} />}
+          element={<ProtectedRouteElement element={Profile} token={true} />}
         />
         <Route path='/catalog' element={<Catalog />} />
         <Route path='/favorites' element={<Favorites />} />

@@ -1,35 +1,67 @@
 @import '../../styles/abstract/constants.scss';
 @import '../../styles/abstract/mixins.scss';
+@import '../../styles/abstract/placeholders.scss';
 
 .show-list {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 11px;
 }
 
 .show-list__infoWrapper {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+
+  button {
+    min-height: 20px;
+    @include text-m;
+    color: $button-blue-link;
+
+    img {
+      margin-right: 7px;
+    }
+  }
 }
 
 .show-list__info {
+  padding-bottom: 2px;
   display: flex;
   gap: 12px;
-  align-items: center;
-  color: #1f1f29;
-  @include text-s;
-  line-height: 120%;
+  align-items: flex-start;
+  @include text-ml;
+  color: $black;
+  line-height: 1.1;
+
+  &_catalog {
+    align-items: center;
+
+    @extend %font-add;
+    @include text-s;
+  }
+
+  @include media-medium {
+    @include text-s;
+  }
+
+  @include media-small {
+    @include text-s;
+  }
 }
 
 .show-list__paragraph {
   margin: 0;
+
+  a {
+    color: $button-violet-active;
+  }
 }
 
 .show-list__items {
   display: flex;
   flex-direction: column;
   gap: 24px;
+  margin: auto;
 
   @include media-medium {
     gap: 16px;
@@ -44,6 +76,7 @@
   width: 24px;
   height: 24px;
   background-image: url('../../images/Favorites/icon.svg');
+  flex-shrink: 0;
 }
 
 .show-list__mapWrapper {

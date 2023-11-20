@@ -1,26 +1,28 @@
 @import '../../../../styles/abstract/constants.scss';
+@import '../../../../styles/abstract/mixins.scss';
 
 .catalog__nav {
+  width: 100%;
   display: flex;
-  gap: 20px;
+  padding-bottom: 48px;
+  background-image: url(../../../../images/Catalog/school_1440.png);
+  background-size: cover;
+  background-repeat: no-repeat;
 
-  margin-bottom: 50px;
+  &_kindergartens {
+    background-image: url(../../../../images/Catalog/kindergarten_1440.png);
+  }
 }
 
 .catalog__nav-item {
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-
-  color: #ecf0ff;
-
-  font-size: 50px;
-  font-style: normal;
+  @include button;
+  padding: 40px 40px 0;
+  color: $blue-lite;
+  font-size: 48px;
   font-weight: $fw-normal;
-  line-height: 120%;
+  line-height: 1.2;
 
   &_selected {
-    color: $title-blue;
-    border-bottom: 3px solid #ff7a2c;
+    color: $black;
   }
 }
