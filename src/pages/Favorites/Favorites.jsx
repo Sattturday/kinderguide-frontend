@@ -5,6 +5,7 @@ import { ShowList } from '../../components/ShowList';
 import { EmptyPage } from '../../components/common/EmptyPage';
 
 import { NavigationFavorites } from './components/NavigationFavorites';
+import { DropDown } from '../../components/common/DropDown';
 import { FavoritesFilters } from './config';
 import './Favorites.scss';
 
@@ -37,6 +38,11 @@ export function Favorites() {
             stateProfile={stateProfile}
             setStateProfile={setStateProfile}
             favoritesData={FavoritesFilters}
+          />
+          <DropDown
+            selectedDefault={stateProfile}
+            items={FavoritesFilters}
+            onSelect={setStateProfile}
           />
           {dataToShow.length === 0 ? (
             <EmptyPage variant='favorite' data={favoriteOrg} />

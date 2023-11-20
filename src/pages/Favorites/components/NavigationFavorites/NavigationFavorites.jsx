@@ -14,6 +14,7 @@ export function NavigationFavorites({
     <nav className='navigation-favorites'>
       {favoritesData.map((item) => (
         <button
+          key={`button-${item.name}`}
           className={
             stateProfile === item.name
               ? 'navigation-favorites__item navigation-favorites__item_active'

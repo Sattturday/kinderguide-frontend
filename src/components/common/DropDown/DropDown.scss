@@ -1,0 +1,90 @@
+@import '../../../styles/abstract/constants.scss';
+@import '../../../styles/abstract/mixins.scss';
+
+.dropdown {
+  @include border-color-transition;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 134px;
+  max-height: 33px;
+  padding: 4px 12px;
+  border: 2px solid $border-purple;
+  border-radius: $radii-s;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  cursor: pointer;
+
+  &__title {
+    @include text-s($fw-normal);
+    color: $button-blue-link;
+  }
+
+  &__caret {
+    transition: transform 0.3s ease;
+  }
+
+  &__list {
+    @include list;
+    width: calc(100% + 4px);
+    padding: 12px;
+    box-sizing: border-box;
+    border: 2px solid $border-purple;
+    border-radius: $radii-s;
+    position: absolute;
+    left: -2px;
+    top: calc(100% + 8px);
+
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+
+    visibility: hidden;
+    opacity: 0;
+    transition:
+      visibility 0s linear 0.3s,
+      opacity 0.3s;
+
+    &_visible {
+      visibility: visible;
+      opacity: 1;
+      transition:
+        visibility 0s linear 0s,
+        opacity 0.3s;
+    }
+  }
+
+  &__item {
+    @include text-s($fw-normal);
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    color: $button-blue-link;
+  }
+
+  &:hover {
+    border-color: $border-purple-hover;
+  }
+
+  &_opened {
+    & .dropdown__caret {
+      transform: scale(1, -1);
+    }
+  }
+
+  &_disabled {
+    pointer-events: none;
+    border-color: $button-violet-dis;
+
+    & .dropdown__title {
+      color: $button-violet-dis;
+    }
+
+    & .dropdown__caret {
+      & #Vector {
+        fill: $button-violet-dis;
+      }
+    }
+  }
+}
