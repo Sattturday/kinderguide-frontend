@@ -1,7 +1,22 @@
 @import '../../styles/abstract/constants.scss';
 @import '../../styles/abstract/mixins.scss';
 
-.register-modal__title {
-  @include text-xl;
-  margin: 0 0 23px;
+.register-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+
+  &__button {
+    @include media-medium {
+      @include text-m($fw-semi-bold);
+    }
+  }
+
+  @include media-medium {
+    gap: 6px;
+  }
+
+  @include media-small {
+    gap: 7px;
+  }
 }

@@ -1,3 +1,4 @@
+@import '../../../styles/abstract/constants.scss';
 @import '../../../styles/abstract/mixins.scss';
 
 .text {
@@ -7,6 +8,7 @@
   max-width: 484px;
   align-items: center;
   margin: 20px auto;
+  text-transform: uppercase;
 
   &::before,
   &::after {
@@ -16,5 +18,13 @@
     height: 1px;
     opacity: 0.5;
     background: #4b4b4b;
+  }
+
+  @include media-medium {
+    @include text-m;
+    padding: 0 12px;
+    max-width: 100%;
+    text-transform: lowercase;
+    margin: 20px auto;
   }
 }

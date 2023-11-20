@@ -13,6 +13,7 @@
 
     &_password {
       @include formInput;
+      width: 100%;
       padding: 20px 60px 20px 20px;
       border-radius: $radii-s;
     }
@@ -110,11 +111,11 @@
   .input {
     &_kind {
       &_form {
-        width: 288px;
+        @include text-xm;
       }
 
       &_password {
-        width: 288px;
+        @include text-xm;
       }
 
       &_info {

@@ -2,9 +2,10 @@ import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 
 import { closeAllModals } from '../../../store/modalsSlice';
+import { ReactComponent as CloseImage } from '../../../images/Popup/btn-close.svg';
 import './Popup.scss';
 
-export const Popup = ({ isOpen, name, children }) => {
+export const Popup = ({ isOpen, name, children, title = '' }) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -37,12 +38,15 @@ export const Popup = ({ isOpen, name, children }) => {
       onMouseDown={handleOverlay}
     >
       <div className={`popup__container popup__container_type_${name}`}>
+        {title && <h2 className='popup__title'>{title}</h2>}
         {children}
         <button
           className='popup__close-btn'
           type='button'
           onClick={() => dispatch(closeAllModals())}
-        />
+        >
+          <CloseImage className='popup__close-image' />
+        </button>
       </div>
     </div>
   );
