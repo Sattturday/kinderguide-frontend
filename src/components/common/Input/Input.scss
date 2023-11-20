@@ -25,6 +25,14 @@
       background-color: $white;
     }
 
+    &_profile {
+      max-width: 408px;
+      height: 80px;
+      padding: 25px 20px;
+      border-radius: $radii-s;
+      background-color: $white;
+    }
+
     &_search {
       width: 518px;
       height: 48px;
@@ -73,6 +81,14 @@
   border: 1px solid $error;
 }
 
+// @media screen and (max-width: 768px) {
+//   .input {
+//     &_kind {
+//       &_profile {
+//         max-width: 300px;
+//         height: 52px;
+//         padding: 20px 16px;
+//       }
 @include media-medium {
   .input {
     &_kind {
@@ -87,6 +103,12 @@
       &_info {
         width: 300px;
         height: 58px;
+        padding: 20px 16px;
+      }
+
+      &_profile {
+        max-width: 300px;
+        height: 52px;
         padding: 20px 16px;
       }
 
@@ -106,6 +128,17 @@
   }
 }
 
+@media screen and (max-width: 600px) {
+  .input {
+    &_kind {
+      &_profile {
+        max-width: 288px;
+        height: 5px;
+        padding: 20px 16px;
+      }
+    }
+  }
+}
 @include media-mobile {
   .input {
     &_kind {

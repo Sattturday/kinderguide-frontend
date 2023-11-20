@@ -68,18 +68,18 @@ export function UserEdit({ setEditUser }) {
 
   return (
     <form className='user-edit__form'>
-      <div className='user__wrapper user__wrapper-edit'>
-        <p className='user-edit__name-text'>Родитель</p>
+      <p className='user-edit__name-text'>Родитель</p>
+      <div className='user__wrapper-edit'>
         <InputWrapper
           labelText='Имя'
           inputId='first_name'
-          variant='info'
+          variant='profile'
           errorText={errors['first_name']}
         >
           <Input
             pattern='^[А-Яа-яA-Za-z]+$'
             inputId='first_name'
-            variant='info'
+            variant='profile'
             name='first_name'
             onChange={onChange}
             value={data?.first_name || ''}
@@ -91,13 +91,13 @@ export function UserEdit({ setEditUser }) {
         <InputWrapper
           labelText='Фамилия'
           inputId='last_name'
-          variant='info'
+          variant='profile'
           errorText={errors['last_name']}
         >
           <Input
             pattern='^[А-Яа-яA-Za-z]+$'
             inputId='last_name'
-            variant='info'
+            variant='profile'
             name='last_name'
             onChange={onChange}
             value={data?.last_name || ''}
@@ -107,17 +107,16 @@ export function UserEdit({ setEditUser }) {
           />
         </InputWrapper>
       </div>
-      <div className='user__wrapper user__wrapper-edit'>
-        <p className='user-edit__name-text'>Телефон</p>
+      <div className='user__wrapper-edit'>
         <InputWrapper
           labelText='Телефон'
           inputId='phone'
-          variant='info'
+          variant='profile'
           errorText={errors['phone']}
         >
           <InputTel
             isClass='inputTel__profile'
-            variant='info'
+            variant='profile'
             inputId='phone'
             name='phone'
             placeholder='Введите телефон'
@@ -127,18 +126,15 @@ export function UserEdit({ setEditUser }) {
             isValid={!data.phone?.includes('_')}
           />
         </InputWrapper>
-      </div>
-      <div className='user__wrapper user__wrapper-edit'>
-        <p className='user-edit__name-text'>Email</p>
         <InputWrapper
           labelText='Email'
           inputId='email'
-          variant='info'
+          variant='profile'
           errorText={errors['email']}
         >
           <Input
             inputId='email'
-            variant='info'
+            variant='profile'
             name='email'
             onChange={onChange}
             value={data?.email || ''}
@@ -148,7 +144,7 @@ export function UserEdit({ setEditUser }) {
           />
         </InputWrapper>
       </div>
-      <div className='user-edit__btns'>
+      <div className='user-edit__btns user-edit__btns_desktop'>
         <Button
           type='submit'
           width='188px'
@@ -164,6 +160,58 @@ export function UserEdit({ setEditUser }) {
         <Button
           type='button'
           width='188px'
+          size='small'
+          color='empty'
+          onClick={(e) => {
+            e.preventDefault();
+            setEditUser(false);
+          }}
+        >
+          Отмена
+        </Button>
+      </div>
+      <div className='user-edit__btns user-edit__btns_tablet'>
+        <Button
+          type='submit'
+          width='204px'
+          size='small'
+          color={isReadyToSubmit ? 'fill' : 'dis'}
+          disabled={!isReadyToSubmit}
+          onClick={(e) => {
+            handleSubmit(e);
+          }}
+        >
+          Сохранить
+        </Button>
+        <Button
+          type='button'
+          width='204px'
+          size='small'
+          color='empty'
+          onClick={(e) => {
+            e.preventDefault();
+            setEditUser(false);
+          }}
+        >
+          Отмена
+        </Button>
+      </div>
+      <div className='user-edit__btns user-edit__btns_mobile'>
+        <Button
+          type='submit'
+          width='288px'
+          size='small'
+          color={isReadyToSubmit ? 'fill' : 'dis'}
+          disabled={!isReadyToSubmit}
+          onClick={(e) => {
+            handleSubmit(e);
+          }}
+        >
+          Сохранить
+        </Button>
+        <Button
+          type='button'
+          width='288px'
           size='small'
           color='empty'
           onClick={(e) => {

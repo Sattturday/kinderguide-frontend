@@ -22,6 +22,10 @@
       width: 298px;
     }
 
+    &_profile {
+      width: 408px;
+    }
+
     &_search {
       width: 478px;
     }
@@ -96,6 +100,16 @@
 
       &_search {
         width: 478px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .inputWrapper {
+    &_kind {
+      &_profile {
+        max-width: 300px;
       }
     }
   }
