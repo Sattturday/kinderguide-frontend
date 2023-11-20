@@ -44,11 +44,11 @@ export function Catalog() {
   // Использование отложенного значения для фильтров, чтобы уменьшить нагрузку на пользовательский интерфейс
   const deferredFilter = useDeferredValue(filter);
 
-  // Стейты для пагинации
-  const [currentPage, setCurrentPage] = useState(1);
-  const [fetching, setFetching] = useState(false);
-  const [totalCount, setTotalCount] = useState(0);
-  const [list, setList] = useState([]);
+  // // Стейты для пагинации
+  // const [currentPage, setCurrentPage] = useState(1);
+  // const [fetching, setFetching] = useState(false);
+  // const [totalCount, setTotalCount] = useState(0);
+  // const [list, setList] = useState([]);
 
   const dispatch = useDispatch();
 
@@ -63,20 +63,20 @@ export function Catalog() {
   const { data: metroFilters } = useGetMetroFiltersQuery();
 
   // Получение отфильтрованных данных с сервера на основе выбранных фильтров
-  const { data = [], isLoading } = useGetFilteredDataQuery([
+  // const { data = [], isLoading } = useGetFilteredDataQuery([
+  //   filter.category,
+  //   paramsUrl,
+  //   //currentPage,
+  // ]);
+
+  const { data: fullData = [], isLoading } = useGetFilteredDataFullQuery([
     filter.category,
     paramsUrl,
-    currentPage,
   ]);
 
-  const { data: fullData = [] } = useGetFilteredDataFullQuery([
-    filter.category,
-    paramsUrl,
-  ]);
-
-  useEffect(() => {
-    setList(data);
-  }, [data]);
+  // useEffect(() => {
+  //   setList(data);
+  // }, [data]);
 
   // useEffect(() => {
   //   document.addEventListener('scroll', scrollHandler);
@@ -86,21 +86,21 @@ export function Catalog() {
   //   };
   // }, []);
 
-  const scrollHandler = (evt) => {
-    console.log(list);
-    setTotalCount(list.count);
-    if (
-      evt.target.documentElement.scrollHeight -
-        (evt.target.documentElement.scrollTop + window.innerHeight) <
-        100 &&
-      list.results.length < totalCount
-    ) {
-      setFetching(true);
-      console.log('скролл');
-      console.log(totalCount);
-      console.log(data.results.length);
-    }
-  };
+  // const scrollHandler = (evt) => {
+  //   console.log(list);
+  //   setTotalCount(list.count);
+  //   if (
+  //     evt.target.documentElement.scrollHeight -
+  //       (evt.target.documentElement.scrollTop + window.innerHeight) <
+  //       100 &&
+  //     list.results.length < totalCount
+  //   ) {
+  //     setFetching(true);
+  //     console.log('скролл');
+  //     console.log(totalCount);
+  //     console.log(data.results.length);
+  //   }
+  // };
 
   // Формирование списка фильтров
   const filterItems = getFilterItems(
@@ -132,7 +132,7 @@ export function Catalog() {
     dispatch(setSortFilter(btnId));
   };
 
-  const sortDirectionHandler = () => {
+  const sortDirectionHandler = (e) => {
     const ordering = filter.ordering.startsWith('-')
       ? filter.ordering.slice(1)
       : `-${filter.ordering}`;
@@ -210,7 +210,8 @@ export function Catalog() {
             filterItems={filterItems}
           />
           <ShowList
-            data={data ? data.results : []}
+            // data={data ? data.results : []}
+            data={fullData ? fullData : []}
             fullData={fullData ? fullData : []}
             selected={selected}
             isLoading={isLoading}
