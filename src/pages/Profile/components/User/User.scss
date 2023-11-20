@@ -2,12 +2,15 @@
 @import '../../../../styles/abstract/constants.scss';
 
 .user {
-  margin-left: 40px;
+  padding-top: 40px;
+  background-color: $bg-purple;
+  border-top-right-radius: $radii-m;
+  border-bottom-left-radius: $radii-m;
+  border-bottom-right-radius: $radii-m;
 }
 
 .user__wrapper {
-  margin-bottom: 32px;
-  margin-right: 40px;
+  margin: 50px 40px 32px;
   max-width: 729px;
   padding: 25px 60px;
   display: flex;
@@ -34,10 +37,6 @@
 }
 
 @media screen and (max-width: 768px) {
-  .user {
-    margin-left: 32px;
-  }
-
   .user__wrapper {
     max-width: 427px;
     padding: 21px 12px;

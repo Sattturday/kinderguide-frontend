@@ -1,6 +1,11 @@
 @import '../../../../styles/abstract/constants.scss';
 @import '../../../../styles/abstract/mixins.scss';
 
+.user-edit__form {
+  margin-left: 40px;
+  padding-bottom: 80px;
+}
+
 .user-edit__name-text {
   @include text-l;
   font-weight: 600;
@@ -15,7 +20,7 @@
 }
 
 .user-edit__btns {
-  margin-top: 12px;
+  margin-top: 40px;
   display: flex;
   gap: 32px;
 }
@@ -38,6 +43,11 @@
 }
 
 @media screen and (max-width: 600px) {
+  .user-edit__form {
+    margin-left: 0;
+    padding-bottom: 40px;
+  }
+
   .user__wrapper-edit {
     padding-left: 20px;
     flex-direction: column;
