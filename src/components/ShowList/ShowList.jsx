@@ -39,8 +39,8 @@ export const ShowList = ({ data, selected, isLoading, fullData }) => {
                     <Link to='/' className='show-list__link'>
                       Авторизуйтесь
                     </Link>
-                    , чтобы сохранить список избранного для просмотра на этом и
-                    других устройствах
+                    , чтобы сохранить список избранного для просмотра
+                    на&nbsp;этом и других устройствах
                   </p>
                 </div>
               ) : selected !== 'favorites' ? (
