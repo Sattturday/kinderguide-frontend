@@ -10,7 +10,7 @@
     color: $title-blue;
 
     @include media-990 {
-      @include text-xls($fw-normal);
+      @include text-xlm($fw-normal);
     }
 
     @include media-small {

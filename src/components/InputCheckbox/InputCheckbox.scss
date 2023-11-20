@@ -8,9 +8,14 @@
     justify-content: center;
     align-items: flex-start;
 
-    width: 520px;
-    height: 68px;
-    margin: 18px 0 4px 15px;
+    width: 100%;
+    margin: 18px 0 16px 15px;
+
+    @include media-medium {
+      margin-left: 0;
+      margin-bottom: 26px;
+      gap: 12px;
+    }
   }
 
   &_filter {
@@ -26,6 +31,13 @@
     background-color: transparent;
     border: 1px solid #0b11814d;
     border-radius: 4px;
+
+    @include media-medium {
+      margin-top: 6px;
+      margin-right: 0;
+      width: 26px;
+      height: 28px;
+    }
   }
 
   &_filter {
@@ -62,10 +74,18 @@
   /* main text */
   @include text-m;
   line-height: 1.2;
+
+  @include media-medium {
+    @include text-xs;
+  }
 }
 
 .checkbox__link {
   color: var(--Blue, #4654ed);
   @include text-m($fw-bold);
   text-decoration-line: underline;
+
+  @include media-medium {
+    @include text-xs;
+  }
 }
