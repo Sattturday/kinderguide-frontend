@@ -11,12 +11,10 @@
   justify-content: flex-start;
   align-items: center;
   gap: 8px;
-
   cursor: pointer;
 
   p {
     max-width: 226px;
-
     @include text-l;
     @extend %font-add;
     font-size: 18px;
@@ -24,7 +22,7 @@
   }
 }
 
-.select-filter__checkbox {
+.select-filter__input-new {
   width: 20px;
   height: 20px;
   position: relative;
@@ -54,6 +52,6 @@
   opacity: 0;
 }
 
-.select-filter__input:checked ~ .select-filter__checkbox:after {
+.select-filter__input:checked ~ .select-filter__input-new:after {
   opacity: 1;
 }

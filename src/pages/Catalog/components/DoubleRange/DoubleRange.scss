@@ -1,6 +1,10 @@
+@import '../../../../styles/abstract/constants.scss';
+@import '../../../../styles/abstract/mixins.scss';
+@import '../../../../styles/abstract/placeholders.scss';
+
 .container {
+  padding: 0 12px;
   width: 100%;
-  padding: 20px 0;
 }
 
 .values {
@@ -8,13 +12,12 @@
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  gap: 10px;
+  gap: 4px;
 }
 
 .values-wrapper {
   position: relative;
-  margin-top: 15px;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 }
 
 .values-from,
@@ -23,29 +26,34 @@
   top: 50%;
   left: 15px;
   transform: translateY(-50%);
-  color: #b8c7ff;
-  font-size: 12px;
+  @include text-m;
+  color: $border-lilac;
 }
 
 .values__left,
 .values__right {
-  box-sizing: border-box;
   padding: 10px;
-  padding-left: 33px;
-  border-radius: 32px;
-  border: 1.5px solid #b8c7ff;
-
+  padding-left: 35px;
   display: block;
   width: 100%;
-  max-width: 286px;
-  color: #b8c7ff;
-  font-size: 12px;
+  max-width: 127px;
+  border-radius: 10px;
+  border: 1.5px solid $border-purple-hover;
+  @include text-m;
+  @extend %font-add;
+  color: $border-lilac;
+
+  &:focus {
+    color: $black;
+    outline: none;
+    border: 1.5px solid $border-purple-hover;
+  }
 }
 
 .values__separator {
-  width: 20px;
+  width: 12px;
   height: 1px;
-  border-bottom: 1px solid #b8c7ff;
+  border-bottom: 1px solid $border-lilac;
 }
 
 /* Removing the default appearance */
@@ -80,7 +88,7 @@
 
 /* For Chrome browsers */
 .thumb::-webkit-slider-thumb {
-  background-color: #829dfd;
+  background-color: $button-cyan-hover;
   border: none;
   outline: none;
   border-radius: 50%;
@@ -95,7 +103,7 @@
 
 /* For Firefox browsers */
 .thumb::-moz-range-thumb {
-  background-color: #829dfd;
+  background-color: $button-cyan-hover;
   border: none;
   outline: none;
   border-radius: 50%;
@@ -141,6 +149,6 @@
 }
 
 .slider__range {
-  background-color: #829dfd;
+  background-color: $button-cyan-hover;
   z-index: 2;
 }

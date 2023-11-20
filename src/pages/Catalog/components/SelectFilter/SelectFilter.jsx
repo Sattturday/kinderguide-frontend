@@ -18,7 +18,7 @@ export function SelectFilter({ option, isChecked, onChange }) {
           checked={isChecked || false}
           onChange={() => onChange(option)}
         />
-        <span className='select-filter__checkbox'></span>
+        <span className='select-filter__input-new'></span>
         <p>{option.name}</p>
       </label>
     </div>

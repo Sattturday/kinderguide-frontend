@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
 import mapIcon from '../../images/Catalog/map_icon.svg';
+import listIcon from '../../images/Catalog/list_icon.svg';
 import { searchMessage } from '../../utils/emptyPageMessage';
 import { getName } from '../../utils/utils';
 import { Preloader } from '../Preloader';
@@ -33,18 +34,18 @@ export const ShowList = ({ data, selected, isLoading, fullData }) => {
           {selected !== 'favorites' || !user ? (
             <div className='show-list__infoWrapper'>
               {selected === 'favorites' && !user ? (
-                <div className='show-list__info'>
+                <div className='show-list__info show-list__info_favorite'>
                   <div className='show-list__icons' />
                   <p className='show-list__paragraph'>
                     <Link to='/' className='show-list__link'>
                       Авторизуйтесь
                     </Link>
-                    , чтобы сохранить список избранного для просмотра на этом и
-                    других устройствах
+                    , чтобы сохранить список избранного для просмотра
+                    на&nbsp;этом и других устройствах
                   </p>
                 </div>
               ) : selected !== 'favorites' ? (
-                <p className='show-list__info'>
+                <p className='show-list__info show-list__info_catalog'>
                   Найдено {data.length}{' '}
                   {selected === 'schools'
                     ? getName(data.length, schoolName)
@@ -60,7 +61,8 @@ export const ShowList = ({ data, selected, isLoading, fullData }) => {
                   </Button>
                 ) : (
                   <Button onClick={toggleList} variant='link'>
-                    Списком
+                    Списком&nbsp;
+                    <img src={listIcon} alt='map icon' />
                   </Button>
                 ))}
             </div>
