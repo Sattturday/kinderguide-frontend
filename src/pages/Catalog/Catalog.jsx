@@ -62,12 +62,17 @@ export function Catalog() {
   const { data: areaFilters } = useGetAreaFiltersQuery();
   const { data: metroFilters } = useGetMetroFiltersQuery();
 
-  // Получение отфильтрованных данных с сервера на основе выбранных фильтров
+//   const { data = [], isLoading } = useGetFilteredDataQuery([
+//     filter.category,
+//     paramsUrl,
+//   ]);
+
   // const { data = [], isLoading } = useGetFilteredDataQuery([
   //   filter.category,
   //   paramsUrl,
   //   //currentPage,
   // ]);
+
 
   const { data: fullData = [], isLoading } = useGetFilteredDataFullQuery([
     filter.category,
