@@ -5,9 +5,9 @@
 .promo {
   background: url('./images/foto.svg') #ecf0ff;
   background-repeat: no-repeat;
-  background-position: bottom 28px right 32px;
+  background-position: bottom 41px right 80px;
   background-size: 721px 553px;
-  min-height: 630px;
+  min-height: 638px;
   padding: 88px 0 0;
 
   .wrapper {
@@ -47,6 +47,7 @@
   @include text-xxl;
   color: #1f1f29;
   margin: 0 0 40px;
+  letter-spacing: 0.7px;
   @include media-medium {
     font-size: 28px;
   }
