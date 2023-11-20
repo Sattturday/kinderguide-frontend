@@ -17,7 +17,7 @@
   color: #fefefe;
   display: flex;
   justify-content: space-between;
-  height: 192px;
+  height: 157px;
   border-bottom: 2px solid #7a7fe6;
   margin-bottom: 25px;
   @include media-medium {
@@ -52,7 +52,7 @@
 .footer__feedback {
   @include link;
   @include text-l(600);
-  margin: 4px 0 12px 0;
+  margin-top: 4px;
   letter-spacing: 0.2px;
   @include media-medium {
     font-size: 15px;
