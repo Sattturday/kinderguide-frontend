@@ -61,6 +61,9 @@ export const Navigation = ({ usedFor }) => {
         {usedFor === 'header' && (
           <span className='navigation__item-count'>{count ? count : ''}</span>
         )}
+        {usedFor === 'burger' && (
+          <span className='navigation__item-count'>{count ? count : ''}</span>
+        )}
       </NavLink>
     </nav>
   );

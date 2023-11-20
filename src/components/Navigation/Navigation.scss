@@ -116,3 +116,16 @@
   flex-direction: column;
   gap: 12px;
 }
+
+.navigation__item-count {
+  @include text-xs;
+  width: 23px;
+  height: 23px;
+  border-radius: 50%;
+  background-color: #ff6003;
+  margin-left: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fefefe;
+}

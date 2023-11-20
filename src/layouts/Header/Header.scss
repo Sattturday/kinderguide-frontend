@@ -53,10 +53,8 @@
   background-image: url('../../images/profile_icon.svg');
   background-position: center;
   background-repeat: no-repeat;
-  @include media-small {
-    width: 24px;
-    height: 24px;
-    background-size: contain;
+  @include media-medium {
+    display: none;
   }
 }
 
