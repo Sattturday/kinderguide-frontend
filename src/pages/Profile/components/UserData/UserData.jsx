@@ -19,7 +19,7 @@ export function UserData({ setEditUser }) {
   return (
     <>
       {true ? (
-        <div>
+        <>
           <div className='user__wrapper'>
             <p className='user__label'>Родитель</p>
             <p className='user__text'>
@@ -56,7 +56,7 @@ export function UserData({ setEditUser }) {
               Выход
             </Button>
           </div>
-        </div>
+        </>
       ) : (
         <Preloader />
       )}

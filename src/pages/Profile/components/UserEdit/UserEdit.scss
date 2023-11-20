@@ -3,6 +3,7 @@
 
 .user-edit__form {
   margin-left: 40px;
+  padding-top: 40px;
   padding-bottom: 80px;
 }
 
@@ -15,17 +16,23 @@
 
 .user__wrapper-edit {
   padding: 0;
+  margin-bottom: 18px;
   display: flex;
   gap: 32px;
 }
 
 .user-edit__btns {
-  margin-top: 40px;
+  margin-top: 30px;
   display: flex;
   gap: 32px;
 }
 
 @media screen and (max-width: 768px) {
+  .user-edit__form {
+    margin-left: 32px;
+    padding-top: 16px;
+  }
+
   .user-edit__name-text {
     margin-top: -16px;
     font-size: 18px;
@@ -45,7 +52,7 @@
 @media screen and (max-width: 600px) {
   .user-edit__form {
     margin-left: 0;
-    padding-bottom: 40px;
+    padding-bottom: 10px;
   }
 
   .user__wrapper-edit {
@@ -54,7 +61,8 @@
   }
 
   .user-edit__name-text {
-    padding-left: 20px;
+    padding-left: 16px;
+    margin-bottom: 18px;
   }
 
   .user-edit__btns {
