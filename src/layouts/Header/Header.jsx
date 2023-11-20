@@ -39,11 +39,11 @@ export const Header = () => {
               Создать аккаунт
             </button>
           </div>
-          <div className='header__burger'>
-            <BurgerMenu />
-          </div>
         </>
       )}
+      <div className='header__burger'>
+        <BurgerMenu />
+      </div>
     </header>
   );
 };
