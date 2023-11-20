@@ -22,6 +22,7 @@ import { LoginToFavoritePopup } from './components/LoginToFavoritePopup';
 import ProtectedRouteElement from './utils/ProtectedRoute';
 import { LoginToReviewPopup } from './components/LoginToReviewPopup';
 import { Favorites } from './pages/Favorites';
+import { ReviewModal } from './components/ReviewModal';
 
 function App() {
   const dispatch = useDispatch();
@@ -62,6 +63,7 @@ function App() {
       <ProfileExitModal />
       <PasswordRecoveryModal />
       <NewsModal />
+      <ReviewModal />
 
       <PasswordRecoverySuccessModal />
     </Layout>

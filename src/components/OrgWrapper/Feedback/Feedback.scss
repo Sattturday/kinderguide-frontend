@@ -1,5 +1,6 @@
 @import '../../../styles/abstract/constants.scss';
 @import '../../../styles/abstract/mixins.scss';
+@import '../../../styles/abstract/placeholders.scss';
 
 .feedback__header {
   display: flex;
@@ -20,6 +21,11 @@
     color: rgba(110, 87, 213, 0.4);
   }
 }
+
+.feedback__ratingValue {
+  @extend %font-add;
+}
+
 .feedback__add {
   @include link;
   display: flex;
@@ -44,41 +50,6 @@
   flex-wrap: wrap;
   gap: 32px;
   align-items: flex-start;
-  justify-content: flex-start;
-  margin-bottom: 222px;
-}
-
-.feedback__item {
-  border: 1px solid $border-purple;
-  width: 408px;
-  height: 380px;
-  padding: 40px;
-  border-radius: $radii-m;
-}
-
-.feedback__titleWrapper {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-end;
-  justify-content: flex-start;
-}
-
-.feedback__title {
-  @include text-l($fw-semi-bold);
-  margin: 0 10px 0 0;
-  padding: 0;
-  overflow: hidden;
-  text-wrap: nowrap;
-  text-overflow: ellipsis;
-}
-
-.feedback__text {
-  @include text-l;
-  margin: 20px 0;
-
-  overflow: hidden;
-  display: -webkit-box;
-  -webkit-line-clamp: 8;
-  -webkit-box-orient: vertical;
-  word-wrap: break-word;
+  justify-content: space-between;
+  margin-bottom: 40px;
 }

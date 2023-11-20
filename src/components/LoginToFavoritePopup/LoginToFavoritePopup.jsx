@@ -11,8 +11,8 @@ export const LoginToFavoritePopup = () => {
   );
   return (
     <LoginToActionPopup isOpen={isOpen} popupData={popupData}>
-      <h2>Объект добавлен в избранное</h2>
-      <p>
+      <h2 className='loginToFavourite__header'>Объект добавлен в избранное</h2>
+      <p className='loginToFavourite__text'>
         Войдите в личный кабинет, чтобы сохранить избранное и просматривать
         его с других устройств
       </p>

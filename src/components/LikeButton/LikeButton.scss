@@ -18,9 +18,4 @@
   &_active {
     background-image: url(../../images/Card/like_active.svg);
   }
-
-  @include media-medium {
-    width: 32px;
-    background-size: 18px;
-  }
 }

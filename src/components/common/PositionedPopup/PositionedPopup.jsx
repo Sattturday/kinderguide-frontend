@@ -87,11 +87,6 @@ export const PositionedPopup = ({ isOpen, name, children, left, top }) => {
         }}
       >
         {children}
-        <button
-          className='position-popup__close-btn'
-          type='button'
-          onClick={() => dispatch(closeAllModals())}
-        />
       </div>
     </div>
   );
