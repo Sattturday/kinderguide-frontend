@@ -10,6 +10,7 @@ export const DropDown = ({
   items = [],
   onSelect = () => {},
   tabIndex = 0,
+  className = '',
 }) => {
   const [isOpened, setOpened] = useState(false);
   const [value, setValue] = useState({});
@@ -36,7 +37,9 @@ export const DropDown = ({
   return (
     <div
       tabIndex={tabIndex}
-      className={`dropdown ${isOpened ? 'dropdown_opened' : ''}`}
+      className={`dropdown ${isOpened ? 'dropdown_opened' : ''} ${
+        className ? className : ''
+      }`}
       onClick={handleListOpen}
       onBlur={() => setOpened(false)}
       aria-label={name}

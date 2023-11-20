@@ -43,6 +43,7 @@ export function Favorites() {
             selectedDefault={stateProfile}
             items={FavoritesFilters}
             onSelect={setStateProfile}
+            className='favorites__dropdown'
           />
           {dataToShow.length === 0 ? (
             <EmptyPage variant='favorite' data={favoriteOrg} />
