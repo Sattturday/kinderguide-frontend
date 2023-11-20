@@ -237,7 +237,10 @@
 
 // Popups
 @mixin popup-container-main {
+  margin-top: 0;
+  width: 100%;
   max-width: 680px;
+  gap: 20px;
 
   @include media-medium {
     max-width: 364px;
@@ -255,5 +258,17 @@
 
   @include media-small {
     padding: 40px 16px;
+  }
+}
+
+@mixin popup-form-main {
+  display: flex;
+  flex-direction: column;
+}
+
+// Popup button
+@mixin popup-button-main {
+  @include media-medium {
+    @include text-m($fw-semi-bold);
   }
 }

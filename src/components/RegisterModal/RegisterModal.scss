@@ -2,14 +2,11 @@
 @import '../../styles/abstract/mixins.scss';
 
 .register-form {
-  display: flex;
-  flex-direction: column;
+  @include popup-form-main;
   gap: 14px;
 
   &__button {
-    @include media-medium {
-      @include text-m($fw-semi-bold);
-    }
+    @include popup-button-main;
   }
 
   @include media-medium {

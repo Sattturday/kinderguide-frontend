@@ -5,7 +5,13 @@ import { closeAllModals } from '../../../store/modalsSlice';
 import { ReactComponent as CloseImage } from '../../../images/Popup/btn-close.svg';
 import './Popup.scss';
 
-export const Popup = ({ isOpen, name, children, title = '' }) => {
+export const Popup = ({
+  isOpen,
+  name,
+  children,
+  title = '',
+  className = '',
+}) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -34,7 +40,9 @@ export const Popup = ({ isOpen, name, children, title = '' }) => {
 
   return (
     <div
-      className={`popup${(isOpen && ' popup_opened') || ''} popup_type_${name}`}
+      className={`popup${
+        (isOpen && ' popup_opened') || ''
+      } popup_type_${name} ${className ? className : ''}`}
       onMouseDown={handleOverlay}
     >
       <div className={`popup__container popup__container_type_${name}`}>

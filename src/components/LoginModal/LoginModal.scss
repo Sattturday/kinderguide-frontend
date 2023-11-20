@@ -1,5 +1,19 @@
-.login-modal__title {
-  font-size: 40px;
-  line-height: 1.2;
-  margin: 0 0 40px;
+@import '../../styles/abstract/constants.scss';
+@import '../../styles/abstract/mixins.scss';
+
+.login-form {
+  @include popup-form-main;
+  gap: 30px;
+
+  &__button {
+    @include popup-button-main;
+  }
+
+  @include media-medium {
+    gap: 9px;
+  }
+
+  @include media-small {
+    gap: 7px;
+  }
 }
