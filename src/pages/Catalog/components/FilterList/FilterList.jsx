@@ -31,6 +31,7 @@ export function FilterList({
                 // Простой чекбокс для фильтра "Подготовка к школе"
                 <div className='filter-checkbox'>
                   <FilterCheckbox
+                    variant='dev'
                     option={{
                       name: 'Подготовка к школе',
                       slug: 'preparing_for_school',
@@ -59,6 +60,7 @@ export function FilterList({
                         <li key={index} className='filter__list-item'>
                           {/* Компонент InputCheckbox для каждого элемента списка флажков */}
                           <FilterCheckbox
+                            variant='check'
                             option={item}
                             isChecked={filter[item.slug]}
                             onChange={() => {
