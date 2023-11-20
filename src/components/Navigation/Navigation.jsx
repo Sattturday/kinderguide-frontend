@@ -61,9 +61,6 @@ export const Navigation = ({ usedFor }) => {
         {(usedFor === 'header' || usedFor === 'burger') && count > 0 && (
           <span className='navigation__item-count'>{count ? count : ''}</span>
         )}
-        {usedFor === 'burger' && (
-          <span className='navigation__item-count'>{count ? count : ''}</span>
-        )}
       </NavLink>
     </nav>
   );

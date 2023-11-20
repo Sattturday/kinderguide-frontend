@@ -49,7 +49,7 @@
     justify-content: center;
     color: $white;
 
-    @include media-small {
+    @include media-medium {
       position: static;
       margin-left: 8px;
     }
