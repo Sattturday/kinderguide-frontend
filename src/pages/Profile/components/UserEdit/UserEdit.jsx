@@ -144,7 +144,33 @@ export function UserEdit({ setEditUser }) {
           />
         </InputWrapper>
       </div>
-      <div className='user-edit__btns'>
+      <div className='user-edit__btns user-edit__btns_desktop'>
+        <Button
+          type='submit'
+          width='188px'
+          size='small'
+          color={isReadyToSubmit ? 'fill' : 'dis'}
+          disabled={!isReadyToSubmit}
+          onClick={(e) => {
+            handleSubmit(e);
+          }}
+        >
+          Сохранить
+        </Button>
+        <Button
+          type='button'
+          width='188px'
+          size='small'
+          color='empty'
+          onClick={(e) => {
+            e.preventDefault();
+            setEditUser(false);
+          }}
+        >
+          Отмена
+        </Button>
+      </div>
+      <div className='user-edit__btns user-edit__btns_tablet'>
         <Button
           type='submit'
           width='204px'
@@ -160,6 +186,32 @@ export function UserEdit({ setEditUser }) {
         <Button
           type='button'
           width='204px'
+          size='small'
+          color='empty'
+          onClick={(e) => {
+            e.preventDefault();
+            setEditUser(false);
+          }}
+        >
+          Отмена
+        </Button>
+      </div>
+      <div className='user-edit__btns user-edit__btns_mobile'>
+        <Button
+          type='submit'
+          width='288px'
+          size='small'
+          color={isReadyToSubmit ? 'fill' : 'dis'}
+          disabled={!isReadyToSubmit}
+          onClick={(e) => {
+            handleSubmit(e);
+          }}
+        >
+          Сохранить
+        </Button>
+        <Button
+          type='button'
+          width='288px'
           size='small'
           color='empty'
           onClick={(e) => {

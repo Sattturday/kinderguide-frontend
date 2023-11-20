@@ -72,3 +72,22 @@
     gap: 20px;
   }
 }
+
+.user-edit__btns {
+  display: none;
+  &_desktop {
+    @media screen and (min-width: 769px) {
+      display: flex;
+    }
+  }
+  &_tablet {
+    @media screen and (max-width: 768px) and (min-width: 601px) {
+      display: flex;
+    }
+  }
+  &_mobile {
+    @media screen and (max-width: 600px) {
+      display: flex;
+    }
+  }
+}
