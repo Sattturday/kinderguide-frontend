@@ -92,13 +92,13 @@ export const FavoritesProvider = ({ children }) => {
       // Выполняем синхронизацию с сервером при входе
       const favoriteKindergartens = favorites.kindergarten
         ? Object.keys(favorites.kindergarten)
-          .filter((id) => favorites.kindergarten[id])
-          .map((id) => parseInt(id, 10))
+            .filter((id) => favorites.kindergarten[id])
+            .map((id) => parseInt(id, 10))
         : [];
       const favoriteSchools = favorites.school
         ? Object.keys(favorites.school)
-          .filter((id) => favorites.school[id])
-          .map((id) => parseInt(id, 10))
+            .filter((id) => favorites.school[id])
+            .map((id) => parseInt(id, 10))
         : [];
 
       syncFavoriteKindergartens({ kindergartens: favoriteKindergartens })

@@ -57,10 +57,10 @@ export const Feedback = ({ feedback, org }) => {
             {feedback.length === 0
               ? 'Отзывов пока нет'
               : feedback.length === 1
-                ? '1 отзыв'
-                : feedback.length < 5
-                  ? `${feedback.length} отзыва`
-                  : `${feedback.length} отзывов`}
+              ? '1 отзыв'
+              : feedback.length < 5
+              ? `${feedback.length} отзыва`
+              : `${feedback.length} отзывов`}
           </p>
         </div>
         <div
