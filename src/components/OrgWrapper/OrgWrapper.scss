@@ -54,10 +54,10 @@
 }
 
 .orgWrapper__ratingWrapper {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
   &:hover {
     opacity: 0.8;
   }
@@ -84,14 +84,15 @@
 .orgWrapper__grid {
   display: grid;
   grid-template-areas:
-"slider aside"
-"text aside";
+    'slider aside'
+    'text aside';
   column-gap: 32px;
   grid-template-columns: 57% 40%;
   width: 100%;
   &_type {
     &_kindergarten {
-      background: url("../../images/OrgWrapper/BluePointsBig.svg") 650px 95% no-repeat;
+      background: url('../../images/OrgWrapper/BluePointsBig.svg') 650px 95%
+        no-repeat;
     }
   }
 }
@@ -131,7 +132,7 @@
       border: 4px solid $button-cyan;
       position: relative;
       &::before {
-        content: url("../../images/OrgWrapper/Star.svg");
+        content: url('../../images/OrgWrapper/Star.svg');
         position: absolute;
         top: -33px;
         right: -34px;
@@ -165,7 +166,7 @@
 }
 
 .orgWrapper__titlePrice {
-@include text-xl($fw-semi-bold);
+  @include text-xl($fw-semi-bold);
   margin: 0 0 16px 0;
   padding: 0;
 }
@@ -209,11 +210,12 @@
   min-height: 300px;
   width: 100%;
   position: relative;
-  background: url("../../images/OrgWrapper/Curve.svg") 76px 85% no-repeat,
-url("../../images/OrgWrapper/Road.svg") 100% 100% no-repeat;
+  background:
+    url('../../images/OrgWrapper/Curve.svg') 76px 85% no-repeat,
+    url('../../images/OrgWrapper/Road.svg') 100% 100% no-repeat;
   background-color: $button-blue-hover;
   &::before {
-    content: url("../../images/OrgWrapper/StarPlus.svg");
+    content: url('../../images/OrgWrapper/StarPlus.svg');
     position: absolute;
     top: -48px;
     right: 100px;
@@ -234,9 +236,9 @@ url("../../images/OrgWrapper/Road.svg") 100% 100% no-repeat;
   .orgWrapper__grid {
     display: grid;
     grid-template-areas:
-"slider slider"
-"aside aside"
-"text .";
+      'slider slider'
+      'aside aside'
+      'text .';
     column-gap: 32px;
     grid-template-columns: 70% 26%;
     width: 100%;
@@ -258,15 +260,15 @@ url("../../images/OrgWrapper/Road.svg") 100% 100% no-repeat;
     width: 100%;
     height: auto;
   }
-  }
+}
 
 @include media-small {
   .orgWrapper__grid {
     display: grid;
     grid-template-areas:
-"slider"
-"aside"
-"text";
+      'slider'
+      'aside'
+      'text';
     column-gap: 32px;
     grid-template-columns: 100%;
     width: 100%;
@@ -276,5 +278,4 @@ url("../../images/OrgWrapper/Road.svg") 100% 100% no-repeat;
     display: flex;
     flex-direction: column;
   }
-
 }

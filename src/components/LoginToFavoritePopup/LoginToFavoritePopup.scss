@@ -2,9 +2,9 @@
 @import '../../styles/abstract/mixins.scss';
 
 .loginToFavourite__header {
-@include text-l($fw-semi-bold)
+  @include text-l($fw-semi-bold);
 }
 
 .loginToFavourite__text {
-  @include text-m
+  @include text-m;
 }
