@@ -47,10 +47,10 @@
   list-style: none;
 }
 
-@mixin text-xs {
+@mixin text-xs($font-weight: $fw-light) {
   margin: 0;
   font-size: 12px;
-  font-weight: $fw-light;
+  font-weight: $font-weight;
   line-height: 1.3;
   letter-spacing: -0.14px;
 }
