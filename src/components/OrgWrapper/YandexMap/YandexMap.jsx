@@ -20,7 +20,16 @@ export const YandexMap = (props) => {
         }}
         modules={['control.ZoomControl', 'control.FullscreenControl']}
       >
-        <Placemark geometry={coordinates} />
+        <Placemark
+          geometry={coordinates}
+          options={{
+            iconColor: 'red',
+          }}
+          properties={{
+            hintContent: `<div>${props.address}</div>`,
+          }}
+          modules={['geoObject.addon.hint']}
+        />
       </Map>
     </YMaps>
   );

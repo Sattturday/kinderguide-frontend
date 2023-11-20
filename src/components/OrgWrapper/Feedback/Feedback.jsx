@@ -9,12 +9,12 @@ import {
   openLoginToReviewPopup,
 } from '../../../store/modalsSlice';
 import { AddMoreButton } from '../../AddMoreButton';
+import { FeedbackCard } from '../FeedbackCard';
 
 export const Feedback = ({ feedback, org }) => {
   const user = useSelector((state) => state.auth.user);
   const [rating, setRating] = useState(null);
   const [displayedCards, setDisplayedCards] = React.useState(6);
-
   const dispatch = useDispatch();
   const buttonRef = useRef(null);
 
@@ -51,7 +51,7 @@ export const Feedback = ({ feedback, org }) => {
     <div className='feedback'>
       <div className='feedback__header'>
         <div className='feedback__rating'>
-          <span>{rating}</span>
+          <span className='feedback__ratingValue'>{rating}</span>
           <Stars rating={rating || 0} />
           <p>
             {feedback.length === 0
@@ -68,19 +68,13 @@ export const Feedback = ({ feedback, org }) => {
           onClick={() => handleAddClick()}
           className='feedback__add'
         >
-          <img src={addIcon} alt='Добавить отзыв' />
+          <img src={addIcon} alt='Написать отзыв' />
           <span>Написать отзыв</span>
         </div>
       </div>
       <div className='feedback__list'>
-        {feedback?.slice(0, displayedCards).map((fb) => (
-          <div key={fb.id} className='feedback__item'>
-            <div className='feedback__titleWrapper'>
-              <h3 className='feedback__title'>{fb.author}</h3>
-              <Stars rating={fb.grade} />
-            </div>
-            <p className='feedback__text'>{fb.content}</p>
-          </div>
+        {feedback?.slice(0, displayedCards).map((fb, index) => (
+          <FeedbackCard key={fb.id} fb={fb} index={index} />
         ))}
       </div>
       <AddMoreButton

@@ -7,7 +7,6 @@ export const Stars = ({ rating, children, setter = () => {} }) => {
   const starFilled = Math.floor(rating);
   const starEmpty = Math.floor(5 - rating);
   const starHalf = 5 - starFilled - starEmpty;
-  // Ю. Костыль для мапа звездочек
   const stars = [1, 2, 3, 4, 5];
 
   const handleStarClick = (e) => {
@@ -19,35 +18,41 @@ export const Stars = ({ rating, children, setter = () => {} }) => {
   };
 
   return (
-    <div className='stars'>
-      {stars.slice(0, starFilled).map((i) => (
-        <img
-          key={`sf+${i}`}
-          id={`sf+${i}`}
-          className='stars__star'
-          src={filled}
-          alt='Заполненная звезда'
-          onClick={(e) => handleStarClick(e)}
-        />
-      ))}
-      {starHalf !== 0 && (
-        <img
-          className='stars__star'
-          src={half}
-          alt='Частично заполненная звезда'
-        />
+    <>
+      {rating ? (
+        <div className='stars'>
+          {stars.slice(0, starFilled).map((i) => (
+            <img
+              key={`sf+${i}`}
+              id={`sf+${i}`}
+              className='stars__star'
+              src={filled}
+              alt='Заполненная звезда'
+              onClick={(e) => handleStarClick(e)}
+            />
+          ))}
+          {starHalf !== 0 && (
+            <img
+              className='stars__star'
+              src={half}
+              alt='Частично заполненная звезда'
+            />
+          )}
+          {stars.slice(0, starEmpty).map((i) => (
+            <img
+              key={`se+${i}`}
+              id={`se+${i}`}
+              className='stars__star'
+              src={empty}
+              alt='Пустая звезда'
+              onClick={(e) => handleStarClick(e)}
+            />
+          ))}
+          {children}
+        </div>
+      ) : (
+        <div className='stars'></div>
       )}
-      {stars.slice(0, starEmpty).map((i) => (
-        <img
-          key={`se+${i}`}
-          id={`se+${i}`}
-          className='stars__star'
-          src={empty}
-          alt='Пустая звезда'
-          onClick={(e) => handleStarClick(e)}
-        />
-      ))}
-      {children}
-    </div>
+    </>
   );
 };

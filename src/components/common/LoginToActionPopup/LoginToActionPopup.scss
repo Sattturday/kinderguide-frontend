@@ -2,7 +2,7 @@
 @import '../../../styles/abstract/mixins';
 
 .popup-favorite {
-  width: 448px;
+  width: 392px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -15,6 +15,12 @@
 
 .popup-favorite__description {
   @include text-m;
+}
+
+.popup-favorite__buttonContainer {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
 }
 .popup-favorite__register {
   @include text-m;

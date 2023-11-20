@@ -1,5 +1,4 @@
 import { Map, Placemark, YMaps } from '@pbe/react-yandex-maps';
-import './BigMap.module.scss';
 
 export const BigMap = ({ cardData }) => {
   return (

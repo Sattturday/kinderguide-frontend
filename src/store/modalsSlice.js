@@ -13,6 +13,7 @@ const initialState = {
   isOpenAddSchoolReviewModal: false,
   isOpenAddKindergartenReviewModal: false,
   isOpenGratitudeModal: false,
+  isOpenReviewModal: false,
   isOpenLoginToFavoritePopup: false,
   loginToFavoritePopupShown: false, // Добавляем поле для отслеживания показа попапа
 };
@@ -70,6 +71,9 @@ const modalsSlice = createSlice({
       state.isOpenLoginToReviewPopup = true;
       state.loginToReviewPopupData = action.payload;
     },
+    openReviewModal(state) {
+      state.isOpenReviewModal = true;
+    },
   },
 });
 
@@ -89,6 +93,7 @@ export const {
   openAddKindergartenReviewModal,
   openGratitudeModal,
   openLoginToReviewPopup,
+  openReviewModal,
 } = modalsSlice.actions;
 
 export default modalsSlice.reducer;

@@ -6,6 +6,7 @@ import { useGetKindergartenReviewsQuery } from '../../api/kindergartenReviewsApi
 import { AddKindergartenReviewModal } from './components/AddKindergartenReviewModal';
 import { AddReviewGratitudeModal } from '../../components/AddReviewGratitudeModal';
 
+import './Kindergarten.scss';
 export const Kindergarten = () => {
   const { id } = useParams();
   const { data: kindergartenData = [], isLoading } =
@@ -55,6 +56,7 @@ export const Kindergarten = () => {
         feedback={kindergartenReviewsData.filter((i) => i.content.length > 0)}
         org='Детские сады'
         activities={activities}
+        type='kindergarten'
       />
       <AddKindergartenReviewModal data={kindergartenData} org='Детские сады' />
       <AddReviewGratitudeModal />

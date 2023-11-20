@@ -1,5 +1,6 @@
 @import '../../styles/abstract/constants.scss';
 @import '../../styles/abstract/mixins.scss';
+@import '../../styles/abstract/placeholders.scss';
 
 .orgWrapper {
   margin: 0 76px;
@@ -34,6 +35,15 @@
 .orgWrapper__favourite {
   display: flex;
   flex-direction: row;
+  height: 44px;
+  gap: 10px;
+}
+
+.ya-share2__container {
+  background-color: transparent;
+  height: 44px;
+  color: $button-violet;
+  padding-top: 9px;
 }
 
 .orgWrapper__like {
@@ -43,31 +53,98 @@
   aspect-ratio: 1 / 1;
 }
 
+.orgWrapper__ratingWrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+.orgWrapper__rating {
+  @include text-l($fw-semi-bold);
+  color: $black;
+}
+
+.orgWrapper__quantity {
+  @include text-l($fw-semi-bold);
+  color: $button-violet;
+}
+
 .orgWrapper__content {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
   gap: 30px;
-  margin: 20px 0 13px 0;
+  margin: 20px 0 150px 0;
+}
+
+.orgWrapper__grid {
+  display: grid;
+  grid-template-areas:
+"slider aside"
+"text aside";
+  column-gap: 32px;
+  grid-template-columns: 57% 40%;
+  width: 100%;
+  &_type {
+    &_kindergarten {
+      background: url("../../images/OrgWrapper/BluePointsBig.svg") 650px 95% no-repeat;
+    }
+  }
 }
 
 .orgWrapper__info {
-  width: 738px;
+  &_type {
+    &_slider {
+      grid-area: slider;
+    }
+    &_text {
+      grid-area: text;
+    }
+  }
 }
 
 .orgWrapper__imgContainer {
-  height: 494px;
-  background-color: $bg-gray;
+  aspect-ratio: 1.49;
+  width: 100%;
   margin: 0 0 40px 0;
   border-radius: 16px;
+  display: flex;
+  align-items: start;
+  justify-content: center;
+  background-color: $gray;
 }
 
 .orgWrapper__section {
   margin-bottom: 64px;
+  padding: 20px 20px 40px;
+  border-radius: $radii-m;
+  background-color: $white;
+  &_kind {
+    &_description {
+      background-color: $button-blue-hover;
+    }
+    &_activities {
+      border: 4px solid $button-cyan;
+      position: relative;
+      &::before {
+        content: url("../../images/OrgWrapper/Star.svg");
+        position: absolute;
+        top: -33px;
+        right: -34px;
+      }
+    }
+    &_preparation {
+      border: 4px solid $blue-lite;
+    }
+  }
 }
 
 .orgWrapper__sectionHeader {
-  @include text-xl($fw-light);
+  @include text-xl($fw-semi-bold);
   padding: 0;
   margin: 0 0 20px 0;
 }
@@ -77,32 +154,36 @@
 }
 
 .orgWrapper__aside {
-  width: 518px;
+  grid-area: aside;
 }
 
 .orgWrapper__contactInfo {
   border-radius: 16px;
-  background-color: $bg-purple;
-  margin-bottom: 40px;
-  padding: 40px 40px 40px 60px;
+  border: 4px solid $border-orange;
+  margin-bottom: 22px;
+  padding: 40px 50px 28px 50px;
 }
 
-.orgWrapper__title {
-  font-size: 28px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 120%;
+.orgWrapper__titlePrice {
+@include text-xl($fw-semi-bold);
   margin: 0 0 16px 0;
   padding: 0;
 }
 
+.orgWrapper__titleContacts {
+  @include text-l($fw-semi-bold);
+  margin: 0 0 16px 0;
+  padding: 0;
+}
 .orgWrapper__perYear {
   @include text-l($fw-semi-bold);
+  @extend %font-add;
   margin-bottom: 10px;
 }
 
 .orgWrapper__perMonth {
   @include text-l;
+  @extend %font-add;
   margin-bottom: 52px;
 }
 
@@ -111,21 +192,89 @@
   margin-bottom: 12px;
 }
 
-.orgWrapper__buttonWrapper {
-  margin-top: 40px;
+.orgWrapper__contactContent {
+  @extend %font-add;
+  color: $black;
 }
 
 .orgWrapper__map {
-  width: 518px;
+  width: 100%;
   height: 334px;
   border-radius: 16px;
   overflow: hidden;
 }
 
 .orgWrapper__feedback {
+  padding: 100px 76px 150px;
+  min-height: 300px;
+  width: 100%;
+  position: relative;
+  background: url("../../images/OrgWrapper/Curve.svg") 76px 85% no-repeat,
+url("../../images/OrgWrapper/Road.svg") 100% 100% no-repeat;
+  background-color: $button-blue-hover;
+  &::before {
+    content: url("../../images/OrgWrapper/StarPlus.svg");
+    position: absolute;
+    top: -48px;
+    right: 100px;
+  }
 }
 
 .orgWrapper__feedbackHeader {
   @include header-cyan;
   text-align: center;
+}
+
+@include media-medium {
+  .orgWrapper {
+    margin-left: 32px;
+    margin-right: 32px;
+  }
+
+  .orgWrapper__grid {
+    display: grid;
+    grid-template-areas:
+"slider slider"
+"aside aside"
+"text .";
+    column-gap: 32px;
+    grid-template-columns: 70% 26%;
+    width: 100%;
+  }
+
+  .orgWrapper__aside {
+    grid-area: aside;
+    display: grid;
+    grid-template-columns: 49% 49%;
+    gap: 25px;
+  }
+
+  .orgWrapper__contactInfo {
+    aspect-ratio: 1.04;
+  }
+
+  .orgWrapper__map {
+    aspect-ratio: 1.04;
+    width: 100%;
+    height: auto;
+  }
+  }
+
+@include media-small {
+  .orgWrapper__grid {
+    display: grid;
+    grid-template-areas:
+"slider"
+"aside"
+"text";
+    column-gap: 32px;
+    grid-template-columns: 100%;
+    width: 100%;
+  }
+  .orgWrapper__aside {
+    grid-area: aside;
+    display: flex;
+    flex-direction: column;
+  }
+
 }

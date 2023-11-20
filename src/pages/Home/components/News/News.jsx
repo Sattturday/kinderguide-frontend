@@ -11,7 +11,6 @@ import { AddMoreButton } from '../../../../components/AddMoreButton';
 
 export function News() {
   const [displayedCards, setDisplayedCards] = React.useState(5);
-  //console.log(displayedCards);
 
   return (
     <section className='news'>
@@ -24,21 +23,6 @@ export function News() {
             ))}
           </ul>
         </div>
-        {/*{NewsData.length > countCardNews ? (*/}
-        {/*  <div className='news__container-for-button'>*/}
-        {/*    <Button*/}
-        {/*      variant='square'*/}
-        {/*      color='blue-empty'*/}
-        {/*      size='small'*/}
-        {/*      type='button'*/}
-        {/*      children='Показать еще'*/}
-        {/*      width='298px'*/}
-        {/*      onClick={addMoreMovies}*/}
-        {/*    />*/}
-        {/*  </div>*/}
-        {/*) : (*/}
-        {/*  ''*/}
-        {/*)}*/}
         <AddMoreButton
           cards={NewsData}
           count={5}

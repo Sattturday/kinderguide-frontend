@@ -4,6 +4,7 @@ import modalsReducer from './modalsSlice';
 import authReducer from './authSlice';
 import filterReducer from './filterSlice';
 import newsPopupReducer from './newsPopupSlice';
+import reviewPopupReducer from './reviewPopupSlice';
 import { authApi } from '../api/authApi';
 import { userApi } from '../api/userApi';
 import { schoolApi } from '../api/schoolApi';
@@ -18,6 +19,7 @@ export default configureStore({
     auth: authReducer,
     filter: filterReducer,
     newsPopup: newsPopupReducer,
+    reviewPopup: reviewPopupReducer,
     [authApi.reducerPath]: authApi.reducer,
     [userApi.reducerPath]: userApi.reducer,
     [schoolApi.reducerPath]: schoolApi.reducer,
