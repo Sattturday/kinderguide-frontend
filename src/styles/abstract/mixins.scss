@@ -182,10 +182,10 @@
     width: 5px;
   }
   &::-webkit-scrollbar-track {
-    background-color: #ecf0ff;
+    background-color: $button-cyan;
   }
   &::-webkit-scrollbar-thumb {
-    background-color: #829dfd;
+    background-color: $button-cyan-hover;
     border-radius: 20px;
     height: 40px;
   }
