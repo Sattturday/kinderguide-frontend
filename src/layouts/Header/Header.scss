@@ -16,6 +16,7 @@
 
   @include media-medium {
     padding: 19px 32px;
+    min-height: 72px;
   }
   @include media-small {
     padding: 16px;
@@ -24,7 +25,7 @@
 }
 .header__burger {
   display: none;
-  @include media-small {
+  @include media-medium {
     display: block;
   }
 }
