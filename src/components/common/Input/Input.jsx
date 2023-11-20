@@ -13,7 +13,6 @@ export const Input = ({
   value,
   placeholder,
   type,
-  required,
   minLength,
   maxLength,
   isValid,
@@ -30,7 +29,6 @@ export const Input = ({
       }`}
       placeholder={placeholder}
       type={type}
-      //required={required}
       minLength={minLength}
       maxLength={maxLength}
       pattern={pattern}
@@ -74,10 +72,6 @@ Input.propTypes = {
    * Индикатор видимости символов пароля
    */
   type: PropTypes.string,
-  /**
-   * Обязателен для заполнения
-   */
-  required: PropTypes.bool,
 };
 
 Input.defaultProps = {

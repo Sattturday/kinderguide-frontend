@@ -20,6 +20,7 @@ export const filterApi = createApi({
 
         return {
           url: `${category}/${params ? '?' + params : ''}`,
+          //url: `${category}/?${params ? `${params}&` : ''}page=${currentPage}`,
           headers: authHeader,
         };
       },

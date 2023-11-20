@@ -18,52 +18,51 @@
     }
 
     &_info {
-      width: 298px;
-      height: 68px;
+      width: 408px;
+      height: 72px;
       padding: 20px 26px;
       border-radius: $radii-s;
+      background-color: $white;
     }
 
     &_search {
-      width: 478px;
+      width: 518px;
       height: 48px;
-      padding: 10px 60px 10px 20px;
-      border-radius: 32px;
+      padding: 10px 20px;
+      border-radius: $radii-s;
       min-height: auto;
-      border: 1px solid $border-purple;
-      background-color: transparent;
+      border: 2px solid $border-purple;
+      background-color: $white;
 
       &::placeholder {
-        color: $border-purple;
+        color: $button-violet;
         opacity: 1;
       }
     }
 
     &_price {
-      width: 115px;
+      width: 127px;
       height: 41px;
-      padding: 10px;
-      border-radius: 32px;
-      border: 1px solid $border-purple;
-      background-color: transparent;
+      padding: 10px 12px;
+      border-radius: $radii-s;
+      border: 1.5px solid $border-lilac;
       min-height: auto;
-
+      background-color: $white;
       &::placeholder {
-        color: $border-purple;
+        color: $border-lilac;
         opacity: 1;
       }
     }
 
     &_other {
       width: 100%;
-      height: 42px;
-      border-radius: 32px;
-      min-height: auto;
-      border: 1px solid $border-purple;
-      background-color: transparent;
+      min-height: 39px;
+      border-radius: $radii-s;
+      border: 1.5px solid $border-lilac;
+      background-color: $white;
 
       &::placeholder {
-        color: $border-purple;
+        color: $border-lilac;
         opacity: 1;
       }
     }
@@ -72,4 +71,67 @@
 
 .input_invalid {
   border: 1px solid $error;
+}
+
+@include media-medium {
+  .input {
+    &_kind {
+      &_form {
+        padding: 20px;
+      }
+
+      &_password {
+        padding: 20px 60px 20px 20px;
+      }
+
+      &_info {
+        width: 300px;
+        height: 58px;
+        padding: 20px 16px;
+      }
+
+      &_search {
+        width: 380px;
+        height: 44px;
+      }
+
+      &_price {
+        height: 32px;
+      }
+
+      &_other {
+        min-height: 32px;
+      }
+    }
+  }
+}
+
+@include media-mobile {
+  .input {
+    &_kind {
+      &_form {
+        width: 288px;
+      }
+
+      &_password {
+        width: 288px;
+      }
+
+      &_info {
+        width: 298px;
+      }
+
+      &_search {
+        width: 478px;
+      }
+
+      &_price {
+        width: 115px;
+      }
+
+      &_other {
+        width: 100%;
+      }
+    }
+  }
 }

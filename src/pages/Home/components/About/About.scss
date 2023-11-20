@@ -9,8 +9,8 @@
 .about__wrapper {
   display: grid;
   grid-template-areas:
-  "one two"
-  "three four";
+    'one two'
+    'three four';
   grid-template-rows: 31% 50%;
   grid-template-columns: 49% 49%;
   gap: 4% 2%;
@@ -122,11 +122,11 @@
     justify-content: center;
   }
 
-    .about__containerOne {
-      background: url('../../../../images/About/CardOnePad.svg') no-repeat;
-      aspect-ratio: 1.68;
-      background-size: contain;
-    }
+  .about__containerOne {
+    background: url('../../../../images/About/CardOnePad.svg') no-repeat;
+    aspect-ratio: 1.68;
+    background-size: contain;
+  }
 
   .about__header {
     font-size: 28px;
@@ -174,10 +174,10 @@
   .about__wrapper {
     display: grid;
     grid-template-areas:
-  "one"
-  "two"
-  "four"
-  "three";
+      'one'
+      'two'
+      'four'
+      'three';
     grid-template-rows: auto;
     grid-template-columns: 100%;
     gap: 20px;
@@ -239,4 +239,3 @@
     @include text-s;
   }
 }
-

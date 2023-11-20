@@ -31,7 +31,7 @@ export function Sort({ sortHandler, sortDirectionHandler }) {
   };
 
   return (
-    <div className='sort'>
+    <div className='sort' ref={sortRef}>
       {/* Контейнер для функционала сортировки */}
       <div className={`sort-wrapper ${isActive ? 'sort-wrapper_active' : ''}`}>
         {/* Кнопка для переключения видимости опций сортировки */}
@@ -47,25 +47,26 @@ export function Sort({ sortHandler, sortDirectionHandler }) {
         />
       </div>
       {/* Список опций сортировки */}
-      <ul
-        ref={sortRef}
-        className={`sort-list ${isActive ? 'sort-list_active' : ''}`}
-      >
+      <ul className={`sort-list ${isActive ? 'sort-list_active' : ''}`}>
         {/* Перебор sortButtons для отображения отдельных опций сортировки */}
         {sortButtons.map((button) => {
           return (
-            <li className='sort-list__item' key={button.id}>
+            <li className='sort-list__items' key={button.id}>
               {/* Кнопка, представляющая каждую опцию сортировки */}
-              <button
-                id={button.id}
-                type='button'
-                className={`sort-list__button ${
-                  ordering === button.id ? 'sort-list__button_selected' : ''
-                }`}
-                onClick={onClickSortHandler}
-              >
-                {button.title}
-              </button>
+              <label className='sort-list__label'>
+                <input
+                  id={button.id}
+                  className='sort-list__radio'
+                  type='radio'
+                  name={button.id}
+                  checked={
+                    ordering === button.id || ordering.slice(1) === button.id
+                  }
+                  onChange={onClickSortHandler}
+                />
+                <span className='sort-list__radio-new'></span>
+                <span className='sort-list__radio-name'>{button.title}</span>
+              </label>
             </li>
           );
         })}
