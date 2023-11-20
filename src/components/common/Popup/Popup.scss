@@ -29,11 +29,21 @@
   &_type_news-modal {
     padding: 98px 186px;
   }
+
+  @include media-medium {
+    padding: 48px 0 0;
+    align-items: flex-start;
+  }
+
+  @include media-small {
+    padding-top: 20px;
+    align-items: flex-start;
+  }
 }
 
 .popup__container {
   margin: auto;
-  padding: 60px 74px;
+  padding: 60px 80px;
   background: $white;
   border-radius: 16px;
   display: flex;
@@ -46,6 +56,16 @@
     width: auto;
     aspect-ratio: auto;
     background-color: transparent;
+  }
+
+  &_type_register-modal {
+    @include popup-container-main;
+    @include popup-paddings-main;
+  }
+
+  &_type_login-modal {
+    @include popup-container-main;
+    @include popup-paddings-main;
   }
 
   &_type_register-success-modal {
@@ -69,14 +89,19 @@
     height: 356px;
     padding: 60px 86px;
   }
+
+  @include media-medium {
+    margin-top: 0;
+  }
 }
 
 .popup__title {
-  margin: 0;
-  padding: 0;
-  color: $black;
-  @include text-l;
-  text-align: center;
+  @include text-xl($fw-semi-bold);
+  @include margin-padding-null;
+
+  @include media-medium {
+    @include text-xls($fw-semi-bold);
+  }
 }
 
 .popup__image {
@@ -90,7 +115,7 @@
   @include button;
   width: 24px;
   height: 24px;
-  background-image: url(../../../images/Popup/btn-close.svg);
+  background-image: url();
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -100,6 +125,36 @@
 
   &:hover {
     opacity: 0.8;
+  }
+
+  @include media-small {
+    width: 18px;
+    height: 18px;
+    top: 16px;
+    right: 16px;
+  }
+}
+
+.popup__close-image {
+  width: 100%;
+  height: 100%;
+
+  & path {
+    @include media-small {
+      fill: $button-violet;
+    }
+  }
+
+  &:hover path {
+    @include media-small {
+      fill: $button-violet-hover;
+    }
+  }
+
+  &:active path {
+    @include media-small {
+      fill: $button-violet-active;
+    }
   }
 }
 
@@ -112,7 +167,37 @@
 }
 
 .popup__container_type_profile-modal {
-  padding: 60px 60px;
+  padding: 60px 80px;
   max-width: 690px;
   align-items: center;
+}
+
+@media screen and (max-width: 768px) {
+  .popup_type_profile-modal {
+    padding-top: 48px;
+  }
+
+  .popup__container_type_profile-modal {
+    width: 364px;
+    padding: 20px 32px 32px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .popup_type_profile-modal {
+    padding-top: 20px;
+  }
+
+  .popup__container_type_profile-modal {
+    width: 364px;
+    padding: 44px 16px 40px;
+  }
+
+  .popup__close-btn_profile-modal {
+    width: 16px;
+    height: 16px;
+    background-image: url(../../../images/Popup/btn-profile-close.svg);
+    top: 20px;
+    right: 16px;
+  }
 }

@@ -8,13 +8,14 @@
 .filter__title {
   color: $black;
   @include text-l($fw-semi-bold);
-
   margin: 0;
-  margin-bottom: 32px;
+  margin-bottom: 38px;
 }
 
 .filter-form {
-  padding-left: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
 }
 
 .filter__list-item {
@@ -27,7 +28,7 @@
 }
 
 .filter__list-range {
-  margin-bottom: 32px;
+  margin-bottom: 6px;
 }
 
 .filter__label {
@@ -37,6 +38,7 @@
 }
 
 .filter__buttons {
+  margin-top: 10px;
   display: flex;
   flex-direction: column;
   gap: 16px;

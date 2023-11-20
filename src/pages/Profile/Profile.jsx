@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { User } from './components/User/User';
 import './Profile.scss';
 import { useGetUserQuery } from '../../api/userApi';
@@ -7,6 +7,7 @@ import { setToken, setUser } from '../../store/authSlice';
 
 export function Profile() {
   const dispatch = useDispatch();
+  const [editUser, setEditUser] = useState(false);
 
   const { data = {}, isLoading, isError, refetch } = useGetUserQuery();
 
@@ -21,10 +22,10 @@ export function Profile() {
     }
   }, [token]);
   return (
-    <section className='profile'>
+    <section className={`profile ${editUser ? 'profile__user-edit' : ''}`}>
       <div className='wrapper'>
         <h1 className='profile__title'>Личный кабинет</h1>
-        <User />
+        <User editUser={editUser} setEditUser={setEditUser} />
       </div>
     </section>
   );

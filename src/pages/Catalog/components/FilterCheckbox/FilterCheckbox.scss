@@ -1,45 +1,74 @@
-.filter-checkbox {
-  padding: 0 10px 10px;
-  margin: auto;
-  width: 100%;
+@import '../../../../styles/abstract/constants.scss';
+@import '../../../../styles/abstract/mixins.scss';
+@import '../../../../styles/abstract/placeholders.scss';
+
+.filter-checkbox__label {
+  padding-left: 12px;
   display: flex;
+  justify-content: flex-start;
   align-items: center;
-  gap: 1.2rem;
+  gap: 8px;
   cursor: pointer;
-}
 
-.filter-checkbox__input {
-  position: absolute;
-  width: 0.01rem;
-  height: 0.01rem;
-  opacity: 0;
-  pointer-events: none;
-}
+  &_dev {
+    padding: 0;
+    justify-content: space-between;
 
-.filter-checkbox__input-new {
-  width: 3.6rem;
-  min-height: 2rem;
-  background-image: url(../../../../images/Filter/checkbox-off.svg);
-  background-size: cover;
-  transition: background-image 0.3s ease-in-out;
-
-  &:after {
-    content: '';
-    opacity: 0;
-    transition: opacity 0.3s ease-in-out;
+    p {
+      max-width: 226px;
+      @include text-l;
+    }
   }
 }
 
-.filter-checkbox__input:checked + .filter-checkbox__input-new {
-  background-image: url(../../../../images/Filter/checkbox-on.svg);
+.filter-checkbox__input {
+  width: 1px;
+  height: 1px;
+  position: absolute;
+  pointer-events: none;
+  opacity: 0;
+}
 
+.filter-checkbox__input-new {
+  width: 20px;
+  height: 20px;
+  position: relative;
+  background-image: url(../../../../images/Catalog/Checkbox_empty.svg);
+  background-size: cover;
+
+  &_dev {
+    width: 32px;
+    background-image: url(../../../../images/Catalog/Toggle_off.svg);
+  }
+
+  &:after {
+    content: '';
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    background-image: url(../../../../images/Catalog/Checkbox_min.svg);
+    background-size: cover;
+    transform: translate(-50%, -50%);
+    transition: all 0.3s ease;
+    opacity: 0;
+  }
+}
+
+.filter-checkbox__input-new_dev:after {
+  width: 32px;
+  background-image: url(../../../../images/Catalog/Toggle_on.svg);
+}
+
+.filter-checkbox__input:checked + .filter-checkbox__input-new {
   &:after {
     opacity: 1;
   }
 }
 
 .filter-checkbox__title {
-  font-size: 18px;
-  font-weight: 400;
-  line-height: 1.5;
+  max-width: 226px;
+  @include text-ml;
+  @extend %font-add;
 }

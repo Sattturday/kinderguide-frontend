@@ -1,25 +1,30 @@
 @import '../../../../styles/abstract/constants.scss';
 @import '../../../../styles/abstract/mixins.scss';
+@import '../../../../styles/abstract/placeholders.scss';
 
 .navigation-favorites {
-  padding-left: 12px;
+  max-width: 298px;
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  flex-grow: 1;
+
+  @include media-990 {
+    display: none;
+  }
 }
 
 .navigation-favorites__item {
-  width: 298px;
-  height: 46px;
-  @include text-m;
+  min-height: 46px;
+  @include text-ml($fw-semi-bold);
   color: $black;
   @include link;
   padding: 0 12px;
   text-align: start;
   background-color: #fff;
   border: none;
+  border-radius: $radii-s;
   line-height: 130%;
-  font-family: 'Manrope', 'Arial', sans-serif;
+  @extend %font-prim;
 }
 
 .navigation-favorites__item_active {

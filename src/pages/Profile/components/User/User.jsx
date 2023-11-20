@@ -4,12 +4,9 @@ import { UserEdit } from '../UserEdit/UserEdit';
 import { UserData } from '../UserData/UserData';
 import './User.scss';
 
-export function User() {
-  const [editUser, setEditUser] = useState(false);
-
+export function User({ editUser, setEditUser }) {
   return (
-    <section className='user'>
-      <div className='user__avatar' />
+    <section className={`user ${editUser ? 'user__edit' : ''}`}>
       {editUser ? (
         <UserEdit setEditUser={setEditUser} />
       ) : (

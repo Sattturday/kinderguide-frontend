@@ -62,13 +62,19 @@ export function Catalog() {
   const { data: areaFilters } = useGetAreaFiltersQuery();
   const { data: metroFilters } = useGetMetroFiltersQuery();
 
-  // Получение отфильтрованных данных с сервера на основе выбранных фильтров
-  const { data = [], isLoading } = useGetFilteredDataQuery([
-    filter.category,
-    paramsUrl,
-  ]);
+//   const { data = [], isLoading } = useGetFilteredDataQuery([
+//     filter.category,
+//     paramsUrl,
+//   ]);
 
-  const { data: fullData = [] } = useGetFilteredDataFullQuery([
+  // const { data = [], isLoading } = useGetFilteredDataQuery([
+  //   filter.category,
+  //   paramsUrl,
+  //   //currentPage,
+  // ]);
+
+
+  const { data: fullData = [], isLoading } = useGetFilteredDataFullQuery([
     filter.category,
     paramsUrl,
   ]);
@@ -77,13 +83,13 @@ export function Catalog() {
   //   setList(data);
   // }, [data]);
 
-  // // useEffect(() => {
-  // //   document.addEventListener('scroll', scrollHandler);
+  // useEffect(() => {
+  //   document.addEventListener('scroll', scrollHandler);
 
-  // //   return function () {
-  // //     document.removeEventListener('scroll', scrollHandler);
-  // //   };
-  // // }, []);
+  //   return function () {
+  //     document.removeEventListener('scroll', scrollHandler);
+  //   };
+  // }, []);
 
   // const scrollHandler = (evt) => {
   //   console.log(list);
@@ -131,7 +137,7 @@ export function Catalog() {
     dispatch(setSortFilter(btnId));
   };
 
-  const sortDirectionHandler = () => {
+  const sortDirectionHandler = (e) => {
     const ordering = filter.ordering.startsWith('-')
       ? filter.ordering.slice(1)
       : `-${filter.ordering}`;
@@ -187,9 +193,9 @@ export function Catalog() {
 
   return (
     <section className='catalog'>
-      <Nav selected={selected} onClickNavHandler={onClickNavHandler} />
-      <div className='list-wrapper'>
-        <div className='search-wrapper'>
+      <div className='wrapper'>
+        <Nav selected={selected} onClickNavHandler={onClickNavHandler} />
+        <div className='catalog__wrapper'>
           <SearchForm
             onChange={searchHandler}
             value={deferredFilter.search}
@@ -200,21 +206,22 @@ export function Catalog() {
             sortHandler={sortHandler}
             sortDirectionHandler={sortDirectionHandler}
           />
+          <FilterList
+            handleSubmit={handleSubmit}
+            filter={deferredFilter}
+            checkboxHandler={checkboxHandler}
+            selectHandler={selectHandler}
+            handleReset={handleReset}
+            filterItems={filterItems}
+          />
+          <ShowList
+            // data={data ? data.results : []}
+            data={fullData ? fullData : []}
+            fullData={fullData ? fullData : []}
+            selected={selected}
+            isLoading={isLoading}
+          />
         </div>
-        <FilterList
-          handleSubmit={handleSubmit}
-          filter={deferredFilter}
-          checkboxHandler={checkboxHandler}
-          selectHandler={selectHandler}
-          handleReset={handleReset}
-          filterItems={filterItems}
-        />
-        <ShowList
-          data={data ? data.results : []}
-          fullData={fullData ? fullData : []}
-          selected={selected}
-          isLoading={isLoading}
-        />
       </div>
     </section>
   );
