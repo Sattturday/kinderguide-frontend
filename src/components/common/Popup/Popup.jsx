@@ -39,7 +39,7 @@ export const Popup = ({ isOpen, name, children }) => {
       <div className={`popup__container popup__container_type_${name}`}>
         {children}
         <button
-          className='popup__close-btn'
+          className={`popup__close-btn popup__close-btn_${name}`}
           type='button'
           onClick={() => dispatch(closeAllModals())}
         />
