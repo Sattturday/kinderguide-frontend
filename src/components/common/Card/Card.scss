@@ -4,6 +4,7 @@
 
 .card {
   padding: 21px 24px;
+  width: 100%;
   max-width: 894px;
   display: flex;
   align-items: center;
@@ -54,7 +55,7 @@
 }
 
 .card__container {
-  width: 100%;
+  width: 616px;
   display: flex;
   flex-direction: column;
   gap: 14px;

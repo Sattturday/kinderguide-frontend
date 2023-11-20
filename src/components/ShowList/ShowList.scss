@@ -6,7 +6,6 @@
   display: flex;
   flex-direction: column;
   gap: 11px;
-  align-items: center;
 }
 
 .show-list__infoWrapper {
@@ -34,6 +33,13 @@
   color: $black;
   line-height: 1.1;
 
+  &_catalog {
+    align-items: center;
+
+    @extend %font-add;
+    @include text-s;
+  }
+
   @include media-medium {
     @include text-s;
   }
@@ -55,6 +61,7 @@
   display: flex;
   flex-direction: column;
   gap: 24px;
+  margin: auto;
 
   @include media-medium {
     gap: 16px;
