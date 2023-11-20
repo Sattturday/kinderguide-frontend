@@ -62,17 +62,16 @@ export function Catalog() {
   const { data: areaFilters } = useGetAreaFiltersQuery();
   const { data: metroFilters } = useGetMetroFiltersQuery();
 
-//   const { data = [], isLoading } = useGetFilteredDataQuery([
-//     filter.category,
-//     paramsUrl,
-//   ]);
+  //   const { data = [], isLoading } = useGetFilteredDataQuery([
+  //     filter.category,
+  //     paramsUrl,
+  //   ]);
 
   // const { data = [], isLoading } = useGetFilteredDataQuery([
   //   filter.category,
   //   paramsUrl,
   //   //currentPage,
   // ]);
-
 
   const { data: fullData = [], isLoading } = useGetFilteredDataFullQuery([
     filter.category,
@@ -119,7 +118,6 @@ export function Catalog() {
     areaFilters,
     metroFilters
   );
-
   // Обработка изменений фильтра после сброса
   useEffect(() => {
     if (isResetRef.current) {
