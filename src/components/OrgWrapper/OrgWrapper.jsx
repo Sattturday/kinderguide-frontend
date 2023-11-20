@@ -95,10 +95,12 @@ export const OrgWrapper = ({ data, feedback, org, activities, type }) => {
                   ))}
                 </div>
               </div>
-              {data.preparing_for_school && (
+              {data?.preparing_for_school && (
                 <div className='orgWrapper__section orgWrapper__section_kind_preparation'>
-                  <p className='activity'>
-                    <span className='activity__type'>Подготовка к школе:</span>{' '}
+                  <p className='preparation'>
+                    <span className='preparation__type'>
+                      Подготовка к школе:
+                    </span>{' '}
                     {data.preparing_for_school}
                   </p>
                 </div>

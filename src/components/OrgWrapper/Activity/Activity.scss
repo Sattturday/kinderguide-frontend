@@ -9,3 +9,13 @@
 .activity__type {
   @include text-l($fw-semi-bold);
 }
+
+@include media-medium {
+  .activity {
+    @include text-m;
+    margin-bottom: 16px;
+  }
+  .activity__type {
+    @include text-m($fw-semi-bold)
+  }
+}

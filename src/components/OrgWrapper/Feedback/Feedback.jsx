@@ -68,8 +68,8 @@ export const Feedback = ({ feedback, org }) => {
           onClick={() => handleAddClick()}
           className='feedback__add'
         >
-          <img src={addIcon} alt='Написать отзыв' />
           <span>Написать отзыв</span>
+          <img src={addIcon} alt='Написать отзыв' />
         </div>
       </div>
       <div className='feedback__list'>

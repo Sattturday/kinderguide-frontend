@@ -3,8 +3,8 @@
 @import '../../../styles/abstract/placeholders.scss';
 
 .feedback__item {
-  width: 48%;
-  height: 264px;
+  width: 47%;
+  height: 248px;
   padding: 40px 32px;
   border-radius: $radii-m;
   background-color: white;
@@ -42,10 +42,36 @@
 .feedback__text {
   @include text-l;
   margin: 20px 0;
-
   overflow: hidden;
   display: -webkit-box;
   -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
   word-wrap: break-word;
+}
+
+@include media-medium {
+  .feedback__title {
+    @include text-m($fw-semi-bold);
+    margin-bottom: 10px;
+  }
+
+    .feedback__item {
+    padding: 40px 20px;
+  }
+    .feedback__text {
+      @include text-s;
+      -webkit-line-clamp: 5;
+  }
+  }
+
+@include media-small {
+  .feedback__item {
+    width: 320px;
+    height: 267px;
+    cursor: pointer;
+  }
+  .feedback__text {
+    @include text-s;
+    -webkit-line-clamp: 6;
+  }
 }
