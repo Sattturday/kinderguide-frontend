@@ -240,8 +240,14 @@
       'aside aside'
       'text .';
     column-gap: 32px;
-    grid-template-columns: 70% 26%;
+    grid-template-columns: 75% 21%;
     width: 100%;
+    &_type {
+      &_kindergarten {
+        background: url('../../images/OrgWrapper/BluePointsBig.svg') 100% 100%
+          no-repeat;
+      }
+    }
   }
 
   .orgWrapper__aside {
@@ -253,12 +259,86 @@
 
   .orgWrapper__contactInfo {
     aspect-ratio: 1.04;
+    padding: 20px 16px 4px 16px;
+  }
+
+  .orgWrapper__titlePrice {
+    @include text-l($fw-semi-bold);
+    font-size: 24px;
+    margin-bottom: 12px;
+  }
+
+  .orgWrapper__perYear {
+    @include text-m($fw-semi-bold);
+    margin-bottom: 12px;
+  }
+
+  .orgWrapper__perMonth {
+    @include text-m;
+    margin-bottom: 20px;
+  }
+
+  .orgWrapper__titleContacts {
+    @include text-m($fw-semi-bold);
+    margin-bottom: 12px;
+  }
+
+  .orgWrapper__contacts {
+    @include text-m($fw-semi-bold);
+    margin-bottom: 12px;
+  }
+
+  .orgWrapper__contactContent {
+    @include text-m;
+  }
+
+  .orgWrapper__titlePrice {
+    @include text-l($fw-semi-bold);
+    font-size: 24px;
   }
 
   .orgWrapper__map {
     aspect-ratio: 1.04;
     width: 100%;
     height: auto;
+  }
+
+  .orgWrapper__sectionHeader {
+    @include text-l($fw-semi-bold);
+    font-size: 24px;
+    margin-bottom: 16px;
+  }
+
+  .orgWrapper__descText {
+    @include text-m;
+  }
+
+  .orgWrapper__section {
+    padding: 20px 16px;
+  }
+
+  .preparation {
+    @include text-m;
+  }
+
+  .preparation__type {
+    @include text-m($fw-semi-bold);
+  }
+
+  .orgWrapper__feedback {
+    padding: 41px 32px 97px;
+    min-height: 200px;
+    position: relative;
+    background:
+      url('../../images/OrgWrapper/CurveSmall.svg') 76px 93% no-repeat,
+      url('../../images/OrgWrapper/RoadSmall.svg') 100% 100% no-repeat;
+    background-color: $button-blue-hover;
+    &::before {
+      content: url('../../images/OrgWrapper/StarPlusSmall.svg');
+      position: absolute;
+      top: -32px;
+      right: 100px;
+    }
   }
 }
 
@@ -273,9 +353,118 @@
     grid-template-columns: 100%;
     width: 100%;
   }
+
+  .orgWrapper {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .orgWrapper__grid {
+    display: grid;
+    grid-template-areas:
+      'slider slider'
+      'aside aside'
+      'text .';
+    row-gap: 20px;
+    grid-template-columns: 75% 21%;
+    width: 100%;
+    &_type {
+      &_kindergarten {
+        background: url('../../images/OrgWrapper/BluePointsBig.svg') 100% 100%
+          no-repeat;
+      }
+    }
+  }
+
   .orgWrapper__aside {
     grid-area: aside;
     display: flex;
     flex-direction: column;
+    gap: 20px;
+  }
+
+  .orgWrapper__contactInfo {
+    max-width: 500px;
+    height: auto;
+    padding: 20px 16px 4px 16px;
+  }
+
+  .orgWrapper__titlePrice {
+    @include text-l($fw-semi-bold);
+    font-size: 24px;
+    margin-bottom: 12px;
+  }
+
+  .orgWrapper__perYear {
+    @include text-m($fw-semi-bold);
+    margin-bottom: 12px;
+  }
+
+  .orgWrapper__perMonth {
+    @include text-m;
+    margin-bottom: 20px;
+  }
+
+  .orgWrapper__titleContacts {
+    @include text-m($fw-semi-bold);
+    margin-bottom: 12px;
+  }
+
+  .orgWrapper__contacts {
+    @include text-m($fw-semi-bold);
+    margin-bottom: 12px;
+  }
+
+  .orgWrapper__contactContent {
+    @include text-m;
+  }
+
+  .orgWrapper__titlePrice {
+    @include text-l($fw-semi-bold);
+    font-size: 24px;
+  }
+
+  .orgWrapper__map {
+    aspect-ratio: 1.04;
+    width: 100%;
+    height: auto;
+  }
+
+  .orgWrapper__sectionHeader {
+    @include text-l($fw-semi-bold);
+    font-size: 24px;
+    margin-bottom: 16px;
+  }
+
+  .orgWrapper__descText {
+    @include text-m;
+  }
+
+  .orgWrapper__section {
+    padding: 20px 16px;
+  }
+
+  .preparation {
+    @include text-m;
+  }
+
+  .preparation__type {
+    @include text-m($fw-semi-bold);
+  }
+
+  .orgWrapper__feedback {
+    padding: 41px 32px 97px;
+    min-height: 200px;
+    position: relative;
+    background:
+      url('../../images/OrgWrapper/CurveSmall.svg') 76px 93% no-repeat,
+      url('../../images/OrgWrapper/RoadSmall.svg') 100% 100% no-repeat;
+    background-color: $button-blue-hover;
+    &::before {
+      content: url('../../images/OrgWrapper/StarPlusSmall.svg');
+      position: absolute;
+      top: -32px;
+      right: 100px;
+    }
   }
 }

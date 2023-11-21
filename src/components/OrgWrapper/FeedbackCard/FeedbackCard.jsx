@@ -18,7 +18,6 @@ export const FeedbackCard = ({ index, fb }) => {
     dispatch(setGrade(fb.grade));
     dispatch(setContent(fb.content));
     dispatch(setIndex(index));
-    console.log(index);
   };
   return (
     <div className='feedback__item' onClick={handleOpenPopupClick}>

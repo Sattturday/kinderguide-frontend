@@ -8,7 +8,7 @@ const newsPopupSlice = createSlice({
     text: '',
   },
   reducers: {
-    setAuthor: (state, action) => {
+    setTitle: (state, action) => {
       state.title = action.payload;
     },
     setImg: (state, action) => {

@@ -10,6 +10,7 @@ import { News } from './components/News';
 import { About } from './components/About';
 import { ServiceWork } from './components/ServiceWork';
 import './Home.scss';
+import { setIndex } from '../../store/reviewPopupSlice';
 
 export function Home() {
   const { id, token } = useParams();
@@ -18,6 +19,7 @@ export function Home() {
   useEffect(() => {
     if (id) {
       dispatch(openPasswordRecoveryConfirmModal());
+      dispatch(setIndex('none'));
     }
   });
 
