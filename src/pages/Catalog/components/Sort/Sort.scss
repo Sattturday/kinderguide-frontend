@@ -17,6 +17,10 @@
   border: 2px solid $blue-lite;
   background: $white;
   transition: all 0.4s ease-out;
+
+  @include media-medium {
+    height: 44px;
+  }
 }
 
 .sort__button {

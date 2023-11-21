@@ -350,7 +350,7 @@
     align-items: center;
   }
   .orgWrapper__nav {
-  display: none;
+    display: none;
   }
 
   .orgWrapper__headerWrapper {
@@ -360,7 +360,7 @@
   }
 
   .orgWrapper__header {
-  @include text-l($fw-semi-bold);
+    @include text-l($fw-semi-bold);
   }
 
   .orgWrapper__ratingWrapper {
@@ -419,10 +419,10 @@
     margin-bottom: 0;
   }
 
-    .orgWrapper__contactInfo {
+  .orgWrapper__contactInfo {
     padding: 20px 16px 4px 16px;
     aspect-ratio: auto;
-    }
+  }
 
   .orgWrapper__titlePrice {
     @include text-l($fw-semi-bold);
@@ -441,7 +441,7 @@
   }
 
   .orgWrapper__contactInfo {
-   margin-bottom: 0;
+    margin-bottom: 0;
   }
 
   .orgWrapper__map {
@@ -473,7 +473,7 @@
     max-width: 500px;
   }
 
-    .orgWrapper__feedback {
+  .orgWrapper__feedback {
     padding: 40px 0 88px;
     min-height: 150px;
     position: relative;
