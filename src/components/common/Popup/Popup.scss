@@ -72,8 +72,8 @@
     padding: 100px 80px;
   }
   &_type_password-recovery-modal {
-    padding: 100px 104px;
-    align-items: center;
+    @include popup-container-main;
+    @include popup-paddings-main;
   }
   &_type_news-modal {
     padding: 50px 64px;
