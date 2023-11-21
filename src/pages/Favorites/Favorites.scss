@@ -11,6 +11,7 @@
 
     @include media-990 {
       @include text-xlm($fw-normal);
+      margin-bottom: 26px;
     }
 
     @include media-small {
