@@ -33,6 +33,10 @@
     }
   }
 
+  &_type_review {
+    padding-top: 112px;
+  }
+
   @include media-medium {
     padding: 48px 0 0;
     align-items: flex-start;
@@ -40,11 +44,19 @@
     &_type_review-modal {
       padding-top: 42px;
     }
+
+    &_type_review {
+      padding-top: 42px;
+    }
   }
 
   @include media-small {
     padding-top: 20px;
     align-items: flex-start;
+
+    &_type_review {
+      padding-top: 14px;
+    }
   }
 }
 
@@ -112,16 +124,28 @@
       padding: 32px;
     }
 
-    @include media-small {
+    @include media-mobile {
       max-width: 320px;
       padding: 56px 16px 28px;
     }
   }
 
   &_type_review {
-    width: 908px;
-    height: 539px;
+    @include popup-container-upper(908px);
     padding: 40px 52px;
+    gap: 40px;
+
+    @include media-medium {
+      max-width: 604px;
+      padding: 40px 32px 32px;
+      gap: 16px;
+    }
+
+    @include media-mobile {
+      max-width: 320px;
+      padding: 52px 16px 40px;
+      gap: 20px;
+    }
   }
 
   &_type_gratitude {

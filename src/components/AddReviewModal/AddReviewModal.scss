@@ -1,49 +1,85 @@
 @import '../../styles/abstract/constants.scss';
 @import '../../styles/abstract/mixins.scss';
+@import '../../styles/abstract/placeholders.scss';
 
-.add-review__title {
-  @include text-xl;
-  margin: 0 0 40px 0;
-}
-
-.add-review__stars-area {
-  margin-bottom: 16px;
-  p {
-    @include text-l;
+.add-review {
+  &__stars-area {
     margin-bottom: 16px;
-  }
-}
-
-.add-review__text-area {
-  display: flex;
-  flex-direction: column;
-
-  span {
-    @include text-l(600);
-    font-size: 18px;
-    text-align: end;
-    color: rgba(110, 87, 213, 0.4);
-    margin: 0 0 16px 0;
-  }
-
-  textarea {
-    @include text-l;
-    width: 804px;
-    height: 140px;
-    padding: 16px;
-    margin-bottom: 40px;
-    resize: none;
-    border: none;
-    border-radius: 10px;
-    background-color: rgba(236, 240, 255, 1);
-
-    &:focus {
-      outline: 2px solid rgba(184, 199, 255, 1);
-      box-shadow: 4px 4px 15px rgba(236, 240, 255, 1);
-    }
-    &::placeholder {
+    p {
       @include text-l;
-      color: rgba(149, 149, 149, 1);
+      margin-bottom: 16px;
+
+      @include media-medium {
+        @include text-ml($fw-semi-bold);
+        margin-bottom: 16px;
+      }
+
+      @include media-mobile {
+        @include text-ml($fw-semi-bold);
+        margin-bottom: 32px;
+      }
     }
+  }
+
+  &__text-area {
+    display: flex;
+    flex-direction: column;
+
+    span {
+      @include text-l(600);
+      @extend %font-add;
+      font-size: 18px;
+      text-align: end;
+      color: rgba(110, 87, 213, 0.4);
+      margin: 0 0 16px 0;
+
+      @include media-medium {
+        margin-bottom: 10px;
+      }
+    }
+
+    textarea {
+      @include text-l;
+      width: 100%;
+      height: 140px;
+      padding: 16px;
+      margin-bottom: 40px;
+      resize: none;
+      border: none;
+      border-radius: 10px;
+      background-color: rgba(236, 240, 255, 1);
+
+      &:focus {
+        outline: 2px solid rgba(184, 199, 255, 1);
+        box-shadow: 4px 4px 15px rgba(236, 240, 255, 1);
+      }
+      &::placeholder {
+        @include text-l;
+        color: rgba(149, 149, 149, 1);
+
+        @include media-medium {
+          @include text-xm;
+        }
+      }
+
+      @include media-medium {
+        @include text-xm;
+        height: 97px;
+        margin-bottom: 32px;
+
+        border: 2px solid $button-cyan;
+        box-shadow:
+          4px 4px 15px 0px $shadow-purple,
+          -4px -4px 15px 0px $shadow-purple;
+      }
+
+      @include media-mobile {
+        height: 154px;
+      }
+    }
+  }
+
+  &__button {
+    @include popup-button-main;
   }
 }
