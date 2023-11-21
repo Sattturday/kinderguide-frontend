@@ -3,17 +3,17 @@ import { Link } from 'react-router-dom';
 import { HashLink } from 'react-router-hash-link';
 import YandexShare from 'react-yandex-share';
 
-import { Button } from '../common/Button';
 import { Stars } from '../Stars';
 import { LikeButton } from '../LikeButton';
-import { Reviews } from '../Reviews';
 
 import { ImageSlider } from './ImageSlider';
 import { Feedback } from './Feedback';
 import { Activity } from './Activity';
 import { YandexMap } from './YandexMap';
-import './OrgWrapper.scss';
 import useFavorite from '../../hooks/useFavorite';
+import Star from '../../images/Stars/Star-filled.svg';
+
+import './OrgWrapper.scss';
 
 export const OrgWrapper = ({ data, feedback, org, activities, type }) => {
   const { isLiked, handleLike } = useFavorite(data);
@@ -54,7 +54,12 @@ export const OrgWrapper = ({ data, feedback, org, activities, type }) => {
           to='#orgWrapper__feedback'
         >
           <span className='orgWrapper__rating'>{data.rating || 0}</span>
-          <Stars rating={data.rating || 0} />
+          <div>
+            <div className='stars'>
+              <Stars rating={data.rating || 0} />
+            </div>
+            <img className='starsSmall' src={Star} alt='*' />
+          </div>
           <p className='orgWrapper__quantity'>
             {feedback.length === 0
               ? 'Отзывов пока нет'
@@ -168,7 +173,6 @@ export const OrgWrapper = ({ data, feedback, org, activities, type }) => {
         className='orgWrapper__feedback'
         aria-label='Отзывы'
       >
-        <h2 className='orgWrapper__sectionHeader'>Отзывы</h2>
         <Feedback feedback={feedback} org={org} />
       </section>
     </>
