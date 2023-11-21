@@ -4,13 +4,22 @@
 .newsModal__title {
   @include text-xl($fw-normal);
   margin-bottom: 14px;
+  @include media-small {
+    font-size: 20px;
+  }
 }
 
 .newsModal__img {
   align-items: center;
-  width: 940px;
-  height: 408px;
+  width: 100%;
+  max-height: 408px;
   object-fit: cover;
+  @include media-small {
+    width: 110%;
+    box-sizing: border-box;
+    margin-left: -16px;
+    margin-right: -16px;
+  }
 }
 
 .newsModal__text {
@@ -18,5 +27,12 @@
   margin-top: 36px;
   p {
     margin: 0;
+    margin-top: 60px;
+    @include media-small {
+      margin-top: 28px;
+    }
+  }
+  @include media-small {
+    font-size: 15px;
   }
 }
