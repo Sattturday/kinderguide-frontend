@@ -1,0 +1,95 @@
+@import '../../styles/abstract/constants';
+@import '../../styles/abstract/mixins';
+
+.direction {
+width: 100%;
+}
+
+.ymaps-2-1-79-balloon {
+  border-radius: 10px !important;
+  width: 168px !important;
+}
+
+.ymaps-2-1-79-balloon__layout {
+  border-radius: 10px !important;
+  width: 168px !important;
+}
+
+.ymaps-2-1-79-balloon__content {
+  border-radius: 10px !important;
+  background-color: $border-violet !important;
+  margin-right: 0 !important;
+  padding: 5px !important;
+}
+
+.ymaps-2-1-79-balloon__close {
+  position: relative !important;
+  border-radius: 10px;
+  width: 20px !important;
+  height: 20px !important;
+}
+
+.ymaps-2-1-79-balloon__close-button {
+  opacity: 1 !important;
+  width: 20px !important;
+  height: 20px !important;
+  &::after {
+    content: 'x' !important;
+    font-size: 16px;
+    font-weight: bold;
+    color: white !important;
+    background-color: $border-violet !important;
+    border-radius: 10px;
+    width: 20px !important;
+    height: 20px !important;
+    margin: 0 !important;
+    padding: 10px 5px 8px !important;
+  }
+  }
+
+.ymaps-2-1-79-balloon__tail {
+  display: none;
+  &::after {
+    display: none;
+  }
+}
+
+.balloon {
+  width: 152px;
+  margin-top: 10px;
+}
+
+.balloon__text {
+  font-size: 12px;
+  color: white;
+  display: -webkit-box;
+  display: box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -ms-line-clamp: 2;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  word-wrap: break-word;
+  -webkit-box-orient: vertical;
+  box-orient: vertical;
+  &_type {
+    &_link {
+      cursor: pointer;
+      //margin-bottom: 12px;
+      text-decoration: none;
+    }
+    &_rate {
+&:after {
+  content: url('../../images/Stars/Star-filled.svg');
+  padding: 3px;
+}
+    }
+  }
+}
+
+.balloon_info {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: space-between;
+}
