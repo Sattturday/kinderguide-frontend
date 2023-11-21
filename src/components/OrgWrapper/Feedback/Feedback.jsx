@@ -12,6 +12,8 @@ import { AddMoreButton } from '../../AddMoreButton';
 import { FeedbackCard } from '../FeedbackCard';
 import { setIndex } from '../../../store/reviewPopupSlice';
 
+import Star from '../../../images/Stars/Star-filled.svg';
+
 export const Feedback = ({ feedback, org }) => {
   const user = useSelector((state) => state.auth.user);
   const [rating, setRating] = useState(null);
@@ -50,19 +52,25 @@ export const Feedback = ({ feedback, org }) => {
 
   return (
     <div className='feedback'>
-      <div className='feedback__header'>
-        <div className='feedback__rating'>
-          <span className='feedback__ratingValue'>{rating}</span>
-          <Stars rating={rating || 0} />
-          <p>
-            {feedback.length === 0
-              ? 'Отзывов пока нет'
-              : feedback.length === 1
-              ? '1 отзыв'
-              : feedback.length < 5
-              ? `${feedback.length} отзыва`
-              : `${feedback.length} отзывов`}
-          </p>
+      <div className='feedback__grid'>
+        <h2 className='feedback__sectionHeader'>Отзывы</h2>
+        <div className='feedback__header'>
+          <div className='feedback__rating'>
+            <span className='feedback__ratingValue'>{rating}</span>
+            <div className='stars'>
+              <Stars rating={rating || 0} />
+            </div>
+            <img className='starsSmall' src={Star} alt='*' />
+            <p className='feedback__quantity'>
+              {feedback.length === 0
+                ? 'Отзывов пока нет'
+                : feedback.length === 1
+                ? '1 отзыв'
+                : feedback.length < 5
+                ? `${feedback.length} отзыва`
+                : `${feedback.length} отзывов`}
+            </p>
+          </div>
         </div>
         <div
           ref={buttonRef}
