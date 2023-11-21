@@ -71,10 +71,12 @@
   &_type_register-success-modal {
     padding: 100px 80px;
   }
+
   &_type_password-recovery-modal {
     @include popup-container-main;
     @include popup-paddings-main;
   }
+
   &_type_news-modal {
     padding: 50px 64px;
     width: 1068px;
