@@ -161,6 +161,7 @@ export const RegisterModal = () => {
           errorText={errors['last_name']}
         >
           <Input
+            pattern='^[А-Яа-яA-Za-z]+$'
             inputId='last_name'
             variant='form'
             name='lastname'
