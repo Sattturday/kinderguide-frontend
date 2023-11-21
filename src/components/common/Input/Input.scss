@@ -114,7 +114,6 @@
       }
 
       &_search {
-        width: 380px;
         height: 44px;
       }
 
@@ -140,6 +139,7 @@
     }
   }
 }
+
 @include media-mobile {
   .input {
     &_kind {
@@ -156,7 +156,6 @@
       }
 
       &_search {
-        width: 478px;
       }
 
       &_price {

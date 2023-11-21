@@ -13,6 +13,8 @@
   height: 48px;
   display: flex;
   gap: 10px;
+  align-items: center;
+  justify-content: center;
   border-radius: 10px;
   border: 2px solid $blue-lite;
   background: $white;
@@ -21,16 +23,22 @@
   @include media-medium {
     height: 44px;
   }
+
+  @include media-small {
+    width: 141px;
+    height: 36px;
+  }
 }
 
 .sort__button {
   @include button;
-  padding: 12px 0 12px 20px;
+  @include text-ml;
   color: $title-blue;
 
-  @include text-l();
-  font-size: 18px;
-  line-height: 1.2;
+  @include media-small {
+    height: 36px;
+    @include text-s;
+  }
 }
 
 .sort__button-arrow {
@@ -71,6 +79,10 @@
     visibility: visible;
     opacity: 1;
   }
+
+  @include media-small {
+    padding: 8px;
+  }
 }
 
 .sort-list__items {
@@ -88,6 +100,10 @@
   font-size: 18px;
   line-height: 1.2;
   color: $button-blue-link;
+
+  @include media-small {
+    @include text-s($fw-normal);
+  }
 }
 
 .sort-list__radio {
