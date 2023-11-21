@@ -97,6 +97,9 @@
     &_1 {
       border: 4px solid $border-violet;
     }
+    &_none {
+      border: none;
+    }
   }
   @include media-medium {
     margin-top: 0;

@@ -245,7 +245,7 @@
     &_type {
       &_kindergarten {
         background: url('../../images/OrgWrapper/BluePointsBig.svg') 100% 100%
-        no-repeat;
+          no-repeat;
       }
     }
   }
@@ -288,7 +288,7 @@
     margin-bottom: 12px;
   }
 
-.orgWrapper__contactContent {
+  .orgWrapper__contactContent {
     @include text-m;
   }
 
@@ -322,7 +322,7 @@
   }
 
   .preparation__type {
-    @include text-m($fw-semi-bold)
+    @include text-m($fw-semi-bold);
   }
 
   .orgWrapper__feedback {
@@ -371,7 +371,7 @@
     &_type {
       &_kindergarten {
         background: url('../../images/OrgWrapper/BluePointsBig.svg') 100% 100%
-        no-repeat;
+          no-repeat;
       }
     }
   }
@@ -449,7 +449,7 @@
   }
 
   .preparation__type {
-    @include text-m($fw-semi-bold)
+    @include text-m($fw-semi-bold);
   }
 
   .orgWrapper__feedback {

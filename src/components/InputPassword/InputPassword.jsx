@@ -7,6 +7,7 @@ import { openPasswordRecoveryModal } from '../../store/modalsSlice';
 import { Input } from '../common/Input';
 import { Button } from '../common/Button';
 import './InputPassword.scss';
+import { setIndex } from '../../store/reviewPopupSlice';
 
 export const InputPassword = ({
   inputId,
@@ -45,7 +46,10 @@ export const InputPassword = ({
           <Button
             variant='link'
             size='small'
-            onClick={() => dispatch(openPasswordRecoveryModal())}
+            onClick={() => {
+              dispatch(openPasswordRecoveryModal());
+              dispatch(setIndex('none'));
+            }}
           >
             Забыли пароль?
           </Button>

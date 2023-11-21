@@ -10,6 +10,7 @@ import {
 } from '../../../store/modalsSlice';
 import { AddMoreButton } from '../../AddMoreButton';
 import { FeedbackCard } from '../FeedbackCard';
+import { setIndex } from '../../../store/reviewPopupSlice';
 
 export const Feedback = ({ feedback, org }) => {
   const user = useSelector((state) => state.auth.user);
@@ -23,6 +24,7 @@ export const Feedback = ({ feedback, org }) => {
       org === 'Школы'
         ? dispatch(openAddSchoolReviewModal())
         : dispatch(openAddKindergartenReviewModal());
+      dispatch(setIndex('none'));
     } else {
       const buttonElement = buttonRef.current;
       const buttonRect = buttonElement.getBoundingClientRect();
@@ -30,7 +32,6 @@ export const Feedback = ({ feedback, org }) => {
         left: buttonRect.left + 110,
         top: buttonRect.top + 20,
       };
-
       dispatch(openLoginToReviewPopup(coordinates));
     }
   };

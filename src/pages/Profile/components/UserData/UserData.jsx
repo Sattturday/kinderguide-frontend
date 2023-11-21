@@ -7,6 +7,7 @@ import { useGetUserQuery } from '../../../../api/userApi';
 import { openExitProfileModal } from '../../../../store/modalsSlice';
 
 import './UserData.scss';
+import { setIndex } from '../../../../store/reviewPopupSlice';
 
 export function UserData({ setEditUser }) {
   const dispatch = useDispatch();
@@ -14,6 +15,7 @@ export function UserData({ setEditUser }) {
   const { data = {}, isSuccess, isLoading } = useGetUserQuery();
   const handleClickExit = () => {
     dispatch(openExitProfileModal());
+    dispatch(setIndex('none'));
   };
 
   return (

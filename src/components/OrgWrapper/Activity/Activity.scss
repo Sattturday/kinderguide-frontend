@@ -16,6 +16,6 @@
     margin-bottom: 16px;
   }
   .activity__type {
-    @include text-m($fw-semi-bold)
+    @include text-m($fw-semi-bold);
   }
 }

@@ -2,6 +2,7 @@ import './NewsCard.scss';
 import { useDispatch } from 'react-redux';
 import { openNewsModal } from '../../../../store/modalsSlice';
 import { setTitle, setImg, setText } from '../../../../store/newsPopupSlice';
+import { setIndex } from '../../../../store/reviewPopupSlice';
 
 export const NewsCard = ({ dataCard }) => {
   const dispatch = useDispatch();
@@ -11,6 +12,7 @@ export const NewsCard = ({ dataCard }) => {
     dispatch(setImg(dataCard.image));
     dispatch(setText(dataCard.content));
     dispatch(openNewsModal());
+    dispatch(setIndex('none'));
   };
 
   const isLargeCard =
