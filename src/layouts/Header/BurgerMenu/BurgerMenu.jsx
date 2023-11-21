@@ -6,6 +6,7 @@ import { Navigation } from '../../../components/Navigation';
 import { useDispatch, useSelector } from 'react-redux';
 import { openLoginModal, openRegisterModal } from '../../../store/modalsSlice';
 import { Link } from 'react-router-dom';
+import { setIndex } from '../../../store/reviewPopupSlice';
 
 export const BurgerMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -41,13 +42,19 @@ export const BurgerMenu = () => {
         {!user && (
           <>
             <button
-              onClick={() => dispatch(openLoginModal())}
+              onClick={() => {
+                dispatch(openLoginModal());
+                dispatch(setIndex('none'));
+              }}
               className='burger-menu__auth'
             >
               Войти
             </button>
             <button
-              onClick={() => dispatch(openRegisterModal())}
+              onClick={() => {
+                dispatch(openRegisterModal());
+                dispatch(setIndex('none'));
+              }}
               className='burger-menu__auth'
             >
               Создать аккаунт

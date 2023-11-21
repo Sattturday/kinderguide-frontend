@@ -16,7 +16,7 @@ import './LoginModal.scss';
 
 import { YandexLogin } from '../YandexLogin/YandexLogin';
 import { LineWithWord } from '../common/LineWithWord';
-import { useState } from 'react';
+import { setIndex } from '../../store/reviewPopupSlice';
 
 export const LoginModal = () => {
   const { data, onChange, errors, isValid } = useFormAndValidation();
@@ -59,6 +59,7 @@ export const LoginModal = () => {
   const handleRegisterClick = () => {
     dispatch(closeAllModals());
     dispatch(openRegisterModal());
+    dispatch(setIndex(''));
   };
 
   const handleYandexLogin = async (data) => {

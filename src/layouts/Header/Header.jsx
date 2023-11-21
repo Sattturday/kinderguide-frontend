@@ -4,9 +4,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { openLoginModal, openRegisterModal } from '../../store/modalsSlice';
 import { Navigation } from '../../components/Navigation';
 import logo from '../../images/logo.svg';
-import loginIcon from './images/icon_login.svg';
 import { BurgerMenu } from './BurgerMenu';
 import './Header.scss';
+import { setIndex } from '../../store/reviewPopupSlice';
 
 export const Header = () => {
   const dispatch = useDispatch();
@@ -27,13 +27,19 @@ export const Header = () => {
         <>
           <div className='header__auth-area'>
             <button
-              onClick={() => dispatch(openLoginModal())}
+              onClick={() => {
+                dispatch(openLoginModal());
+                dispatch(setIndex('none'));
+              }}
               className='header__auth-btn header__auth-btn_login'
             >
               Войти
             </button>
             <button
-              onClick={() => dispatch(openRegisterModal())}
+              onClick={() => {
+                dispatch(openRegisterModal());
+                dispatch(setIndex('none'));
+              }}
               className='header__auth-btn header__auth-btn_registration'
             >
               Создать аккаунт
