@@ -11,8 +11,8 @@ html {
   margin: 0;
 
   &_lock {
+    overflow: hidden;
     @include media-hover {
-      overflow: hidden;
       padding-right: 17px;
     }
   }

@@ -18,6 +18,10 @@
   @include text-l;
   color: $black;
   flex-grow: 1;
+
+  @include media-medium {
+    @include text-ml($fw-semi-bold);
+  }
 }
 
 .filter__subtitle-caret {

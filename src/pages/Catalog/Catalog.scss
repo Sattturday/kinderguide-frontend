@@ -1,35 +1,102 @@
 @import '../../styles/abstract/constants.scss';
+@import '../../styles/abstract/mixins.scss';
 
 .catalog {
   padding: 34px 0 60px;
 }
 
 .catalog__wrapper {
-  padding: 0 32px 50px;
-  display: grid;
-  grid-template-columns: 298px auto auto;
-  grid-template-rows: auto auto;
-  column-gap: 32px;
-  row-gap: 32px;
-  border-radius: 0 0 $radii-m $radii-m;
+  width: 100%;
+  padding: 38px 32px 50px;
+  display: flex;
+  gap: 32px;
+  border-radius: $radii-m;
   background-color: $bg-purple;
+
+  &_type {
+    &_schools {
+      border-radius: 0 $radii-m $radii-m $radii-m;
+    }
+  }
+
+  @include media-medium {
+    padding: 29px 32px 50px;
+    justify-content: center;
+  }
+}
+
+.catalog__background {
+  margin: 0;
+  padding: 0;
+  visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 100vh;
+  background: $bg-overlay;
+  z-index: 100;
+  transition: ease-in-out 350ms;
+
+  &_active {
+    visibility: visible;
+  }
+}
+
+.catalog__filter-menu {
+  padding-top: 84px;
+  width: 100%;
+  max-width: 298px;
+
+  transition: ease-in-out 350ms;
+
+  @include media-medium {
+    min-height: 100vh;
+    padding: 12px 16px 48px;
+    max-width: 320px;
+    position: fixed;
+    top: 0;
+    left: -100%;
+    z-index: 101;
+    background-color: $white;
+  }
+
+  &_active {
+    left: 0;
+    max-height: 100%;
+    overflow-y: auto;
+  }
+
+  @include media-mobile {
+    width: 100%;
+    max-width: 320px;
+  }
+}
+
+.catalog__grid {
+  width: 89.4%;
+  display: grid;
+  grid-template-columns: 57.9% auto;
+  grid-template-rows: auto auto;
+  row-gap: 32px;
+
+  @include media-medium {
+    width: 100%;
+    max-width: 704px;
+    row-gap: 23px;
+  }
 }
 
 .search {
-  grid-column: 2 / 3;
+  grid-column: 1 / 2;
 }
 
 .sort {
-  grid-column: 3 / 4;
+  grid-column: 2 / 3;
   justify-self: end;
-}
-
-.filter {
-  grid-row: 2 / 3;
-  grid-column: 1 / 2;
 }
 
 .show-list {
   grid-row: 2 / 3;
-  grid-column: 2 / 4;
+  grid-column: 1 / 3;
 }

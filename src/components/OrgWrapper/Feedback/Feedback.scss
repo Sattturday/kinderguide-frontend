@@ -3,10 +3,10 @@
 @import '../../../styles/abstract/placeholders.scss';
 
 .feedback__grid {
- display: grid;
+  display: grid;
   grid-template-areas:
-  'header add'
-  'rating add';
+    'header add'
+    'rating add';
   margin-bottom: 20px;
   row-gap: 20px;
 }
@@ -88,8 +88,8 @@
   .feedback__grid {
     display: grid;
     grid-template-areas:
-  'header add'
-  'rating rating';
+      'header add'
+      'rating rating';
     row-gap: 16px;
     margin: 0 16px 32px;
   }
@@ -123,4 +123,4 @@
   .feedback__quantity {
     @include text-m($fw-semi-bold);
   }
-  }
+}

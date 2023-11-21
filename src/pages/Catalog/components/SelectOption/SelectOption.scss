@@ -10,6 +10,10 @@
   align-items: center;
   gap: 16px;
   outline: none;
+
+  @include media-medium {
+    padding: 0;
+  }
 }
 
 .select:focus {
@@ -78,6 +82,10 @@
   background-color: $button-blue-hover;
   z-index: 100;
   @include scrollbars;
+
+  @include media-medium {
+    background-color: $white;
+  }
 }
 
 .options.show {
@@ -95,6 +103,11 @@
   color: $black;
   background-color: $button-blue-hover;
   cursor: pointer;
+
+  @include media-medium {
+    background-color: $white;
+    @include text-xm;
+  }
 }
 
 .metro-color {
