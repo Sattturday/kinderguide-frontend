@@ -1,5 +1,7 @@
 import { Map, Placemark, YMaps } from '@pbe/react-yandex-maps';
 
+import './BigMap.scss';
+
 export const BigMap = ({ cardData }) => {
   return (
     <YMaps
@@ -26,7 +28,15 @@ export const BigMap = ({ cardData }) => {
             }}
             properties={{
               hintContent: `<h2>${card.name}</h2>`,
-              balloonContent: `<div><a href=/${card.type}s/${card.id}>${card.name}</a></div>`,
+              balloonContent: `<div class='balloon'>
+<a class='balloon__text balloon__text_type_link' href=/${card.type}s/${
+                card.id
+              }>${card.name}</a>
+<div class='balloon_info'>
+<p class='balloon__text'>от <span>${card.price || '-'} </span> &#8381;/мес.</p>
+<p class='balloon__text balloon__text_type_rate'>${card.rating}</p>
+</div>
+</div>`,
             }}
             modules={['geoObject.addon.balloon', 'geoObject.addon.hint']}
           />
