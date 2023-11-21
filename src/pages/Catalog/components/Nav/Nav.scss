@@ -21,6 +21,15 @@
       background-image: url(../../../../images/Catalog/kindergarten_768.png);
     }
   }
+
+  @include media-small {
+    background-size: contain;
+    background-image: url(../../../../images/Catalog/school_320.png);
+
+    &_kindergartens {
+      background-image: url(../../../../images/Catalog/kindergarten_320.png);
+    }
+  }
 }
 
 .catalog__nav-item {
@@ -38,5 +47,10 @@
   @include media-medium {
     @include text-xlm($fw-normal);
     padding: 32px 4.3% 6px;
+  }
+
+  @include media-small {
+    @include text-l($fw-semi-bold);
+    padding: 20px 4% 6px;
   }
 }
