@@ -34,6 +34,7 @@ import './Catalog.scss';
 export function Catalog() {
   const { filter } = useSelector((state) => state, { noopCheck: 'never' });
   const isResetRef = useRef(false);
+  const [menuOpen, setMenuOpen] = useState(false); // Открытие закрытие фильтров
 
   // Хранение выбранной категории (школы или сады)
   const [selected, setSelected] = useState(filter.category);
@@ -189,36 +190,66 @@ export function Catalog() {
     dispatch(setFilterReset());
   };
 
+  function handleMenuClick() {
+    setMenuOpen(!menuOpen);
+    console.log('click');
+  }
+
+  useEffect(() => {
+    if (menuOpen) {
+      document.body.classList.add('page_lock');
+    } else {
+      document.body.classList.remove('page_lock');
+    }
+  }, [menuOpen]);
+
   return (
     <section className='catalog'>
+      <div
+        className={`catalog__background ${
+          (menuOpen && ' catalog__background_active') || ''
+        }`}
+        onClick={handleMenuClick}
+      />
       <div className='wrapper'>
         <Nav selected={selected} onClickNavHandler={onClickNavHandler} />
-        <div className='catalog__wrapper'>
-          <SearchForm
-            onChange={searchHandler}
-            value={deferredFilter.search}
-            onSubmit={handleSubmit}
-            onClear={clearSearchField}
-          />
-          <Sort
-            sortHandler={sortHandler}
-            sortDirectionHandler={sortDirectionHandler}
-          />
-          <FilterList
-            handleSubmit={handleSubmit}
-            filter={deferredFilter}
-            checkboxHandler={checkboxHandler}
-            selectHandler={selectHandler}
-            handleReset={handleReset}
-            filterItems={filterItems}
-          />
-          <ShowList
-            // data={data ? data.results : []}
-            data={fullData ? fullData : []}
-            fullData={fullData ? fullData : []}
-            selected={selected}
-            isLoading={isLoading}
-          />
+        <div className={`catalog__wrapper catalog__wrapper_type_${selected}`}>
+          <div
+            className={`catalog__filter-menu${
+              (menuOpen && ' catalog__filter-menu_active') || ''
+            }`}
+          >
+            <FilterList
+              handleSubmit={handleSubmit}
+              filter={deferredFilter}
+              checkboxHandler={checkboxHandler}
+              selectHandler={selectHandler}
+              handleReset={handleReset}
+              filterItems={filterItems}
+              onMenuClick={handleMenuClick}
+            />
+          </div>
+          <div className='catalog__grid'>
+            <SearchForm
+              onChange={searchHandler}
+              value={deferredFilter.search}
+              onSubmit={handleSubmit}
+              onClear={clearSearchField}
+            />
+            <Sort
+              sortHandler={sortHandler}
+              sortDirectionHandler={sortDirectionHandler}
+            />
+            <ShowList
+              // data={data ? data.results : []}
+              data={fullData ? fullData : []}
+              fullData={fullData ? fullData : []}
+              selected={selected}
+              isLoading={isLoading}
+              menuOpen={menuOpen}
+              onMenuClick={handleMenuClick}
+            />
+          </div>
         </div>
       </div>
     </section>

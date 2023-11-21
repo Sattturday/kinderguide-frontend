@@ -4,6 +4,10 @@
 
 .select-filter {
   padding-left: 12px;
+
+  @include media-medium {
+    padding: 0;
+  }
 }
 
 .select-filter__label {
@@ -15,10 +19,14 @@
 
   p {
     max-width: 226px;
-    @include text-l;
     @extend %font-add;
+    @include text-l;
     font-size: 18px;
     letter-spacing: -0.18px;
+
+    @include media-medium {
+      @include text-xm;
+    }
   }
 }
 

@@ -3,8 +3,8 @@
 
 .catalog__nav {
   width: 100%;
+  max-width: 1288px;
   display: flex;
-  padding-bottom: 48px;
   background-image: url(../../../../images/Catalog/school_1440.png);
   background-size: cover;
   background-repeat: no-repeat;
@@ -12,11 +12,20 @@
   &_kindergartens {
     background-image: url(../../../../images/Catalog/kindergarten_1440.png);
   }
+
+  @include media-medium {
+    background-size: contain;
+    background-image: url(../../../../images/Catalog/school_768.png);
+
+    &_kindergartens {
+      background-image: url(../../../../images/Catalog/kindergarten_768.png);
+    }
+  }
 }
 
 .catalog__nav-item {
   @include button;
-  padding: 40px 40px 0;
+  padding: 40px 3% 6px;
   color: $blue-lite;
   font-size: 48px;
   font-weight: $fw-normal;
@@ -24,5 +33,10 @@
 
   &_selected {
     color: $black;
+  }
+
+  @include media-medium {
+    @include text-xlm($fw-normal);
+    padding: 32px 4.3% 6px;
   }
 }

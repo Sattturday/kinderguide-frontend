@@ -65,12 +65,14 @@
 
 .orgWrapper__rating {
   @include text-l($fw-semi-bold);
+  @extend %font-add;
   color: $black;
 }
 
 .orgWrapper__quantity {
   @include text-l($fw-semi-bold);
-  color: $button-violet;
+  @extend %font-add;
+  color: $border-purple;
 }
 
 .orgWrapper__content {
@@ -343,6 +345,37 @@
 }
 
 @include media-small {
+  .orgWrapper__headerWrapper {
+    display: flex;
+    align-items: center;
+  }
+  .orgWrapper__nav {
+    display: none;
+  }
+
+  .orgWrapper__headerWrapper {
+    margin-left: 16px;
+    margin-right: 16px;
+    margin-bottom: 16px;
+  }
+
+  .orgWrapper__header {
+    @include text-l($fw-semi-bold);
+  }
+
+  .orgWrapper__ratingWrapper {
+    margin: 0 16px 22px;
+  }
+
+  .orgWrapper__rating {
+    @include text-m;
+    font-weight: $fw-semi-bold;
+  }
+
+  .orgWrapper__quantity {
+    @include text-s;
+  }
+
   .orgWrapper__grid {
     display: grid;
     grid-template-areas:
@@ -362,16 +395,15 @@
   .orgWrapper__grid {
     display: grid;
     grid-template-areas:
-      'slider slider'
-      'aside aside'
-      'text .';
-    row-gap: 20px;
-    grid-template-columns: 75% 21%;
+      'slider'
+      'aside'
+      'text';
+    row-gap: 40px;
+    grid-template-columns: 100%;
     width: 100%;
     &_type {
       &_kindergarten {
-        background: url('../../images/OrgWrapper/BluePointsBig.svg') 100% 100%
-          no-repeat;
+        background: none;
       }
     }
   }
@@ -380,19 +412,22 @@
     grid-area: aside;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 40px;
+  }
+
+  .orgWrapper__imgContainer {
+    margin-bottom: 0;
   }
 
   .orgWrapper__contactInfo {
-    max-width: 500px;
-    height: auto;
     padding: 20px 16px 4px 16px;
+    aspect-ratio: auto;
   }
 
   .orgWrapper__titlePrice {
     @include text-l($fw-semi-bold);
     font-size: 24px;
-    margin-bottom: 12px;
+    padding-bottom: 16px;
   }
 
   .orgWrapper__perYear {
@@ -405,23 +440,8 @@
     margin-bottom: 20px;
   }
 
-  .orgWrapper__titleContacts {
-    @include text-m($fw-semi-bold);
-    margin-bottom: 12px;
-  }
-
-  .orgWrapper__contacts {
-    @include text-m($fw-semi-bold);
-    margin-bottom: 12px;
-  }
-
-  .orgWrapper__contactContent {
-    @include text-m;
-  }
-
-  .orgWrapper__titlePrice {
-    @include text-l($fw-semi-bold);
-    font-size: 24px;
+  .orgWrapper__contactInfo {
+    margin-bottom: 0;
   }
 
   .orgWrapper__map {
@@ -430,41 +450,39 @@
     height: auto;
   }
 
-  .orgWrapper__sectionHeader {
-    @include text-l($fw-semi-bold);
-    font-size: 24px;
-    margin-bottom: 16px;
-  }
-
   .orgWrapper__descText {
     @include text-m;
   }
 
   .orgWrapper__section {
     padding: 20px 16px;
+    margin-bottom: 40px;
   }
 
-  .preparation {
-    @include text-m;
+  .orgWrapper__section_kind_activities {
+    &::before {
+      content: url('../../images/OrgWrapper/Star.svg');
+      position: absolute;
+      top: -33px;
+      right: 15px;
+    }
   }
 
-  .preparation__type {
-    @include text-m($fw-semi-bold);
+  .orgWrapper__content {
+    margin: 0 auto 80px;
+    max-width: 500px;
   }
 
   .orgWrapper__feedback {
-    padding: 41px 32px 97px;
-    min-height: 200px;
+    padding: 40px 0 88px;
+    min-height: 150px;
     position: relative;
     background:
-      url('../../images/OrgWrapper/CurveSmall.svg') 76px 93% no-repeat,
+      url('../../images/OrgWrapper/CurveSmall.svg') 16px 97% no-repeat,
       url('../../images/OrgWrapper/RoadSmall.svg') 100% 100% no-repeat;
     background-color: $button-blue-hover;
     &::before {
-      content: url('../../images/OrgWrapper/StarPlusSmall.svg');
-      position: absolute;
-      top: -32px;
-      right: 100px;
+      content: '';
     }
   }
 }

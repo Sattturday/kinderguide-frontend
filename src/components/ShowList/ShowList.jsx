@@ -17,7 +17,14 @@ import './ShowList.scss';
 const schoolName = ['школа', 'школы', 'школ'];
 const gardenName = ['детский сад', 'детксих сада', 'детских садов'];
 
-export const ShowList = ({ data, selected, isLoading, fullData }) => {
+export const ShowList = ({
+  data,
+  selected,
+  isLoading,
+  fullData,
+  menuOpen,
+  onMenuClick,
+}) => {
   const user = useSelector((state) => state.auth.user);
   const [isList, setIsList] = useState(true);
 
@@ -45,12 +52,23 @@ export const ShowList = ({ data, selected, isLoading, fullData }) => {
                   </p>
                 </div>
               ) : selected !== 'favorites' ? (
-                <p className='show-list__info show-list__info_catalog'>
-                  Найдено {data.length}{' '}
-                  {selected === 'schools'
-                    ? getName(data.length, schoolName)
-                    : getName(data.length, gardenName)}
-                </p>
+                <>
+                  <p className='show-list__info show-list__info_catalog'>
+                    Найдено {data.length}{' '}
+                    {selected === 'schools'
+                      ? getName(data.length, schoolName)
+                      : getName(data.length, gardenName)}
+                  </p>
+                  <span
+                    className={`show-list__info-icon${
+                      (menuOpen && ' show-list__info-icon_active') || ''
+                    }`}
+                    onClick={onMenuClick}
+                  >
+                    Фильтр
+                    <span></span>
+                  </span>
+                </>
               ) : null}
               {selected !== 'favorites' &&
                 data.length !== 0 &&

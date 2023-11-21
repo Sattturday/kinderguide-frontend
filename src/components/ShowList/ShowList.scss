@@ -6,6 +6,10 @@
   display: flex;
   flex-direction: column;
   gap: 11px;
+
+  @include media-medium {
+    gap: 17px;
+  }
 }
 
 .show-list__infoWrapper {
@@ -33,19 +37,40 @@
   color: $black;
   line-height: 1.1;
 
-  &_catalog {
-    align-items: center;
-
-    @extend %font-add;
-    @include text-s;
-  }
-
   @include media-medium {
     @include text-s;
   }
 
   @include media-small {
     @include text-s;
+  }
+
+  &_catalog {
+    align-items: center;
+    @extend %font-add;
+    @include text-s;
+
+    @include media-medium {
+      display: none;
+    }
+  }
+}
+
+.show-list__info-icon {
+  display: none;
+  @include text-m;
+  letter-spacing: 0.4px;
+
+  span {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-image: url(../../images/Catalog/Filter.svg);
+  }
+
+  @include media-medium {
+    display: flex;
+    gap: 6px;
   }
 }
 
@@ -58,6 +83,7 @@
 }
 
 .show-list__items {
+  width: 100%;
   display: flex;
   flex-direction: column;
   gap: 24px;

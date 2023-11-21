@@ -67,9 +67,12 @@
 
 @include media-small {
   .feedback__item {
-    width: 320px;
+    max-width: 500px;
+    width: unset;
+    min-width: 320px;
     height: 267px;
     cursor: pointer;
+    aspect-ratio: unset;
   }
   .feedback__text {
     @include text-s;

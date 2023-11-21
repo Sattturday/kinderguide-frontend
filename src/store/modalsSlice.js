@@ -15,7 +15,7 @@ const initialState = {
   isOpenGratitudeModal: false,
   isOpenReviewModal: false,
   isOpenLoginToFavoritePopup: false,
-  loginToFavoritePopupShown: false, // Добавляем поле для отслеживания показа попапа
+  loginToFavoritePopupShown: false,
 };
 
 const modalsSlice = createSlice({

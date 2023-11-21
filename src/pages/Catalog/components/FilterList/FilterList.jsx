@@ -16,14 +16,19 @@ export function FilterList({
   checkboxHandler,
   selectHandler,
   filterItems,
+  onMenuClick,
 }) {
   return (
     <aside className='filter'>
       {/* Заголовок блока фильтра */}
       <h2 className='filter__title'>Фильтр</h2>
+      <h2 className='filter__title-m'>
+        Фильтры
+        <button type='button' onClick={onMenuClick}></button>
+      </h2>
 
       {/* Форма для применения фильтров */}
-      <form name='filter' className='filter-form' onSubmit={handleSubmit}>
+      <form className='filter-form' name='filter' onSubmit={handleSubmit}>
         {filterItems.map((block, index) => {
           return (
             <div key={index} className='filter-wrapper'>

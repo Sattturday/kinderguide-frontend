@@ -17,6 +17,10 @@
     p {
       max-width: 226px;
       @include text-l;
+
+      @include media-medium {
+        @include text-ml($fw-semi-bold);
+      }
     }
   }
 }
@@ -71,4 +75,8 @@
   max-width: 226px;
   @include text-ml;
   @extend %font-add;
+
+  @include media-medium {
+    @include text-xm;
+  }
 }

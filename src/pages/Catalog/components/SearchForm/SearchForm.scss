@@ -2,7 +2,8 @@
 @import '../../../../styles/abstract/mixins.scss';
 
 .search {
-  width: 518px;
+  width: 100%;
+  max-width: 518px;
   position: relative;
 }
 
