@@ -33,14 +33,30 @@
     }
   }
 
+  &_type_review {
+    padding-top: 112px;
+  }
+
   @include media-medium {
     padding: 48px 0 0;
     align-items: flex-start;
+
+    &_type_review-modal {
+      padding-top: 42px;
+    }
+
+    &_type_review {
+      padding-top: 42px;
+    }
   }
 
   @include media-small {
     padding-top: 20px;
     align-items: flex-start;
+
+    &_type_review {
+      padding-top: 14px;
+    }
   }
 }
 
@@ -76,8 +92,13 @@
   }
 
   &_type_password-recovery-modal {
-    padding: 100px 104px;
-    align-items: center;
+    @include popup-container-main;
+    @include popup-paddings-main;
+  }
+
+  &_type_message-modal {
+    @include popup-container-second;
+    @include popup-paddings-main;
   }
 
   &_type_news-modal {
@@ -94,10 +115,37 @@
     }
   }
 
+  &_type_review-modal {
+    @include popup-container-upper(954px);
+    padding: 0;
+
+    @include media-medium {
+      max-width: 540px;
+      padding: 32px;
+    }
+
+    @include media-mobile {
+      max-width: 320px;
+      padding: 56px 16px 28px;
+    }
+  }
+
   &_type_review {
-    width: 908px;
-    height: 539px;
+    @include popup-container-upper(908px);
     padding: 40px 52px;
+    gap: 40px;
+
+    @include media-medium {
+      max-width: 604px;
+      padding: 40px 32px 32px;
+      gap: 16px;
+    }
+
+    @include media-mobile {
+      max-width: 320px;
+      padding: 52px 16px 40px;
+      gap: 20px;
+    }
   }
 
   &_type_gratitude {
@@ -106,18 +154,6 @@
     padding: 60px 86px;
   }
 
-  &_frame {
-    &_0 {
-      border: 4px solid $border-orange;
-    }
-
-    &_1 {
-      border: 4px solid $border-violet;
-    }
-    &_none {
-      border: none;
-    }
-  }
   @include media-medium {
     margin-top: 0;
   }
@@ -126,6 +162,10 @@
 .popup__title {
   @include text-xl($fw-semi-bold);
   @include margin-padding-null;
+
+  &_centered {
+    text-align: center;
+  }
 
   @include media-medium {
     @include text-xls($fw-semi-bold);
@@ -137,6 +177,10 @@
   max-height: 75vh;
   width: 100%;
   aspect-ratio: auto;
+}
+
+.popup__submit-button {
+  @include popup-button-main;
 }
 
 .popup__close-btn {

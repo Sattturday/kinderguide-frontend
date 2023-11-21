@@ -230,24 +230,46 @@
   margin: 0;
 }
 
+// Сброс стилей fieldset
+@mixin fieldset-clean {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
 // Эффекты
 @mixin border-color-transition {
   transition: border-color 0.3s ease;
 }
 
 // Popups
-@mixin popup-container-main {
+@mixin popup-container-upper($max-width) {
   margin-top: 0;
   width: 100%;
-  max-width: 680px;
+  max-width: $max-width;
+}
+
+@mixin popup-container-main {
+  @include popup-container-upper(680px);
+  min-width: 600px;
   gap: 20px;
 
   @include media-medium {
+    min-width: auto;
     max-width: 364px;
   }
 
   @include media-small {
     max-width: 320px;
+  }
+}
+
+@mixin popup-container-second {
+  @include popup-container-main;
+  gap: 40px;
+
+  @include media-medium {
+    gap: 20px;
   }
 }
 
@@ -257,7 +279,7 @@
   }
 
   @include media-small {
-    padding: 40px 16px;
+    padding: 44px 16px 40px;
   }
 }
 

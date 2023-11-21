@@ -50,16 +50,18 @@ export const PasswordRecoveryModal = () => {
   }, [data]); // eslint-disable-line
 
   return (
-    <Popup isOpen={isOpen} name='password-recovery-modal'>
-      <h2 className='password-recovery-modal__title'>Восстановление пароля</h2>
-
+    <Popup
+      isOpen={isOpen}
+      name='password-recovery-modal'
+      title='Восстановление пароля'
+    >
       <ol className='password-recovery-modal__instructions'>
         <li>Введите ваш email.</li>
         <li>Мы отправим вам ссылку. для восстановления пароля.</li>
         <li>По ссылке из письма можно будет восстановить пароль.</li>
       </ol>
 
-      <form>
+      <form className='password-recovery-form'>
         <InputWrapper
           inputId='password-recovery-form-email'
           variant='form'
@@ -80,13 +82,14 @@ export const PasswordRecoveryModal = () => {
 
         <Button
           type='submit'
-          width='532px'
+          width='100%'
           size='large'
           color={isReadyToSubmit ? 'fill' : 'dis'}
           disabled={!isReadyToSubmit && isLoading}
           onClick={(e) => {
             handleSubmit(e);
           }}
+          className='password-recovery-form__button'
         >
           {isLoading ? 'Подождите' : 'Отправить'}
         </Button>

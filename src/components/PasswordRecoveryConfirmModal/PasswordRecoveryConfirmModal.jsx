@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { useFormAndValidation } from '../../hooks/useFormAndValidation';
 import { useConfirmResetPasMutation } from '../../api/authApi';
@@ -9,12 +9,14 @@ import { Button } from '../common/Button';
 import { Popup } from '../common/Popup';
 
 import './PasswordRecoveryConfirmModal.scss';
+import { openPasswordRecoverySuccessModal } from '../../store/modalsSlice';
 
 // stepRecovery -  шаг восстановления.
 // пока что  варианты 1 - ввод почты & 2 - создание пароля
 export const PasswordRecoveryConfirmModal = ({ id, token }) => {
   const { data, onChange, errors, setErrors, isValid } = useFormAndValidation();
   const [isReadyToSubmit, setIsReadyToSubmit] = useState(false);
+  const dispatch = useDispatch();
 
   const isOpen = useSelector(
     (state) => state.modals.isOpenPasswordRecoveryConfirmModal
@@ -31,6 +33,7 @@ export const PasswordRecoveryConfirmModal = ({ id, token }) => {
         uid: id,
         token: token,
       });
+      dispatch(openPasswordRecoverySuccessModal());
     } catch (error) {
       console.log(error);
     }
@@ -68,53 +71,62 @@ export const PasswordRecoveryConfirmModal = ({ id, token }) => {
   }, [data]); // eslint-disable-line
 
   return (
-    <Popup isOpen={isOpen} name='password-recovery-modal'>
-      <h2 className='password-recovery-modal__title'>Восстановление пароля</h2>
-
-      <form>
-        <InputWrapper
-          inputId='password-recovery-form-password'
-          variant='form'
-          labelText='Пароль'
-          errorText={errors['password-recovery-form-password']}
-        >
-          <InputPassword
+    <Popup
+      isOpen={isOpen}
+      name='password-recovery-modal'
+      title='Восстановление пароля'
+    >
+      <form className='new-password-form'>
+        <fieldset className='new-password-form__fieldset'>
+          <legend className='new-password-form__fieldset-legend'>
+            Введите новый пароль
+          </legend>
+          <InputWrapper
             inputId='password-recovery-form-password'
             variant='form'
-            name='password'
-            onChange={onChange}
-            value={data['password-recovery-form-password'] || ''}
-            placeholder='Введите пароль'
-            isValid={!errors['password-recovery-form-password']?.length}
-          />
-        </InputWrapper>
+            labelText='Пароль'
+            errorText={errors['password-recovery-form-password']}
+          >
+            <InputPassword
+              inputId='password-recovery-form-password'
+              variant='form'
+              name='password'
+              onChange={onChange}
+              value={data['password-recovery-form-password'] || ''}
+              placeholder='Введите пароль'
+              isValid={!errors['password-recovery-form-password']?.length}
+            />
+          </InputWrapper>
 
-        <InputWrapper
-          inputId='password-recovery-form-password-repeat'
-          variant='form'
-          labelText='Пароль повторно'
-          errorText={errors['password-recovery-form-password-repeat']}
-        >
-          <InputPassword
+          <InputWrapper
             inputId='password-recovery-form-password-repeat'
             variant='form'
-            name='password'
-            onChange={onChange}
-            value={data['password-recovery-form-password-repeat'] || ''}
-            placeholder='Введите пароль'
-            isValid={!errors['password-recovery-form-password-repeat']?.length}
-          />
-        </InputWrapper>
-
+            labelText='Пароль повторно'
+            errorText={errors['password-recovery-form-password-repeat']}
+          >
+            <InputPassword
+              inputId='password-recovery-form-password-repeat'
+              variant='form'
+              name='password'
+              onChange={onChange}
+              value={data['password-recovery-form-password-repeat'] || ''}
+              placeholder='Введите пароль'
+              isValid={
+                !errors['password-recovery-form-password-repeat']?.length
+              }
+            />
+          </InputWrapper>
+        </fieldset>
         <Button
           type='submit'
-          width='532px'
+          width='100%'
           size='large'
           color={isReadyToSubmit ? 'fill' : 'dis'}
           disabled={!isReadyToSubmit && isLoading}
           onClick={(e) => {
             handleSubmit(e);
           }}
+          className='new-password-form__button'
         >
           Отправить
         </Button>
