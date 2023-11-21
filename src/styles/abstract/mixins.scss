@@ -243,13 +243,19 @@
 }
 
 // Popups
-@mixin popup-container-main {
+@mixin popup-container-upper($max-width) {
   margin-top: 0;
   width: 100%;
-  max-width: 680px;
+  max-width: $max-width;
+}
+
+@mixin popup-container-main {
+  @include popup-container-upper(680px);
+  min-width: 600px;
   gap: 20px;
 
   @include media-medium {
+    min-width: auto;
     max-width: 364px;
   }
 

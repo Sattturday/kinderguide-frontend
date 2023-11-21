@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 import { closeAllModals } from '../../../store/modalsSlice';
 import { ReactComponent as CloseImage } from '../../../images/Popup/btn-close.svg';
@@ -13,8 +13,6 @@ export const Popup = ({
   className = '',
 }) => {
   const dispatch = useDispatch();
-  const index = useSelector((state) => state.reviewPopup.index);
-  const frame = index % 2;
   useEffect(() => {
     if (!isOpen) return;
     const closeByEscape = (e) => {
@@ -40,13 +38,13 @@ export const Popup = ({
 
   return (
     <div
-      className={`popup${
-        (isOpen && ' popup_opened') || ''
-      } popup_type_${name} ${className ? className : ''}`}
+      className={`popup${(isOpen && ' popup_opened') || ''} popup_type_${name}`}
       onMouseDown={handleOverlay}
     >
       <div
-        className={`popup__container popup__container_type_${name} popup__container_frame_${frame}`}
+        className={`popup__container popup__container_type_${name} ${
+          className ? className : ''
+        }`}
       >
         {title && <h2 className='popup__title'>{title}</h2>}
         {children}
