@@ -77,6 +77,11 @@
     @include popup-paddings-main;
   }
 
+  &_type_message-modal {
+    @include popup-container-second;
+    @include popup-paddings-main;
+  }
+
   &_type_news-modal {
     padding: 50px 64px;
     width: 1068px;
@@ -112,6 +117,10 @@
   @include text-xl($fw-semi-bold);
   @include margin-padding-null;
 
+  &_centered {
+    text-align: center;
+  }
+
   @include media-medium {
     @include text-xls($fw-semi-bold);
   }
@@ -122,6 +131,10 @@
   max-height: 75vh;
   width: 100%;
   aspect-ratio: auto;
+}
+
+.popup__submit-button {
+  @include popup-button-main;
 }
 
 .popup__close-btn {

@@ -258,6 +258,15 @@
   }
 }
 
+@mixin popup-container-second {
+  @include popup-container-main;
+  gap: 40px;
+
+  @include media-medium {
+    gap: 20px;
+  }
+}
+
 @mixin popup-paddings-main {
   @include media-medium {
     padding: 20px 32px 32px;

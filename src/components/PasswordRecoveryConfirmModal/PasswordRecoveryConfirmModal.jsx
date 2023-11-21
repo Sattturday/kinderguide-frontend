@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { useFormAndValidation } from '../../hooks/useFormAndValidation';
 import { useConfirmResetPasMutation } from '../../api/authApi';
@@ -9,12 +9,14 @@ import { Button } from '../common/Button';
 import { Popup } from '../common/Popup';
 
 import './PasswordRecoveryConfirmModal.scss';
+import { openPasswordRecoverySuccessModal } from '../../store/modalsSlice';
 
 // stepRecovery -  шаг восстановления.
 // пока что  варианты 1 - ввод почты & 2 - создание пароля
 export const PasswordRecoveryConfirmModal = ({ id, token }) => {
   const { data, onChange, errors, setErrors, isValid } = useFormAndValidation();
   const [isReadyToSubmit, setIsReadyToSubmit] = useState(false);
+  const dispatch = useDispatch();
 
   const isOpen = useSelector(
     (state) => state.modals.isOpenPasswordRecoveryConfirmModal
@@ -31,6 +33,7 @@ export const PasswordRecoveryConfirmModal = ({ id, token }) => {
         uid: id,
         token: token,
       });
+      dispatch(openPasswordRecoverySuccessModal());
     } catch (error) {
       console.log(error);
     }
