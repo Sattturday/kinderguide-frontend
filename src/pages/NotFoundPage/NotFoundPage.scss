@@ -1,0 +1,42 @@
+@import '../../styles/abstract/constants.scss';
+@import '../../styles/abstract/mixins.scss';
+
+.not-found {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  height: calc(100vh - 83px - 249px - 120px);
+}
+
+.not-found__link {
+  @include button;
+  @include text-l($fw-semi-bold);
+  padding: 0 30px;
+  margin-bottom: 60px;
+  width: 264px;
+  min-height: 68px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: $white;
+  text-decoration: none;
+  border-radius: $radii-m;
+  background-color: $button-violet;
+
+  @include media-medium {
+    min-height: 52px;
+  }
+
+  @include media-small {
+    font-size: 16px;
+  }
+
+  &:hover {
+    background-color: $button-violet-hover;
+  }
+
+  &:active {
+    background-color: $button-violet-active;
+  }
+}

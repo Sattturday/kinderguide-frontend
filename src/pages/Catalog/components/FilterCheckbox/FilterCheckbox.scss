@@ -1,0 +1,82 @@
+@import '../../../../styles/abstract/constants.scss';
+@import '../../../../styles/abstract/mixins.scss';
+@import '../../../../styles/abstract/placeholders.scss';
+
+.filter-checkbox__label {
+  padding-left: 12px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+
+  &_dev {
+    padding: 0;
+    justify-content: space-between;
+
+    p {
+      max-width: 226px;
+      @include text-l;
+
+      @include media-medium {
+        @include text-ml($fw-semi-bold);
+      }
+    }
+  }
+}
+
+.filter-checkbox__input {
+  width: 1px;
+  height: 1px;
+  position: absolute;
+  pointer-events: none;
+  opacity: 0;
+}
+
+.filter-checkbox__input-new {
+  width: 20px;
+  height: 20px;
+  position: relative;
+  background-image: url(../../../../images/Catalog/Checkbox_empty.svg);
+  background-size: cover;
+
+  &_dev {
+    width: 32px;
+    background-image: url(../../../../images/Catalog/Toggle_off.svg);
+  }
+
+  &:after {
+    content: '';
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    background-image: url(../../../../images/Catalog/Checkbox_min.svg);
+    background-size: cover;
+    transform: translate(-50%, -50%);
+    transition: all 0.3s ease;
+    opacity: 0;
+  }
+}
+
+.filter-checkbox__input-new_dev:after {
+  width: 32px;
+  background-image: url(../../../../images/Catalog/Toggle_on.svg);
+}
+
+.filter-checkbox__input:checked + .filter-checkbox__input-new {
+  &:after {
+    opacity: 1;
+  }
+}
+
+.filter-checkbox__title {
+  max-width: 226px;
+  @include text-ml;
+  @extend %font-add;
+
+  @include media-medium {
+    @include text-xm;
+  }
+}

@@ -1,0 +1,7 @@
+<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Checkbox min">
+<rect width="20" height="20" rx="4" fill="#829DFD"/>
+<rect id="checkbox" x="0.75" y="0.75" width="18.5" height="18.5" rx="3.25" stroke="#829DFD" stroke-width="1.5"/>
+<path id="Vector 16 (Stroke)" fill-rule="evenodd" clip-rule="evenodd" d="M15.7047 6.33482C16.0989 6.78071 16.0984 7.50306 15.7035 7.94821L9.74465 14.6665C9.35028 15.1112 8.71157 15.1112 8.3172 14.6665L5.29648 11.2608C4.90164 10.8157 4.90111 10.0933 5.29529 9.64742C5.68947 9.20153 6.3291 9.20093 6.72393 9.64608L9.03092 12.2471L14.2761 6.33348C14.6709 5.88832 15.3105 5.88892 15.7047 6.33482Z" fill="#FEFEFE"/>
+</g>
+</svg>

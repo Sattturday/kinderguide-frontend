@@ -1,0 +1,65 @@
+@import '../../../../styles/abstract/constants.scss';
+@import '../../../../styles/abstract/mixins.scss';
+@import '../../../../styles/abstract/placeholders.scss';
+
+.select-filter {
+  padding-left: 12px;
+
+  @include media-medium {
+    padding: 0;
+  }
+}
+
+.select-filter__label {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+
+  p {
+    max-width: 226px;
+    @extend %font-add;
+    @include text-l;
+    font-size: 18px;
+    letter-spacing: -0.18px;
+
+    @include media-medium {
+      @include text-xm;
+    }
+  }
+}
+
+.select-filter__input-new {
+  width: 20px;
+  height: 20px;
+  position: relative;
+  background-image: url(../../../../images/Catalog/Checkbox_empty.svg);
+  background-size: cover;
+
+  &::after {
+    content: '';
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    background-image: url(../../../../images/Catalog/Checkbox_min.svg);
+    background-size: cover;
+    transform: translate(-50%, -50%);
+    transition: all 0.3s ease;
+    opacity: 0;
+  }
+}
+
+.select-filter__input {
+  width: 1px;
+  height: 1px;
+  position: absolute;
+  pointer-events: none;
+  opacity: 0;
+}
+
+.select-filter__input:checked ~ .select-filter__input-new:after {
+  opacity: 1;
+}

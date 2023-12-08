@@ -1,0 +1,115 @@
+@import '../../styles/abstract/constants.scss';
+@import '../../styles/abstract/mixins.scss';
+
+.profile {
+  margin-top: 34px;
+  margin-bottom: 100px;
+  position: relative;
+}
+
+.profile__title {
+  padding: 40px;
+  padding-bottom: 52px;
+  max-width: 440px;
+  position: relative;
+  @include text-xl;
+  margin-bottom: -2px;
+  font-weight: $fw-semi-bold;
+  color: $title-blue;
+  background-image: url('../../images/Profile/btn2.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.profile::before {
+  content: '';
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  top: 84px;
+  right: 342px;
+  background-image: url('../../images/ServiceWork/snowflake.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  z-index: 2;
+}
+
+.profile::after {
+  content: '';
+  position: absolute;
+  width: 251px;
+  height: 136px;
+  bottom: -63px;
+  right: 125px;
+  background-image: url('../../images/Profile/big-notes-blue.svg');
+}
+
+@media screen and (max-width: 768px) {
+  .profile {
+    margin-top: 18px;
+  }
+  .profile__title {
+    margin-bottom: -14px;
+    max-width: 360px;
+    padding: 32px 0 36px 32px;
+    font-size: 28px;
+    background-image: url('../../images/Profile/bg-iPad.svg');
+    background-size: contain;
+  }
+
+  .profile::before {
+    width: 64px;
+    height: 64px;
+    top: 58px;
+    right: 171px;
+  }
+
+  .profile::after {
+    width: 192px;
+    height: 114px;
+    bottom: -58px;
+    right: 62px;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .profile {
+    display: flex;
+    margin-bottom: 40px;
+  }
+
+  .profile__user-edit {
+    margin-bottom: 40px;
+  }
+
+  .profile__title {
+    margin-bottom: -1px;
+    max-width: 225px;
+    padding: 20px 0 22px 16px;
+    font-size: 20px;
+    background-image: url('../../images/Profile/bg-mob.svg');
+    background-size: cover;
+    margin-left: -16px;
+  }
+
+  .profile::before {
+    width: 40px;
+    height: 40px;
+    top: 47px;
+    right: 15px;
+  }
+
+  .profile::after {
+    background-image: url('../../images/Profile/big-notes-blue-mob.svg');
+    width: 89px;
+    height: 50px;
+    bottom: -23px;
+    right: 15px;
+  }
+
+  //  .wrapper {
+  //    padding: 0;
+  //  }
+}

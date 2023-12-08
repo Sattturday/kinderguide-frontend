@@ -1,0 +1,19 @@
+@import '../../styles/abstract/constants.scss';
+@import '../../styles/abstract/mixins.scss';
+
+.register-form {
+  @include popup-form-main;
+  gap: 14px;
+
+  &__button {
+    @include popup-button-main;
+  }
+
+  @include media-medium {
+    gap: 6px;
+  }
+
+  @include media-small {
+    gap: 7px;
+  }
+}

@@ -1,0 +1,32 @@
+@import '../../../../styles/abstract/constants.scss';
+@import '../../../../styles/abstract/mixins.scss';
+@import '../../../../styles/abstract/placeholders.scss';
+
+.navigation-favorites {
+  max-width: 298px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+
+  @include media-990 {
+    display: none;
+  }
+}
+
+.navigation-favorites__item {
+  min-height: 46px;
+  @include text-ml($fw-semi-bold);
+  color: $black;
+  @include link;
+  padding: 0 12px;
+  text-align: start;
+  background-color: #fff;
+  border: none;
+  border-radius: $radii-s;
+  line-height: 130%;
+  @extend %font-prim;
+}
+
+.navigation-favorites__item_active {
+  background-color: $bg-lite;
+}

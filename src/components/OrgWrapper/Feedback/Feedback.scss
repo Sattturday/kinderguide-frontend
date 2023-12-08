@@ -1,0 +1,126 @@
+@import '../../../styles/abstract/constants.scss';
+@import '../../../styles/abstract/mixins.scss';
+@import '../../../styles/abstract/placeholders.scss';
+
+.feedback__grid {
+  display: grid;
+  grid-template-areas:
+    'header add'
+    'rating add';
+  margin-bottom: 20px;
+  row-gap: 20px;
+}
+
+.feedback__sectionHeader {
+  @include text-xl($fw-semi-bold);
+  padding: 0;
+  grid-area: header;
+}
+
+.feedback__header {
+  display: flex;
+  justify-content: space-between;
+  grid-area: rating;
+}
+
+.feedback__rating {
+  @include text-l($fw-semi-bold);
+  @extend %font-add;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.feedback__ratingValue {
+  @extend %font-add;
+}
+
+.feedback__add {
+  @include link;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  grid-area: add;
+  justify-self: end;
+  align-self: end;
+
+  img {
+    width: 24px;
+    height: 24px;
+    object-fit: cover;
+  }
+  span {
+    @include text-l(600);
+    font-size: 18px;
+    color: rgba(46, 35, 96, 1);
+  }
+}
+
+.feedback__list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 32px;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 40px;
+}
+
+.feedback__quantity {
+  color: $button-violet;
+  @extend %font-add;
+  @include text-l($fw-semi-bold);
+}
+
+.starsSmall {
+  display: none;
+}
+
+@include media-medium {
+  .feedback__sectionHeader {
+    @include text-l($fw-semi-bold);
+    font-size: 24px;
+    margin-bottom: 16px;
+  }
+}
+
+@include media-small {
+  .feedback__grid {
+    display: grid;
+    grid-template-areas:
+      'header add'
+      'rating rating';
+    row-gap: 16px;
+    margin: 0 16px 32px;
+  }
+
+  .feedback__sectionHeader {
+    @include text-l($fw-semi-bold);
+    font-size: 24px;
+  }
+
+  .stars {
+    display: none;
+  }
+
+  .starsSmall {
+    display: block;
+  }
+
+  .feedback__list {
+    align-items: center;
+    justify-content: center;
+  }
+
+  .feedback__rating {
+    @include text-m($fw-semi-bold);
+    @extend %font-add;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .feedback__quantity {
+    @include text-m($fw-semi-bold);
+  }
+}

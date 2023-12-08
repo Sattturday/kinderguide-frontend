@@ -1,0 +1,70 @@
+$white: hsla(0, 0%, 100%, 1);
+$black: hsla(240, 14%, 14%, 1);
+
+// Заголовки, header, footer
+$title-blue: hsla(237, 85%, 27%, 1);
+$gray: hsla(237, 85%, 27%, 0.3);
+$orange: hsla(45, 99%, 65%, 1);
+$blue-dark: hsla(251, 44%, 20%, 1);
+$blue-lite: hsla(251, 60%, 59%, 0.4);
+
+//Кнопки
+$button-violet: hsla(251, 60%, 59%, 1);
+$button-violet-hover: hsla(251, 60%, 59%, 0.8);
+$button-violet-active: hsla(251, 69%, 59%, 1);
+
+$button-violet-dis: hsla(259, 36%, 39%, 0.3);
+$button-violet-text-dis: hsla(238, 32%, 15%, 0.63);
+
+$button-empty-dis: hsla(238, 32%, 15%, 0.55);
+
+$button-blue-link: hsla(251, 47%, 26%, 1);
+
+$button-blue: hsla(235, 82%, 60%, 1);
+$button-blue-hover: hsla(227, 100%, 96%, 1);
+
+$button-cyan: hsla(227, 100%, 86%, 1);
+$button-cyan-hover: hsla(227, 97%, 75%, 1);
+$button-cyan-active: hsla(237, 52%, 48%, 1);
+
+// Фон
+$bg-purple: hsla(227, 100%, 96%, 1);
+$bg-cyan: hsla(251, 43%, 27%, 1);
+$bg-gray: hsla(214, 26%, 95%, 1);
+$bg-lite: hsl(227, 100%, 96%);
+$bg-lite-s: hsla(0, 0%, 100%, 0.2);
+$bg-overlay: hsla(0, 0%, 0%, 0.2);
+
+// Shadow
+$shadow-purple: hsla(251, 53%, 38%, 0.15);
+
+//Рамка
+$border-purple: hsla(251, 60%, 59%, 0.4);
+$border-purple-hover: hsla(227, 97%, 75%, 1);
+$border-violet: hsla(251, 60%, 59%, 1);
+$border-lilac: hsla(227, 100%, 86%, 1);
+$border-orange: hsla(22, 100%, 59%, 1);
+
+//Ошибка
+$error: hsla(349, 100%, 35%, 1);
+
+// Accent
+$accent: hsla(22, 100%, 51%, 1);
+
+/* font */
+$fw-light: 400;
+$fw-normal: 500;
+$fw-semi-bold: 600;
+$fw-bold: 700;
+
+$radii-l: 50px;
+$radii-xs: 8px;
+$radii-s: 10px;
+$radii-m: 16px;
+
+// для медиа-запросов
+$large-width: 1439px;
+$medium-width: 1200px;
+$netbook-width: 900px;
+$small-width: 700px;
+$mobile-width: 500px;

@@ -1,0 +1,36 @@
+@import '../../styles/abstract/constants.scss';
+@import '../../styles/abstract/mixins.scss';
+
+.inputTel {
+  @include input;
+  @include formInput;
+  padding: 20px;
+  border-radius: $radii-s;
+}
+
+.inputTel__profile {
+  max-width: 408px;
+  height: 80px;
+  padding: 25px 20px;
+  background-color: $white;
+}
+
+.input_invalid {
+  border: 1px solid $error;
+}
+
+@media screen and (max-width: 768px) {
+  .inputTel__profile {
+    max-width: 300px;
+    height: 52px;
+    padding: 20px 16px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .inputTel__profile {
+    max-width: 288px;
+    height: 5px;
+    padding: 20px 16px;
+  }
+}

@@ -1,0 +1,93 @@
+@import '../../../../styles/abstract/constants.scss';
+@import '../../../../styles/abstract/mixins.scss';
+
+.user-edit__form {
+  margin-left: 40px;
+  padding-top: 40px;
+  padding-bottom: 80px;
+}
+
+.user-edit__name-text {
+  @include text-l;
+  font-weight: 600;
+  margin-bottom: 33px;
+  width: 155px;
+}
+
+.user__wrapper-edit {
+  padding: 0;
+  margin-bottom: 18px;
+  display: flex;
+  gap: 32px;
+}
+
+.user-edit__btns {
+  margin-top: 30px;
+  display: flex;
+  gap: 32px;
+}
+
+@media screen and (max-width: 768px) {
+  .user-edit__form {
+    margin-left: 32px;
+    padding-top: 16px;
+  }
+
+  .user-edit__name-text {
+    margin-top: -16px;
+    font-size: 18px;
+    line-height: 1.2;
+    letter-spacing: -0.18px;
+  }
+
+  .user__wrapper-edit {
+    gap: 20px;
+  }
+
+  .user-edit__btns {
+    gap: 20px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .user-edit__form {
+    margin-left: 0;
+    padding-bottom: 10px;
+  }
+
+  .user__wrapper-edit {
+    padding-left: 20px;
+    flex-direction: column;
+  }
+
+  .user-edit__name-text {
+    padding-left: 16px;
+    margin-bottom: 18px;
+  }
+
+  .user-edit__btns {
+    padding: 0;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+}
+
+.user-edit__btns {
+  display: none;
+  &_desktop {
+    @media screen and (min-width: 769px) {
+      display: flex;
+    }
+  }
+  &_tablet {
+    @media screen and (max-width: 768px) and (min-width: 601px) {
+      display: flex;
+    }
+  }
+  &_mobile {
+    @media screen and (max-width: 600px) {
+      display: flex;
+    }
+  }
+}

@@ -1,0 +1,10 @@
+@import '../../styles/abstract/constants.scss';
+@import '../../styles/abstract/mixins.scss';
+
+.loginToFavourite__header {
+  @include text-l($fw-semi-bold);
+}
+
+.loginToFavourite__text {
+  @include text-m;
+}

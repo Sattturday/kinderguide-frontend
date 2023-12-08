@@ -1,0 +1,154 @@
+@import '../../../../styles/abstract/constants.scss';
+@import '../../../../styles/abstract/mixins.scss';
+
+.select {
+  padding: 0 12px;
+  width: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  outline: none;
+
+  @include media-medium {
+    padding: 0;
+  }
+}
+
+.select:focus {
+  border-color: hsl(200, 100%, 50%);
+}
+
+.wrapper-value {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-grow: 1;
+  min-height: 20px;
+}
+
+.value {
+  padding: 8px 12px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-grow: 1;
+  gap: 10px;
+  border-radius: 10px;
+  background-color: $white;
+  border: 1.5px solid $border-lilac;
+}
+
+.search-value {
+  height: 20px;
+  display: flex;
+  @include text-m;
+  border: none;
+  flex-grow: 1;
+}
+
+.search-value:focus {
+  outline: none;
+}
+
+.search-value::placeholder {
+  color: $border-lilac;
+  @include text-m;
+}
+
+.clear-btn {
+  background: none;
+  color: #777;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 0;
+  font-size: 20px;
+}
+
+.clear-btn:focus,
+.clear-btn:hover {
+  color: #333;
+}
+
+.options {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: none;
+  max-height: 254px;
+  overflow-y: auto;
+  width: 100%;
+  background-color: $button-blue-hover;
+  z-index: 100;
+  @include scrollbars;
+
+  @include media-medium {
+    background-color: $white;
+  }
+}
+
+.options.show {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.option {
+  padding: 0;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  @include text-ml;
+  color: $black;
+  background-color: $button-blue-hover;
+  cursor: pointer;
+
+  @include media-medium {
+    background-color: $white;
+    @include text-xm;
+  }
+}
+
+.metro-color {
+  width: 12px;
+  height: 12px;
+  display: inline-block;
+  border-radius: 50%;
+}
+
+.option.selected {
+  color: $button-blue-link;
+}
+
+.option.highlighted {
+  color: rgb(100, 97, 97);
+}
+
+.option-badge {
+  padding: 6px 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1.5px solid $button-cyan;
+  border-radius: 8px;
+  gap: 5px;
+  cursor: pointer;
+  background: none;
+  outline: none;
+  color: $black;
+  @include text-s;
+}
+
+.option-badge:hover,
+.option-badge:focus {
+  opacity: 0.8;
+}
+
+.remove-btn {
+  padding-left: 3px;
+}
+
+.option-badge > .remove-btn {
+  color: #0b1181;
+}

@@ -1,0 +1,143 @@
+@import '../../../../styles/abstract/constants.scss';
+@import '../../../../styles/abstract/mixins.scss';
+
+.sort {
+  position: relative;
+  width: fit-content;
+  height: fit-content;
+  padding: 0;
+}
+
+.sort-wrapper {
+  width: 185px;
+  height: 48px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  border: 2px solid $blue-lite;
+  background: $white;
+  transition: all 0.4s ease-out;
+
+  @include media-medium {
+    height: 44px;
+  }
+
+  @include media-small {
+    width: 141px;
+    height: 36px;
+  }
+}
+
+.sort__button {
+  @include button;
+  @include text-ml;
+  color: $title-blue;
+
+  @include media-small {
+    height: 36px;
+    @include text-s;
+  }
+}
+
+.sort__button-arrow {
+  @include button;
+  width: 29px;
+  padding: 12px 20px 12px 0;
+  background-image: url(../../../../images/Catalog/Arrow-sort.svg);
+  background-size: 28px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.sort-list {
+  padding: 16px;
+  margin: 9px 0;
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: flex-start;
+  visibility: hidden;
+  opacity: 0;
+  border-radius: 10px;
+  border: 2px solid $blue-lite;
+  background: white;
+  box-shadow:
+    4px 4px 15px 0px rgba(64, 45, 147, 0.15),
+    -4px -4px 15px 0px rgba(64, 45, 147, 0.15);
+  box-sizing: border-box;
+  transition: all 0.4s ease-out;
+
+  &_active {
+    z-index: 5;
+    top: 100%;
+    visibility: visible;
+    opacity: 1;
+  }
+
+  @include media-small {
+    padding: 8px;
+  }
+}
+
+.sort-list__items {
+  position: relative;
+  list-style: none;
+}
+
+.sort-list__label {
+  @include button;
+  width: max-content;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  @include text-l;
+  font-size: 18px;
+  line-height: 1.2;
+  color: $button-blue-link;
+
+  @include media-small {
+    @include text-s($fw-normal);
+  }
+}
+
+.sort-list__radio {
+  width: 1px;
+  height: 1px;
+  position: absolute;
+  pointer-events: none;
+  opacity: 0;
+}
+
+.sort-list__radio-new {
+  margin-right: 10px;
+  width: 20px;
+  aspect-ratio: 1 / 1;
+  position: relative;
+  display: block;
+  border-radius: 50%;
+  border: 1.5px solid $button-blue-link;
+}
+
+.sort-list__radio-new:after {
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  content: '';
+  background: $button-blue-link;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: all 0.3s ease;
+  opacity: 0;
+}
+
+.sort-list__radio:checked ~ .sort-list__radio-new:after {
+  opacity: 1;
+}

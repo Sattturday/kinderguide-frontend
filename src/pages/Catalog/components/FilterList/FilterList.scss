@@ -1,0 +1,78 @@
+@import '../../../../styles/abstract/constants.scss';
+@import '../../../../styles/abstract/mixins.scss';
+
+.filter {
+  width: auto;
+}
+
+.filter__title {
+  color: $black;
+  @include text-l($fw-semi-bold);
+  margin: 0;
+  margin-bottom: 38px;
+
+  @include media-medium {
+    display: none;
+  }
+}
+
+.filter__title-m {
+  width: 100%;
+  display: none;
+  @include text-l($fw-semi-bold);
+  padding-bottom: 8px;
+  border-bottom: 1px solid $bg-purple;
+
+  button {
+    @include button;
+    width: 20px;
+    height: 20px;
+    background-image: url(../../../../images/Catalog/cross_small.svg);
+  }
+
+  @include media-medium {
+    display: flex;
+    justify-content: flex-end;
+    gap: 84px;
+  }
+}
+
+.filter-form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  @include media-medium {
+    margin-top: 10px;
+  }
+}
+
+.filter__list-item {
+  list-style-type: none;
+}
+
+.filter__list-range,
+.filter__list-select {
+  list-style-type: none;
+}
+
+.filter__list-range {
+  margin-bottom: 6px;
+}
+
+.filter__label {
+  color: #0b1181;
+  @include text-m;
+  line-height: 130%; /* 20.8px */
+}
+
+.filter__buttons {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  button {
+    border-radius: 12px;
+  }
+}
