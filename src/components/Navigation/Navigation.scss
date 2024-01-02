@@ -22,7 +22,7 @@
     @include media-small {
       flex-direction: column;
       min-height: 137px;
-      align-items: start;
+      align-items: flex-start;
       width: 100%;
     }
   }
@@ -30,7 +30,7 @@
   &_burger {
     flex-direction: column;
     min-height: 137px;
-    align-items: start;
+    align-items: flex-start;
     margin-top: 38px;
   }
 
@@ -103,7 +103,7 @@
   &_type_burger {
     height: 46px;
     width: 100%;
-    justify-content: start;
+    justify-content: flex-start;
     font-size: 18px;
     font-weight: 600;
     line-height: 1.2;

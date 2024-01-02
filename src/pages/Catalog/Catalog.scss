@@ -116,7 +116,7 @@
   @include media-small {
     grid-column: 1 / 2;
     grid-row: 2 / 3;
-    justify-self: start;
+    justify-self: flex-start;
   }
 }
 

@@ -29,7 +29,7 @@
       @include text-l(600);
       @extend %font-add;
       font-size: 18px;
-      text-align: end;
+      text-align: flex-end;
       color: rgba(110, 87, 213, 0.4);
       margin: 0 0 16px 0;
 

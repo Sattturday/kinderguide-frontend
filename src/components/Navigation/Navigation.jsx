@@ -17,12 +17,12 @@ export const Navigation = ({ usedFor }) => {
           return usedFor === 'footer'
             ? 'navigation__item navigation__item_type_footer'
             : isActive && usedFor === 'burger'
-            ? 'navigation__item navigation__item_type_burger navigation__item_type_burger_active'
-            : usedFor === 'burger'
-            ? 'navigation__item navigation__item_type_burger'
-            : isActive
-            ? 'navigation__item navigation__item_type_active'
-            : 'navigation__item';
+              ? 'navigation__item navigation__item_type_burger navigation__item_type_burger_active'
+              : usedFor === 'burger'
+                ? 'navigation__item navigation__item_type_burger'
+                : isActive
+                  ? 'navigation__item navigation__item_type_active'
+                  : 'navigation__item';
         }}
       >
         Главная
@@ -33,12 +33,12 @@ export const Navigation = ({ usedFor }) => {
           return usedFor === 'footer'
             ? 'navigation__item navigation__item_type_footer'
             : isActive && usedFor === 'burger'
-            ? 'navigation__item navigation__item_type_burger navigation__item_type_burger_active'
-            : usedFor === 'burger'
-            ? 'navigation__item navigation__item_type_burger'
-            : isActive
-            ? 'navigation__item navigation__item_type_active'
-            : 'navigation__item';
+              ? 'navigation__item navigation__item_type_burger navigation__item_type_burger_active'
+              : usedFor === 'burger'
+                ? 'navigation__item navigation__item_type_burger'
+                : isActive
+                  ? 'navigation__item navigation__item_type_active'
+                  : 'navigation__item';
         }}
       >
         Образование
@@ -49,12 +49,12 @@ export const Navigation = ({ usedFor }) => {
           return usedFor === 'footer'
             ? 'navigation__item navigation__item_type_footer'
             : isActive && usedFor === 'burger'
-            ? 'navigation__item navigation__item_type_burger navigation__item_type_burger_active'
-            : usedFor === 'burger'
-            ? 'navigation__item navigation__item_type_burger'
-            : isActive
-            ? 'navigation__item navigation__item_type_active'
-            : 'navigation__item';
+              ? 'navigation__item navigation__item_type_burger navigation__item_type_burger_active'
+              : usedFor === 'burger'
+                ? 'navigation__item navigation__item_type_burger'
+                : isActive
+                  ? 'navigation__item navigation__item_type_active'
+                  : 'navigation__item';
         }}
       >
         Избранное

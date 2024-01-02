@@ -41,8 +41,8 @@
   align-items: center;
   gap: 12px;
   grid-area: add;
-  justify-self: end;
-  align-self: end;
+  justify-self: flex-end;
+  align-self: flex-end;
 
   img {
     width: 24px;
