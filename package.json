@@ -16,7 +16,6 @@
     "react-router-dom": "^6.16.0",
     "react-router-hash-link": "^2.4.3",
     "react-scripts": "5.0.1",
-    "react-yandex-share": "^1.0.7",
     "sass": "^1.69.5",
     "swiper": "^10.3.1"
   },

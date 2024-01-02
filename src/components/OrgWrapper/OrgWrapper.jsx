@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { HashLink } from 'react-router-hash-link';
-import YandexShare from 'react-yandex-share';
+// import YandexShare from 'react-yandex-share';
 
 import { Stars } from '../Stars';
 import { LikeButton } from '../LikeButton';
@@ -33,7 +33,7 @@ export const OrgWrapper = ({ data, feedback, org, activities, type }) => {
         <div className='orgWrapper__headerWrapper'>
           <h1 className='orgWrapper__header'>{data.name}</h1>
           <div className='orgWrapper__favourite'>
-            <YandexShare
+            {/* <YandexShare
               content={{ title: 'My page' }}
               theme={{
                 lang: 'en',
@@ -45,7 +45,7 @@ export const OrgWrapper = ({ data, feedback, org, activities, type }) => {
                 copy: 'hidden',
                 size: 's',
               }}
-            />
+            /> */}
             <LikeButton isLiked={isLiked} onLike={handleLike} />
           </div>
         </div>
