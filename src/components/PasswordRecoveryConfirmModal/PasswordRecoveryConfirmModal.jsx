@@ -22,11 +22,12 @@ export const PasswordRecoveryConfirmModal = ({ id, token }) => {
     (state) => state.modals.isOpenPasswordRecoveryConfirmModal
   );
 
-  const [createNewPass, { isLoading, isError }] = useConfirmResetPasMutation();
+  const [createNewPass, { isLoading }] = useConfirmResetPasMutation();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
+      // eslint-disable-next-line
       const response = await createNewPass({
         new_password: data['password-recovery-form-password'],
         re_new_password: data['password-recovery-form-password-repeat'],

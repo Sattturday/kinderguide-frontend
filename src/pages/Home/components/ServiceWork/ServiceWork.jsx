@@ -1,4 +1,4 @@
-import { ServiceWorkCard } from '../ServiceWorkCard';
+// import { ServiceWorkCard } from '../ServiceWorkCard';
 import './ServiceWork.scss';
 
 import team from '../../../../images/ServiceWork/Rectangle 358.svg';

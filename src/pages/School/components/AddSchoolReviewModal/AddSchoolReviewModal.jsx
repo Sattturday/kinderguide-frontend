@@ -20,6 +20,7 @@ export const AddSchoolReviewModal = ({ data, org }) => {
 
   const onSubmit = async (reviewData) => {
     try {
+      // eslint-disable-next-line
       const response = createSchoolReview({
         school_id: data.id,
         body: reviewData,

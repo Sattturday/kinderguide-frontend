@@ -25,14 +25,12 @@ export const RegisterModal = () => {
   const [isReadyToSubmit, setIsReadyToSubmit] = useState(false);
   const [isConfirm, setIsConfirm] = useState(false);
 
-  const { data, setData, onChange, errors, isValid, resetForm } =
-    useFormAndValidation();
+  const { data, onChange, errors, isValid, resetForm } = useFormAndValidation();
 
   const isOpen = useSelector((state) => state.modals.isOpenRegisterModal);
 
-  const [createUser, { isLoading, isError }] = useCreateUserMutation();
-  const [login, { isLoading: isLoadingLogin, isError: isErrorLogin }] =
-    useLoginMutation();
+  const [createUser, { isLoading }] = useCreateUserMutation();
+  const [login] = useLoginMutation();
   const [loginWithYandex] = useLoginWithYandexMutation();
 
   const clientID = '6afee0ba90144d71804d1029ef2849fa'; // Эдика

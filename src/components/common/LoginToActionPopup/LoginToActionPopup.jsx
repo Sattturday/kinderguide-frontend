@@ -17,6 +17,7 @@ export const LoginToActionPopup = ({ children, isOpen, popupData }) => {
   useEffect(() => {
     if (!isOpen) return;
 
+    // eslint-disable-next-line
     const closeByEscape = (e) => {
       if (e.key === 'Escape') {
         dispatch(closeAllModals());

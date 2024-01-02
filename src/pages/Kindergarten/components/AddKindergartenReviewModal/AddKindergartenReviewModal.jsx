@@ -21,6 +21,7 @@ export const AddKindergartenReviewModal = ({ data, org }) => {
 
   const onSubmit = async (reviewData) => {
     try {
+      // eslint-disable-next-line
       const response = createKindergartenReview({
         kindergarten_id: data.id,
         body: reviewData,

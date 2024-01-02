@@ -13,19 +13,20 @@ import './PasswordRecoveryModal.scss';
 // stepRecovery -  шаг восстановления.
 // пока что  варианты 1 - ввод почты & 2 - создание пароля
 export const PasswordRecoveryModal = () => {
-  const { data, onChange, errors, setData, resetForm } = useFormAndValidation();
+  const { data, onChange, errors, setData } = useFormAndValidation();
   const [isReadyToSubmit, setIsReadyToSubmit] = useState(false);
 
   const isOpen = useSelector(
     (state) => state.modals.isOpenPasswordRecoveryModal
   );
   const dispatch = useDispatch();
-  const [resetPassword, { isLoading, isError }] = useResetPasMutation();
+  const [resetPassword, { isLoading }] = useResetPasMutation();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
+      // eslint-disable-next-line
       const response = await resetPassword({
         email: data['password-recovery-form-email'],
       }).unwrap();

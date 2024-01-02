@@ -22,7 +22,7 @@ export const LoginModal = () => {
   const { data, onChange, errors, isValid } = useFormAndValidation();
   const isOpen = useSelector((state) => state.modals.isOpenLoginModal);
 
-  const [login, { isLoading, isError }] = useLoginMutation();
+  const [login, { isLoading }] = useLoginMutation();
   const [loginWithYandex] = useLoginWithYandexMutation();
   const dispatch = useDispatch();
 

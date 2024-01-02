@@ -15,6 +15,7 @@ export const Slider = ({
   slidesPerView = 3,
   width = '80%',
 }) => {
+  // eslint-disable-next-line
   let swiperInstance = null;
 
   const handleSwiper = (swiper) => {
@@ -24,7 +25,7 @@ export const Slider = ({
   const pagination = variant === 'images' ? { clickable: true } : false;
 
   return (
-    <div className={'slider' + ` slider_variant_${variant}`} style={{ width }}>
+    <div className={`slider slider_variant_${variant}`} style={{ width }}>
       <Swiper
         modules={[Navigation, Pagination, Scrollbar, A11y]}
         spaceBetween={10}

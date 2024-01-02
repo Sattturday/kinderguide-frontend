@@ -2,7 +2,7 @@ import './EmptyPage.scss';
 
 export function EmptyPage({ variant, data, children }) {
   return (
-    <section className={'empty-page' + ` empty-page_type_${variant}`}>
+    <section className={`empty-page empty-page_type_${variant}`}>
       {variant === 'notfound' && (
         <img className='empty-page__image' src={data.img} alt={data.imgName} />
       )}

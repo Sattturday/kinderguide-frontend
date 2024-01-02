@@ -106,7 +106,7 @@
     position: relative;
     line-height: 1.2;
     display: -webkit-box;
-    display: box;
+    display: flex;
     font-size: 15px;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -123,7 +123,7 @@
   min-height: 88px;
   position: relative;
   display: -webkit-box;
-  display: box;
+  display: flex;
   @include text-m;
   font-size: 18px;
   line-height: 1.2;

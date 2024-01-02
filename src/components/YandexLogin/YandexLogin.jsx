@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 
 import { useGetYandexLinkQuery } from '../../api/authApi';
-import { useState } from 'react';
 
 function YandexHiddenFrame({ redirectTo }) {
   return <iframe hidden={true} title='yandex-hidden-frame' src={redirectTo} />;
@@ -9,7 +8,6 @@ function YandexHiddenFrame({ redirectTo }) {
 
 function checkAccessKey() {
   const parts = window.location.href.split('?');
-  // console.log(parts);
   const queryPartUrl = parts.length > 1 ? parts[1] : null;
 
   if (!queryPartUrl) {
@@ -39,7 +37,7 @@ function getYandexAuthUrl(clientID, redirectUrl, stateUrl) {
 }
 
 function getCurrentUrl() {
-  const currentUrl = window.location.origin;
+  let currentUrl = window.location.origin;
 
   if (currentUrl[currentUrl.length - 1] === '/') {
     currentUrl = currentUrl.slice(0, currentUrl.length - 1);
@@ -59,7 +57,7 @@ function getStateParams(url) {
 
 function YandexLogin({ children, onSuccess, clientID }) {
   // const [isSent, setIsSent] = useState(false);
-  const { data, isLoading } = useGetYandexLinkQuery();
+  const { data } = useGetYandexLinkQuery();
 
   const handleMessageFromPopup = function handleMessageFromPopup(event) {
     if (event.data.source === 'yandex-login') {

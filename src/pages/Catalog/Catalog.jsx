@@ -4,7 +4,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { ShowList } from '../../components/ShowList';
 import { buildUrlParams, getFilterItems } from '../../utils/filtersUtils';
 import {
-  useGetFilteredDataQuery,
   useGetFilteredDataFullQuery,
   useGetAreaFiltersQuery,
   useGetMetroFiltersQuery,

@@ -1,18 +1,19 @@
 import { Link } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 import { openLoginModal, openRegisterModal } from '../../store/modalsSlice';
 import { Navigation } from '../../components/Navigation';
 import logo from '../../images/logo.svg';
 import { BurgerMenu } from './BurgerMenu';
-import './Header.scss';
 import { setIndex } from '../../store/reviewPopupSlice';
+import './Header.scss';
 
 export const Header = () => {
   const dispatch = useDispatch();
   const token = localStorage.getItem('token');
 
-  const user = useSelector((state) => state.auth.user);
+  // const user = useSelector((state) => state.auth.user);
+
   return (
     <header className='header'>
       <div className='header__left-container'>

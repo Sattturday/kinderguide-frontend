@@ -1,14 +1,12 @@
 import React, { useEffect, useState } from 'react';
+
+import { useGetUserQuery } from '../../api/userApi';
 import { User } from './components/User/User';
 import './Profile.scss';
-import { useGetUserQuery } from '../../api/userApi';
-import { useDispatch } from 'react-redux';
-import { setToken, setUser } from '../../store/authSlice';
 
 export function Profile() {
-  const dispatch = useDispatch();
   const [editUser, setEditUser] = useState(false);
-
+  // eslint-disable-next-line
   const { data = {}, isLoading, isError, refetch } = useGetUserQuery();
 
   const token = localStorage.getItem('token');

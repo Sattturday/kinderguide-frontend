@@ -12,7 +12,7 @@ import { setIndex } from '../../../../store/reviewPopupSlice';
 export function UserData({ setEditUser }) {
   const dispatch = useDispatch();
 
-  const { data = {}, isSuccess, isLoading } = useGetUserQuery();
+  const { data = {}, isLoading } = useGetUserQuery();
   const handleClickExit = () => {
     dispatch(openExitProfileModal());
     dispatch(setIndex('none'));

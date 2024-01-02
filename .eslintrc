@@ -5,10 +5,11 @@
     "prefer-const": "error",
     "quotes": ["error", "single"],
     "jsx-quotes": ["error", "prefer-single"],
-    "indent": ["warn", 2],
+    "indent": "off",
     "comma-dangle": ["error", "always-multiline"],
     "semi": ["warn", "always"],
     "no-trailing-spaces": "error",
-    "no-multiple-empty-lines": ["error", { "max": 1, "maxEOF": 1 }]
+    "no-multiple-empty-lines": ["error", { "max": 1, "maxEOF": 1 }],
+    "react-hooks/exhaustive-deps": "off"
   }
 }
