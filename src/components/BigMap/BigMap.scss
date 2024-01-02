@@ -2,7 +2,7 @@
 @import '../../styles/abstract/mixins';
 
 .direction {
-width: 100%;
+  width: 100%;
 }
 
 .ymaps-2-1-79-balloon {
@@ -45,7 +45,7 @@ width: 100%;
     margin: 0 !important;
     padding: 10px 5px 8px !important;
   }
-  }
+}
 
 .ymaps-2-1-79-balloon__tail {
   display: none;
@@ -79,10 +79,10 @@ width: 100%;
       text-decoration: none;
     }
     &_rate {
-&:after {
-  content: url('../../images/Stars/Star-filled.svg');
-  padding: 3px;
-}
+      &:after {
+        content: url('../../images/Stars/Star-filled.svg');
+        padding: 3px;
+      }
     }
   }
 }
